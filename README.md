@@ -40,6 +40,7 @@ Podremos desplazarnos por la aplicación Web mediante este navegador que se encu
 
 ### Modificar datos del usuario
 Para modificar los datos de su usuario debe de dirigirse al panel izquierdo y hacer click en el icono que se muestra a continuación.
+
 ![image](https://user-images.githubusercontent.com/62405636/145853041-73880d2f-7d2d-45c2-9d2a-fbaa54f4e34f.png)
 
 Se mostrará un formulario donde cambiar los datos del usuario acutal.
