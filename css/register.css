@@ -1,0 +1,27 @@
+.centered-form {
+    margin: 20vh auto;
+}
+
+.centered-form .panel {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+}
+
+label.label-floatlabel {
+    font-weight: bold;
+    color: #46b8da;
+    font-size: 11px;
+}
+
+.container {
+    margin-top: 25vh;
+}
+
+.btn {
+    background-color: #56baed;
+    color: white;
+}
+
+.col-8 {
+    box-shadow: 0px 15px 27px grey;
+}
