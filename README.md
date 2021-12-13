@@ -1,5 +1,6 @@
 # CryptoAway
 La aplicación trata de una red social donde se pueden comprar packs de viajes pagando con criptomonedas, actualmente falta añadir la funcionalidad de comentar Posts y la parte que realizaré en la Blockchain para el pago de los viajes. Estas funcionalidades estarán listas al final del curso.
+Actualmente la aplicación web se encuentra desplegada en AWS en la dirección: http://35.180.227.63/
 
 ## Navegación
 Podremos desplazarnos por la aplicación Web mediante este navegador que se encuentra en la zona superior.
