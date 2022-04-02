@@ -50,6 +50,7 @@
   - [ ] **Pages**
     - [x] **Registered User**
     - [x] **Profile**
+    - [x] **Trip section**
     - [ ] **Admin**
     - [ ] **Unregistered user**
    
@@ -65,6 +66,17 @@
     - [ ] **Give rewards**
     - [ ] **Pay the trip with cryptocurrencies**
   
+  - [ ] **App translation**
+    - [x] **English**
+    - [ ] **Spanish**
+    - [ ] **German?**
+
+  - [ ] **Others**
+    - [x] **Hosting**
+    - [x] **Separate server for DB and Web**
+    - [ ] **Domain name**
+    - [ ] **Drag and drop**
+    
   </div>
 
 
