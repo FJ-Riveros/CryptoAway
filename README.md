@@ -51,6 +51,8 @@
     - [x] **Registered User**
     - [x] **Profile**
     - [x] **Trip section**
+    - [x] **Register**
+    - [ ] **Landing**
     - [ ] **Admin**
     - [ ] **Unregistered user**
    
@@ -69,11 +71,15 @@
   - [ ] **App translation**
     - [x] **English**
     - [ ] **Spanish**
-    - [ ] **German?**
+    - [ ] **German**
 
   - [ ] **Others**
     - [x] **Hosting**
     - [x] **Separate server for DB and Web**
+    - [x] **Responsive**
+    - [x] **Protect endpoints**
+    - [ ] **Async calls**
+    - [ ] **MVC**
     - [ ] **Domain name**
     - [ ] **Drag and drop**
     
