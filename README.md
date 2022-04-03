@@ -13,23 +13,20 @@
 #
   
   <!-- TABLE OF CONTENTS -->
-<details>
+
   <summary>Table of Contents</summary>
   <ol>
     <li>
       <a href="#stack">Stack</a>
     </li>
     <li>
-      <a href="#getting-started">Roadmap</a>
+      <a href="#roadmap">Roadmap</a>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
+    <li><a href="#interactions">Interactions</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
-</details>
+
  
   #
   
@@ -98,10 +95,6 @@
 <h1 align="center">Hi 👋, I'm Fran Riveros</h1>
 <h3 align="center">A passionate frontend developer from Spain</h3>
 
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a>
-</p>
 
 
 
@@ -154,3 +147,9 @@ Para modificar los datos de su usuario debe de dirigirse al panel izquierdo y ha
 Se mostrará un formulario donde cambiar los datos del usuario acutal.
 ![image](https://user-images.githubusercontent.com/62405636/145853144-f3c3d29f-6455-46f8-a73f-a8ad2a6dafad.png)
 
+
+
+<h3 align="left" id="contact">Connect with me</h3>
+<p align="left">
+<a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a>
+</p>
