@@ -67,6 +67,7 @@
     - [x] ~~**Create a post**~~
     - [x] ~~**Modify user profile**~~
     - [ ] **Create a comment**
+    - [ ] **Create a trip suggestion**
     
   - [ ] **Blockchain**
     - [ ] **Smart Contracts**
