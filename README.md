@@ -245,33 +245,43 @@ D --> F{Personal Feed}
  <h2 align="center" id="userInteractions">:eyes:User interactions</h2>
   
 ### Give likes to your friend's posts
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145853467-1550eb78-3862-44d5-8d27-92611bce6e43.png)
 
 ### Friend suggestions
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145853566-0d68e575-87a5-49ee-85bc-9963c9c904c3.png)
 
 ### Book a trip
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145853714-e53b5662-4a2f-4e30-bc77-7cd2ca18cba7.png)
 
 ### User trips
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145853928-c94ca726-e204-4fc8-936b-b58e8b762f05.png)
 
 ### Add a friend
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145854027-2d0a5ea8-671e-4344-9ed8-8db896ad44d9.png)
 
 ### Accept or reject a friend request
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145854359-1aea4f4e-b0db-41a3-990f-207d4d65f304.png)
 
 ### See and delete friends
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145854140-45e4298a-0f65-46da-9290-2a8085b5956a.png)
 
 ### Create own posts
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145854640-e9f47f9a-4ab0-42bb-a450-35afe80fbc25.png)
 
 ### View own posts
+  #
 ![image](https://user-images.githubusercontent.com/62405636/145854695-2dc52abc-a5f0-401d-9635-bc0f2e9d272c.png)
 
 ### Modify user profile
+  #
 To modify your profile, you must go to the left panel and click on the icon shown below.
 
 ![image](https://user-images.githubusercontent.com/62405636/145853041-73880d2f-7d2d-45c2-9d2a-fbaa54f4e34f.png)
