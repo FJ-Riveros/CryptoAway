@@ -10,8 +10,10 @@
 
   <p align="center">A social network Web App where you can add friends, give likes to their posts, comment, earn $Away the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
   
+  
 #
-   &nbsp;
+   
+  &nbsp;
   
   <!-- TABLE OF CONTENTS -->
 
@@ -32,11 +34,9 @@
     <li><a href="#contact">Contact</a></li>
   </ol>
 
- 
+ &nbsp;
   #
-   &nbsp;
-  
-  
+   
 <div id="stack" align="center">
   <h2>:books:Stack</h2>
 <p>Techonologies used in this project</p>
@@ -47,7 +47,10 @@
   |--|--|--|
   | <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://sass-lang.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/sass/sass-original.svg" alt="sass" width="40" height="40"/> </a> <a href="https://jquery.com" target="_blank" rel="noreferrer"> <img src="https://cdn.iconscout.com/icon/free/png-256/jquery-8-1175153.png" alt="jquery" width="40" height="40"/> </a> | <a href="https://www.php.net" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="php" width="40" height="40"/> </a><a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/laravel/laravel-plain-wordmark.svg" alt="laravel" width="40" height="40"/> </a> <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Solidity_logo.svg/1200px-Solidity_logo.svg.png" alt="laravel" width="40" height="40"/> </a>  <a href="https://laravel.com/" target="_blank" rel="noreferrer"> <img src="https://github.com/ethereum/ethereum-org/blob/fe5ba46f061ba342ca57b9401920ef4677d9c980/public/images/logos/Ethereum-Icon-small.png" alt="laravel" width="40" height="40"/> </a>|  <a href="https://www.figma.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="figma" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![Trello](https://img.shields.io/badge/Trello-%23026AA7.svg?style=for-the-badge&logo=Trello&logoColor=white)|
   
+  &nbsp;
+  
    #
+  
 </div>
   
   
@@ -95,6 +98,7 @@
     - [ ] **Drag and drop**
     
   </div>
+  &nbsp;
   
 #
 
@@ -104,6 +108,8 @@ My idea is to make a hybrid application (there are many applications that implem
 The blockchain itself is a decentralized database, so I plan to host the currency I will create `$away` there, along with the `raffle` and reward logic, plus the payment for the trips.
 
 </div>
+
+&nbsp;
 
 #
 
@@ -134,6 +140,8 @@ The token $away will be sent to the digital wallet of the user (Metamask).
 | `$20` | Enter the weekly raffle to have a chance to win a free trip!|
 
 </div>
+
+  &nbsp;
   
   #
 
@@ -206,7 +214,9 @@ D --> F{Personal Feed}
   <img src="img/EER.PNG" alt="EER">
 
 </div>
+
  &nbsp;
+ 
 #
 
 <div id="navigation">
@@ -219,9 +229,11 @@ D --> F{Personal Feed}
 
 ### Feed
 ![image](https://user-images.githubusercontent.com/62405636/145855891-9919aa70-b66d-444a-9284-c25d430a608c.png)
-
+  
+&nbsp;
+  
 #
-   &nbsp;
+  
  <h2 align="center" id="userInteractions">:eyes:User interactions</h2>
   
 ### Give likes to your friend's posts
@@ -259,6 +271,8 @@ To modify your profile, you must go to the left panel and click on the icon show
 A form is presented to modify the profile.
 ![image](https://user-images.githubusercontent.com/62405636/145853144-f3c3d29f-6455-46f8-a73f-a8ad2a6dafad.png)
 </div>
+
+&nbsp;
 
 #
 
