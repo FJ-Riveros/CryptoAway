@@ -216,7 +216,7 @@ A form is presented to modify the profile.
 
 ```mermaid
 graph LR
-A[Admin] ----> B(Delete User)
+A[Admin] --> B(Delete User)
 A --> C(Change user Data)
 B --> D{Admin Page}
 C --> D
@@ -224,13 +224,26 @@ A --> E(Delete trip)
 A --> F(Add trip)
 E --> G{Blockchain}
 F --> G
-```
 
+```
 ```mermaid
 graph LR
-A[Unlogged User] ----> B(View the Landpage)
+A[Unlogged User] --> B(View the Landpage)
 A --> C(Create an account)
 A --> D(Login)
 C --> E{Landpage}
 D --> F{Personal Feed}
+```
+
+```mermaid
+graph LR
+A[Logged User]
+A--> B(Add Friend)
+A --> C(Create a post)
+A --> D(Give like)
+A --> E(Comment)
+A --> F(Book a trip)
+A --> G(Suggest a trip)
+A --> H(Enter the weekly Raffle)
+
 ```
