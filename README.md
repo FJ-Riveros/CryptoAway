@@ -11,6 +11,7 @@
   <p align="center">A social network Web App where you can add friends, give likes to their posts, comment, earn $Away the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
   
 #
+   &nbsp;
   
   <!-- TABLE OF CONTENTS -->
 
@@ -24,7 +25,7 @@
     </li>
     <li><a href="#details">Details</a></li>
     <li><a href="#rewards">Token $away and rewards</a></li>
-    <li><a href="#flowChart">Flow Chart</a></li>
+    <li><a href="#flowChart">Flow Charts</a></li>
     <li><a href="#EER">Database EER</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#userInteractions">User Interactions</a></li>
@@ -33,6 +34,7 @@
 
  
   #
+   &nbsp;
   
   
 <div id="stack" align="center">
@@ -136,11 +138,65 @@ The token $away will be sent to the digital wallet of the user (Metamask).
   #
 
 <div align="center" id="flowChart">
-  <h2 align="center">:chart_with_upwards_trend:Flow Chart</h2>
+  <h2 align="center">:chart_with_upwards_trend:Flow Charts</h2>
    
   <img src="img/userNavigation.PNG" alt="FlowChart">
+  
+  &nbsp;
+  <h2 align="center">Admin</h2>
+  
+```mermaid
+graph LR
+A((Admin)) --> B(Delete User)
+A --> C(Change user Data)
+B --> D{Admin Page}
+C --> D
+A --> E(Delete trip)
+A --> F(Add trip)
+E --> G{Blockchain}
+F --> G
+```
+  &nbsp;
 
+  
+  <h2 align="center">Logged User</h2>
+  
+```mermaid
+graph LR
+A((Logged User))
+A--> B(Add Friend)
+A --> C(Create a post)
+A --> D(Give like)
+A --> E(Comment)
+A --> G(Suggest a trip)
+A --> F(Book a trip)
+A --> H(Enter the weekly Raffle)
+H --> I{Blockchain}
+F --> I
+B --> J{Personal Feed}
+C --> J{Personal Feed}
+D --> J{Personal Feed}
+E --> J{Personal Feed}
+G --> J{Personal Feed}
+
+```
+  &nbsp;
+  
+  <h2 align="center">Unlogged User</h2>
+  
+```mermaid
+graph LR
+A((Unlogged User)) --> B(View the Landpage)
+A --> C(Create an account)
+A --> D(Login)
+C --> E{Landpage}
+D --> F{Personal Feed}
+```
+
+  
 </div>
+
+&nbsp;
   
 #
 
@@ -150,7 +206,7 @@ The token $away will be sent to the digital wallet of the user (Metamask).
   <img src="img/EER.PNG" alt="EER">
 
 </div>
-
+ &nbsp;
 #
 
 <div id="navigation">
@@ -165,7 +221,7 @@ The token $away will be sent to the digital wallet of the user (Metamask).
 ![image](https://user-images.githubusercontent.com/62405636/145855891-9919aa70-b66d-444a-9284-c25d430a608c.png)
 
 #
-  
+   &nbsp;
  <h2 align="center" id="userInteractions">:eyes:User interactions</h2>
   
 ### Give likes to your friend's posts
@@ -214,43 +270,3 @@ A form is presented to modify the profile.
 
 
 
-```mermaid
-graph LR
-A((Admin)) --> B(Delete User)
-A --> C(Change user Data)
-B --> D{Admin Page}
-C --> D
-A --> E(Delete trip)
-A --> F(Add trip)
-E --> G{Blockchain}
-F --> G
-
-```
-```mermaid
-graph LR
-A((Unlogged User)) --> B(View the Landpage)
-A --> C(Create an account)
-A --> D(Login)
-C --> E{Landpage}
-D --> F{Personal Feed}
-```
-
-```mermaid
-graph LR
-A((Logged User))
-A--> B(Add Friend)
-A --> C(Create a post)
-A --> D(Give like)
-A --> E(Comment)
-A --> G(Suggest a trip)
-A --> F(Book a trip)
-A --> H(Enter the weekly Raffle)
-H --> I{Blockchain}
-F --> I
-B --> J{Personal Feed}
-C --> J{Personal Feed}
-D --> J{Personal Feed}
-E --> J{Personal Feed}
-G --> J{Personal Feed}
-
-```
