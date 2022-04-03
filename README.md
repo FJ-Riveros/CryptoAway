@@ -8,7 +8,7 @@
 
 #
 
-  <p align="center">A social network App where you can add friends, give likes to their posts, comment, earn $Away the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
+  <p align="center">A social network Web App where you can add friends, give likes to their posts, comment, earn $Away the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
   
 #
   
@@ -23,6 +23,7 @@
       <a href="#roadmap">Roadmap</a>
     </li>
     <li><a href="#details">Details</a></li>
+    <li><a href="#rewards">Token $away and rewards</a></li>
     <li><a href="#flowChart">Flow Chart</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#userInteractions">User Interactions</a></li>
@@ -102,10 +103,40 @@ The blockchain itself is a decentralized database, so I plan to host the currenc
 
 #
 
+<h3 id="rewards" align="center">$away and rewards</h3>
+  
+  #
+  
+To attract users, a specific cryptocurrency will be created for the ecosystem of our web app called $away, the interaction is simple, every time we perform each of the following actions we will be rewarded with "X" amount of $away.
+The token $away will be sent to the digital wallet of the user (Metamask).
+
+<div align="center">
+
+| Task | Reward |
+|--|--|
+| Book a trip | `+40 $away`|
+| Suggest a trip with itinerary (Need to be approved by the team) | `+20 $away`|
+| Rate a trip and leave a comment | `+5 $away`|
+
+</div>
+
+What is the utility of $away for the users?
+
+<div align="center">
+
+| Amount of $away | Reward |
+|--|--|
+| `$50` | Discount of 15$ on any trip |
+| `$20` | Enter the weekly raffle to have a chance to win a free trip!|
+
+</div>
+  
+  #
+
 <div align="center" id="flowChart">
   <h2 align="center">Flow Chart</h2>
    
-  <img src="img/userNavigation.PNG" alt="FlowChart" width="600" height="600">
+  <img src="img/userNavigation.PNG" alt="FlowChart">
 
 </div>
   
@@ -164,37 +195,6 @@ A form is presented to modify the profile.
 
 #
 
-<div align="center">
-
-<h3 align="center">$away and rewards</h3>
-  
-  #
-  
-To attract users, a specific cryptocurrency will be created for the ecosystem of our web app called $away, the interaction is simple, every time we perform each of the following actions we will be rewarded with "X" amount of $away.
-The token $away will be sent to the digital wallet of the user (Metamask).
-
-<div align="center">
-
-| Task | Reward |
-|--|--|
-| Book a trip | `+40 $away`|
-| Suggest a trip with itinerary (Need to be approved by the team) | `+20 $away`|
-| Rate a trip and leave a comment | `+5 $away`|
-
-</div>
-
-What is the utility of $away for the users?
-
-<div align="center">
-
-| Amount of $away | Reward |
-|--|--|
-| `$50` | Discount of 15$ on any trip |
-| `$20` | Enter the weekly raffle to have a chance to win a free trip!|
-
-</div>
-  
-#
 
 <h3 align="left" id="contact">Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
 <p align="left">
