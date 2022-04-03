@@ -121,7 +121,7 @@ The token $away will be sent to the digital wallet of the user (Metamask).
 
 </div>
 
-:money_with_wings:What is the utility of $away for the users?
+<p align="center">:money_with_wings:What is the utility of $away for the users?<p>
 
 <div align="center">
 
