@@ -8,7 +8,7 @@
 
 #
 
-  <p align="center">A social network Web App where you can add friends, give likes to their posts, comment, earn `$Away` the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
+  <p align="center">A social network Web App where you can add friends, give likes to their posts, comment, earn $Away the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
   
 #
   
@@ -212,3 +212,20 @@ A form is presented to modify the profile.
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fj-riveros&show_icons=true&locale=en&layout=compact" alt="fj-riveros" /> 
 </p>
 
+
+
+```mermaid
+graph LR
+A[Admin] ----> B(Delete User)
+A --> C(Change user Data)
+B --> D{Admin Page}
+C --> D
+```
+```mermaid
+graph LR
+A[Unlogged User] ----> B(View the Landpage)
+A --> C(Create an account)
+A --> D(Login)
+C --> E{Landpage}
+D --> F{Personal Feed}
+```
