@@ -22,6 +22,7 @@
     <li>
       <a href="#roadmap">Roadmap</a>
     </li>
+    <li><a href="#details">Details</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#interactions">Interactions</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -88,9 +89,18 @@
     - [ ] **Drag and drop**
     
   </div>
+  
+#
 
+<div id="details">
+<h2 align="center">Details</h2>
+ 
+My idea is to make a hybrid application (there are many applications that implement this feature, since the storage in the blockchain is quite expensive, so the information with more volume and less sensitive is stored in conventional BDD while the sensitive data is stored in the Blockchain), mixing in the backend PHP along with Solidity(the language of the Ethereum Blockchain). 
+The blockchain itself is a decentralized database, so I plan to host the currency I will create $away there, along with the raffle and reward logic, plus the payment for the trips.
+  
+</div>
 
-
+#
 
 ## Navigation
 We can move around the App through this browser located on the upper area.
