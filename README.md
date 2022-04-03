@@ -65,6 +65,8 @@
     - [ ] **$Away token**
     - [ ] **Give rewards**
     - [ ] **Pay the trip with cryptocurrencies**
+    - [ ] **Weekly raffle**
+    - [ ] **Implement the discount on any trip**
   
   - [ ] **App translation**
     - [x] **English**
@@ -82,16 +84,6 @@
     - [ ] **Drag and drop**
     
   </div>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -140,7 +132,26 @@ To modify your profile, you must go to the left panel and click on the icon show
 A form is presented to modify the profile.
 ![image](https://user-images.githubusercontent.com/62405636/145853144-f3c3d29f-6455-46f8-a73f-a8ad2a6dafad.png)
 
+#
 
+
+Rewards
+To attract users, a specific cryptocurrency will be created for the ecosystem of our web app called $away, the interaction is simple, every time we perform each of the following actions we will be rewarded with "X" amount of $away.
+
+| Task | Reward |
+|--|--|
+| Book a trip | +40 $away|
+| Suggest a trip with itinerary (Need to be approved by the team) | +20 $away|
+| Rate a trip and leave a comment | +5 $away|
+
+The token $away will be sent to the digital wallet of the user (Metamask).
+
+What is the utility of $away for the users?
+
+| Amount of $away | Reward |
+|--|--|
+| $50 | Discount of 15$ on any trip |
+| $20 | Enter the weekly raffle to have a chance to win a free trip!|
 
 #
 
