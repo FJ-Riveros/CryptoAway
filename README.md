@@ -98,8 +98,8 @@
 
 <div id="details">
 <h2 align="center">:page_with_curl:Details</h2>
-My idea is to make a hybrid application (there are many applications that implement this feature, since the storage in the blockchain is quite expensive, so the information with more volume and less sensitive is stored in conventional BDD while the sensitive data is stored in the Blockchain), mixing in the backend PHP along with Solidity(the language of the Ethereum Blockchain). 
-The blockchain itself is a decentralized database, so I plan to host the currency I will create $away there, along with the raffle and reward logic, plus the payment for the trips.
+My idea is to make a hybrid application (there are many applications that implement this feature, since the storage in the blockchain is quite expensive, so the information with more volume and less sensitive is stored in conventional BDD while the sensitive data is stored in the Blockchain), mixing in the backend PHP along with Solidity (the coding language of the Ethereum Blockchain). 
+The blockchain itself is a decentralized database, so I plan to host the currency I will create `$away` there, along with the `raffle` and reward logic, plus the payment for the trips.
 
 </div>
 
