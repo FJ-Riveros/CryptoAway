@@ -97,54 +97,55 @@
 
 
 ## Navegación
-Podremos desplazarnos por la aplicación Web mediante este navegador que se encuentra en la zona superior.
+We can move around the App through this browser located on the upper area.
 ![image](https://user-images.githubusercontent.com/62405636/145852758-e4a393cf-0539-409c-8567-4cb3bacc218c.png)
 
 ## Landing Page
 ![image](https://user-images.githubusercontent.com/62405636/145855891-9919aa70-b66d-444a-9284-c25d430a608c.png)
 
 
-## Funcionalidades
-### Dar like a los post de tus amigos
+## User actions
+### Give likes to your friend's posts
 ![image](https://user-images.githubusercontent.com/62405636/145853467-1550eb78-3862-44d5-8d27-92611bce6e43.png)
 
-### Sugerencias de amistad
+### Friend suggestions
 ![image](https://user-images.githubusercontent.com/62405636/145853566-0d68e575-87a5-49ee-85bc-9963c9c904c3.png)
 
-### Concertar un viaje
+### Book a trip
 ![image](https://user-images.githubusercontent.com/62405636/145853714-e53b5662-4a2f-4e30-bc77-7cd2ca18cba7.png)
 
-### Cancelar un viaje
+### My trips
 ![image](https://user-images.githubusercontent.com/62405636/145853928-c94ca726-e204-4fc8-936b-b58e8b762f05.png)
 
-### Lanzar una petición de amistad
+### Add a friend
 ![image](https://user-images.githubusercontent.com/62405636/145854027-2d0a5ea8-671e-4344-9ed8-8db896ad44d9.png)
 
-### Aceptar o rechazar una petición de amistad
+### Accept or reject a friend request
 ![image](https://user-images.githubusercontent.com/62405636/145854359-1aea4f4e-b0db-41a3-990f-207d4d65f304.png)
 
-### Ver y eliminar amigos
+### See and delete friends
 ![image](https://user-images.githubusercontent.com/62405636/145854140-45e4298a-0f65-46da-9290-2a8085b5956a.png)
 
-### Crear tus propios Posts
+### Create own posts
 ![image](https://user-images.githubusercontent.com/62405636/145854640-e9f47f9a-4ab0-42bb-a450-35afe80fbc25.png)
 
-### Visualizar tus Posts
+### View own posts
 ![image](https://user-images.githubusercontent.com/62405636/145854695-2dc52abc-a5f0-401d-9635-bc0f2e9d272c.png)
 
-### Modificar datos del usuario
-Para modificar los datos de su usuario debe de dirigirse al panel izquierdo y hacer click en el icono que se muestra a continuación.
+### Modify user profile
+To modify your profile, you must go to the left panel and click on the icon shown below.
 
 ![image](https://user-images.githubusercontent.com/62405636/145853041-73880d2f-7d2d-45c2-9d2a-fbaa54f4e34f.png)
 
-Se mostrará un formulario donde cambiar los datos del usuario acutal.
+A form is presented to modify the profile.
 ![image](https://user-images.githubusercontent.com/62405636/145853144-f3c3d29f-6455-46f8-a73f-a8ad2a6dafad.png)
 
 
 
+#
+
 <h3 align="left" id="contact">Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
 <p align="left">
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fj-riveros&show_icons=true&locale=en&layout=compact" alt="fj-riveros" /> 
-
 </p>
 
