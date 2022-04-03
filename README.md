@@ -14,7 +14,7 @@
   
   <!-- TABLE OF CONTENTS -->
 
-  <summary>Table of Contents</summary>
+  <summary>:scroll:Table of Contents</summary>
   <ol>
     <li>
       <a href="#stack">Stack</a>
@@ -36,7 +36,7 @@
   
   
 <div id="stack" align="center">
-  <h2>Stack</h2>
+  <h2>:books:Stack</h2>
 <p>Techonologies used in this project</p>
 
   
@@ -50,7 +50,7 @@
   
   
   <div id="roadmap" align="left">
-    <h2 align="center">Roadmap</h2>
+    <h2 align="center">:calendar:Roadmap</h2>
   
   - [ ] **Pages**
     - [x] ~~**Registered User**~~
@@ -96,7 +96,7 @@
 #
 
 <div id="details">
-<h2 align="center">Details</h2>
+<h2 align="center">:page_with_curl:Details</h2>
 My idea is to make a hybrid application (there are many applications that implement this feature, since the storage in the blockchain is quite expensive, so the information with more volume and less sensitive is stored in conventional BDD while the sensitive data is stored in the Blockchain), mixing in the backend PHP along with Solidity(the language of the Ethereum Blockchain). 
 The blockchain itself is a decentralized database, so I plan to host the currency I will create $away there, along with the raffle and reward logic, plus the payment for the trips.
 
@@ -104,7 +104,7 @@ The blockchain itself is a decentralized database, so I plan to host the currenc
 
 #
 
-<h3 id="rewards" align="center">$away and rewards</h3>
+<h3 id="rewards" align="center">:moneybag:$away and rewards</h3>
   
   #
   
@@ -121,7 +121,7 @@ The token $away will be sent to the digital wallet of the user (Metamask).
 
 </div>
 
-What is the utility of $away for the users?
+:money_with_wings:What is the utility of $away for the users?
 
 <div align="center">
 
@@ -135,7 +135,7 @@ What is the utility of $away for the users?
   #
 
 <div align="center" id="flowChart">
-  <h2 align="center">Flow Chart</h2>
+  <h2 align="center">:chart_with_upwards_trend:Flow Chart</h2>
    
   <img src="img/userNavigation.PNG" alt="FlowChart">
 
@@ -144,7 +144,7 @@ What is the utility of $away for the users?
 #
 
 <div id="EER" align="center">
-  <h2>Database EER</h2>
+  <h2>:open_file_folder:Database EER</h2>
    
   <img src="img/EER.PNG" alt="EER">
 
@@ -154,7 +154,7 @@ What is the utility of $away for the users?
 
 <div id="navigation">
   
- <h2 align="center">Navigation</h2>
+ <h2 align="center">:walking:Navigation</h2>
   
 <p>We can move around the App through this browser located on the upper area.<p>
   
@@ -165,7 +165,7 @@ What is the utility of $away for the users?
 
 #
   
- <h2 align="center" id="userInteractions">User interactions</h2>
+ <h2 align="center" id="userInteractions">:eyes:User interactions</h2>
   
 ### Give likes to your friend's posts
 ![image](https://user-images.githubusercontent.com/62405636/145853467-1550eb78-3862-44d5-8d27-92611bce6e43.png)
@@ -206,7 +206,7 @@ A form is presented to modify the profile.
 #
 
 
-<h3 align="left" id="contact">Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
+<h3 align="left" id="contact">:computer:Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
 <p align="left">
 <img align="center" src="https://github-readme-stats.vercel.app/api/top-langs?username=fj-riveros&show_icons=true&locale=en&layout=compact" alt="fj-riveros" /> 
 </p>
