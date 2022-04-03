@@ -56,6 +56,7 @@
     - [ ] **Landing**
     - [ ] **Admin**
     - [ ] **Unregistered user**
+    - [ ] **Specific for each trip**
    
   - [ ] **User actions**
     - [x] ~~**Give like to a post**~~
