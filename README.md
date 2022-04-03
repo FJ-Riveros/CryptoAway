@@ -24,6 +24,7 @@
     </li>
     <li><a href="#details">Details</a></li>
     <li><a href="#navigation">Navigation</a></li>
+    <li><a href="#userInteractions">User Interactions</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 
@@ -104,17 +105,16 @@ The blockchain itself is a decentralized database, so I plan to host the currenc
   
  <h2 align="center">Navigation</h2>
   
-<p align="center">Navigation</h2>We can move around the App through this browser located on the upper area.<p>
+<p>We can move around the App through this browser located on the upper area.<p>
   
 ![image](https://user-images.githubusercontent.com/62405636/145852758-e4a393cf-0539-409c-8567-4cb3bacc218c.png)
 
 ### Feed
 ![image](https://user-images.githubusercontent.com/62405636/145855891-9919aa70-b66d-444a-9284-c25d430a608c.png)
 
-
- <h2 align="center">User interactions</h2>
-  
 #
+  
+ <h2 align="center" id="userInteractions">User interactions</h2>
   
 ### Give likes to your friend's posts
 ![image](https://user-images.githubusercontent.com/62405636/145853467-1550eb78-3862-44d5-8d27-92611bce6e43.png)
@@ -151,6 +151,7 @@ To modify your profile, you must go to the left panel and click on the icon show
 A form is presented to modify the profile.
 ![image](https://user-images.githubusercontent.com/62405636/145853144-f3c3d29f-6455-46f8-a73f-a8ad2a6dafad.png)
 </div>
+
 #
 
 <div align="center">
