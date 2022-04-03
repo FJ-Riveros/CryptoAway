@@ -5,7 +5,6 @@
     <img src="img/logo.png" alt="Logo" width="250" height="250">
   </a>
 
-
 #
 
   A social network Web App where you can add friends, give likes to their posts, comment, earn `$Away` the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!
@@ -30,9 +29,11 @@
     <li><a href="#rewards">Token $away and rewards</a></li>
     <li>
       <a href="#flowChart">Flow Charts</a>
-      <li><a href="#flowChart">Admin</a></li>
-      <li><a href="#flowChart">Logged User</a></li>
-      <li><a href="#flowChart">Unlogged User</a></li>
+      <ol>
+        <li><a href="#flowChartAdmin">Admin</a></li>
+        <li><a href="#flowChartLogged">Logged User</a></li>
+        <li><a href="#flowChartUnlogged">Unlogged User</a></li>
+      </ol>
     </li>
     <li><a href="#EER">Database EER</a></li>
     <li><a href="#navigation">Navigation</a></li>
@@ -158,7 +159,7 @@ The token $away will be sent to the digital `wallet` of the user (Metamask).
   <img src="img/userNavigation.PNG" alt="FlowChart">
   
   &nbsp;
-  <h2 align="center">Admin</h2>
+  <h2 id="flowChartAdmin" align="center">Admin</h2>
   
 ```mermaid
 graph LR
@@ -174,7 +175,7 @@ F --> G
   &nbsp;
 
   
-  <h2 align="center">Logged User</h2>
+  <h2 id="flowChartLogged" align="center">Logged User</h2>
   
 ```mermaid
 graph LR
@@ -197,7 +198,7 @@ G --> J{Personal Feed}
 ```
   &nbsp;
   
-  <h2 align="center">Unlogged User</h2>
+  <h2 id="flowChartUnlogged" align="center">Unlogged User</h2>
   
 ```mermaid
 graph LR
