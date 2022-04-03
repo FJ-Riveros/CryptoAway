@@ -220,7 +220,12 @@ A[Admin] ----> B(Delete User)
 A --> C(Change user Data)
 B --> D{Admin Page}
 C --> D
+A --> E(Delete trip)
+A --> F(Add trip)
+E --> G{Blockchain}
+F --> G
 ```
+
 ```mermaid
 graph LR
 A[Unlogged User] ----> B(View the Landpage)
