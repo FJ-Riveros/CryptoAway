@@ -1,7 +1,7 @@
 #
 
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="https://github.com/FJ-Riveros/CryptoAway">
     <img src="img/logo.png" alt="Logo" width="250" height="250">
   </a>
 </div>
@@ -23,6 +23,7 @@
       <a href="#roadmap">Roadmap</a>
     </li>
     <li><a href="#details">Details</a></li>
+    <li><a href="#flowChart">Flow Chart</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#userInteractions">User Interactions</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -99,6 +100,15 @@ The blockchain itself is a decentralized database, so I plan to host the currenc
 
 </div>
 
+#
+
+<div align="center" id="flowChart">
+  <h2 align="center">Flow Chart</h2>
+   
+  <img src="img/userNavigation.PNG" alt="FlowChart" width="600" height="600">
+
+</div>
+  
 #
 
 <div id="navigation">
