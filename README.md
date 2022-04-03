@@ -4,13 +4,14 @@
   <a href="https://github.com/FJ-Riveros/CryptoAway">
     <img src="img/logo.png" alt="Logo" width="250" height="250">
   </a>
-</div>
+
 
 #
 
-  <p align="center">A social network Web App where you can add friends, give likes to their posts, comment, earn $Away the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!<p>
+  A social network Web App where you can add friends, give likes to their posts, comment, earn `$Away` the cryptocurrency of the app and the most important feature. Travel with your friends or even strangers, paying with cryptocurrencies!
   
-  
+</div>
+
 #
    
   &nbsp;
@@ -27,7 +28,12 @@
     </li>
     <li><a href="#details">Details</a></li>
     <li><a href="#rewards">Token $away and rewards</a></li>
-    <li><a href="#flowChart">Flow Charts</a></li>
+    <li>
+      <a href="#flowChart">Flow Charts</a>
+      <li><a href="#flowChart">Admin</a></li>
+      <li><a href="#flowChart">Logged User</a></li>
+      <li><a href="#flowChart">Unlogged User</a></li>
+    </li>
     <li><a href="#EER">Database EER</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#userInteractions">User Interactions</a></li>
@@ -104,6 +110,7 @@
 
 <div id="details">
 <h2 align="center">:page_with_curl:Details</h2>
+  
 My idea is to make a hybrid application (there are many applications that implement this feature, since the storage in the blockchain is quite expensive, so the information with more volume and less sensitive is stored in conventional BDD while the sensitive data is stored in the Blockchain), mixing in the backend PHP along with Solidity (the coding language of the Ethereum Blockchain). 
 The blockchain itself is a decentralized database, so I plan to host the currency I will create `$away` there, along with the `raffle` and reward logic, plus the payment for the trips.
 
@@ -117,8 +124,8 @@ The blockchain itself is a decentralized database, so I plan to host the currenc
   
   #
   
-To attract users, a specific cryptocurrency will be created for the ecosystem of our web app called $away, the interaction is simple, every time we perform each of the following actions we will be rewarded with "X" amount of $away.
-The token $away will be sent to the digital wallet of the user (Metamask).
+To attract users, a specific cryptocurrency will be created for the ecosystem of our web app called `$away`, the interaction is simple, every time we perform each of the following actions we will be rewarded with "X" amount of `$away`.
+The token $away will be sent to the digital `wallet` of the user (Metamask).
 
 <div align="center">
 
@@ -245,7 +252,7 @@ D --> F{Personal Feed}
 ### Book a trip
 ![image](https://user-images.githubusercontent.com/62405636/145853714-e53b5662-4a2f-4e30-bc77-7cd2ca18cba7.png)
 
-### My trips
+### User trips
 ![image](https://user-images.githubusercontent.com/62405636/145853928-c94ca726-e204-4fc8-936b-b58e8b762f05.png)
 
 ### Add a friend
