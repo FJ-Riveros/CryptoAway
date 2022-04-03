@@ -96,7 +96,7 @@
 
 
 
-## Navegación
+## Navigation
 We can move around the App through this browser located on the upper area.
 ![image](https://user-images.githubusercontent.com/62405636/145852758-e4a393cf-0539-409c-8567-4cb3bacc218c.png)
 
