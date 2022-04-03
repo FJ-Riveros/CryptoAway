@@ -25,6 +25,7 @@
     <li><a href="#details">Details</a></li>
     <li><a href="#rewards">Token $away and rewards</a></li>
     <li><a href="#flowChart">Flow Chart</a></li>
+    <li><a href="#EER">Database EER</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#userInteractions">User Interactions</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -140,6 +141,15 @@ What is the utility of $away for the users?
 
 </div>
   
+#
+
+<div id="EER" align="center">
+  <h2>Database EER</h2>
+   
+  <img src="img/EER.PNG" alt="EER">
+
+</div>
+
 #
 
 <div id="navigation">
