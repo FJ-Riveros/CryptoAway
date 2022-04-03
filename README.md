@@ -33,6 +33,9 @@
   
 <div id="stack" align="center">
   <h2>Stack</h2>
+<p>Techonologies used in this project</p>
+
+  
   
   | Frontend | Backend | Others |
   |--|--|--|
@@ -46,18 +49,18 @@
     <h2 align="center">Roadmap</h2>
   
   - [ ] **Pages**
-    - [x] **Registered User**
-    - [x] **Profile**
-    - [x] **Trip section**
-    - [x] **Register**
+    - [x] ~~**Registered User**~~
+    - [x] ~~**Profile**~~
+    - [x] ~~**Trip section**~~
+    - [x] ~~**Register**~~
     - [ ] **Landing**
     - [ ] **Admin**
     - [ ] **Unregistered user**
    
   - [ ] **User actions**
-    - [x] **Give like to a post**
-    - [x] **Create a post**
-    - [x] **Modify user profile**
+    - [x] ~~**Give like to a post**~~
+    - [x] ~~**Create a post**~~
+    - [x] ~~**Modify user profile**~~
     - [ ] **Create a comment**
     
   - [ ] **Blockchain**
@@ -69,14 +72,14 @@
     - [ ] **Implement the discount on any trip**
   
   - [ ] **App translation**
-    - [x] **English**
+    - [x] ~~**English**~~
     - [ ] **Spanish**
     - [ ] **German**
 
   - [ ] **Others**
-    - [x] **Hosting**
-    - [x] **Separate server for DB and Web**
-    - [x] **Responsive**
+    - [x] ~~**Hosting**~~
+    - [x] ~~**Separate server for DB and Web**~~
+    - [x] ~~**Responsive**~~
     - [ ] **Protect endpoints**
     - [ ] **Async calls**
     - [ ] **MVC**
@@ -134,25 +137,36 @@ A form is presented to modify the profile.
 
 #
 
+<div align="center">
 
-Rewards
+<h3 align="center">$away and rewards</h3>
+  
+  #
+  
 To attract users, a specific cryptocurrency will be created for the ecosystem of our web app called $away, the interaction is simple, every time we perform each of the following actions we will be rewarded with "X" amount of $away.
+The token $away will be sent to the digital wallet of the user (Metamask).
+
+<div align="center">
 
 | Task | Reward |
 |--|--|
-| Book a trip | +40 $away|
-| Suggest a trip with itinerary (Need to be approved by the team) | +20 $away|
-| Rate a trip and leave a comment | +5 $away|
+| Book a trip | `+40 $away`|
+| Suggest a trip with itinerary (Need to be approved by the team) | `+20 $away`|
+| Rate a trip and leave a comment | `+5 $away`|
 
-The token $away will be sent to the digital wallet of the user (Metamask).
+</div>
 
 What is the utility of $away for the users?
 
+<div align="center">
+
 | Amount of $away | Reward |
 |--|--|
-| $50 | Discount of 15$ on any trip |
-| $20 | Enter the weekly raffle to have a chance to win a free trip!|
+| `$50` | Discount of 15$ on any trip |
+| `$20` | Enter the weekly raffle to have a chance to win a free trip!|
 
+</div>
+  
 #
 
 <h3 align="left" id="contact">Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
