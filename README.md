@@ -65,7 +65,8 @@
   
    <div id="deploy" align="left">
     <h2 align="center">:calendar:Deploy and Hosting</h2>
-   <p>The Web Application will be deployed and hosted in AWS. The domain name will be provided by AWS aswell. The </p> 
+   <p>The Web Application will be fully deployed and hosted in AWS. The domain name will be provided by AWS aswell. 
+     There is going to be a separation between the DBMS and the actual Web Application. The DBMS is allocated in an instance of a RDS server and the actual Web     Application is going to be allocated in a ERC2 server where Apache is the web provider.</p> 
    </div>
   &nbsp;
   
