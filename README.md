@@ -64,9 +64,9 @@
 </div>
   
    <div id="deploy" align="left">
-    <h2 align="center">:calendar:Deploy and Hosting</h2>
+    <h2 align="center"> <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" width="60" height="20"/> Deploy and Hosting</h2>
    <p>The Web Application will be fully deployed and hosted in AWS. The domain name will be provided by AWS aswell. 
-     There is going to be a separation between the DBMS and the actual Web Application. The DBMS is allocated in an instance of a RDS server and the actual Web     Application is going to be allocated in a ERC2 server where Apache is the web provider.</p> 
+     There is going to be a separation between the DBMS and the actual Web Application. The DBMS is allocated in an instance of a RDS server and the actual Web     Application is going to be allocated in a different ERC2 server where Apache is the web provider.</p> 
    </div>
   &nbsp;
   
