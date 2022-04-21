@@ -23,6 +23,9 @@
       <a href="#stack">Stack</a>
     </li>
     <li>
+      <a href="#deploy">Deploy and Hosting</a>
+    </li>
+    <li>
       <a href="#roadmap">Roadmap</a>
     </li>
     <li><a href="#details">Details</a></li>
@@ -60,6 +63,13 @@
   
 </div>
   
+   <div id="deploy" align="left">
+    <h2 align="center">:calendar:Deploy and Hosting</h2>
+   <p>The Web Application will be deployed and hosted in AWS. The domain name will be provided by AWS aswell. The </p> 
+   </div>
+  &nbsp;
+  
+#
   
   <div id="roadmap" align="left">
     <h2 align="center">:calendar:Roadmap</h2>
