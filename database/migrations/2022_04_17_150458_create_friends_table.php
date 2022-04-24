@@ -17,6 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger("id_friend");
             $table->unsignedBigInteger("id_user");
             $table->integer("actualRequest")->unsigned()->default('1');
+            $table->timestamps();
             $table->foreign("id_user")->references("id")->on("users");
             $table->foreign("id_friend")->references("id")->on("users");
             $table->primary(array("id_user", "id_friend"));

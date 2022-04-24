@@ -8,5 +8,8 @@
 </head>
 <body>
     <h1>Esto es una prueba!</h1>
+    @foreach($posts as $post)
+        {{ $post->textPost}}
+    @endforeach
 </body>
 </html>

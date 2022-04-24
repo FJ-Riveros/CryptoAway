@@ -14,16 +14,16 @@ class FriendsSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::create([
-            'username'        => 'prueba2',
-            'name'            => 'riveros racero',
-            'surname'         => 'fran',
-            'email'           => 'fran@gmail.com',
-            'points'          => 0,
-            'password'        => bcrypt('123'),
-            'metamaskAddress' => 'fran',
-            'avatar'          => 'none',
-            'description'     => 'fran'
+        \App\Models\Friends::create([
+            'id_friend'       => '1',
+            'id_user'         => '2',
+            'actualRequest'   => '1',
+        ]);
+
+        \App\Models\Friends::create([
+            'id_friend'       => '2',
+            'id_user'         => '1',
+            'actualRequest'   => '1',
         ]);
     }
     // DB::table('friends')->insert([
