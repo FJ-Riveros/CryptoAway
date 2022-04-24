@@ -23,10 +23,10 @@
                     use App\Models\User;
 
                     $user = User::find(1);
-                    $friend = User::find(2);
+                    // $friend = User::find(2);
                     
-                    $user->addFriend($friend);
-                    $friend->addFriend($user);
+                    // $user->addFriend($friend);
+                    // $friend->addFriend($user);
 
                     var_dump($user->friends);
 
