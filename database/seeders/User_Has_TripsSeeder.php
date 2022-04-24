@@ -14,6 +14,9 @@ class User_Has_TripsSeeder extends Seeder
      */
     public function run()
     {
-        //
+        \App\Models\user_has_trips::create([
+            'user_idUser'     => '1',
+            'trips_idTrip'    => '1',
+        ]);
     }
 }

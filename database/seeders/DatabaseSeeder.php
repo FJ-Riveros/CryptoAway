@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(LikesSeeder::class);
         $this->call(TripsSeeder::class);
+        $this->call(User_Has_TripsSeeder::class);
     }
 }

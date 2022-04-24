@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('user_has_trips', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger("user_idUser");
+            $table->unsignedBigInteger("trips_idTrip");
             $table->timestamps();
+            $table->foreign("user_idUser")->references("id")->on("users");
+            $table->foreign("trips_idTrip")->references("idTrip")->on("trips");
+            $table->primary(array("user_idUser", "trips_idTrip"));
         });
     }
 
