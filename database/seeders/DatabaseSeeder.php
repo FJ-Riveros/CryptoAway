@@ -23,5 +23,7 @@ class DatabaseSeeder extends Seeder
         $this->call(LikesSeeder::class);
         $this->call(TripsSeeder::class);
         $this->call(User_Has_TripsSeeder::class);
+        $this->call(CommentsSeeder::class);
+        //Votes
     }
 }
