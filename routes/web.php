@@ -33,3 +33,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index']);
 
+
