@@ -109,6 +109,7 @@
     - [x] ~~**Hosting**~~
     - [x] ~~**Separate server for DB and Web**~~
     - [x] ~~**Responsive**~~
+    - [x] ~~**Implement React Components**~~
     - [ ] **Protect endpoints**
     - [ ] **Async calls**
     - [ ] **MVC**
