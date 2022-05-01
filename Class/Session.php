@@ -1,7 +1,7 @@
 <?php
 
 require_once "Usuario.php";
-require_once "globalSettings/Variables.php";
+require_once "../globalSettings/Variables.php";
 
 class Session
 {
