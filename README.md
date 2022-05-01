@@ -82,7 +82,6 @@
     - [x] ~~**Register**~~
     - [ ] **Landing**
     - [ ] **Admin**
-    - [ ] **Unregistered user**
     - [ ] **Specific for each trip**
    
   - [ ] **User actions**
