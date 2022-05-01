@@ -9,7 +9,8 @@ class Database
 
     private function __construct()
     {
-        $connection = new mysqli("bdcampus.cjscluic1bv9.eu-west-3.rds.amazonaws.com", "cryptoaway", "cryptoaway", "cryptoaway");
+        // $connection = new mysqli("bdcampus.cjscluic1bv9.eu-west-3.rds.amazonaws.com", "cryptoaway", "cryptoaway", "cryptoaway");
+        $connection = new mysqli("localhost", "root", "", "cryptoaway");
         if ($connection->connect_errno) throw new Exception("Ha ocurrido el error: $connection->connect_error");
         $this->mysqli = $connection;
     }
