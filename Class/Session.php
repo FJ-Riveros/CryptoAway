@@ -29,7 +29,7 @@ class Session
             session_start();
             $_SESSION["userId"] = $userId;
             $_SESSION["timeOutMoment"] = TIMETILLTIMEOUT + time();
-            header("Location: Modules/Timeline.php");
+            header("Location: ./Timeline.php");
             die();
         }
         return false;

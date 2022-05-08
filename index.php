@@ -1,1057 +1,570 @@
-<?php
-
-// require_once "Class/Session.php";
-// session_start();
-// if (!empty($_SESSION)) header("Location: Modules/Timeline.php");
-// $username = $_POST["username"] ?? "";
-// $password = $_POST["password"] ?? "";
-
-// //Login check
-// if ($username != "" && $password != "") {
-//     $session = Session::createSession();
-//     if (!$session->tryToLogin($username, $password)) $loginIncorrecto = true;
-// }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/login.css">
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Englebert&display=swap" rel="stylesheet">
-
-   
-    <!-- <link rel="stylesheet" href="assets/css/plugins.css"> -->
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="./css/landing.css">
+  <head>
+    <title>Vacation - Free Bootstrap 4 Template by Colorlib</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 
-</head>
-	
+    <link rel="stylesheet" href="css/helpers/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="css/helpers/animate.css">
+    <link rel="stylesheet" href="css/helpers/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/helpers/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/helpers/magnific-popup.css">
+    <link rel="stylesheet" href="css/helpers/aos.css">
+    <link rel="stylesheet" href="css/helpers/ionicons.min.css">
+    <link rel="stylesheet" href="css/helpers/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="css/helpers/jquery.timepicker.css">
+    <link rel="stylesheet" href="css/helpers/flaticon.css">
+    <link rel="stylesheet" href="css/helpers/icomoon.css">
+    <link rel="stylesheet" href="css/helpers/style.css">
+  </head>
+  <body>
+	  <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+	    <div class="container">
+	      <a class="navbar-brand" href="index.html">Vacation<span>Travel Agency</span></a>
+	      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	        <span class="oi oi-menu"></span> Menu
+	      </button>
 
-<body>
-
-<!--<div class="fakeloader"></div>-->
-
-<!-- Header -->
-<header class="header">
-   
-    <div class="header-bottom-area header-sticky header-transparant">
-        <div class="container">
-            <div class="row no-gutters align-items-center">
-               
-                <div class="col-lg-3 col-md-6 col-6">
-                    <div class="logo">
-                        <a href="index.html">
-                            <img src="assets/images/logo/logo.png" alt="logo">
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="col-lg-9 d-none d-lg-block">
-                  
-                    <div class="menu-area d-flex align-items-center justify-content-end">
-                        <nav class="main-menu text-center">
-                            <ul  class="sectionNav">
-                                <li class="current"><a href="#home">HOME</a></li>
-                                <li><a href="#offers">OFFERS</a></li>
-                                <li><a href="#traveling">TRAVELING</a></li>
-                                <li><a href="#testimonial">TESTIMONIAL</a></li>
-                                <li><a href="#news">NEWS</a></li>
-                                <li><a href="#contact">CONTACT</a></li>
-                            </ul>
-                        </nav><!--// main-menu -->
-                    </div>
-                </div>
-                
-                <!-- Show in small device Start -->
-                <div class="clickable-menu clickable-mainmenu-active d-block d-lg-none col-md-6 col-6">
-                    <a href="#"><i class="ti-menu"></i></a>
-                </div>
-                <div class="clickable-mainmenu">
-                    <div class="clickable-mainmenu-icon">
-                        <button class="clickable-mainmenu-close">
-                            <span class="ti-close"></span>
-                        </button>
-                    </div>
-                    
-                    <div id="menu" class="text-left clickable-menu-style">
-                        <ul  class="sectionNav">
-                            <li class="current"><a href="#home">HOME</a></li>
-                            <li><a href="#offers">OFFERS</a></li>
-                            <li><a href="#traveling">TRAVELING</a></li>
-                            <li><a href="#testimonial">TESTIMONIAL</a></li>
-                            <li><a href="#news">NEWS</a></li>
-                            <li><a href="#contact">CONTACT</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Show in small device End -->
-            </div>
-        </div>
-    </div>
+	      <div class="collapse navbar-collapse" id="ftco-nav">
+	        <ul class="navbar-nav ml-auto">
+	          <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	          <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+	          <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
+	          <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
+	          <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	          <li class="nav-item cta"><a href="#" class="nav-link">Book Now</a></li>
+	        </ul>
+	      </div>
+	    </div>
+	  </nav>
+    <!-- END nav -->
     
-</header>
-<!--// Header -->
-
-<!-- Hero Section Start -->
-<div class="hero-section section">
-
-    <div class="hero-slider hero-slider-one">
-        <!--Start Single Slider-->
-        <div class="hero-slide-item d-flex image-bg align-items-center" style="background-image: url(https://demo.hasthemes.com/togoo/assets/images/hero/hero-1.jpg)">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-lg-12 col-md-12">
-                        <div class="hero-content-box">
-                            <div class="hero-content text-center">
-                                <h2>Travell</h2>
-                                <h1>Different World</h1>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo tempor incididunt ut labore et dolore magna.</p>
-                                <a href="#" class="btn btn-large btn-circle">BOOK TRAVELL</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="hero-wrap js-fullheight" style="background-image: url('img/maldives.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
+          <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
+          	<a href="https://vimeo.com/45830194" class="icon-video popup-vimeo d-flex align-items-center justify-content-center mb-4">
+          		<span class="ion-ios-play"></span>
+            </a>
+            <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
+            <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Tour Amazing With Us</h1>
+            <button class="btn btn-primary"><a class="text-white" href="Modules/Login.php">Get started!</a></button>
+          </div>
         </div>
-        <!--End Single Slider-->
+      </div>
     </div>
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
+    	<div class="container">
+	    	<div class="row">
+					<div class="col-md-12">
+						<div class="search-wrap-1 ftco-animate p-4">
+							<form action="#" class="search-property-1">
+		        		<div class="row">
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Destination</label>
+		          				<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-search"></span></div>
+				                <input type="text" class="form-control" placeholder="Search place">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Check-in date</label>
+		        					<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
+				                <input type="text" class="form-control checkin_date" placeholder="Check In Date">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Check-out date</label>
+		        					<div class="form-field">
+		          					<div class="icon"><span class="ion-ios-calendar"></span></div>
+				                <input type="text" class="form-control checkout_date" placeholder="Check Out Date">
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-items-end">
+		        				<div class="form-group">
+		        					<label for="#">Price Limit</label>
+		        					<div class="form-field">
+		          					<div class="select-wrap">
+		                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+		                      <select name="" id="" class="form-control">
+		                        <option value="">$5,000</option>
+		                        <option value="">$10,000</option>
+		                        <option value="">$50,000</option>
+		                        <option value="">$100,000</option>
+		                        <option value="">$200,000</option>
+		                        <option value="">$300,000</option>
+		                        <option value="">$400,000</option>
+		                        <option value="">$500,000</option>
+		                        <option value="">$600,000</option>
+		                        <option value="">$700,000</option>
+		                        <option value="">$800,000</option>
+		                        <option value="">$900,000</option>
+		                        <option value="">$1,000,000</option>
+		                        <option value="">$2,000,000</option>
+		                      </select>
+		                    </div>
+				              </div>
+			              </div>
+		        			</div>
+		        			<div class="col-lg align-self-end">
+		        				<div class="form-group">
+		        					<div class="form-field">
+				                <input type="submit" value="Search" class="form-control btn btn-primary">
+				              </div>
+			              </div>
+		        			</div>
+		        		</div>
+		        	</form>
+		        </div>
+					</div>
+	    	</div>
+	    </div>
+    </section>
+
+    <section class="ftco-section services-section bg-light">
+      <div class="container">
+        <div class="row d-flex">
+          <div class="col-md-6 order-md-last heading-section pl-md-5 ftco-animate">
+          	<h2 class="mb-4">It's time to start your adventure</h2>
+            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+            A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
+            <p><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+          </div>
+          <div class="col-md-6">
+          	<div class="row">
+          		<div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-paragliding"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Activities</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-route"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Travel Arrangements</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>    
+		          </div>
+		          <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-tour-guide"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Private Guide</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>      
+		          </div>
+		          <div class="col-md-6 d-flex align-self-stretch ftco-animate">
+		            <div class="media block-6 services d-block">
+		              <div class="icon"><span class="flaticon-map"></span></div>
+		              <div class="media-body">
+		                <h3 class="heading mb-3">Location Manager</h3>
+		                <p>A small river named Duden flows by their place and supplies it with the necessary</p>
+		              </div>
+		            </div>      
+		          </div>
+          	</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ftco-counter img" id="section-counter">
+    	<div class="container">
+    		<div class="row d-flex">
+    			<div class="col-md-6 d-flex">
+    				<div class="img d-flex align-self-stretch" style="background-image:url(img/about.jpg);"></div>
+    			</div>
+    			<div class="col-md-6 pl-md-5 py-5">
+    				<div class="row justify-content-start pb-3">
+		          <div class="col-md-12 heading-section ftco-animate">
+		            <h2 class="mb-4">Make Your Tour Memorable and Safe With Us</h2>
+		            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+		          </div>
+		        </div>
+		    		<div class="row">
+		          <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center mb-4">
+		              <div class="text">
+		                <strong class="number" data-number="300">0</strong>
+		                <span>Successful Tours</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center mb-4">
+		              <div class="text">
+		                <strong class="number" data-number="24000">0</strong>
+		                <span>Happy Tourist</span>
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-md-4 justify-content-center counter-wrap ftco-animate">
+		            <div class="block-18 text-center mb-4">
+		              <div class="text">
+		                <strong class="number" data-number="200">0</strong>
+		                <span>Place Explored</span>
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+	        </div>
+        </div>
+    	</div>
+    </section>
+
+
+		<section class="ftco-section">
+    	<div class="container">
+    		<div class="row justify-content-center pb-4">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">Best Place Destination</h2>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-3 ftco-animate">
+        		<div class="project-destination">
+        			<a href="#" class="img" style="background-image: url(img/place-1.jpg);">
+        				<div class="text">
+        					<h3>Singapore</h3>
+        					<span>8 Tours</span>
+        				</div>
+        			</a>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="project-destination">
+        			<a href="#" class="img" style="background-image: url(img/place-2.jpg);">
+        				<div class="text">
+        					<h3>Canada</h3>
+        					<span>2 Tours</span>
+        				</div>
+        			</a>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="project-destination">
+        			<a href="#" class="img" style="background-image: url(img/place-3.jpg);">
+        				<div class="text">
+        					<h3>Thailand</h3>
+        					<span>5 Tours</span>
+        				</div>
+        			</a>
+        		</div>
+        	</div>
+        	<div class="col-md-3 ftco-animate">
+        		<div class="project-destination">
+        			<a href="#" class="img" style="background-image: url(img/place-4.jpg);">
+        				<div class="text">
+        					<h3>Autralia</h3>
+        					<span>5 Tours</span>
+        				</div>
+        			</a>
+        		</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section ftco-no-pt">
+    	<div class="container">
+    		<div class="row justify-content-center pb-4">
+          <div class="col-md-12 heading-section text-center ftco-animate">
+            <h2 class="mb-4">Tour Destination</h2>
+          </div>
+        </div>
+        <div class="row">
+        	<div class="col-md-4 ftco-animate">
+        		<div class="project-wrap">
+        			<a href="#" class="img" style="background-image: url(img/destination-1.jpg);"></a>
+        			<div class="text p-4">
+        				<span class="price">$300/person</span>
+        				<span class="days">8 Days Tour</span>
+        				<h3><a href="#">Bali, Indonesia</a></h3>
+        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+        				<ul>
+        					<li><span class="flaticon-shower"></span>2</li>
+        					<li><span class="flaticon-king-size"></span>3</li>
+        					<li><span class="flaticon-mountains"></span>Near Mountain</li>
+        				</ul>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4 ftco-animate">
+        		<div class="project-wrap">
+        			<a href="#" class="img" style="background-image: url(img/destination-2.jpg);"></a>
+        			<div class="text p-4">
+        				<span class="price">$300/person</span>
+        				<span class="days">10 Days Tour</span>
+        				<h3><a href="#">Bali, Indonesia</a></h3>
+        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+        				<ul>
+        					<li><span class="flaticon-shower"></span>2</li>
+        					<li><span class="flaticon-king-size"></span>3</li>
+        					<li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+        				</ul>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4 ftco-animate">
+        		<div class="project-wrap">
+        			<a href="#" class="img" style="background-image: url(img/destination-3.jpg);"></a>
+        			<div class="text p-4">
+        				<span class="price">$300/person</span>
+        				<span class="days">7 Days Tour</span>
+        				<h3><a href="#">Bali, Indonesia</a></h3>
+        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+        				<ul>
+        					<li><span class="flaticon-shower"></span>2</li>
+        					<li><span class="flaticon-king-size"></span>3</li>
+        					<li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+        				</ul>
+        			</div>
+        		</div>
+        	</div>
+
+        	<div class="col-md-4 ftco-animate">
+        		<div class="project-wrap">
+        			<a href="#" class="img" style="background-image: url(img/destination-4.jpg);"></a>
+        			<div class="text p-4">
+        				<span class="price">$300/person</span>
+        				<span class="days">8 Days Tour</span>
+        				<h3><a href="#">Bali, Indonesia</a></h3>
+        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+        				<ul>
+        					<li><span class="flaticon-shower"></span>2</li>
+        					<li><span class="flaticon-king-size"></span>3</li>
+        					<li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+        				</ul>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4 ftco-animate">
+        		<div class="project-wrap">
+        			<a href="#" class="img" style="background-image: url(img/destination-5.jpg);"></a>
+        			<div class="text p-4">
+        				<span class="price">$300/person</span>
+        				<span class="days">10 Days Tour</span>
+        				<h3><a href="#">Bali, Indonesia</a></h3>
+        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+        				<ul>
+        					<li><span class="flaticon-shower"></span>2</li>
+        					<li><span class="flaticon-king-size"></span>3</li>
+        					<li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+        				</ul>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="col-md-4 ftco-animate">
+        		<div class="project-wrap">
+        			<a href="#" class="img" style="background-image: url(img/destination-6.jpg);"></a>
+        			<div class="text p-4">
+        				<span class="price">$300/person</span>
+        				<span class="days">7 Days Tour</span>
+        				<h3><a href="#">Bali, Indonesia</a></h3>
+        				<p class="location"><span class="ion-ios-map"></span> Bali, Indonesia</p>
+        				<ul>
+        					<li><span class="flaticon-shower"></span>2</li>
+        					<li><span class="flaticon-king-size"></span>3</li>
+        					<li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
+        				</ul>
+        			</div>
+        		</div>
+        	</div>
+        </div>
+    	</div>
+    </section>
+
+    <section class="ftco-section testimony-section bg-bottom" style="background-image: url(img/bg_3.jpg);">
+      <div class="container">
+        <div class="row justify-content-center pb-4">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <h2 class="mb-4">Tourist Feedback</h2>
+          </div>
+        </div>
+        <div class="row ftco-animate">
+          <div class="col-md-12">
+            <div class="carousel-testimony owl-carousel ftco-owl">
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(img/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(img/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(img/person_3.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(img/person_1.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="testimony-wrap py-4">
+                  <div class="text">
+                    <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                    <div class="d-flex align-items-center">
+                    	<div class="user-img" style="background-image: url(img/person_2.jpg)"></div>
+                    	<div class="pl-3">
+		                    <p class="name">Roger Scott</p>
+		                    <span class="position">Marketing Manager</span>
+		                  </div>
+	                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="ftco-footer bg-bottom" style="background-image: url(img/footer-bg.jpg);">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Vacation</h2>
+              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+              <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
+                <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-facebook"></span></a></li>
+                <li class="ftco-animate"><a href="#"><span class="icon-instagram"></span></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4 ml-md-5">
+              <h2 class="ftco-heading-2">Infromation</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
+                <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
+                <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
+                <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
+                <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
+                <li><a href="#" class="py-2 d-block">Call Us</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+             <div class="ftco-footer-widget mb-4">
+              <h2 class="ftco-heading-2">Experience</h2>
+              <ul class="list-unstyled">
+                <li><a href="#" class="py-2 d-block">Adventure</a></li>
+                <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
+                <li><a href="#" class="py-2 d-block">Beach</a></li>
+                <li><a href="#" class="py-2 d-block">Nature</a></li>
+                <li><a href="#" class="py-2 d-block">Camping</a></li>
+                <li><a href="#" class="py-2 d-block">Party</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md">
+            <div class="ftco-footer-widget mb-4">
+            	<h2 class="ftco-heading-2">Have a Questions?</h2>
+            	<div class="block-23 mb-3">
+	              <ul>
+	                <li><span class="icon icon-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+	                <li><a href="#"><span class="icon icon-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+	                <li><a href="#"><span class="icon icon-envelope"></span><span class="text">info@yourdomain.com</span></a></li>
+	              </ul>
+	            </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 text-center">
+
+            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+          </div>
+        </div>
+      </div>
+    </footer>
     
-</div><!-- Hero Section End -->
+  
 
-<!-- Page Conttent -->
-<main class="page-content">
- 
-    <!-- Start Travel Offer -->
-    <div class="travel-offer section-ptb" id="offers">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <img src="assets/images/icon/title.png" alt="title shape">
-                        <h2>Select Offers For Traveling</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod. </p>
-                    </div>
-                </div>
-            </div>
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
 
-            <div class="row mt--50">
-                <div class="col-lg-12">
-                    <div class="ht-tab-nab nav justify-content-center travel-tab" role="tablist">
-                        <a class="nav-link active show" data-toggle="tab" href="#photoshop" role="tab">Bus Tour <img src="assets/images/icon/shape-1.png" alt="img"></a>
-                        <a class="nav-link" data-toggle="tab" href="#art" role="tab">Food Tour <img src="assets/images/icon/shape-2.png" alt="img"></a>
-                        <a class="nav-link" data-toggle="tab" href="#web" role="tab">Summer Tour <img src="assets/images/icon/shape-3.png" alt="img"></a>
-                        <a class="nav-link" data-toggle="tab" href="#design" role="tab">Ship Tour <img src="assets/images/icon/shape-4.png" alt="img"></a>
-                    </div>
-                </div>
-            </div>
 
-            <div class=" tab-content">
-
-                <!-- Start Single Tab -->
-                <div class=" single-tab travel-tav-content tab-pane fade active show" id="photoshop" role="tabpanel">
-                    <div class="travel-offer-form row">
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                            <div class="single-form ">
-                                <select class="nice-select">
-                                    <option>Country</option>
-                                    <option>Bangla</option>
-                                    <option>USA</option>
-                                    <option>UK</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                        <div class="single-form">
-                            <select class="nice-select">
-                                <option>Duration</option>
-                                <option>Summer</option>
-                                <option>Winter</option>
-                                <option>Monsoon</option>
-                                <option>Autumn</option>
-                                <option>Late Autumn</option>
-                                <option>Spring</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Date</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Min Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Max Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mt-30">
-                            <div class="single-form">
-                                <button><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-                <!-- End Single Tab -->
-                
-                <!-- Start Single Tab -->
-                <div class="row single-tab travel-tav-content tab-pane fade" id="art" role="tabpanel">
-                    <div class="travel-offer-form row">
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                            <div class="single-form ">
-                                <select class="nice-select">
-                                    <option>Country</option>
-                                    <option>Bangla</option>
-                                    <option>USA</option>
-                                    <option>UK</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                        <div class="single-form">
-                            <select class="nice-select">
-                                <option>Duration</option>
-                                <option>Summer</option>
-                                <option>Winter</option>
-                                <option>Monsoon</option>
-                                <option>Autumn</option>
-                                <option>Late Autumn</option>
-                                <option>Spring</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Date</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Min Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Max Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mt-30">
-                            <div class="single-form">
-                                <button><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-                <!-- End Single Tab -->
-
-                <!-- Start Single Tab -->
-                <div class="row single-tab travel-tav-content tab-pane fade" id="web" role="tabpanel">
-                    <div class="travel-offer-form row">
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                            <div class="single-form ">
-                                <select class="nice-select">
-                                    <option>Country</option>
-                                    <option>Bangla</option>
-                                    <option>USA</option>
-                                    <option>UK</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                        <div class="single-form">
-                            <select class="nice-select">
-                                <option>Duration</option>
-                                <option>Summer</option>
-                                <option>Winter</option>
-                                <option>Monsoon</option>
-                                <option>Autumn</option>
-                                <option>Late Autumn</option>
-                                <option>Spring</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Date</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Min Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Max Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mt-30">
-                            <div class="single-form">
-                                <button><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-                <!-- End Single Tab -->
-
-                <!-- Start Single Tab -->
-                <div class="row single-tab travel-tav-content tab-pane fade" id="design" role="tabpanel">
-                    <div class="travel-offer-form row">
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                            <div class="single-form ">
-                                <select class="nice-select">
-                                    <option>Country</option>
-                                    <option>Bangla</option>
-                                    <option>USA</option>
-                                    <option>UK</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12">
-                        <div class="single-form">
-                            <select class="nice-select">
-                                <option>Duration</option>
-                                <option>Summer</option>
-                                <option>Winter</option>
-                                <option>Monsoon</option>
-                                <option>Autumn</option>
-                                <option>Late Autumn</option>
-                                <option>Spring</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Date</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                                <option>22/11/2018</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Min Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6  col-12">
-                           <div class="single-form">
-                            <select class="nice-select">
-                                <option>Max Price</option>
-                                <option>5000</option>
-                                <option>6000</option>
-                                <option>7000</option>
-                                <option>8000</option>
-                            </select>
-                        </div>
-                         </div>
-
-                        <div class="col-lg-2 col-md-3 col-sm-6 col-12 mt-30">
-                            <div class="single-form">
-                                <button><i class="fa fa-search" aria-hidden="true"></i> SEARCH</button>
-                            </div>
-                         </div>
-                    </div>
-                </div>
-                <!-- End Single Tab -->
-
-            </div>
-        </div>
-    </div>
-    <!-- End Travel Offer -->
- 
-    <!-- Start Popular Tour -->
-    <div class="travel-popular-tour section-ptb bg_image--01" id="traveling">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <img src="assets/images/icon/title.png" alt="title shape">
-                        <h2>Select Offers For Traveling</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt--30">
-                <!-- Start Single Tour -->
-                <div class="col-lg-4 col-sm-12 col-12 col-md-6">
-                    <div class="pp-tour mb-30">   
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="assets/images/project/project-01.jpg" alt="popular tour">
-                            </a>
-                        </div>
-                        <div class="content">
-                            <div class="title">
-                                <h2>Frince <span class="offer-price">$1290</span></h2>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consec adipisicin elit sed do eiusmod tempor </p>
-                            <div class="tp-tour-bottom">
-                                <ul class="tp-meta">
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> 4 Days</li>
-                                    <li><i class="fa fa-user-o" aria-hidden="true"></i> 20+</li>
-                                </ul>
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Tour -->
-                <!-- Start Single Tour -->
-                <div class="col-lg-4 col-sm-12 col-12 col-md-6">
-                    <div class="pp-tour  mb-30">   
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="assets/images/project/project-02.jpg" alt="popular tour">
-                            </a>
-                        </div>
-                        <div class="content">
-                            <div class="title">
-                                <h2>Frince <span class="offer-price">$1290</span></h2>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consec adipisicin elit sed do eiusmod tempor </p>
-                            <div class="tp-tour-bottom">
-                                <ul class="tp-meta">
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> 4 Days</li>
-                                    <li><i class="fa fa-user-o" aria-hidden="true"></i> 20+</li>
-                                </ul>
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Tour -->
-                <!-- Start Single Tour -->
-                <div class="col-lg-4 col-sm-12 col-12 col-md-6">
-                    <div class="pp-tour  mb-30">   
-                        <div class="thumb">
-                            <a href="#">
-                                <img src="assets/images/project/project-03.jpg" alt="popular tour">
-                            </a>
-                        </div>
-                        <div class="content">
-                            <div class="title">
-                                <h2>Frince <span class="offer-price">$1290</span></h2>
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consec adipisicin elit sed do eiusmod tempor </p>
-                            <div class="tp-tour-bottom">
-                                <ul class="tp-meta">
-                                    <li><i class="fa fa-clock-o" aria-hidden="true"></i> 4 Days</li>
-                                    <li><i class="fa fa-user-o" aria-hidden="true"></i> 20+</li>
-                                </ul>
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Single Tour -->
-                <div class="col-lg-12">
-                    <div class="tp-veiw-all-btn text-center">
-                        <a href="#">VIEW ALL TOUR</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Popular Tour -->
-
-    <!-- Start Flipbox Style-->
-    <div class="section-flipbox section-pt section-pb-90">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <img src="assets/images/icon/title.png" alt="title shape">
-                        <h2>Travelling Destinations</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod. </p>
-                    </div>
-                </div>
-            </div>
-            <div class="row mt--20">
-
-                <!-- Start Single Flipbox -->
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="square-flip travel-flip">
-                        <div class="square">
-                            <div class="square-container">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                            </div>
-                            <div class="flip-overlay-1"></div>
-                        </div>
-
-                        <div class="square2">
-                            <div class="square-container2">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                                <p>There are many variations of passages Lorem Ipsum available, but the
-                                    majority hav suffered alteration in.</p>
-                            </div>
-                            <div class="flip-overlay"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- End Single Flipbox -->
-
-                <!-- Start Single Flipbox -->
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="square-flip travel-flip">
-                        <div class="square">
-                            <div class="square-container">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                            </div>
-                            <div class="flip-overlay-2"></div>
-                        </div>
-
-                        <div class="square2">
-                            <div class="square-container2">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                                <p>There are many variations of passages Lorem Ipsum available, but the
-                                    majority hav suffered alteration in.</p>
-                            </div>
-                            <div class="flip-overlay"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- End Single Flipbox -->
-
-                <!-- Start Single Flipbox -->
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="square-flip travel-flip">
-                        <div class="square">
-                            <div class="square-container">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                            </div>
-                            <div class="flip-overlay-3"></div>
-                        </div>
-
-                        <div class="square2">
-                            <div class="square-container2">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                                <p>There are many variations of passages Lorem Ipsum available, but the
-                                    majority hav suffered alteration in.</p>
-                            </div>
-                            <div class="flip-overlay"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- End Single Flipbox -->
-
-                <!-- Start Single Flipbox -->
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <div class="square-flip travel-flip">
-                        <div class="square">
-                            <div class="square-container">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                            </div>
-                            <div class="flip-overlay-4"></div>
-                        </div>
-
-                        <div class="square2">
-                            <div class="square-container2">
-                                <h2>Sydney Harbour</h2>
-                                <span>$150</span>
-                                <p>There are many variations of passages Lorem Ipsum available, but the
-                                    majority hav suffered alteration in.</p>
-                            </div>
-                            <div class="flip-overlay"></div>
-                        </div>
-
-                    </div>
-                </div>
-                <!-- End Single Flipbox -->
-
-            </div>
-        </div>
-    </div>
-    <!-- End Flipbox Style-->
+  <script src="JS/helpers/jquery.min.js"></script>
+  <script src="JS/helpers/jquery-migrate-3.0.1.min.js"></script>
+  <script src="JS/helpers/popper.min.js"></script>
+  <script src="JS/helpers/bootstrap.min.js"></script>
+  <script src="JS/helpers/jquery.easing.1.3.js"></script>
+  <script src="JS/helpers/jquery.waypoints.min.js"></script>
+  <script src="JS/helpers/jquery.stellar.min.js"></script>
+  <script src="JS/helpers/owl.carousel.min.js"></script>
+  <script src="JS/helpers/jquery.magnific-popup.min.js"></script>
+  <script src="JS/helpers/aos.js"></script>
+  <script src="JS/helpers/jquery.animateNumber.min.js"></script>
+  <script src="JS/helpers/bootstrap-datepicker.js"></script>
+  <script src="JS/helpers/scrollax.min.js"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+  <script src="JS/helpers/google-map.js"></script>
+  <script src="JS/helpers/main.js"></script>
     
-    <!-- Start Heading Style -->
-    <div class="section-countdown section-ptb bg_image--02">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-12">
-                    <!-- Start Single Countdown -->
-                    <div class="countdown_wrapper travel-countdown text-center">
-                        <div class="content">
-                            <span>20% Off</span>
-                            <h2>Special Tour in Janyary,In Venic <br> With <span>60+</span> Customers</h2>
-                        </div>
-                        <div class="box-timer countdown-style-1">
-                            <div class="countbox timer-grid">
-                                <div  data-countdown="2019/09/01"></div>
-                            </div>
-                        </div>
-                        <div class="count-btn">
-                            <a href="#">BOOKING THIS TOUR</a>
-                        </div>
-                    </div>
-                    <!-- End Single Countdown -->
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Heading Style -->
-    
-    <!-- Start Newsletter Style -->
-    <div class="section-newsletter section-ptb bg_image--03">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="newsletter-wrapper newsletter-style-one white-newsletter">
-                        <div class="title">
-                            <h2>Updates and Promotional Events</h2>
-                            <img src="assets/images/icon/newsletter-1.png" alt="shape">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incid idunt ut labore et dolore magna aliqua. Ut enim ad minimol.</p>
-                        </div>
-                        <form action="#"  id="mc-form"  class="mc-form">
-                            <div class="input-box">
-                                <input id="mc-email" type="email" autocomplete="off" placeholder="Enter Your Email* ">
-                                <button  id="mc-submit" type="submit">Subscribe</button>
-                            </div>
-                            <!-- mailchimp-alerts Start -->
-                            <div class="mailchimp-alerts text-centre">
-                                <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
-                                <div class="mailchimp-success"></div><!-- mailchimp-success end -->
-                                <div class="mailchimp-error"></div><!-- mailchimp-error end -->
-                            </div><!-- mailchimp-alerts end -->
-                            
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Newsletter Style One -->
-    
-    <!-- Start Testimonial Style -->
-    <div class="section-testimonial section-pt section-pb-90  bg_image--04" id="testimonial">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="testimonial-style-5 testimonial-slider-5 poss--relative">
-
-                        <!-- Start Testimonial Nav -->
-                        <div class="testimonal-nav5">
-
-                            <div class="testimonal-img">
-                                <img src="assets/images/testimoniail/01.png" alt="testimonal image">
-                            </div>
-
-                            <div class="testimonal-img">
-                                <img src="assets/images/testimoniail/02.png" alt="testimonal image">
-                            </div>
-
-                            <div class="testimonal-img">
-                                <img src="assets/images/testimoniail/03.png" alt="testimonal image">
-                            </div>
-
-                            <div class="testimonal-img">
-                                <img src="assets/images/testimoniail/01.png" alt="testimonal image">
-                            </div>
-
-
-                        </div>
-                        <!-- End Testimonial Nav -->
-
-                        <!-- Start Testimonial For -->
-                        <div class="testimonial-for5">
-
-                            <div class="testimonial-desc">
-                                <div class="triangle"></div>
-                                <div class="client">
-                                    <h6>Carolina Montoya</h6>
-                                    <ul class="rating">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-half-o"></i></li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco consectetur laboris nisi ut
-                                    aliquip ex ea commodo consequat.</p>
-                            </div>
-
-                            <div class="testimonial-desc">
-                                <div class="triangle"></div>
-                                <div class="client">
-                                    <h6>Carolina Montoya</h6>
-                                    <ul class="rating">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-half-o"></i></li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco consectetur laboris nisi ut
-                                    aliquip ex ea commodo consequat.</p>
-                            </div>
-
-                            <div class="testimonial-desc">
-                                <div class="triangle"></div>
-                                <div class="client">
-                                    <h6>Michelle Mitchell</h6>
-                                    <ul class="rating">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-half-o"></i></li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco consectetur laboris nisi ut
-                                    aliquip ex ea commodo consequat.</p>
-                            </div>
-
-                            <div class="testimonial-desc">
-                                <div class="triangle"></div>
-                                <div class="client">
-                                    <h6>Klaus Gruber</h6>
-                                    <ul class="rating">
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star"></i></li>
-                                        <li><i class="fa fa-star-half-o"></i></li>
-                                    </ul>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                                    veniam, quis nostrud exercitation ullamco consectetur laboris nisi ut
-                                    aliquip ex ea commodo consequat.</p>
-                            </div>
-
-                        </div>
-                        <!-- End Testimonial For -->
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Testimonial Style -->
-    
-    <!-- Start Post Carousel Style-->
-    <div class="section-post-carousel section-ptb" id="news">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title text-center">
-                        <h2>Latest News</h2>
-                        <p>Lorem ipsum dolor sit amet, conse adipisi elit sed do eiusmod tem incididunt ut labore et dolore magna.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="mt--50">
-                <div class="row  post-carousel-wrapper post-carousel-active-5 carpenter-post-wrapper">
-                    <div class="col-lg-12">
-
-                        <!-- Start Single Post -->
-                        <div class="post-carousel post-carousel-5 carpenter-post">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/images/blog/thum-01.jpg" alt="elementor">
-                                </a>
-                            </div>
-                            <div class="ptc-content">
-                                <div class="content">
-                                    <ul class="meta">
-                                        <li><a href="#">Admin Name</a></li>
-                                        <li>10 March 2020</li>
-                                    </ul>
-                                    <h2><a href="#">Contrary to popular belief. </a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius
-                                        tempor incididu ut labore et dolore</p>
-                                    <div class="post-btn">
-                                        <a class="readmore-btn" href="#">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Post -->
-                    </div>
-
-                        
-                    <div class="col-lg-12">
-                        <!-- Start Single Post -->
-                        <div class="post-carousel post-carousel-5 carpenter-post">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/images/blog/thum-02.jpg" alt="elementor">
-                                </a>
-                            </div>
-                            <div class="ptc-content">
-                                <div class="content">
-                                    <ul class="meta">
-                                        <li><a href="#">Admin Name</a></li>
-                                        <li>10 March 2020</li>
-                                    </ul>
-                                    <h2><a href="#">There are many variations.</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius
-                                        tempor incididu ut labore et dolore</p>
-                                    <div class="post-btn">
-                                        <a class="readmore-btn" href="#">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Post -->
-                    </div>
-
-                    <div class="col-lg-12">
-                        <!-- Start Single Post -->
-                        <div class="post-carousel post-carousel-5 carpenter-post">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/images/blog/thum-03.jpg" alt="elementor">
-                                </a>
-                            </div>
-                            <div class="ptc-content">
-                                <div class="content">
-                                    <ul class="meta">
-                                        <li><a href="#">Admin Name</a></li>
-                                        <li>10 March 2020</li>
-                                    </ul>
-                                    <h2><a href="#">The standard chunk used.</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius
-                                        tempor incididu ut labore et dolore</p>
-                                    <div class="post-btn">
-                                        <a class="readmore-btn" href="#">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Post -->
-                    </div>
-
-                    <div class="col-lg-12">
-                        <!-- Start Single Post -->
-                        <div class="post-carousel post-carousel-5 carpenter-post">
-                            <div class="thumb">
-                                <a href="#">
-                                    <img src="assets/images/blog/thum-01.jpg" alt="elementor">
-                                </a>
-                            </div>
-                            <div class="ptc-content">
-                                <div class="content">
-                                    <ul class="meta">
-                                        <li><a href="#">Admin Name</a></li>
-                                        <li>10 March 2020</li>
-                                    </ul>
-                                    <h2><a href="#">Lorem ipsum sit ame co.</a></h2>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisici elit, sed do eius
-                                        tempor incididu ut labore et dolore</p>
-                                    <div class="post-btn">
-                                        <a class="readmore-btn" href="#">READ MORE</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End Single Post -->
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Post Carousel  Style-->
-    
-    <!-- Start Contact Form Style -->
-    <div class="section-contact section-ptb bg_image--9" id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 ml-auto mr-auto col-md-12 col-12">
-                    <div class="contact_form_container">
-                        <div class="section-title-2">
-                            <h2>Get In Touch</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur.</p>
-                        </div>
-                        <div class="form_wrapper form-style-6">
-                            <form id="contact-form" action="http://hasthemes.com/file/mail.php">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6">
-                                        <input name="con_name" type="text" placeholder="Name*">
-                                    </div>
-                                    <div class="col-lg-6  col-md-6">
-                                        <input type="text" placeholder="Subject*">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <input  name="con_email" type="text" placeholder="Subject*">
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <textarea  name="con_message" name="message" placeholder="Your Massege*"></textarea>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <input type="submit" value="SEND MESSAGE">
-                                        <p class="form-messege"></p>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End Contact Form Style -->
-    
-</main>
-<!--// Page Conttent -->
-
-<!-- Footer -->
-<footer class="footer">
-    <div class="copyright section-ptb">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-lg-12 col-12">
-                   
-                    <div class="copyright-left content text-center">
-                        <div class="logo">
-                            <img src="assets/images/logo/logo.png" alt="">
-                        </div>
-                        <p>Copyright © Togoo. All Right Reserved.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
-</footer>
-<!--// Footer -->
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-</body>
-
+  </body>
 </html>

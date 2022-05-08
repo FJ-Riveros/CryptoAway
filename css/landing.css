@@ -139,6 +139,38 @@ img {
   max-width: 100%;
 }
 
+/* .hero-section{
+  height: 100vh;
+  background-image: url(https://demo.hasthemes.com/togoo/assets/images/hero/hero-1.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+} */
+
+.group{
+  height: 100vh;
+  /* background-image: url(https://demo.hasthemes.com/togoo/assets/images/hero/hero-1.jpg); */
+        /* background-image: url(https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_960_720.jpg); */
+  background-image: url(../img/maldives-1993704.jpg);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+.hero-slider-one{
+  /* margin-top: 150px; */
+}
+
+.hero-slide-item{
+  height: 100vh !important;
+}
+
+.testimonial-round-img{
+  border-radius: 50%;
+}
+
 button:focus,
 a:focus {
   outline: none;
@@ -1655,7 +1687,8 @@ img.mfp-img {
 }
 
 .header-transparant {
-  position: absolute;
+  /* position: absolute; */
+  position: relative;
   z-index: 5;
   width: 100%;
   left: auto;
