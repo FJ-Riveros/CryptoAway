@@ -84,4 +84,14 @@ class Post
     $executeQuery = $connection->createQuery("SELECT * FROM likes WHERE Post_idPost = $idPost;");
     return $connection->getTotalRows();
   }
+
+
+  public static function numberOfComments(int $idPost): int
+    {
+        $connection = Database::createInstance();
+        //Returns the number of comments that a post has
+        $executeQuery = $connection->createQuery("SELECT COUNT(*) FROM comments WHERE Post_idPost = {$idPost};");
+        //Return the number
+        return $executeQuery;
+    }
 }

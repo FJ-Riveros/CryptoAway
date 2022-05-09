@@ -223,6 +223,7 @@ Post::getLastPost($userData->idUser);
                             </div>
                         </div>
                         <div id="app"></div>
+                        
                     </div>
                 </div>
                 <!-- right wrapper end -->
