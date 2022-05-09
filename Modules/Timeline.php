@@ -54,6 +54,7 @@ Post::getLastPost($userData->idUser);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/landing.css"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -164,6 +165,35 @@ Post::getLastPost($userData->idUser);
                                                     <span class="d-none d-md-block ml-2">Comments</span>
                                                 </a>
                                             </div>
+                                        </div>
+                                        <div class="container comment-section mt-3">
+                                            <div class="d-flex justify-content-center row">
+                                                <div class="col-12">
+                                                    <div class="d-flex flex-column comment-section">
+                                                        <div class="bg-white p-2">
+                                                            <div class="d-flex flex-row user-info"><img class="rounded-circle" src="https://i.imgur.com/RpzrMR2.jpg" width="40">
+                                                                <div class="d-flex flex-column justify-content-start ml-2"><span class="d-block font-weight-bold name">Marry Andrews</span><span class="date text-black-50">Shared publicly - Jan 2020</span></div>
+                                                            </div>
+                                                            <div class="mt-2">
+                                                                <p class="comment-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="bg-white">
+                                                            <div class="d-flex flex-row fs-12">
+                                                                <div class="like p-2 cursor"><i class="fa fa-thumbs-o-up"></i><span class="ml-1">Like</span></div>
+                                                                <div class="like p-2 cursor"><i class="fa fa-commenting-o"></i><span class="ml-1">Comment</span></div>
+                                                                <div class="like p-2 cursor"><i class="fa fa-share"></i><span class="ml-1">Share</span></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bg-light p-2">
+                                            <div class="d-flex flex-row align-items-start"><img class="rounded-circle" src="<?= $userData->avatar ?>" width="50" height="50"><textarea class="form-control ml-1 shadow-none textarea"></textarea></div>
+                                            <div class="mt-2 text-right">
+                                                <button class="btn btn-warning btn-sm shadow-none" type="button">Post comment</button>
+                                                <button class="btn btn-warning btn-sm ml-1 shadow-none" type="button">Cancel</button></div>
                                         </div>
                                     </div>
                                 </div>
