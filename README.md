@@ -308,6 +308,7 @@ A form is presented to modify the profile.
 #
 
 <h3 align="left" id="checkpoint">:film_projector: Checkpoint video</h3>
+
 [![Watch the video](https://img.youtube.com/vi/YYZwIGYq6ho/maxresdefault.jpg)](https://youtu.be/YYZwIGYq6ho)
 
 #
