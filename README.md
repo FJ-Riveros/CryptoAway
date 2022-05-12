@@ -41,6 +41,7 @@
     <li><a href="#EER">Database EER</a></li>
     <li><a href="#navigation">Navigation</a></li>
     <li><a href="#userInteractions">User Interactions</a></li>
+    <li><a href="#checkpoint">Checkpoint</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
 
@@ -306,6 +307,11 @@ A form is presented to modify the profile.
 
 #
 
+<h3 align="left" id="checkpoint">:computer:Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
+
+[![Watch the video](https://img.youtube.com/vi/YYZwIGYq6ho/maxresdefault.jpg)](https://youtu.be/YYZwIGYq6ho)
+
+#
 
 <h3 align="left" id="contact">:computer:Connect with me <a href="https://linkedin.com/in/fj-riveros" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="fj-riveros" height="30" width="40" /></a></h3>
 <p align="left">
