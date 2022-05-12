@@ -311,7 +311,7 @@ A form is presented to modify the profile.
 
 [![Watch the video](https://img.youtube.com/vi/YYZwIGYq6ho/maxresdefault.jpg)](https://youtu.be/YYZwIGYq6ho)
 
-<video src='https://youtu.be/YYZwIGYq6ho' width=180/>
+<video src='https://youtu.be/YYZwIGYq6ho' width=180></video>
 
 #
 
