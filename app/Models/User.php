@@ -10,6 +10,7 @@ use Illuminate\Auth\Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Post;
 
 class User extends Model implements AuthenticatableContract
 {
@@ -71,4 +72,8 @@ class User extends Model implements AuthenticatableContract
 	{
 		$this->friends()->detach($user->id);
 	}
+
+    public function getUserPosts(){
+        return $this->hasMany(Post::class, 'user_idUser');
+    }
 }
