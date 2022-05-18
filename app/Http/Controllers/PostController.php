@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
+ 
 
 class PostController extends Controller
 {
@@ -84,4 +86,16 @@ class PostController extends Controller
         //
     }
 
+    public function create_post(Request $request){
+        $newPost = new Post();
+        // echo route('getUserId');
+        // return route('getUserId');
+        // $response = Http::get(route('getUserId'));
+        $response = Http::get(route('allPosts'));
+        return $response->body();
+
+        // return $request->all();
+
+
+    }
 }

@@ -53,4 +53,10 @@ Route::middleware('auth')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    //Returns the id of the user
+    Route::get('/userId', function (Request $request) {
+        return Auth::id();
+    })
+        ->name('getUserId');
 });

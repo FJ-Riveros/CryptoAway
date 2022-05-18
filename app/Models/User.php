@@ -73,7 +73,11 @@ class User extends Model implements AuthenticatableContract
 		$this->friends()->detach($user->id);
 	}
 
-    public function getUserPosts(){
+    public function user_posts_relation(){
         return $this->hasMany(Post::class, 'user_idUser');
     }
+
+    // public function posts_relation(){
+    //     return $this->hasMany(Post::class, 'user_idUser');
+    // }
 }

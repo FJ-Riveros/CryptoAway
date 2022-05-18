@@ -18,7 +18,7 @@ class Post extends Model
     protected $table = 'posts';
 
     public function post_user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class , 'user_idUser');
     }
 
     
