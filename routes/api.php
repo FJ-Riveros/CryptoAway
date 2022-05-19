@@ -36,12 +36,18 @@ Route::get('user/{idUser}/posts', [UserController::class, 'user_posts']);
 Route::post('posts/create_post', [PostController::class, 'create_post']);
 
 //Delete Post
+Route::post('posts/delete_post/', [PostController::class, 'delete_post']);
 
-//Get last Post
+//Get last Post from user
+Route::get('user/{iduser}/last_post', [UserController::class, 'last_post']);
+
 
 //Get Post likes
+Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);
+
 
 //Get the number of comments from a Post
+Route::get('posts/{idPost}/number_comments_post', [PostController::class, 'number_comments_post']);
 
 
 
