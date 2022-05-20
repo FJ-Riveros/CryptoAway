@@ -2,8 +2,11 @@
 
 namespace Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+// use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 use Illuminate\Support\Facades\Http;
+use App\Models\Post;
+use App\Models\User;
 
 
 class ExampleTest extends TestCase
@@ -11,7 +14,7 @@ class ExampleTest extends TestCase
 
     //Consideration: Try to always to get the User, Post from the DB and then operate on that object, whether we delete, update, create...
 
-    private String $base_route = "http://localhost:8000/";
+    const BASE_ROUTE = "http://localhost:8000/";
 
     /**
      * A basic test example.
@@ -26,35 +29,39 @@ class ExampleTest extends TestCase
 
 
     //Posts Tests
-    public function get_posts_from_user()
+    public function test_get_posts_from_user()
     {
-        $response = Http::get($base_url . 'user/1/posts');
-
-        $this->assertTrue(!is_null($response));
+        $response = Http::get(self::BASE_ROUTE  . 'user/1/posts');
+        // $response = $response->object();
+        $response = $response->object();
+        $length = count($response) > 0 ? true : false;
+        $this->assertTrue($length);
     }
 
     //Create Post 
-    public function create_post()
+    public function test_create_post()
     {
-        $response = Http::post($base_url. 'posts/create_post');
+        
+        $postBefore = Http::get(self::BASE_ROUTE . 'posts');
+        $response = Http::post(self::BASE_ROUTE . 'posts/create_post');
 
         $this->assertTrue($response);
 
     }
 
     //Delete Post 
-    public function delete_post()
+    public function test_delete_post()
     {
 
         $idPostToDelete = 1;
-        $createPost = Http::post($base_url. 'posts/create_post');
+        $createPost = Http::post(self::BASE_ROUTE . 'posts/create_post');
 
         $newPost = new Post();
 
         //Look
         $newPost::find();
 
-        $deletePost = Http::post($base_url. 'posts/delete_post/', [
+        $deletePost = Http::post(self::BASE_ROUTE . 'posts/delete_post/', [
             'idpost' => $idPostToDelete
         ]);
         
@@ -63,14 +70,14 @@ class ExampleTest extends TestCase
     }
 
     //Last Post from User 
-    public function last_post()
+    public function tet_last_post()
     {
 
         $idUser = 1;
         $user = new User();
         $user::find(1);
 
-        $response = Http::get($base_url . 'user/'. idUser . '/last_post');
+        $response = Http::get(self::BASE_ROUTE  . 'user/'. $idUser . '/last_post');
 
         $this->assertTrue($response);
 

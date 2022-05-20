@@ -26,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 /*  Posts  */
 //Get al posts
 Route::get('posts', [PostController::class, 'index'])
-->name('allPosts');;
+->name('allPosts');
 
 
 //Get posts from the selected user
