@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Auth;
  
 
 class PostController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -91,8 +98,14 @@ class PostController extends Controller
         // echo route('getUserId');
         // return route('getUserId');
         // $response = Http::get(route('getUserId'));
-        $response = Http::get(route('allPosts'));
-        return $response->body();
+        // $response = Http::get(route('allPosts'));
+        // $response = Http::get("http://localhost:8000/api/posts");
+
+        // return $response->body();
+
+        $user = Auth::user(); // Retrieve the currently authenticated user...
+        $id = Auth::id(); // Retrieve the currently authenticated user's ID...
+        return $id;
 
         // return $request->all();
 

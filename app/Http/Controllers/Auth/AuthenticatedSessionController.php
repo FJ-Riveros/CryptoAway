@@ -51,4 +51,35 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+
+    public $loginAfterSignUp = true;
+
+
+    public function APILogin(Request $request)
+    {
+      $credentials = $request->only(['email', 'password']);
+
+      if(auth()->attempt($credentials)){
+          return "Loggeado con exito";
+      }
+
+      return "Ha fallado";
+    //   if (!$token = auth()->attempt($credentials)) {
+    //     return response()->json(['error' => 'Unauthorized'], 401);
+    //   }
+
+    //   return $this->respondWithToken($token);
+    }
+    public function getAuthUser(Request $request)
+    {
+        return response()->json(auth()->user());
+    }
+    
+    protected function respondWithToken($token)
+    {
+      return response()->json([
+        'access_token' => $token,
+        'token_type' => 'bearer',
+      ]);
+    }
 }

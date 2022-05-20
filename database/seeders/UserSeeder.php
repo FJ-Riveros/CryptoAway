@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 
 class UserSeeder extends Seeder
 {
@@ -24,7 +25,7 @@ class UserSeeder extends Seeder
             'password'        => bcrypt('123'),
             'metamaskAddress' => 'juan',
             'avatar'          => 'none',
-            'description'     => 'juan'
+            'description'     => 'juan',
         ]);
 
         \App\Models\User::create([
@@ -36,7 +37,7 @@ class UserSeeder extends Seeder
             'password'        => bcrypt('123'),
             'metamaskAddress' => 'fran',
             'avatar'          => 'none',
-            'description'     => 'fran'
+            'description'     => 'fran',
         ]);
 
         // User-DB::table('users')->insert([

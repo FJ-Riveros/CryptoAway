@@ -32,6 +32,9 @@ Route::middleware('guest')->group(function () {
 
     Route::post('reset-password', [NewPasswordController::class, 'store'])
                 ->name('password.update');
+
+    Route::post('APILogin', [AuthenticatedSessionController::class, 'APILogin'])
+    ->name('APILogin');
 });
 
 Route::middleware('auth')->group(function () {
@@ -55,8 +58,8 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 
     //Returns the id of the user
-    Route::get('/userId', function (Request $request) {
-        return Auth::id();
-    })
-        ->name('getUserId');
+    // Route::get('/userId', function (Request $request) {
+    //     return Auth::id();
+    // })
+    //     ->name('getUserId');
 });
