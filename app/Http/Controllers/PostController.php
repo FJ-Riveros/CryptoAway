@@ -102,10 +102,16 @@ class PostController extends Controller
         // $response = Http::get("http://localhost:8000/api/posts");
 
         // return $response->body();
+        $response = Http::post("http://localhost:8000/login", [
+            'email' => 'juan@gmail.com',
+            'password' => '123',
+        ]);
 
-        $user = Auth::user(); // Retrieve the currently authenticated user...
-        $id = Auth::id(); // Retrieve the currently authenticated user's ID...
-        return $id;
+        //$user = Auth::user(); // Retrieve the currently authenticated user...
+        //$id = Auth::id(); // Retrieve the currently authenticated user's ID...
+
+        // return $id;
+        // return "hola";
 
         // return $request->all();
 

@@ -6,6 +6,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,4 +53,22 @@ Route::get('posts/{idPost}/number_comments_post', [PostController::class, 'numbe
 
 
 
+
+
+  
+/*
+|--------------------------------------------------------------------------
+| API Routes
+|--------------------------------------------------------------------------
+*/
+  
+Route::post('login', [AuthController::class, 'signin']);
+Route::post('register', [AuthController::class, 'signup']);
+     
+Route::middleware('auth:sanctum')->group( function () {
+    Route::resource('blogs', BlogController::class);
+    // Route::get('/blogs/userId', BlogController::class, 'userId');
+});
+
+// Route::middleware('auth:sanctum')->get('/blogs/userId', BlogController::class, 'userId');
 
