@@ -31,8 +31,7 @@ Route::get('posts', [PostController::class, 'index'])
 ->name('allPosts');
 
 
-//Get posts from the selected user
-Route::get('user/{idUser}/posts', [UserController::class, 'user_posts']);
+
 
 //Add Post
 Route::post('posts/create_post', [PostController::class, 'create_post']);
@@ -72,6 +71,9 @@ Route::post('register', [AuthController::class, 'signup']);
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('/user/userId', [UserController::class, 'userId']);
 
+
+    //Get posts from the selected user
+    Route::get('user/{idUser}/posts', [UserController::class, 'user_posts']);
 });
 
 
