@@ -67,8 +67,15 @@ Route::post('register', [AuthController::class, 'signup']);
      
 Route::middleware('auth:sanctum')->group( function () {
     Route::resource('blogs', BlogController::class);
-    // Route::get('/blogs/userId', BlogController::class, 'userId');
+    // Route::get('/blogs/userId', [BlogController::class, 'userId']);
 });
 
-// Route::middleware('auth:sanctum')->get('/blogs/userId', BlogController::class, 'userId');
+
+Route::middleware('auth:sanctum')->group( function () {
+    Route::resource('blogs', BlogController::class);
+    // Route::get('/blogs/userId', [BlogController::class, 'userId']);
+});
+Route::middleware('auth:sanctum')->get('/prueba/userId', [PostController::class, 'userId']);
+
+
 

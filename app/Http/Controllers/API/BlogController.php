@@ -5,8 +5,8 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\API\BaseController as BaseController;
 use Validator;
-use App\Models\Blog;
-use App\Http\Resources\Blog as BlogResource;
+// use App\Models\Blog;
+// use App\Http\Resources\Blog as BlogResource;
 use Illuminate\Support\Facades\Auth;
    
 class BlogController extends BaseController
