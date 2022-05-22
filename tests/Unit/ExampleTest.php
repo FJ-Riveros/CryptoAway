@@ -57,10 +57,6 @@ class ExampleTest extends TestCase
     //Test that we can retrieve the tests from the user
     public function test_get_posts_from_user()
     {
-        var_dump($GLOBALS['TEST_BEARER_TOKEN']);
-        ob_flush();
-
-        // $response = Http::get(self::BASE_ROUTE  . 'api/user/1/posts');
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
         ])->get(self::BASE_ROUTE . 'api/user/1/posts');

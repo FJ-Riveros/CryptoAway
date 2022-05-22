@@ -33,8 +33,7 @@ Route::get('posts', [PostController::class, 'index'])
 
 
 
-//Add Post
-Route::post('posts/create_post', [PostController::class, 'create_post']);
+
 
 //Delete Post
 Route::post('posts/delete_post/', [PostController::class, 'delete_post']);
@@ -74,6 +73,9 @@ Route::middleware('auth:sanctum')->group( function () {
 
     //Get posts from the selected user
     Route::get('user/{idUser}/posts', [UserController::class, 'user_posts']);
+
+    //Add Post
+    Route::post('posts/create_post', [PostController::class, 'create_post']);
 });
 
 

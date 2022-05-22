@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -93,30 +94,21 @@ class PostController extends Controller
         //
     }
 
+    //Create a new Post from the current user
     public function create_post(Request $request){
-        $newPost = new Post();
-        // echo route('getUserId');
-        // return route('getUserId');
-        // $response = Http::get(route('getUserId'));
-        // $response = Http::get(route('allPosts'));
-        // $response = Http::get("http://localhost:8000/api/posts");
+         // Retrieve the currently authenticated user...
+        $user = Auth::user();
 
-        // return $response->body();
-        $response = Http::post("http://localhost:8000/login", [
-            'email' => 'juan@gmail.com',
-            'password' => '123',
+        //Create the new Post
+        $newPost = new Post([
+                'imgPost'  => $request->imgPost,
+                'textPost' => $request->textPost,
         ]);
+        
+        //Save the new Post
+        $insert =  $user->user_posts_relation()->save($newPost);
 
-        //$user = Auth::user(); // Retrieve the currently authenticated user...
-        //$id = Auth::id(); // Retrieve the currently authenticated user's ID...
-
-        // return $id;
-        // return "hola";
-
-        // return $request->all();
-
-
+        return $insert->first() ? true : false;        
     }
-
 
 }

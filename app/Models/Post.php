@@ -17,6 +17,19 @@ class Post extends Model
      */
     protected $table = 'posts';
 
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'imgPost',
+        'textPost',
+        
+    ];
+
+
     public function post_user(){
         return $this->belongsTo(User::class , 'user_idUser');
     }
