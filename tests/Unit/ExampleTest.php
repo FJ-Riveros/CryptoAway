@@ -86,17 +86,17 @@ class ExampleTest extends TestCase
         //Get the latest post
         $newPost = Post::all()->last();
 
-        
-        var_dump($newPost);
-        ob_flush();
-        // //Look
-        // $newPost::find();
+        $newPostId = $newPost->id;
 
-        // $deletePost = Http::post(self::BASE_ROUTE . 'posts/delete_post/', [
-        //     'idpost' => $idPostToDelete
-        // ]);
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/posts/delete_post', [
+            'idPostDelete'    => $newPostId,
+        ]);
         
-        // $this->assertTrue($deletePost);
+        $deletedPost = Post::find($newPostId);
+
+        $this->assertTrue(is_null($deletedPost));
 
     }
 
