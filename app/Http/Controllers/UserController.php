@@ -89,12 +89,6 @@ class UserController extends Controller
         //
     }
 
-    //Deprecated
-    // public function userPosts(Request $request){
-    //     return Post::where('user_idUser','=', $request->idUser)->get();
-    // }
-
-
     //Get the posts from a specific user
     public function user_posts(Request $request){
         $user = User::find($request->idUser);
@@ -107,7 +101,5 @@ class UserController extends Controller
         $id = Auth::id(); 
 
         return $id;
-
-
     }
 }
