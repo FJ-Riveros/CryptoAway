@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->unsignedBigInteger("idPost")->autoIncrement();
+            $table->unsignedBigInteger("id")->autoIncrement();
             $table->string('imgPost', 200)->nullable();
             $table->string('textPost', 200);
             $table->timestamps();

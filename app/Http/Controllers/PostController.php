@@ -111,4 +111,21 @@ class PostController extends Controller
         return $insert->first() ? true : false;        
     }
 
+    //Create a new Post from the current user
+    public function delete_post(Request $request){
+
+        //Get the post
+        $deletePost = Post::find($request->idPostDelete);
+
+        //Retrieve the currently authenticated user...
+        $userId = Auth::id();
+
+        //If the user created the post, delete it
+        if($userId == $deletePost->user_idUser){
+            return $deletePost->delete();
+        }
+
+        return false;
+    }
+
 }

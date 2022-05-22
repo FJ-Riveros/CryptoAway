@@ -80,24 +80,25 @@ class ExampleTest extends TestCase
     }
 
     //Delete Post 
-    // public function test_delete_post()
-    // {
+    public function test_delete_post()
+    {
 
-    //     $idPostToDelete = 1;
-    //     $createPost = Http::post(self::BASE_ROUTE . 'posts/create_post');
+        //Get the latest post
+        $newPost = Post::all()->last();
 
-    //     $newPost = new Post();
-
-    //     //Look
-    //     $newPost::find();
-
-    //     $deletePost = Http::post(self::BASE_ROUTE . 'posts/delete_post/', [
-    //         'idpost' => $idPostToDelete
-    //     ]);
         
-    //     $this->assertTrue($deletePost);
+        var_dump($newPost);
+        ob_flush();
+        // //Look
+        // $newPost::find();
 
-    // }
+        // $deletePost = Http::post(self::BASE_ROUTE . 'posts/delete_post/', [
+        //     'idpost' => $idPostToDelete
+        // ]);
+        
+        // $this->assertTrue($deletePost);
+
+    }
 
     //Last Post from User 
     // public function tet_last_post()

@@ -35,8 +35,7 @@ Route::get('posts', [PostController::class, 'index'])
 
 
 
-//Delete Post
-Route::post('posts/delete_post/', [PostController::class, 'delete_post']);
+
 
 //Get last Post from user
 Route::get('user/{iduser}/last_post', [UserController::class, 'last_post']);
@@ -76,6 +75,9 @@ Route::middleware('auth:sanctum')->group( function () {
 
     //Add Post
     Route::post('posts/create_post', [PostController::class, 'create_post']);
+
+    //Delete Post
+    Route::post('posts/delete_post/', [PostController::class, 'delete_post']);
 });
 
 
