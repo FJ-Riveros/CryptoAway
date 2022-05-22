@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Laravel\Sanctum\Sanctum;
-
 use function PHPUnit\Framework\isEmpty;
 
 class ExampleTest extends TestCase
@@ -68,18 +67,17 @@ class ExampleTest extends TestCase
     }
 
     //Create Post 
-    // public function test_create_post()
-    // {
-        
-    //     $postBefore = Http::get(self::BASE_ROUTE . 'posts');
-        
-    //     $response = Http::post(self::BASE_ROUTE . 'posts/create_post');
+    public function test_create_post()
+    {        
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/posts/create_post', [
+            'imgPost'    => 'https://pixabay.com/es/photos/gaviotas-aves-volador-alas-vuelo-6841129/',
+            'textPost'   => 'This is a test post'
+        ]);
 
-    //     $response = Http::post(self::BASE_ROUTE . 'posts/create_post');
-
-    //     $this->assertTrue($response);
-
-    // }
+        $this->assertTrue($response->getStatusCode() == 200);        
+    }
 
     //Delete Post 
     // public function test_delete_post()
