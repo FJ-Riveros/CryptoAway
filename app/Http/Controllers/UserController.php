@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class UserController extends Controller
 {
+
+    
+
     /**
      * Display a listing of the resource.
      *
@@ -94,5 +99,15 @@ class UserController extends Controller
     public function user_posts(Request $request){
         $user = User::find($request->idUser);
         return $user->user_posts_relation;
+    }
+
+    //Returns the actual user ID
+    public function userId(Request $request){
+        $user = Auth::user(); 
+        $id = Auth::id(); 
+
+        return $id;
+
+
     }
 }

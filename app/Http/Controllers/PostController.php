@@ -118,17 +118,5 @@ class PostController extends Controller
 
     }
 
-    public function userId(Request $request){
-        
-
-        $user = Auth::user(); // Retrieve the currently authenticated user...
-        $id = Auth::id(); // Retrieve the currently authenticated user's ID...
-
-        
-
-        return $id;
-
-
-    }
 
 }

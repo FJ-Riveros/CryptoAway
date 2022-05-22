@@ -62,20 +62,19 @@ Route::get('posts/{idPost}/number_comments_post', [PostController::class, 'numbe
 |--------------------------------------------------------------------------
 */
   
+//Login the user using the API
 Route::post('login', [AuthController::class, 'signin']);
+
+//Registers the user using the API
 Route::post('register', [AuthController::class, 'signup']);
      
+//The user needs to login in order to use this endpoints
 Route::middleware('auth:sanctum')->group( function () {
-    Route::resource('blogs', BlogController::class);
-    // Route::get('/blogs/userId', [BlogController::class, 'userId']);
+    Route::get('/user/userId', [UserController::class, 'userId']);
+
 });
 
 
-Route::middleware('auth:sanctum')->group( function () {
-    Route::resource('blogs', BlogController::class);
-    // Route::get('/blogs/userId', [BlogController::class, 'userId']);
-});
-Route::middleware('auth:sanctum')->get('/prueba/userId', [PostController::class, 'userId']);
 
 
 
