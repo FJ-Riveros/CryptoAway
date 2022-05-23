@@ -117,9 +117,47 @@ class ExampleTest extends TestCase
     //Get Post likes
 
 
+    //Check if the user liked the given Post
+    //userLikedActualPost
+
 
     //Get the number of comments from a Post
 
+    /*  ------------------------------ /Posts Tests------------------------------ */
 
+
+
+    /*  ------------------------------ User Tests------------------------------ */
+
+
+    //Get User
+
+    //updateUser
+
+    //Check if user exist (When adding a friend)
+    
+    //Check if already a friend (When adding a friend)
+
+    //Try to add friend
+
+    //Get user Id from username
+
+    //Get user friend requests
+
+    //Get user friends
+
+    //Give like to a post
+
+    //User liked actual post?
+
+    //Remove like from a post
+
+    //Delete friend
+
+    //Add new user
+
+    //Suggest users to add
+
+    /*  ------------------------------ /User Tests------------------------------ */
 
 }

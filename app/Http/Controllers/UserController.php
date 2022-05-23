@@ -73,7 +73,7 @@ class UserController extends Controller
      * @param  \App\Models\user_has_trips  $user_has_trips
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, user_has_trips $user_has_trips)
+    public function update(Request $request)
     {
         //
     }
