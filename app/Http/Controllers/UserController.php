@@ -111,4 +111,9 @@ class UserController extends Controller
         $post = $user->user_posts_relation->last();
         return $post;
     }
+
+    public function get_user_by_id(Request $request){
+        $user = User::find($request->idUser);
+        return $user;
+    }
 }

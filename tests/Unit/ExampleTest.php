@@ -123,6 +123,7 @@ class ExampleTest extends TestCase
 
     //Get the number of comments from a Post
 
+
     /*  ------------------------------ /Posts Tests------------------------------ */
 
 
@@ -130,9 +131,33 @@ class ExampleTest extends TestCase
     /*  ------------------------------ User Tests------------------------------ */
 
 
-    //Get User
+    //Get User by id
+    public function test_get_user_by_id()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/1');
+        
+        $jObj = $response->json();
+        $length = $jObj != "" ? true : false;
 
-    //updateUser
+        $this->assertTrue($length);
+    }
+
+    //Update User
+    public function test_update_user()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/1');
+        
+        $jObj = $response->json();
+        $length = $jObj != "" ? true : false;
+
+        $this->assertTrue($length);
+    }
+
+
 
     //Check if user exist (When adding a friend)
     

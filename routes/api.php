@@ -58,7 +58,6 @@ Route::post('register', [AuthController::class, 'signup']);
 Route::middleware('auth:sanctum')->group( function () {
     Route::get('/user/userId', [UserController::class, 'userId']);
 
-
     //Get posts from the selected user
     Route::get('user/{idUser}/posts', [UserController::class, 'user_posts']);
 
@@ -71,6 +70,8 @@ Route::middleware('auth:sanctum')->group( function () {
     //Get last Post from user
     Route::get('user/{idUser}/last_post', [UserController::class, 'last_post']);
 
+    //User Endpoints
+    Route::get('user/{idUser}', [UserController::class, 'get_user_by_id']);
 });
 
 
