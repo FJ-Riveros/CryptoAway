@@ -30,8 +30,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('posts', [PostController::class, 'index'])
 ->name('allPosts');
 
-//Get last Post from user
-Route::get('user/{iduser}/last_post', [UserController::class, 'last_post']);
 
 //Get Post likes
 Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);
@@ -69,6 +67,10 @@ Route::middleware('auth:sanctum')->group( function () {
 
     //Delete Post
     Route::post('posts/delete_post/', [PostController::class, 'delete_post']);
+
+    //Get last Post from user
+    Route::get('user/{idUser}/last_post', [UserController::class, 'last_post']);
+
 });
 
 

@@ -101,18 +101,17 @@ class ExampleTest extends TestCase
     }
 
     //Last Post from User 
-    // public function tet_last_post()
-    // {
+    public function test_last_post()
+    {
 
-    //     $idUser = 1;
-    //     $user = new User();
-    //     $user::find(1);
-
-    //     $response = Http::get(self::BASE_ROUTE  . 'user/'. $idUser . '/last_post');
-
-    //     $this->assertTrue($response);
-
-    // }
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/1/last_post');
+        
+        $jObj = $response->json();
+        $length = count($jObj) > 0 ? true : false;
+        $this->assertTrue($length);
+    }
 
 
     //Get Post likes

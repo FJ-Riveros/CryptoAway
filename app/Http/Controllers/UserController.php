@@ -102,4 +102,13 @@ class UserController extends Controller
 
         return $id;
     }
+
+    //Returns the last post from the user
+    public function last_post(Request $request){
+
+        $user = User::find($request->idUser);
+        
+        $post = $user->user_posts_relation->last();
+        return $post;
+    }
 }
