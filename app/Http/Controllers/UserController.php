@@ -75,7 +75,26 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        //
+        $updateUser = User::find($request->idUser);
+
+        //Only the user can modify is own information, not other users
+        if( Auth::id() != $request->idUser) return ["msg" => "Access denied, only the same user can modify his own information."]; 
+
+        $input = $request->all();
+        $updateUser->username = $input['username'];
+        $updateUser->name = $input['name'];
+        $updateUser->email = $input['email'];
+        $updateUser->avatar = $input['avatar'];
+        $updateUser->description = $input['description'];
+
+        $updateUser->save();
+
+        $updateUser = User::find($request->idUser);
+        
+        return [
+            "msg"  => "Post updated.",
+            "post" => $updateUser
+        ];
     }
 
     /**

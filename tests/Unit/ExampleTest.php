@@ -144,12 +144,12 @@ class ExampleTest extends TestCase
         $this->assertTrue($length);
     }
 
-    //Update User
+    //Update User Test
     public function test_update_user()
     {
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->get(self::BASE_ROUTE . 'api/user/1');
+        ])->put(self::BASE_ROUTE . 'api/user/update');
         
         $jObj = $response->json();
         $length = $jObj != "" ? true : false;
