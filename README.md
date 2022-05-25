@@ -2,7 +2,7 @@
 
 <div align="center">
   <a href="https://github.com/FJ-Riveros/CryptoAway">
-    <img src="img/logo.png" alt="Logo" width="250" height="250">
+    <img src="https://github.com/FJ-Riveros/CryptoAway/blob/ef4d51c836e993a15cf41d83d63caabb1d640f8b/img/logo.png" alt="Logo" width="250" height="250">
   </a>
 
 #
