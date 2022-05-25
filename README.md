@@ -169,7 +169,7 @@ The token $away will be sent to the digital `wallet` of the user (Metamask).
 <div align="center" id="flowChart">
   <h2 align="center">:chart_with_upwards_trend:Flow Charts</h2>
    
-  <img src="img/userNavigation.PNG" alt="FlowChart">
+  <img src="https://github.com/FJ-Riveros/CryptoAway/blob/ef4d51c836e993a15cf41d83d63caabb1d640f8b/img/userNavigation.PNG" alt="FlowChart">
   
   &nbsp;
   <h2 id="flowChartAdmin" align="center">Admin</h2>
