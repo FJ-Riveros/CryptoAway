@@ -232,7 +232,7 @@ D --> F{Personal Feed}
 <div id="EER" align="center">
   <h2>:open_file_folder:Database EER</h2>
    
-  <img src="img/EER.PNG" alt="EER">
+  <img src="https://github.com/FJ-Riveros/CryptoAway/blob/ef4d51c836e993a15cf41d83d63caabb1d640f8b/img/EER.PNG" alt="EER">
 
 </div>
 
