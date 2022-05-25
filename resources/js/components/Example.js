@@ -11,6 +11,8 @@ function Example() {
     // web3.eth.getAccounts().then(console.log);
 
     const [apiResponse, setApiResponse] = useState("Loading the data...");
+    const [posts, setPosts] = useState("Loading the post data...");
+
                               
     const getResponse = async () =>{
         const data = await fetch("https://arjs-cors-proxy.herokuapp.com/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4")
@@ -23,8 +25,28 @@ function Example() {
         })
     }
 
+    const getPosts = async () =>{
+        const data = await fetch('http://localhost:8000/api/user/1/last_post', { 
+            method: 'get', 
+            headers: {
+                'Authorization': 'Bearer 35|kcYSett7Q3jRtrvGwZpu0GWBIxtZhGXP1cF3BFFg', 
+            } 
+        })
+        .then(data => data.json())
+        // .then(data => console.log(data))
+
+        .then(data => {
+            // const postResponse = data.map((posts)=>{
+            //     return <p>{posts}</p>;
+            // })
+            // setPosts(postResponse);
+            console.log(data);
+        })
+    }
+
     useEffect(()=>{
-        getResponse();
+        // getResponse();
+        getPosts();
     },[])
 
     return (
@@ -38,7 +60,9 @@ function Example() {
 
                             <button onClick={()=> setCounter(counter + 1)}>Click me</button>
                             <p>{counter}</p>        
-                            {apiResponse}       
+                            {/* {apiResponse}        */}
+                            {posts}
+
                         </div>
 
                     </div>

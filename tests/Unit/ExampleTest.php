@@ -53,7 +53,7 @@ class ExampleTest extends TestCase
 
     /*  ------------------------------Posts Tests------------------------------ */
 
-    //Test that we can retrieve the tests from the user
+    //Test that we can retrieve the posts from the user
     public function test_get_posts_from_user()
     {
         $response = Http::withHeaders([

@@ -14231,6 +14231,11 @@ function Example() {
       apiResponse = _useState4[0],
       setApiResponse = _useState4[1];
 
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("Loading the post data..."),
+      _useState6 = _slicedToArray(_useState5, 2),
+      posts = _useState6[0],
+      setPosts = _useState6[1];
+
   var getResponse = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var data;
@@ -14266,8 +14271,49 @@ function Example() {
     };
   }();
 
+  var getPosts = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return fetch('http://localhost:8000/api/user/1/last_post', {
+                method: 'get',
+                headers: {
+                  'Authorization': 'Bearer 35|kcYSett7Q3jRtrvGwZpu0GWBIxtZhGXP1cF3BFFg'
+                }
+              }).then(function (data) {
+                return data.json();
+              }) // .then(data => console.log(data))
+              .then(function (data) {
+                // const postResponse = data.map((posts)=>{
+                //     return <p>{posts}</p>;
+                // })
+                // setPosts(postResponse);
+                console.log(data);
+              });
+
+            case 2:
+              data = _context2.sent;
+
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function getPosts() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    getResponse();
+    // getResponse();
+    getPosts();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     className: "container",
@@ -14289,7 +14335,7 @@ function Example() {
               children: "Click me"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
               children: counter
-            }), apiResponse]
+            }), posts]
           })]
         })
       })

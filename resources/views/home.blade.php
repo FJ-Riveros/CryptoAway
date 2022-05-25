@@ -28,7 +28,7 @@
                     // $user->addFriend($friend);
                     // $friend->addFriend($user);
 
-                    var_dump($user->friends);
+                    // var_dump($user->friends);
 
                 ?> 
             </div>
