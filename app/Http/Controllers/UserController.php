@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
+use App\Models\Friends;
 use Illuminate\Support\Facades\Auth;
-
 
 
 class UserController extends Controller
 {
-
-    
 
     /**
      * Display a listing of the resource.
@@ -131,8 +129,40 @@ class UserController extends Controller
         return $post;
     }
 
+    //Returns the user by ID
     public function get_user_by_id(Request $request){
         $user = User::find($request->idUser);
         return $user;
     }
+
+    //Returns the user when the username is given
+    public function get_user_by_username(Request $request){
+        $username = $request->username;
+        try
+        {
+            return User::firstOrFail()->where('username', $value); 
+        }
+        // catch(Exception $e) catch any exception
+        catch(ModelNotFoundException $e)
+        {
+            return "User not found.";
+        }
+    }
+     
+    //Returns boolean declaring if the user is already a friend
+      public function get_is_already_friend(Request $request){
+        try
+        {
+            $actualUserId = User::find($request->currentUserId);
+            $userToAddId = User::find($requets->userToAddId);
+            return Friends::firstOrFail()->where('', $userToAddId);
+        }
+        // catch(Exception $e) catch any exception
+        catch(ModelNotFoundException $e)
+        {
+            return false;
+        }
+    }
+
+
 }

@@ -76,6 +76,13 @@ Route::middleware('auth:sanctum')->group( function () {
     //Update User
     Route::put('user/update', [UserController::class, 'update']);
 
+    //Get user by username
+    Route::get('user/by_username/{username}', [UserController::class, 'get_user_by_username']);
+
+    //Is the user already a friend?
+    Route::get('user/is_friend/{currentUserId}/{userToAddId}', [UserController::class, 'get_is_already_friend']);
+    
+
 });
 
 

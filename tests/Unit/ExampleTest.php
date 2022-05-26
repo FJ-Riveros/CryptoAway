@@ -158,14 +158,45 @@ class ExampleTest extends TestCase
     }
 
 
-
     //Check if user exist (When adding a friend)
+    //Need to compile
+
+    public function test_get_user_by_username()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/by_username/juan');
+        
+        $jObj = $response->json();
+        $success = is_arra($jObj) ? true : false;
+
+        $this->assertTrue($success);
+    }
     
+
     //Check if already a friend (When adding a friend)
+    public function test_is_friend()
+    {
+
+        $currentUser = 1;
+        $userToAdd = 2;
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/user/is_friend/{currentUserId}/{userToAddId}');
+        
+        $jObj = $response->json();
+        $success = is_arra($jObj) ? true : false;
+
+        $this->assertTrue($success);
+
+    }
+    
+
 
     //Try to add friend
 
-    //Get user Id from username
+    //Get user Id from username (Maybe not necessary)
 
     //Get user friend requests
 
