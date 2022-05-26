@@ -81,6 +81,9 @@ Route::middleware('auth:sanctum')->group( function () {
 
     //Is the user already a friend?
     Route::get('user/is_friend/{currentUserId}/{userToAddId}', [UserController::class, 'get_is_already_friend']);
+
+    //Send friend Request
+    Route::post('user/send_friend_request', [UserController::class, 'send_friend_request']);
     
 
 });

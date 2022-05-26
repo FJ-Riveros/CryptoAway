@@ -156,8 +156,11 @@ class UserController extends Controller
       public function get_is_already_friend(Request $request){
         try
         {
-            $actualUserId = User::find($request->currentUserId) ?? "";
-            $userToAddId = User::find($request->userToAddId) ?? "";
+            $actualUserId = User::find($request->currentUserId);
+            $userToAddId = User::find($request->userToAddId);
+
+            if(is_null($actualUserId) || is_null($userToAddId)) return "Non existent User";
+
             Friends::where([
                 'id_user'     => $actualUserId->id,
                 'id_friend'   => $userToAddId->id,
@@ -171,7 +174,7 @@ class UserController extends Controller
         }
         catch(Exception $e)
         {
-            return false;
+            return "There was an error";
         }
     }
 
@@ -179,21 +182,24 @@ class UserController extends Controller
     public function send_friend_request(Request $request){
         try
         {
-            $actualUserId = User::find($request->actualUser);
-            $userToAddId = User::find($requets->userToAdd);
+            $actualUser = User::find($request->actualUser);
+            $userToAdd = User::find($request->userToAdd);
+
+            if(is_null($actualUser) || is_null($userToAdd)) return "Non existent User";
             
-            $user->addFriend($friend);
-            $friend->addFriend($user);
-
-
+            $actualUser->addFriend($userToAdd);
             return true;
         }
         // catch(Exception $e) catch any exception
-        catch(ModelNotFoundException $e)
+        catch(Exception $e)
         {
-            return false;
+            return "There was an error";
         }
     }
+
+
+
+
 
 
 }

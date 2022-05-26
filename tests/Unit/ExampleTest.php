@@ -118,6 +118,7 @@ class ExampleTest extends TestCase
 
 
     //Check if the user liked the given Post
+
     //userLikedActualPost
 
 
@@ -165,11 +166,10 @@ class ExampleTest extends TestCase
     {
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->get(self::BASE_ROUTE . 'api/user/by_username/juan');
+        ])->get(self::BASE_ROUTE . 'api/user/by_username/try');
         
         $jObj = $response->json();
-        $success = is_arra($jObj) ? true : false;
-
+        $success = is_array($jObj) ? true : false;
         $this->assertTrue($success);
     }
     
@@ -183,27 +183,28 @@ class ExampleTest extends TestCase
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->get(self::BASE_ROUTE . 'api/user/is_friend/{currentUserId}/{userToAddId}');
+        ])->get(self::BASE_ROUTE . 'api/user/is_friend/1/2');
         
         $jObj = $response->json();
-        $this->assertTrue($jObj);
+        $this->assertTrue(is_int($jObj));
     }
     
     //Try to add friend
     public function test_send_friend_request()
     {
-        $currentUser = 1;
-        $userToAdd = 2;
+        $currentUser = 3;
+        $userToAdd = 4;
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
         ])->post(self::BASE_ROUTE . 'api/user/send_friend_request', [
             'actualUser'  => $currentUser,
-            'userToadd'   => $userToAdd
+            'userToAdd'   => $userToAdd
         ]);
         
         $jObj = $response->json();
-        $this->assertTrue($jObj);
+
+        $this->assertTrue(is_int($jObj));
     }
 
 

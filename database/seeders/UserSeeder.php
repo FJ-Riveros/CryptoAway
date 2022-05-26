@@ -40,6 +40,30 @@ class UserSeeder extends Seeder
             'description'     => 'fran',
         ]);
 
+        \App\Models\User::create([
+            'username'        => 'prueba2',
+            'name'            => 'luke',
+            'surname'         => 'luk',
+            'email'           => 'test2@gmail.com',
+            'points'          => 0,
+            'password'        => bcrypt('123'),
+            'metamaskAddress' => 'tes2',
+            'avatar'          => 'none',
+            'description'     => 'test2',
+        ]);
+
+        \App\Models\User::create([
+            'username'        => 'prueba3',
+            'name'            => 'caitlyn',
+            'surname'         => 'cait',
+            'email'           => 'test3@gmail.com',
+            'points'          => 0,
+            'password'        => bcrypt('123'),
+            'metamaskAddress' => 'cait',
+            'avatar'          => 'none',
+            'description'     => 'cait',
+        ]);
+
         // User-DB::table('users')->insert([
         //     'name' => Str::random(10),
         //     'email' => Str::random(10).'@gmail.com',
