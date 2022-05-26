@@ -190,6 +190,7 @@ class ExampleTest extends TestCase
     }
     
     //Try to add friend
+    //Create delete friend to reset the db for each test
     public function test_send_friend_request()
     {
         $currentUser = 3;
@@ -205,14 +206,40 @@ class ExampleTest extends TestCase
         $jObj = $response->json();
 
         $this->assertTrue(is_int($jObj));
+
+        //Delete friend afterwards to reset the tests
     }
 
 
-    //Get user Id from username (Maybe not necessary)
+    //Get user Id from username (Maybe not necessary, because already have the User object to retrieve)
 
     //Get user friend requests
+    public function test_get_friend_requests()
+    {
+        $currentUser = 2;
+    
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/get_friend_requests/' . $currentUser);
+        
+        $jObj = $response->json();
+
+        $this->assertTrue(is_array($jObj));
+    }   
 
     //Get user friends
+    public function test_get_friends()
+    {
+        $currentUser = 1;
+    
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/get_friends/' . $currentUser);
+        
+        $jObj = $response->json();
+
+        $this->assertTrue(count($jObj) > 0);
+    }
 
     //Give like to a post
 

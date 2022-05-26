@@ -197,6 +197,53 @@ class UserController extends Controller
         }
     }
 
+    //Send a friend Request
+    public function get_friend_requests(Request $request){
+        try
+        {
+            $actualUser = User::find($request->userId);
+
+            $userPetitions = [];
+
+            if(is_null($actualUser)) return "Non existent User";
+            $query =  Friends::where([
+                'id_friend'     => $actualUser->id,
+                'actualRequest' => 1,
+            ])->get();                
+            
+            foreach($query as $user){
+                $userPetitions[] = User::find($user->id_user);
+            }
+
+            return $userPetitions;
+            
+        }
+        // catch(Exception $e) catch any exception
+        catch(Exception $e)
+        {
+            return "There was an error";
+        }
+    }
+
+    //Get friend from an user
+    public function get_friends(Request $request){
+        try
+        {
+            $actualUser = User::find($request->userId);
+
+            
+            if(is_null($actualUser)) return "Non existent User";
+                            
+            return $actualUser->friends;
+            
+        }
+        // catch(Exception $e) catch any exception
+        catch(Exception $e)
+        {
+            return "There was an error";
+        }
+    }
+
 
 
 
