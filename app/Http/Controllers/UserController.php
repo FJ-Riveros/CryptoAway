@@ -140,7 +140,7 @@ class UserController extends Controller
         $username = $request->username;
         try
         {
-            return User::firstOrFail()->where('username', $value); 
+            return User::where('username', $username)->firstOrFail(); 
         }
         // catch(Exception $e) catch any exception
         catch(ModelNotFoundException $e)
@@ -149,31 +149,33 @@ class UserController extends Controller
         }
     }
      
-    //Returns boolean declaring if the user is already a friend
-    //Test, need to compile
-    //The best way to approach this is adding the 2 users at the same time
-    //when one of the two tries to send a friend request, but keeping the 
-    //actualRequest at 1.
+    //Returns boolean declaring if the user is already a friend or a friend petition is already pending
+    //The best way to approach this is adding the only one entry per relation
+    //when one of the two tries to send a friend request, search by the users id inverting the fields 
+    //This means that if the query returns true, either the users are already friends or a friend request is pending
       public function get_is_already_friend(Request $request){
         try
         {
-            $actualUserId = User::find($request->currentUserId);
-            $userToAddId = User::find($requets->userToAddId);
+            $actualUserId = User::find($request->currentUserId) ?? "";
+            $userToAddId = User::find($request->userToAddId) ?? "";
             Friends::where([
                 'id_user'     => $actualUserId->id,
                 'id_friend'   => $userToAddId->id,
-            ])->firstOrFail();
+            ])
+            ->orWhere([
+                'id_user'     => $userToAddId->id,
+                'id_friend'   => $actualUserId->id,
+            ])
+            ->firstOrFail();
             return true;
         }
-        // catch(Exception $e) catch any exception
-        catch(ModelNotFoundException $e)
+        catch(Exception $e)
         {
             return false;
         }
     }
 
     //Send a friend Request
-    //Think the best way to transition from friend request to actual friend
     public function send_friend_request(Request $request){
         try
         {
