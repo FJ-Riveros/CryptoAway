@@ -62,7 +62,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('user/{idUser}/posts', [UserController::class, 'user_posts']);
 
     //Add Post
-    Route::post('posts/create_post', [PostController::class, 'create_post']);
+    Route::post('posts/create_post', [PostController::class, 'store']);
 
     //Delete Post
     Route::post('posts/delete_post/', [PostController::class, 'delete_post']);
@@ -88,9 +88,11 @@ Route::middleware('auth:sanctum')->group( function () {
     //Get friend requests
     Route::get('user/get_friend_requests/{userId}', [UserController::class, 'get_friend_requests']);
     
-    
     //Get friends
     Route::get('user/get_friends/{userId}', [UserController::class, 'get_friends']);
+    
+    //Like a post
+    Route::get('user/like_post/{userId}/{postId}', [UserController::class, 'like_post']);
     
 
 });

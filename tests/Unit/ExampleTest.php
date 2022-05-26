@@ -210,9 +210,6 @@ class ExampleTest extends TestCase
         //Delete friend afterwards to reset the tests
     }
 
-
-    //Get user Id from username (Maybe not necessary, because already have the User object to retrieve)
-
     //Get user friend requests
     public function test_get_friend_requests()
     {
@@ -242,6 +239,20 @@ class ExampleTest extends TestCase
     }
 
     //Give like to a post
+    //Modify, not ready
+    public function test_like_post()
+    {
+        // $currentUser = 1;
+    
+        // $response = Http::withHeaders([
+        //     'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        // ])->get(self::BASE_ROUTE . 'api/user/get_friends/' . $currentUser);
+        
+        // $jObj = $response->json();
+
+        // $this->assertTrue(count($jObj) > 0);
+    }
+
 
     //User liked actual post?
 

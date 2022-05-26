@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
+use App\Models\Likes;
+
 
 class Post extends Model
 {
@@ -34,14 +36,8 @@ class Post extends Model
         return $this->belongsTo(User::class , 'user_idUser');
     }
 
-    
-    // public function getPostData()
-	// {
-	// 	return $this->surname . ' ' . $this->name;
-	// }
+    public function post_likes_relation(){
+        return $this->hasMany(User::class, 'Post_idPost');
+    }
 
-	// public function friends()
-	// {
-	// 	return $this->belongsToMany(User::class, 'friends', 'id_user', 'id_friend');
-	// }
 }

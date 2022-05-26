@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Likes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
@@ -46,7 +47,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Retrieve the currently authenticated user...
+        $user = Auth::user();
+        //Create the new Post
+        $newPost = new Post([
+                'imgPost'  => $request->imgPost,
+                'textPost' => $request->textPost,
+        ]);
+        
+        //Save the new Post
+        $insert =  $user->user_posts_relation()->save($newPost);
+        return $insert->first() ? true : false;
     }
 
     /**
@@ -95,21 +106,21 @@ class PostController extends Controller
     }
 
     //Create a new Post from the current user
-    public function create_post(Request $request){
-         // Retrieve the currently authenticated user...
-        $user = Auth::user();
+    // public function create_post(Request $request){
+    //      // Retrieve the currently authenticated user...
+    //     $user = Auth::user();
 
-        //Create the new Post
-        $newPost = new Post([
-                'imgPost'  => $request->imgPost,
-                'textPost' => $request->textPost,
-        ]);
+    //     //Create the new Post
+    //     $newPost = new Post([
+    //             'imgPost'  => $request->imgPost,
+    //             'textPost' => $request->textPost,
+    //     ]);
         
-        //Save the new Post
-        $insert =  $user->user_posts_relation()->save($newPost);
+    //     //Save the new Post
+    //     $insert =  $user->user_posts_relation()->save($newPost);
 
-        return $insert->first() ? true : false;        
-    }
+    //     return $insert->first() ? true : false;        
+    // }
 
     //Create a new Post from the current user
     public function delete_post(Request $request){
@@ -126,6 +137,21 @@ class PostController extends Controller
         }
 
         return false;
+    }
+
+    public function create_like_post(Request $request){
+
+        //Retrieve the currently authenticated user...
+        $user = User::find($request->idUser);
+
+        $postId = Post::find($request->idPost);
+
+        //Create the new Like
+        $newLike = new Likes();
+
+        //Save the new Post
+        $insert =  $user->user_posts_relation()->save($newPost);
+        return $insert->first() ? true : false;
     }
 
 }

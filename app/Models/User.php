@@ -11,6 +11,8 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Post;
+use App\Models\Likes;
+
 
 class User extends Model implements AuthenticatableContract
 {
@@ -75,6 +77,10 @@ class User extends Model implements AuthenticatableContract
 
     public function user_posts_relation(){
         return $this->hasMany(Post::class, 'user_idUser');
+    }
+
+    public function user_likes_relation(){
+        return $this->hasMany(Posts::class, 'user_idUser');
     }
 
     // public function posts_relation(){
