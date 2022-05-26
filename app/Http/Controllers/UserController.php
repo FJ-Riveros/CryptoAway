@@ -150,12 +150,20 @@ class UserController extends Controller
     }
      
     //Returns boolean declaring if the user is already a friend
+    //Test, need to compile
+    //The best way to approach this is adding the 2 users at the same time
+    //when one of the two tries to send a friend request, but keeping the 
+    //actualRequest at 1.
       public function get_is_already_friend(Request $request){
         try
         {
             $actualUserId = User::find($request->currentUserId);
             $userToAddId = User::find($requets->userToAddId);
-            return Friends::firstOrFail()->where('', $userToAddId);
+            Friends::where([
+                'id_user'     => $actualUserId->id,
+                'id_friend'   => $userToAddId->id,
+            ])->firstOrFail();
+            return true;
         }
         // catch(Exception $e) catch any exception
         catch(ModelNotFoundException $e)

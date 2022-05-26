@@ -186,13 +186,9 @@ class ExampleTest extends TestCase
         ])->post(self::BASE_ROUTE . 'api/user/is_friend/{currentUserId}/{userToAddId}');
         
         $jObj = $response->json();
-        $success = is_arra($jObj) ? true : false;
-
-        $this->assertTrue($success);
-
+        $this->assertTrue($jObj);
     }
     
-
 
     //Try to add friend
 
