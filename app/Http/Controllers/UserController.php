@@ -172,5 +172,26 @@ class UserController extends Controller
         }
     }
 
+    //Send a friend Request
+    //Think the best way to transition from friend request to actual friend
+    public function send_friend_request(Request $request){
+        try
+        {
+            $actualUserId = User::find($request->actualUser);
+            $userToAddId = User::find($requets->userToAdd);
+            
+            $user->addFriend($friend);
+            $friend->addFriend($user);
+
+
+            return true;
+        }
+        // catch(Exception $e) catch any exception
+        catch(ModelNotFoundException $e)
+        {
+            return false;
+        }
+    }
+
 
 }

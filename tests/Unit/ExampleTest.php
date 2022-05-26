@@ -183,14 +183,29 @@ class ExampleTest extends TestCase
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->post(self::BASE_ROUTE . 'api/user/is_friend/{currentUserId}/{userToAddId}');
+        ])->get(self::BASE_ROUTE . 'api/user/is_friend/{currentUserId}/{userToAddId}');
         
         $jObj = $response->json();
         $this->assertTrue($jObj);
     }
     
-
     //Try to add friend
+    public function test_send_friend_request()
+    {
+        $currentUser = 1;
+        $userToAdd = 2;
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/user/send_friend_request', [
+            'actualUser'  => $currentUser,
+            'userToadd'   => $userToAdd
+        ]);
+        
+        $jObj = $response->json();
+        $this->assertTrue($jObj);
+    }
+
 
     //Get user Id from username (Maybe not necessary)
 
