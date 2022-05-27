@@ -80,10 +80,12 @@ class User extends Model implements AuthenticatableContract
     }
 
     public function user_likes_relation(){
-        return $this->hasMany(Posts::class, 'user_idUser');
+        return $this->belongsToMany(Post::class, 'likes', 'user_idUser', 'Post_idPost')->withTimestamps();
     }
 
-    // public function posts_relation(){
-    //     return $this->hasMany(Post::class, 'user_idUser');
-    // }
+    //Get the post id and attach it to the user to create the like
+    public function createLike(Post $post){
+        $this->user_likes_relation()->attach($post->id);        
+    }
+
 }

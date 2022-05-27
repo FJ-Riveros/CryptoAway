@@ -22,6 +22,9 @@ class ExampleTest extends TestCase
         var_dump($jObj);
         ob_flush();
 
+
+        //Used to include the timestamps in the querys
+        ->withTimestamps()
     */
     const BASE_ROUTE = "http://localhost:8000/";
 

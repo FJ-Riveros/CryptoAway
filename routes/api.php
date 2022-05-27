@@ -92,7 +92,7 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::get('user/get_friends/{userId}', [UserController::class, 'get_friends']);
     
     //Like a post
-    Route::get('user/like_post/{userId}/{postId}', [UserController::class, 'like_post']);
+    Route::post('user/like_post', [UserController::class, 'like_post']);
     
 
 });

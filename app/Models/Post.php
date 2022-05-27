@@ -37,7 +37,7 @@ class Post extends Model
     }
 
     public function post_likes_relation(){
-        return $this->hasMany(User::class, 'Post_idPost');
+        return $this->belongsToMany(User::class, 'likes', 'Post_idPost', 'user_idUser');
     }
 
 }

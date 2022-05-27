@@ -249,13 +249,17 @@ class UserController extends Controller
     public function like_post(Request $request){
         try
         {
-            // $actualUser = User::find($request->userId);
+            $actualUser = User::find($request->userId);
 
+            $postToLike = Post::find($request->postId);
             
-            // if(is_null($actualUser)) return "Non existent User";
-                            
-            // return $actualUser->friends;
+            if(is_null($actualUser)) return "Non existent User";
             
+            if(is_null($postToLike)) return "Non existent Post";
+
+            $actualUser->createLike($postToLike);
+
+            return "Successful";
         }
         // catch(Exception $e) catch any exception
         catch(Exception $e)
