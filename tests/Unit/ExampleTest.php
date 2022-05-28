@@ -320,15 +320,15 @@ class ExampleTest extends TestCase
     }
     
 
-    //Decline friend request
-    public function test_decline_friend_request()
+    //Decline friend request or delete a friend
+    public function test_remove_friend()
     {
         $testUser = 1;
         $testDeclineUser = 2;
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN_SECOND'],
-        ])->post(self::BASE_ROUTE . 'api/user/decline_friend_request', [
+        ])->post(self::BASE_ROUTE . 'api/user/remove_friend', [
             'originalRequestSender' => $testUser,
             'userAcceptRequestId'   => $testDeclineUser
         ]);
@@ -337,8 +337,6 @@ class ExampleTest extends TestCase
 
         $this->assertTrue($jObj["response"] == true);
     }
-
-    //Delete friend
 
     //Add new user
 

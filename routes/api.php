@@ -104,11 +104,9 @@ Route::middleware('auth:sanctum')->group( function () {
     Route::post('user/accept_friend_request', [UserController::class, 'accept_friend_request']);
     
     //Decline friend request
-    Route::post('user/decline_friend_request', [UserController::class, 'decline_friend_request']);
+    Route::post('user/remove_friend', [UserController::class, 'remove_friend']);
     
 
-
-    
 });
 
 

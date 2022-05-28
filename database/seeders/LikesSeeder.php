@@ -14,9 +14,9 @@ class LikesSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Likes::create([
-            'Post_idPost'     => '1',
-            'user_idUser'     => '2',
-        ]);
+        // \App\Models\Likes::create([
+        //     'Post_idPost'     => '1',
+        //     'user_idUser'     => '2',
+        // ]);
     }
 }

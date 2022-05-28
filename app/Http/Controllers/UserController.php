@@ -343,7 +343,7 @@ class UserController extends Controller
     }
 
     //Decline a friend request previously made
-    public function decline_friend_request(Request $request)
+    public function remove_friend(Request $request)
     {
         $originalRequestSender = User::find($request->originalRequestSender);
         $userAcceptRequestId = User::find($request->userAcceptRequestId);
@@ -359,7 +359,7 @@ class UserController extends Controller
         $updateResponse = $friend_relation->delete(); 
         
         return [
-            "msg"       => "Friend request declined.",
+            "msg"       => "Friend request or friend deleted.",
             "response"  => $updateResponse,
         ];
     }
