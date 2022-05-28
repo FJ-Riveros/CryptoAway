@@ -276,9 +276,28 @@ class ExampleTest extends TestCase
         $this->assertTrue(is_int($jObj));
     }
 
-
-
     //Remove like from a post
+
+    
+    //Give like to a post
+    public function test_remove_like()
+    {
+        $testUser = 1;
+        $testPost = 1;
+    
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/user/remove_like', [
+            'userId'  => $testUser,
+            'postId'   => $testPost
+        ]);
+        
+        $jObj = $response->json();
+
+        $this->assertTrue(is_int($jObj));
+
+    }
+
 
     //Accept friend request
 

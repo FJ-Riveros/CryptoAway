@@ -87,5 +87,10 @@ class User extends Model implements AuthenticatableContract
     public function createLike(Post $post){
         $this->user_likes_relation()->attach($post->id);        
     }
+    
+    //Remove the like from a post
+    public function removeLike(Post $post){
+        $this->user_likes_relation()->detach($post->id);        
+    }
 
 }

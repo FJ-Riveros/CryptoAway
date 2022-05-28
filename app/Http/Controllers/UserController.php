@@ -232,7 +232,6 @@ class UserController extends Controller
         {
             $actualUser = User::find($request->userId);
 
-            
             if(is_null($actualUser)) return "Non existent User";
                             
             return $actualUser->friends;
@@ -288,6 +287,31 @@ class UserController extends Controller
         ])->get();
 
         if(count($query) != 0 ) return true;
+
+        return false;
+    }
+
+    //Remove like from a post
+    //Returns true if the like was removed, false otherwise
+    public function remove_like(Request $request){
+
+        $actualUser = User::find($request->userId);
+
+        $postToRemoveLike = Post::find($request->postId);
+        
+        if(is_null($actualUser)) return "Non existent User";
+        
+        if(is_null($postToRemoveLike )) return "Non existent Post";
+
+        //Remove of the like
+        $actualUser->removeLike($postToRemoveLike);
+
+        $query =  Likes::where([
+            'Post_idPost'   => $postToRemoveLike->id,
+            'user_idUser'   => $actualUser->id,
+        ])->get();
+        
+        if(count($query) == 0 ) return true;
 
         return false;
     }
