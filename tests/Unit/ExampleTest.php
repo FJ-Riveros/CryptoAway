@@ -339,9 +339,36 @@ class ExampleTest extends TestCase
     }
 
     //Add new user
+    public function test_register_user()
+    {
+
+        $response = Http::post(self::BASE_ROUTE . 'api/register', [
+            "username"          => "newUser",
+            "name"              => "test",
+            "surname"           => "user",
+            "email"             => "test4@gmail.com",
+            "password"          => "123",
+            "confirm_password"  => "123",
+            "points"            => 0,
+            "metamaskAddress"   => "prueba",
+            "avatar"            => "none",
+            "description"       => "none",
+        ]);
+
+        $jObj = $response->json();
+
+        $this->assertTrue($jObj["success"] == true);
+    }
 
     //Suggest users to add
+    public function test_suggest_friends()
+    {
 
+        
+        $jObj = $response->json();
+
+        $this->assertTrue($jObj["success"] == true);
+    }
     /*  ------------------------------ /User Tests------------------------------ */
 
 }

@@ -32,6 +32,10 @@ class AuthController extends BaseController
             'email' => 'required|email',
             'password' => 'required',
             'confirm_password' => 'required|same:password',
+            'surname' => 'required',
+            'confirm_password' => 'required|same:password',
+            'avatar' => 'nullable',
+            'description' => 'required',
         ]);
    
         if($validator->fails()){
