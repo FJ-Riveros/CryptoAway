@@ -38,7 +38,15 @@ class ExampleTest extends TestCase
         ]);
 
         $bearer_token = $login->json()["data"]["token"];
-        $GLOBALS['TEST_BEARER_TOKEN'] = $bearer_token;   
+        $GLOBALS['TEST_BEARER_TOKEN'] = $bearer_token;  
+        
+        $loginSecondTestAccount = Http::post(self::BASE_ROUTE . 'api/login', [
+            'email'    => 'fran@gmail.com',
+            'password' => '123'
+        ]);
+
+        $bearer_token_second = $loginSecondTestAccount->json()["data"]["token"];
+        $GLOBALS['TEST_BEARER_TOKEN_SECOND'] = $bearer_token_second;  
     }
 
     
@@ -119,11 +127,7 @@ class ExampleTest extends TestCase
 
     //Get Post likes
 
-
     //Check if the user liked the given Post
-
-    //userLikedActualPost
-
 
     //Get the number of comments from a Post
 
@@ -133,7 +137,6 @@ class ExampleTest extends TestCase
 
 
     /*  ------------------------------ User Tests------------------------------ */
-
 
     //Get User by id
     public function test_get_user_by_id()
@@ -177,27 +180,13 @@ class ExampleTest extends TestCase
     }
     
 
-    //Check if already a friend (When adding a friend)
-    public function test_is_friend()
-    {
-
-        $currentUser = 1;
-        $userToAdd = 2;
-
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->get(self::BASE_ROUTE . 'api/user/is_friend/1/2');
-        
-        $jObj = $response->json();
-        $this->assertTrue(is_int($jObj));
-    }
     
     //Try to add friend
     //Create delete friend to reset the db for each test
     public function test_send_friend_request()
     {
-        $currentUser = 3;
-        $userToAdd = 4;
+        $currentUser = 1;
+        $userToAdd = 2;
 
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
@@ -209,8 +198,6 @@ class ExampleTest extends TestCase
         $jObj = $response->json();
 
         $this->assertTrue(is_int($jObj));
-
-        //Delete friend afterwards to reset the tests
     }
 
     //Get user friend requests
@@ -302,11 +289,11 @@ class ExampleTest extends TestCase
     //Accept friend request
     public function test_accept_friend_request()
     {
-        $testUser = 2;
-        $testAcceptUser = 1;
+        $testUser = 1;
+        $testAcceptUser = 2;
     
         $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN_SECOND'],
         ])->post(self::BASE_ROUTE . 'api/user/accept_friend_request', [
             'originalRequestSender' => $testUser,
             'userAcceptRequestId'   => $testAcceptUser
@@ -317,7 +304,39 @@ class ExampleTest extends TestCase
         $this->assertTrue(is_int($jObj["response"]));
     }
 
-    //Delete friend request
+    //Check if already a friend (When adding a friend)
+    public function test_is_friend()
+    {
+
+        $currentUser = 1;
+        $userToAdd = 2;
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/is_friend/1/2');
+        
+        $jObj = $response->json();
+        $this->assertTrue(is_int($jObj));
+    }
+    
+
+    //Decline friend request
+    public function test_decline_friend_request()
+    {
+        $testUser = 1;
+        $testDeclineUser = 2;
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN_SECOND'],
+        ])->post(self::BASE_ROUTE . 'api/user/decline_friend_request', [
+            'originalRequestSender' => $testUser,
+            'userAcceptRequestId'   => $testDeclineUser
+        ]);
+
+        $jObj = $response->json();
+
+        $this->assertTrue($jObj["response"] == true);
+    }
 
     //Delete friend
 

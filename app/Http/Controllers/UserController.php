@@ -187,6 +187,7 @@ class UserController extends Controller
             $userToAdd = User::find($request->userToAdd);
 
             if(is_null($actualUser) || is_null($userToAdd)) return "Non existent User";
+            if( Auth::id() != $actualUser->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
             
             $actualUser->addFriend($userToAdd);
             return true;
@@ -341,4 +342,26 @@ class UserController extends Controller
         ];
     }
 
+    //Decline a friend request previously made
+    public function decline_friend_request(Request $request)
+    {
+        $originalRequestSender = User::find($request->originalRequestSender);
+        $userAcceptRequestId = User::find($request->userAcceptRequestId);
+
+        //Only the user can decline is own request, not other users
+        if( Auth::id() != $userAcceptRequestId->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
+
+        $friend_relation = Friends::where([
+            'id_friend'   => $userAcceptRequestId->id,
+            'id_user'   => $originalRequestSender->id,
+        ]);
+
+        $updateResponse = $friend_relation->delete(); 
+        
+        return [
+            "msg"       => "Friend request declined.",
+            "response"  => $updateResponse,
+        ];
+    }
+    
 }
