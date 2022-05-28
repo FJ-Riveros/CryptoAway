@@ -110,10 +110,10 @@
     - [x] ~~**Separate server for DB and Web**~~
     - [x] ~~**Responsive**~~
     - [x] ~~**Implement React Components**~~
-    - [x] **Protect endpoints**
+    - [x] ~~**Protect endpoints**~~
     - [ ] **Async calls**
-    - [x] **MVC**
-    - [x] **Create the Rest API in Laravel**
+    - [x] ~~**MVC**~~
+    - [x] ~~**Create the Rest API in Laravel**~~
     - [ ] **Domain name**
     - [ ] **Drag and drop**
     
