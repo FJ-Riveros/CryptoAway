@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Post;
 use App\Models\Friends;
+use App\Models\Likes;
 use Illuminate\Support\Facades\Auth;
 
 
@@ -225,7 +226,7 @@ class UserController extends Controller
         }
     }
 
-    //Get friend from an user
+    //Get friends from an user
     public function get_friends(Request $request){
         try
         {
@@ -269,8 +270,27 @@ class UserController extends Controller
     }
 
 
+    //User liked post?
+    //Returns true if the liked the post, false otherwise
+    public function check_if_user_liked_post(Request $request){
 
+        $actualUser = User::find($request->userId);
 
+        $postToLike = Post::find($request->postId);
+        
+        if(is_null($actualUser)) return "Non existent User";
+        
+        if(is_null($postToLike)) return "Non existent Post";
+
+        $query =  Likes::where([
+            'Post_idPost'   => $postToLike->id,
+            'user_idUser'   => $actualUser->id,
+        ])->get();
+
+        if(count($query) != 0 ) return true;
+
+        return false;
+    }
 
 
 }

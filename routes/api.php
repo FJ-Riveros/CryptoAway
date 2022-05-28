@@ -94,6 +94,9 @@ Route::middleware('auth:sanctum')->group( function () {
     //Like a post
     Route::post('user/like_post', [UserController::class, 'like_post']);
     
+    //User liked post?
+    Route::get('user/already_liked_post/{userId}/{postId}', [UserController::class, 'check_if_user_liked_post']);
+    
 
 });
 

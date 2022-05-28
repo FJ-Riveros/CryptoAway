@@ -257,12 +257,32 @@ class ExampleTest extends TestCase
         $jObj = $response->json();
 
         $this->assertTrue(is_array($jObj));
+
+        //Make sure to delete this like later on .
+    }
+
+    //User liked actual post?
+    public function test_user_already_liked_post()
+    {
+        $testUser = 1;
+        $testPost = 1;
+    
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/already_liked_post/' . $testUser . '/'. $testPost);
+        
+        $jObj = $response->json();
+
+        $this->assertTrue(is_int($jObj));
     }
 
 
-    //User liked actual post?
 
     //Remove like from a post
+
+    //Accept friend request
+
+    //Delete friend request
 
     //Delete friend
 
