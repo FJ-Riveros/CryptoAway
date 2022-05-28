@@ -245,7 +245,6 @@ class UserController extends Controller
     }
 
     //Like a post
-    //Finish
     public function like_post(Request $request){
         try
         {
@@ -259,7 +258,8 @@ class UserController extends Controller
 
             $actualUser->createLike($postToLike);
 
-            return "Successful";
+            return $actualUser->user_likes_relation;
+
         }
         // catch(Exception $e) catch any exception
         catch(Exception $e)

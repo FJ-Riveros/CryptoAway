@@ -242,18 +242,21 @@ class ExampleTest extends TestCase
     }
 
     //Give like to a post
-    //Modify, not ready
     public function test_like_post()
     {
-        // $currentUser = 1;
+        $testUser = 1;
+        $testPost = 1;
     
-        // $response = Http::withHeaders([
-        //     'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        // ])->get(self::BASE_ROUTE . 'api/user/get_friends/' . $currentUser);
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/user/like_post', [
+            'userId'  => $testUser,
+            'postId'   => $testPost
+        ]);
         
-        // $jObj = $response->json();
+        $jObj = $response->json();
 
-        // $this->assertTrue(count($jObj) > 0);
+        $this->assertTrue(is_array($jObj));
     }
 
 
