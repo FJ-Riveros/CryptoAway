@@ -317,4 +317,28 @@ class UserController extends Controller
     }
 
 
+    //Accept a friend request previously made
+    public function accept_friend_request(Request $request)
+    {
+        $originalRequestSender = User::find($request->originalRequestSender);
+        $userAcceptRequestId = User::find($request->userAcceptRequestId);
+
+        //Only the user can accept is own request, not other users
+        if( Auth::id() != $userAcceptRequestId->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
+
+        $friend_relation = Friends::where([
+            'id_friend'   => $userAcceptRequestId->id,
+            'id_user'   => $originalRequestSender->id,
+        ]);
+
+        $updateResponse = $friend_relation->update(['actualRequest' => 0]); 
+        
+        return [
+            "msg"       => "Friend request accepted.",
+            "data"      => $friend_relation->first(),
+            "response"  => $updateResponse,
+
+        ];
+    }
+
 }

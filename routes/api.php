@@ -97,12 +97,18 @@ Route::middleware('auth:sanctum')->group( function () {
     //User liked post?
     Route::get('user/already_liked_post/{userId}/{postId}', [UserController::class, 'check_if_user_liked_post']);
     
-    
     //User liked post?
     Route::post('user/remove_like', [UserController::class, 'remove_like']);
     
+    //Accept friend request
+    Route::post('user/accept_friend_request', [UserController::class, 'accept_friend_request']);
+    
+    //Decline friend request
+    Route::post('user/decline_friend_request', [UserController::class, 'decline_friend_request']);
+    
 
 
+    
 });
 
 

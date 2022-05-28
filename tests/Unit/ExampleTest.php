@@ -300,6 +300,22 @@ class ExampleTest extends TestCase
 
 
     //Accept friend request
+    public function test_accept_friend_request()
+    {
+        $testUser = 2;
+        $testAcceptUser = 1;
+    
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->post(self::BASE_ROUTE . 'api/user/accept_friend_request', [
+            'originalRequestSender' => $testUser,
+            'userAcceptRequestId'   => $testAcceptUser
+        ]);
+        
+        $jObj = $response->json();
+
+        $this->assertTrue(is_int($jObj["response"]));
+    }
 
     //Delete friend request
 
