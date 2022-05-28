@@ -81,7 +81,7 @@
     - [x] ~~**Profile**~~
     - [x] ~~**Trip section**~~
     - [x] ~~**Register**~~
-    - [ ] **Landing**
+    - [x] **Landing**
     - [ ] **Admin**
     - [ ] **Specific for each trip**
    
@@ -110,10 +110,10 @@
     - [x] ~~**Separate server for DB and Web**~~
     - [x] ~~**Responsive**~~
     - [x] ~~**Implement React Components**~~
-    - [ ] **Protect endpoints**
+    - [x] **Protect endpoints**
     - [ ] **Async calls**
-    - [ ] **MVC**
-    - [ ] **Create the Rest API in PHP**
+    - [x] **MVC**
+    - [x] **Create the Rest API in Laravel**
     - [ ] **Domain name**
     - [ ] **Drag and drop**
     
