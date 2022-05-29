@@ -106,23 +106,6 @@ class PostController extends Controller
     }
 
     //Create a new Post from the current user
-    // public function create_post(Request $request){
-    //      // Retrieve the currently authenticated user...
-    //     $user = Auth::user();
-
-    //     //Create the new Post
-    //     $newPost = new Post([
-    //             'imgPost'  => $request->imgPost,
-    //             'textPost' => $request->textPost,
-    //     ]);
-        
-    //     //Save the new Post
-    //     $insert =  $user->user_posts_relation()->save($newPost);
-
-    //     return $insert->first() ? true : false;        
-    // }
-
-    //Create a new Post from the current user
     public function delete_post(Request $request){
 
         //Get the post

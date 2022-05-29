@@ -385,11 +385,7 @@ class UserController extends Controller
     {
         $actualUser = Auth::id();
 
-        // $actualUser = Auth::user();
-        // $actualFriends = Auth::user()->friends;
-
         //Prepare the interal request to retrieve the user friends
-
         $friendsIds = [];
         //The actual user can't be a suggestion
         $friendsIds[] = $actualUser;
@@ -407,27 +403,11 @@ class UserController extends Controller
         //Try to get the friend suggestions
         $suggested_friends = User::whereNotIn('id', $friendsIds)->get();
 
-
-
-        return $suggested_friends;
-
-        // return $friendsIds;
-
-
-
-
-        
-        // $friend_relation = Friends::where([
-        //     'id_friend'   => $userAcceptRequestId->id,
-        //     'id_user'   => $originalRequestSender->id,
-        // ]);
-
-        // $updateResponse = $friend_relation->delete(); 
-        
-        // return [
-        //     "msg"       => "Friend request or friend deleted.",
-        //     "response"  => $updateResponse,
-        // ];
+        return [
+            "msg"       => "Friend request or friend deleted.",
+            "data"      => $suggested_friends,
+            "success"  => true,
+        ];
     }
 
 }

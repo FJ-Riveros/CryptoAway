@@ -365,13 +365,11 @@ class ExampleTest extends TestCase
     {
         $response = Http::withHeaders([
             'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->get(self::BASE_ROUTE . 'api/user/suggest_friends');
+        ])->get(self::BASE_ROUTE . 'api/user/friends/suggest_friends');
 
         $jObj = $response->json();
         
-        var_dump($jObj);
-        ob_flush();
-        // $this->assertTrue($jObj["success"] == true);
+        $this->assertTrue($jObj["success"] == true);
     }
     /*  ------------------------------ /User Tests------------------------------ */
 
