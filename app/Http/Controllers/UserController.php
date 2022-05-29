@@ -102,9 +102,20 @@ class UserController extends Controller
      * @param  \App\Models\user_has_trips  $user_has_trips
      * @return \Illuminate\Http\Response
      */
-    public function destroy(user_has_trips $user_has_trips)
+    public function destroy(Request $request)
     {
-        //
+        
+        $originalRequestSender = User::find($request->userId);
+
+        //Only the user can decline is own request, not other users
+        if( Auth::id() != $originalRequestSender->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
+
+        $originalRequestSender->delete(); 
+        
+        return [
+            "msg"       => "User succesfully deleted.",
+            "success"  => true,
+        ];
     }
 
     //Get the posts from a specific user

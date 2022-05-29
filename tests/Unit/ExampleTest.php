@@ -164,23 +164,6 @@ class ExampleTest extends TestCase
         $this->assertTrue($length);
     }
 
-
-    //Check if user exist (When adding a friend)
-    //Need to compile
-
-    public function test_get_user_by_username()
-    {
-        $response = Http::withHeaders([
-            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
-        ])->get(self::BASE_ROUTE . 'api/user/by_username/try');
-        
-        $jObj = $response->json();
-        $success = is_array($jObj) ? true : false;
-        $this->assertTrue($success);
-    }
-    
-
-    
     //Try to add friend
     //Create delete friend to reset the db for each test
     public function test_send_friend_request()
@@ -360,6 +343,18 @@ class ExampleTest extends TestCase
         $this->assertTrue($jObj["success"] == true);
     }
 
+    //Check if user exist (When adding a friend)
+    public function test_get_user_by_username()
+    {
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/by_username/newUser');
+        
+        $jObj = $response->json();
+        $success = is_array($jObj) ? true : false;
+        $this->assertTrue($success);
+    }
+    
     //Suggest users to add
     public function test_suggest_friends()
     {
@@ -371,6 +366,40 @@ class ExampleTest extends TestCase
         
         $this->assertTrue($jObj["success"] == true);
     }
+
+    //Delete an user
+    public function test_remove_user()
+    {
+
+        $response = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $GLOBALS['TEST_BEARER_TOKEN'],
+        ])->get(self::BASE_ROUTE . 'api/user/by_username/newUser');
+        
+        //Test user id 
+        $testUserId = $response->json();
+
+        
+        // var_dump($jObj["id"]);
+        // ob_flush();
+
+        $loginTestAccount = Http::post(self::BASE_ROUTE . 'api/login', [
+            'email'    => 'test4@gmail.com',
+            'password' => '123'
+        ]);
+
+        $bearer_token_testUser = $loginTestAccount->json()["data"]["token"];
+
+        $deleteUser = Http::withHeaders([
+            'Authorization' => 'Bearer ' . $bearer_token_testUser,
+        ])->post(self::BASE_ROUTE . 'api/user/actions/deleteUser', [
+            "userId" => $testUserId["id"]
+        ]);
+
+        $deleteUser = $deleteUser->json();
+        
+        $this->assertTrue($deleteUser["success"] == true);
+    }
+
     /*  ------------------------------ /User Tests------------------------------ */
 
 }

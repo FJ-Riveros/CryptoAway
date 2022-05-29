@@ -108,6 +108,9 @@ Route::middleware('auth:sanctum')->group( function () {
 
     //Suggest friends
     Route::get('user/friends/suggest_friends', [UserController::class, 'suggest_friends']);
+    
+    //Delete an user
+    Route::post('user/actions/deleteUser', [UserController::class, 'destroy']);
 
 });
 
