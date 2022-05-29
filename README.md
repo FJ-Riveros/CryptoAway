@@ -113,6 +113,8 @@
     - [x] ~~**Protect endpoints**~~
     - [ ] **Async calls**
     - [x] ~~**MVC**~~
+    - [x] ~~**TDD (Test Driven Development)**~~
+    - [x] ~~**Testing the API endpoints with UNIT**~~
     - [x] ~~**Create the Rest API in Laravel**~~
     - [ ] **Domain name**
     - [ ] **Drag and drop**
