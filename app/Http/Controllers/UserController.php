@@ -199,7 +199,7 @@ class UserController extends Controller
         }
     }
 
-    //Send a friend Request
+    //Get friend Requests
     public function get_friend_requests(Request $request){
         try
         {
@@ -233,9 +233,25 @@ class UserController extends Controller
         {
             $actualUser = User::find($request->userId);
 
+            $friends = [];
+
             if(is_null($actualUser)) return "Non existent User";
-                            
-            return $actualUser->friends;
+            $query =  Friends::where([
+                'id_friend'     => $actualUser->id,
+                'actualRequest' => 0,
+            ])
+            ->orWhere([
+                'id_user'     => $actualUser->id,
+                'actualRequest' => 0,
+            ])
+            ->get();                
+            
+            foreach($query as $friend){
+                $control = $friend->id_user == $request->userId ? $friend->id_friend : $friend->id_user;
+                $friends[] = User::find($control);
+            }
+
+            return $friends;
             
         }
         // catch(Exception $e) catch any exception
@@ -363,5 +379,55 @@ class UserController extends Controller
             "response"  => $updateResponse,
         ];
     }
-    
+
+    //Suggest friends
+    public function suggest_friends(Request $request)
+    {
+        $actualUser = Auth::id();
+
+        // $actualUser = Auth::user();
+        // $actualFriends = Auth::user()->friends;
+
+        //Prepare the interal request to retrieve the user friends
+
+        $friendsIds = [];
+        //The actual user can't be a suggestion
+        $friendsIds[] = $actualUser;
+
+        $internalRequest = new Request();
+        $internalRequest->replace(['userId' => $actualUser]);
+
+        //Actual friends
+        $friends = $this->get_friends($internalRequest);
+
+        foreach($friends as $friend){
+            $friendsIds[] = $friend->id;
+        }
+
+        //Try to get the friend suggestions
+        $suggested_friends = User::whereNotIn('id', $friendsIds)->get();
+
+
+
+        return $suggested_friends;
+
+        // return $friendsIds;
+
+
+
+
+        
+        // $friend_relation = Friends::where([
+        //     'id_friend'   => $userAcceptRequestId->id,
+        //     'id_user'   => $originalRequestSender->id,
+        // ]);
+
+        // $updateResponse = $friend_relation->delete(); 
+        
+        // return [
+        //     "msg"       => "Friend request or friend deleted.",
+        //     "response"  => $updateResponse,
+        // ];
+    }
+
 }
