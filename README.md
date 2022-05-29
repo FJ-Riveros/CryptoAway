@@ -81,7 +81,7 @@
     - [x] ~~**Profile**~~
     - [x] ~~**Trip section**~~
     - [x] ~~**Register**~~
-    - [x] **Landing**
+    - [x] ~~**Landing**~~
     - [ ] **Admin**
     - [ ] **Specific for each trip**
    
