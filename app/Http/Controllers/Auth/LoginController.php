@@ -26,7 +26,10 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = "http://localhost:3000/";
+    //Change this url when the front is deployed
+    
 
     /**
      * Create a new controller instance.
