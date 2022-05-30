@@ -378,10 +378,6 @@ class ExampleTest extends TestCase
         //Test user id 
         $testUserId = $response->json();
 
-        
-        // var_dump($jObj["id"]);
-        // ob_flush();
-
         $loginTestAccount = Http::post(self::BASE_ROUTE . 'api/login', [
             'email'    => 'test4@gmail.com',
             'password' => '123'

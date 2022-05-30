@@ -28,20 +28,21 @@ function Example() {
     const getPosts = async () =>{
         const data = await fetch('http://localhost:8000/api/user/1/last_post', { 
             method: 'get', 
-            headers: {
-                'Authorization': 'Bearer 35|kcYSett7Q3jRtrvGwZpu0GWBIxtZhGXP1cF3BFFg', 
-            } 
+            // headers: {
+            //     'Authorization': '291|1MfbPHYQrQtIO0uJEN6mwCXvKXB8ooiNVTh73qdk', 
+            // } 
         })
         .then(data => data.json())
-        // .then(data => console.log(data))
 
-        .then(data => {
-            // const postResponse = data.map((posts)=>{
-            //     return <p>{posts}</p>;
-            // })
-            // setPosts(postResponse);
-            console.log(data);
-        })
+        .then(data => console.log(data))
+
+        // .then(data => {
+        //     // const postResponse = data.map((posts)=>{
+        //     //     return <p>{posts}</p>;
+        //     // })
+        //     // setPosts(postResponse);
+        //     console.log(data);
+        // })
     }
 
     useEffect(()=>{

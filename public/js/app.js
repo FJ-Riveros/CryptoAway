@@ -14280,19 +14280,14 @@ function Example() {
             case 0:
               _context2.next = 2;
               return fetch('http://localhost:8000/api/user/1/last_post', {
-                method: 'get',
-                headers: {
-                  'Authorization': 'Bearer 35|kcYSett7Q3jRtrvGwZpu0GWBIxtZhGXP1cF3BFFg'
-                }
+                method: 'get' // headers: {
+                //     'Authorization': '291|1MfbPHYQrQtIO0uJEN6mwCXvKXB8ooiNVTh73qdk', 
+                // } 
+
               }).then(function (data) {
                 return data.json();
-              }) // .then(data => console.log(data))
-              .then(function (data) {
-                // const postResponse = data.map((posts)=>{
-                //     return <p>{posts}</p>;
-                // })
-                // setPosts(postResponse);
-                console.log(data);
+              }).then(function (data) {
+                return console.log(data);
               });
 
             case 2:
