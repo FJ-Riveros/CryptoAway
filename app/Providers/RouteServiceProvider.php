@@ -17,7 +17,11 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/dashboard';
+    public const HOME = 'http://localhost:3000/';
+    // public const HOME = '/dashboard';
+
+    // public const HOME = env('FRONT_APP_URL');
+
 
     /**
      * Define your route model bindings, pattern filters, etc.
