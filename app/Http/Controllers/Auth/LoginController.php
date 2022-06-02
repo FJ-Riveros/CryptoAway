@@ -28,8 +28,8 @@ class LoginController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = RouteServiceProvider::HOME;
-    protected $redirectTo = "http://localhost:3000/";
+    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = "http://localhost:3000/";
     //Change this url when the front is deployed
     
 
@@ -51,7 +51,7 @@ class LoginController extends Controller
     */
     protected function sendFailedLoginResponse(Request $request)
     {
-        return redirect()->to('http://localhost:3000/login')
+        return redirect()->to('http://localhost:8000/login')
             ->withErrors([
                 $this->username() => Lang::get('auth.failed'),
             ]);

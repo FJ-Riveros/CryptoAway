@@ -61,7 +61,26 @@
 	              <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
 	              <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
 	              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-	              <li class="nav-item cta"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+                  @auth
+                        <li class="nav-item cta">
+                            <form method="POST" action="{{ route('logout') }} " class="nav-link">
+                                @csrf
+                                    <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
+                                    {{ __('Log Out') }}
+                                </button>
+                            </form>
+
+        	            <!-- <a href="{{ route('logout') }}" class="nav-link">Logout</a> -->
+
+                        </li>
+                    @else
+        	            <li class="nav-item cta"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
+
+                        <!-- @if (Route::has('register'))
+                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                        @endif -->
+                    @endauth
+	              <!-- <li class="nav-item cta"><a href="{{ route('login') }}" class="nav-link">Login</a></li> -->
 	            </ul>
 	          </div>
 	        </div>
