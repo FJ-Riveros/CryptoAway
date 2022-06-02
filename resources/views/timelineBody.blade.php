@@ -1,30 +1,31 @@
-<?php
+<!-- 
 //Data of the user
-$userData = Usuario::getUser($_SESSION["userId"]);
+// $userData = Usuario::getUser($_SESSION["userId"]);
 
-//Actual user
-$actualUser = $userData->idUser;
+// //Actual user
+// $actualUser = $userData->idUser;
 
-//Checks if the user added a friend
-$addUser = $_GET["addUser"] ?? "";
-if ($addUser != "") {
-    Usuario::tryToAddFriend($addUser, $userData->username);
-    header('Location: Timeline.php', true, 303);
-}
-//Checks the like, if the user already liked that post it removes it, otherwise it adds the like.
-if ($likePost != "") {
-    if (Usuario::userLikedActualPost($actualUser, $likePost)) {
-        Usuario::removeLike($actualUser, $likePost);
-    } else {
-        Usuario::giveLike($actualUser, $likePost);
-    }
-}
+// //Checks if the user added a friend
+// $addUser = $_GET["addUser"] ?? "";
+// if ($addUser != "") {
+//     Usuario::tryToAddFriend($addUser, $userData->username);
+//     header('Location: Timeline.php', true, 303);
+// }
+// //Checks the like, if the user already liked that post it removes it, otherwise it adds the like.
+// if ($likePost != "") {
+//     if (Usuario::userLikedActualPost($actualUser, $likePost)) {
+//         Usuario::removeLike($actualUser, $likePost);
+//     } else {
+//         Usuario::giveLike($actualUser, $likePost);
+//     }
+// }
 
-//Retrieve the data from the friends of a user
-$userFriendsData = Usuario::getUserFriends($userData->idUser);
-//Get last post of the given user.
-Post::getLastPost($userData->idUser);
-?>
+// //Retrieve the data from the friends of a user
+// $userFriendsData = Usuario::getUserFriends($userData->idUser);
+// //Get last post of the given user.
+// Post::getLastPost($userData->idUser);
+*/ -->
+ 
 <!DOCTYPE html <html lang="en">
 
 <head>
@@ -71,22 +72,22 @@ Post::getLastPost($userData->idUser);
                                     </div>
                                 </div>
                             </div>
-                            <p><?= $userData->description ?></p>
+                            <p><?= "hola"//$userData->description ?></p>
                             <div class="mt-3">
                                 <h6 class="tx-11 font-weight-bold mb-0 ">Surname</h6>
-                                <p class="text-muted"><?= $userData->surname ?></p>
+                                <p class="text-muted"><?= "hola"//$userData->surname ?></p>
                             </div>
                             <div class="mt-3">
                                 <h6 class="tx-11 font-weight-bold mb-0 ">Name</h6>
-                                <p class="text-muted"><?= $userData->name ?></p>
+                                <p class="text-muted"><?= "hola"//$userData->name ?></p>
                             </div>
                             <div class="mt-3">
                                 <h6 class="tx-11 font-weight-bold mb-0 ">Email</h6>
-                                <p class="text-muted"><?= $userData->email ?></p>
+                                <p class="text-muted"><?= "hola"//$userData->email ?></p>
                             </div>
                             <div class="mt-3">
                                 <h6 class="tx-11 font-weight-bold mb-0">Metamask Address</h6>
-                                <p class="text-muted"><?= $userData->metamaskAddress ?></p>
+                                <p class="text-muted"><?= "hola"//$userData->metamaskAddress ?></p>
                             </div>
                         </div>
                     </div>
@@ -95,18 +96,19 @@ Post::getLastPost($userData->idUser);
                 <!-- middle wrapper start -->
                 <div class="col-md-8 col-xl-6 middle-wrapper">
                     <div class="row">
-                         <?php foreach ($userFriendsData as $friend) {
+                         <?php /*foreach ($userFriendsData as $friend) {
                             if ($lastPost = Post::getLastPost($friend->idUser)) {
                                 $postUser = Usuario::getUser($lastPost->getPostOwner());
+                                */
                         ?> 
                                 <div class="col-md-12 grid-margin">
                                     <div class="card rounded">
                                         <div class="card-header">
                                             <div class="d-flex align-items-center justify-content-between">
                                                 <div class="d-flex align-items-center">
-                                                    <img class="img-xs rounded-circle" src="<?= $postUser->avatar ?>" alt="">
+                                                    <img class="img-xs rounded-circle" src="<?= "hola"//$postUser->avatar ?>" alt="">
                                                     <div class="ml-2">
-                                                        <p><?= $postUser->surname . " " . $postUser->name ?></p>
+                                                        <p><?= "hola"//$postUser->surname . " " . $postUser->name ?></p>
                                                     </div>
                                                 </div>
                                                 <div class="dropdown">
@@ -130,18 +132,18 @@ Post::getLastPost($userData->idUser);
                                             </div>
                                         </div>
                                         <div class="card-body">
-                                            <p class="mb-3 tx-14"><?= $lastPost->getTextPost() ?></p>
-                                            <img class="img-fluid" src="<?= $lastPost->getImgPost() ?>" alt="">
+                                            <p class="mb-3 tx-14"><?= "hola"//$lastPost->getTextPost() ?></p>
+                                            <img class="img-fluid" src="<?= "hola" //$lastPost->getImgPost() ?>" alt="">
                                         </div>
                                         <div class="card-footer">
                                             <div class="d-flex post-actions">
-                                                <a href="Timeline.php?likePost=<?= $lastPost->getIdPost() ?>" class="d-flex align-items-center text-muted mr-4">
-                                                    <?php if (Usuario::userLikedActualPost($actualUser, $lastPost->getIdPost())) {
+                                                <a href="Timeline.php?likePost=<?= "hola"//$lastPost->getIdPost() ?>" class="d-flex align-items-center text-muted mr-4">
+                                                    <?php /*if (Usuario::userLikedActualPost($actualUser, $lastPost->getIdPost())) {
                                                         echo "<i style=\"color: red\" class=\"fas fa-heart\"></i>";
                                                     } else {
                                                         echo "<i class=\"far fa-heart\"></i>";
-                                                    } ?>
-                                                    <span class="d-none d-md-block ml-2"><?= Post::getLikes($lastPost->getIdPost()) ?> Likes </span>
+                                                    } */?>
+                                                    <span class="d-none d-md-block ml-2"><?= "hola"//Post::getLikes($lastPost->getIdPost()) ?> Likes </span>
                                                 </a>
                                                 <a href="javascript:;" class="d-flex align-items-center text-muted mr-4">
                                                     <i class="far fa-comment-alt"></i>
@@ -151,8 +153,8 @@ Post::getLastPost($userData->idUser);
                                         </div>
                                     </div>
                                 </div>
-                        <?php }
-                        } ?>
+                        <?php //}
+                       // } ?>
                     </div>
                 </div>
                 <!-- middle wrapper end -->
@@ -165,15 +167,15 @@ Post::getLastPost($userData->idUser);
                                     <h6 class="card-title">latest photos</h6>
                                     <div class="latest-photos">
                                         <div class="row">
-                                            <?php foreach (Post::getPosts($actualUser) as $post) {
-                                                if ($post->getImgPost() != "") { ?>
+                                            <?php /*foreach (Post::getPosts($actualUser) as $post) {
+                                                if ($post->getImgPost() != "") { */?>
                                                     <div class="col-md-6">
                                                         <figure>
-                                                            <img class="img-fluid" src="<?= $post->getImgPost() ?>" alt="">
+                                                            <img class="img-fluid" src="<?= "hola"//$post->getImgPost() ?>" alt="">
                                                         </figure>
                                                     </div>
-                                            <?php }
-                                            } ?>
+                                            <?php /*}
+                                            }*/ ?>
                                         </div>
                                     </div>
                                 </div>
@@ -183,16 +185,16 @@ Post::getLastPost($userData->idUser);
                             <div class="card rounded">
                                 <div class="card-body">
                                     <h6 class="card-title">suggestions for you</h6>
-                                    <?php foreach (Usuario::suggestUsersToAdd($actualUser) as $user) { ?>
+                                    <?php //foreach (Usuario::suggestUsersToAdd($actualUser) as $user) { ?>
                                         <div class="d-flex justify-content-between mb-2 pb-2 border-bottom">
                                             <div class="d-flex align-items-center hover-pointer">
-                                                <img class="img-xs rounded-circle" src="<?= $user->avatar ?>" alt="">
+                                                <img class="img-xs rounded-circle" src="<?= "hola" //$user->avatar ?>" alt="">
                                                 <div class=" ml-2">
-                                                    <p class="mb-0"><?= $user->surname ?></p>
-                                                    <p class="mb-0 tx-11 text-muted"><?= $user->username ?></p>
+                                                    <p class="mb-0"><?= "hola" //$user->surname ?></p>
+                                                    <p class="mb-0 tx-11 text-muted"><?= "hola"//$user->username ?></p>
                                                 </div>
                                             </div>
-                                            <a href="Timeline.php?addUser=<?= $user->username ?>" class="btn btn-icon">
+                                            <a href="Timeline.php?addUser=<?= "hola" //$user->username ?>" class="btn btn-icon">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user-plus" data-toggle="tooltip" title="" data-original-title="Connect">
                                                     <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                                                     <circle cx="8.5" cy="7" r="4"></circle>
@@ -202,7 +204,7 @@ Post::getLastPost($userData->idUser);
                                             </a>
                                         </div>
 
-                                    <?php  } ?>
+                                    <?php // } ?>
                                 </div>
                             </div>
                         </div>

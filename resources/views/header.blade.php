@@ -1,3 +1,4 @@
+@extends('timelineBody')
 @section('header')
 <div class="profile-page tx-13">
     <div class="row">
