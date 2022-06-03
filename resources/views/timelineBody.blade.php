@@ -93,7 +93,29 @@
         </div>
 
         <!-- Right Side -->
-        <div class="col-3"></div>
+        <div class="col-3">
+            <div class="latest__photos__container">
+                <h3>Latest Photos</h3>
+                <hr/>
+                <div class="photos__grid row">
+                    <div class="col-4" style="background-image: url('img/destination-4.jpg')"></div>
+                    <div class="col-4" style="background-image: url('img/destination-5.jpg')"></div>
+                    <div class="col-4" style="background-image: url('img/destination-6.jpg')"></div>
+                </div>
+            </div>
+
+            <div class="friend__suggestion__container">
+                <h3>Add Friends!</h3>
+                <hr/>
+                <div class="row">
+                    <div class="col-6">
+                        <img src="img/destination-4.jpg" alt="" width="20px" height="20px">
+                        <span>hola</span>
+                    </div>
+                    <div class="col-6"><button class="btn btn-primary"><a href="">Add</a></button></div>
+                </div>
+            </div>
+        </div>
 
     </div>
 </div>
