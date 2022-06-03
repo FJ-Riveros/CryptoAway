@@ -11,28 +11,23 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
 </head>
 
 <body>
 
-<div class="container">
+<div class="container mt-4">
     <div class="row">
         <!-- Left Side -->
         <div class="col-3">
             <div class="profile__card">
-                <div>
-                    <img src="img/person_1.jpg" alt="" class="profile__card__img">
-                </div>
-                <div>
-                    <div class="profile__card__text">
-                        <h5>FJ</h5>
-                        <p>@FJ-Riveros</p>
-                    </div>
+                <div class="profile__card__img" style="background-image: url('img/person_1.jpg')"></div>
+                <div class="text text-center">
+                    <h5>FJ</h5>
+                    <p>@FJ-Riveros</p>
                 </div>
             </div>
-            
-
         </div>
 
         <!-- Center -->
@@ -40,10 +35,10 @@
             <div class="feed__card__post">
                 <div class="feed__card__post__header">
                     <div class="row">
-                        <div class="col-6 justify-content-start">
-                            <img src="img/destination-3.jpg" alt="" width="50%" height="50%">
-                            <div class="feed__card__post__header__text">
-                                <h3>Ruiz</h3>
+                        <div class="col-6 d-flex justify-content-start align-items-center">
+                            <img src="img/destination-3.jpg" alt="" class="header__img">
+                            <div class="feed__card__post__header__text ml-2">
+                                <h4>Ruiz</h4>
                                 <p>3 hours ago</p>
                             </div>
                         </div>
@@ -52,6 +47,19 @@
                             
                         </div>
                     </div>
+                </div>
+                <div class="body">
+                    <div class="body__img" style="background-image: url('img/destination-3.jpg')">
+
+                    </div>
+                    <p class="body__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex fugit dignissimos obcaecati, nam suscipit, voluptas animi praesentium harum illo laborum minima iusto doloribus ratione commodi cum? Doloribus iste facilis delectus.
+                    Consequatur odio dicta blanditiis.</p>
+
+                </div>
+
+                <div class="footer">
+                    <i class="bi bi-suit-heart"></i>
+                    <i class="bi bi-chat-right-text ml-4"></i>
                 </div>
             </div>
         </div>
