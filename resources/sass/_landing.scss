@@ -153,9 +153,8 @@ img {
 
 .group{
   height: 100vh;
-  /* background-image: url(https://demo.hasthemes.com/togoo/assets/images/hero/hero-1.jpg); */
-        /* background-image: url(https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_960_720.jpg); */
-  background-image: url(../img/maldives-1993704.jpg);
+  /* background-image: url(https://cdn.pixabay.com/photo/2017/01/20/00/30/maldives-1993704_960_720.jpg); */
+  background-image: url(../../public/img/maldives.jpg);
 
   background-repeat: no-repeat;
   background-position: center;
@@ -2423,7 +2422,10 @@ color: $theme-color;*/
 }
 
 .bg_image-service {
-  background-image: url(../images/bg/serive-bking.jpg);
+  // background-image: url(../images/bg/serive-bking.jpg);
+  // background-image: url(../../public/img/images/bg/serive-bking.jpg);
+
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2471,7 +2473,9 @@ color: $theme-color;*/
     Flipbox Style 01
 ============================*/
 .bg_image--02 {
-  background-image: url(../images/bg/bg-image-02.jpg);
+  // background-image: url(../images/bg/bg-image-02.jpg);
+  background-image: url(../../public/img/bg_2.jpg);
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -2656,7 +2660,7 @@ color: $theme-color;*/
 }
 
 .square2 {
-  background-image: url(../images/serviece/flipbox-1.jpg);
+  // background-image: url(../images/serviece/flipbox-1.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2858,7 +2862,7 @@ color: $theme-color;*/
 }
 
 .square-flip.travel-flip .square2 .flip-overlay {
-  background-image: url(../images/event/flip-1.png);
+  // background-image: url(../../public/img/event/flip-1.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2893,7 +2897,7 @@ color: $theme-color;*/
 .square-flip.travel-flip .square .flip-overlay-2,
 .square-flip.travel-flip .square .flip-overlay-3,
 .square-flip.travel-flip .square .flip-overlay-4 {
-  background-image: url(../images/event/flip-1.png);
+  // background-image: url(../images/event/flip-1.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -2906,15 +2910,15 @@ color: $theme-color;*/
 }
 
 .square-flip.travel-flip .square .flip-overlay-2 {
-  background-image: url(../images/event/flip-2.png);
+  // background-image: url(../images/event/flip-2.png);
 }
 
 .square-flip.travel-flip .square .flip-overlay-3 {
-  background-image: url(../images/event/flip-3.png);
+  // background-image: url(../images/event/flip-3.png);
 }
 
 .square-flip.travel-flip .square .flip-overlay-4 {
-  background-image: url(../images/event/flip-4.png);
+  // background-image: url(../images/event/flip-4.png);
 }
 
 /* =====================
@@ -3152,7 +3156,9 @@ Countdown Css
 }
 
 .bg_image--01 {
-  background-image: url(../images/bg/bg-image-01.jpg);
+  // background-image: url(../../public/img/images/bg/bg-image-01.jpg);
+  background-image: url(../../public/img/bg_1.jpg);
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -3233,7 +3239,7 @@ Countdown Css
    06. Contact Css 
 ----------------------------------------*/
 .bg_image--9 {
-  background-image: url(https://demo.hasthemes.com/togoo/assets/images/bg/bg-image-01.jpg);
+  // background-image: url();
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -3560,7 +3566,7 @@ Countdown Css
     10. Testimonial Css
 -------------------------------------*/
 .bg_image--04 {
-  background-image: url(https://demo.hasthemes.com/togoo/assets/images/bg/bg-image-04.jpg);
+  // background-image: url();
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -3946,7 +3952,10 @@ Countdown Css
 }
 
 .bg_image--03 {
-  background-image: url(../images/bg/bg-image-03.jpg);
+  // background-image: url(../images/bg/bg-image-03.jpg);
+  background-image: url(../../public/img/bg_3.jpg);
+
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;

@@ -14234,9 +14234,19 @@ function Example() {
   var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)("Loading the post data..."),
       _useState6 = _slicedToArray(_useState5, 2),
       posts = _useState6[0],
-      setPosts = _useState6[1];
+      setPosts = _useState6[1]; // const getResponse = async () =>{
+  //     const data = await fetch("https://arjs-cors-proxy.herokuapp.com/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4")
+  //     .then(data => data.json())
+  //     .then(data => {
+  //         const response = data.map((dogs)=>{
+  //             return <p>{dogs.fact}</p>;
+  //         })
+  //         setApiResponse(response);
+  //     })
+  // }
 
-  var getResponse = /*#__PURE__*/function () {
+
+  var getPosts = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       var data;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
@@ -14244,15 +14254,15 @@ function Example() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch("https://arjs-cors-proxy.herokuapp.com/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4").then(function (data) {
+              return fetch('http://localhost:8000/api/user/1/last_post', {
+                method: 'get' // headers: {
+                //     'Authorization': '291|1MfbPHYQrQtIO0uJEN6mwCXvKXB8ooiNVTh73qdk', 
+                // } 
+
+              }).then(function (data) {
                 return data.json();
               }).then(function (data) {
-                var response = data.map(function (dogs) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                    children: dogs.fact
-                  });
-                });
-                setApiResponse(response);
+                return console.log(data);
               });
 
             case 2:
@@ -14266,43 +14276,8 @@ function Example() {
       }, _callee);
     }));
 
-    return function getResponse() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  var getPosts = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-      var data;
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              _context2.next = 2;
-              return fetch('http://localhost:8000/api/user/1/last_post', {
-                method: 'get' // headers: {
-                //     'Authorization': '291|1MfbPHYQrQtIO0uJEN6mwCXvKXB8ooiNVTh73qdk', 
-                // } 
-
-              }).then(function (data) {
-                return data.json();
-              }).then(function (data) {
-                return console.log(data);
-              });
-
-            case 2:
-              data = _context2.sent;
-
-            case 3:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
     return function getPosts() {
-      return _ref2.apply(this, arguments);
+      return _ref.apply(this, arguments);
     };
   }();
 

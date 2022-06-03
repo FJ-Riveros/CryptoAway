@@ -33,9 +33,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index']);
 
-Route::get('/timeline', function (){
-    return view('header');
-});
+// Route::get('/timeline', function (){
+//     return view('header');
+// });
+
+Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index']);
 
 
 

@@ -14,16 +14,16 @@ function Example() {
     const [posts, setPosts] = useState("Loading the post data...");
 
                               
-    const getResponse = async () =>{
-        const data = await fetch("https://arjs-cors-proxy.herokuapp.com/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4")
-        .then(data => data.json())
-        .then(data => {
-            const response = data.map((dogs)=>{
-                return <p>{dogs.fact}</p>;
-            })
-            setApiResponse(response);
-        })
-    }
+    // const getResponse = async () =>{
+    //     const data = await fetch("https://arjs-cors-proxy.herokuapp.com/https://dog-facts-api.herokuapp.com/api/v1/resources/dogs?number=4")
+    //     .then(data => data.json())
+    //     .then(data => {
+    //         const response = data.map((dogs)=>{
+    //             return <p>{dogs.fact}</p>;
+    //         })
+    //         setApiResponse(response);
+    //     })
+    // }
 
     const getPosts = async () =>{
         const data = await fetch('http://localhost:8000/api/user/1/last_post', { 

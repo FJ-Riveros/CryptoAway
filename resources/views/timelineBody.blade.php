@@ -1,31 +1,4 @@
-<!-- 
-//Data of the user
-// $userData = Usuario::getUser($_SESSION["userId"]);
 
-// //Actual user
-// $actualUser = $userData->idUser;
-
-// //Checks if the user added a friend
-// $addUser = $_GET["addUser"] ?? "";
-// if ($addUser != "") {
-//     Usuario::tryToAddFriend($addUser, $userData->username);
-//     header('Location: Timeline.php', true, 303);
-// }
-// //Checks the like, if the user already liked that post it removes it, otherwise it adds the like.
-// if ($likePost != "") {
-//     if (Usuario::userLikedActualPost($actualUser, $likePost)) {
-//         Usuario::removeLike($actualUser, $likePost);
-//     } else {
-//         Usuario::giveLike($actualUser, $likePost);
-//     }
-// }
-
-// //Retrieve the data from the friends of a user
-// $userFriendsData = Usuario::getUserFriends($userData->idUser);
-// //Get last post of the given user.
-// Post::getLastPost($userData->idUser);
-*/ -->
- 
 <!DOCTYPE html <html lang="en">
 
 <head>
@@ -33,7 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" type="text/css" href="../css/home.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../css/home.css"> -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -41,8 +16,64 @@
 
 <body>
 
-    <div class="container">
-        <div class="profile-page tx-13">
+<div class="container">
+    <div class="row">
+        <!-- Left Side -->
+        <div class="col-3">
+            <div class="profile__card">
+                <div>
+                    <img src="img/person_1.jpg" alt="" class="profile__card__img">
+                </div>
+                <div>
+                    <div class="profile__card__text">
+                        <h5>FJ</h5>
+                        <p>@FJ-Riveros</p>
+                    </div>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <!-- Center -->
+        <div class="col-6">
+            <div class="feed__card__post">
+                <div class="feed__card__post__header">
+                    <div class="row">
+                        <div class="col-6 justify-content-start">
+                            <img src="img/destination-3.jpg" alt="" width="50%" height="50%">
+                            <div class="feed__card__post__header__text">
+                                <h3>Ruiz</h3>
+                                <p>3 hours ago</p>
+                            </div>
+                        </div>
+
+                        <div class="col-6">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Side -->
+        <div class="col-3"></div>
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container"> 
+       <div class="profile-page tx-13">
             
 
             <main class="py-4">
@@ -214,6 +245,8 @@
             </div>
         </div>
     </div>
+    <div id="example"></div>
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
