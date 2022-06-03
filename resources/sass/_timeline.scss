@@ -6,7 +6,7 @@
     cursor: pointer;
     width: 100%;
     padding: 1rem;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
     gap: 0.2rem;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 10px;
     height: 110px;
@@ -33,7 +33,7 @@
     cursor: pointer;
     width: 100%;
     padding: 0 1rem 1rem 1rem;
-    border-radius: 1rem;
+    border-radius: 0.3rem;
     gap: 0.2rem;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 10px;
     height: 60vh;
@@ -48,6 +48,10 @@
         border-radius: 50%;
         height: 50%;
         width: 30%;
+    }
+
+    .header__text h4{
+        margin-bottom: 0;
     }
 
     .body{
@@ -75,3 +79,39 @@
         width: 100%;
     }
 }
+
+.routes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    width: 100%;
+    // padding: 1rem;
+    border-radius: 0.3rem;
+    gap: 0.2rem;
+    box-shadow: rgb(0 0 0 / 20%) 0px 3px 10px;
+    margin-top: 35px;
+
+    .active{
+        background-color: #EDF2F7;
+        border-radius: 0.3rem 0.3rem 0 0;
+    }
+
+    .children__routes{
+        width: 100%;
+        height: 40px;
+        // overflow: hidden;
+
+        div{
+            margin-left: 12px;
+            height: 100%;
+
+            a{
+                text-decoration: none;
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+}
+

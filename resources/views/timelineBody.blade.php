@@ -21,13 +21,41 @@
     <div class="row">
         <!-- Left Side -->
         <div class="col-3">
+
+            <!-- Profile card -->
             <div class="profile__card">
                 <div class="profile__card__img" style="background-image: url('img/person_1.jpg')"></div>
-                <div class="text text-center">
+                <div class="ml-2 mb-0 text text-left">
                     <h5>FJ</h5>
                     <p>@FJ-Riveros</p>
                 </div>
             </div>
+
+            <!-- Routes -->
+            <div class="routes">
+                <div class="children__routes active">
+                    <div class="home d-flex align-items-center">
+                        <i class="bi bi-house-fill"></i>
+                        <a href="" class="ml-2">Home</a>
+                    </div>
+                </div>
+                
+                <div class="children__routes">
+                    <div class="friends d-flex align-items-center">
+                        <i class="bi bi-people-fill"></i>
+                        <a href="" class="ml-2">Friends</a>
+                    </div>
+                </div>
+
+                <div class="children__routes">
+                    <div class="posts d-flex align-items-center">
+                        <i class="bi bi-collection-fill"></i>
+                        <a href="" class="ml-2">Your Posts</a>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
 
         <!-- Center -->
@@ -37,7 +65,7 @@
                     <div class="row">
                         <div class="col-6 d-flex justify-content-start align-items-center">
                             <img src="img/destination-3.jpg" alt="" class="header__img">
-                            <div class="feed__card__post__header__text ml-2">
+                            <div class="header__text ml-2">
                                 <h4>Ruiz</h4>
                                 <p>3 hours ago</p>
                             </div>
@@ -59,7 +87,7 @@
 
                 <div class="footer">
                     <i class="bi bi-suit-heart"></i>
-                    <i class="bi bi-chat-right-text ml-4"></i>
+                    <i class="bi bi-chat-left-text ml-4"></i>
                 </div>
             </div>
         </div>
