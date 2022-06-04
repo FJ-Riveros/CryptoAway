@@ -43,7 +43,7 @@
                 <div class="children__routes">
                     <div class="friends d-flex align-items-center">
                         <i class="bi bi-people-fill"></i>
-                        <a href="" class="ml-2">Friends</a>
+                        <a href="friends" class="ml-2">Friends</a>
                     </div>
                 </div>
 

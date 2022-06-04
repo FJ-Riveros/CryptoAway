@@ -91,6 +91,9 @@ Route::middleware('auth:sanctum')->group( function () {
     //Get friends
     Route::get('user/get_friends/{userId}', [UserController::class, 'get_friends']);
     
+    //Get the friends from the actual user
+    Route::get('user/get_my_friends', [UserController::class, 'get_my_friends']);
+    
     //Like a post
     Route::post('user/like_post', [UserController::class, 'like_post']);
     

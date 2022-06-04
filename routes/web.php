@@ -39,5 +39,8 @@ Route::get('/posts', [App\Http\Controllers\PostController::class, 'index']);
 
 Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index']);
 
+Route::get('/friends', [App\Http\Controllers\FriendsController::class, 'index']);
+
+
 
 

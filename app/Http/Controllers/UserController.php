@@ -272,6 +272,40 @@ class UserController extends Controller
         }
     }
 
+    //Get my friends
+    public function get_my_friends(Request $request){
+        try
+        {
+            $actualUser = Auth::user();
+
+            $friends = [];
+
+            $query =  Friends::where([
+                'id_friend'     => $actualUser->id,
+                'actualRequest' => 0,
+            ])
+            ->orWhere([
+                'id_user'     => $actualUser->id,
+                'actualRequest' => 0,
+            ])
+            ->get();                
+            
+            foreach($query as $friend){
+                $control = $friend->id_user == $request->userId ? $friend->id_friend : $friend->id_user;
+                $friends[] = User::find($control);
+            }
+
+            return $friends;
+            
+        }
+        // catch(Exception $e) catch any exception
+        catch(Exception $e)
+        {
+            return "There was an error";
+        }
+        // return "hola";
+    }
+
     //Like a post
     public function like_post(Request $request){
         try
