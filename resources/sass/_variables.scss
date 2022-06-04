@@ -4,8 +4,14 @@ $body-bg: #f8fafc;
 //Colors
 $container-light: #EDF2F7;
 $container-dark: darkblue;
+$main-color: #f9ab30;
+
+.btn-primary{
+    background-color: $main-color;
+}
 
 // Typography
 $font-family-sans-serif: 'Nunito', sans-serif;
 $font-size-base: 0.9rem;
 $line-height-base: 1.6;
+

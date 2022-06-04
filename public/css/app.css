@@ -1,6 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
 @import url(https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i|Playball|Playfair+Display:400,400i,700,700i,900,900i|Poppins:300,400,500,600,700,800);
 @charset "UTF-8";
+.btn-primary {
+  background-color: #f9ab30;
+}
+
 /*----------------------------------------*/
 /*  01. Theme default CSS
 /*----------------------------------------*/
@@ -4358,12 +4362,14 @@ button#submit-button:hover {
 .profile__card {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   cursor: pointer;
   width: 100%;
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 0.3rem;
   gap: 0.2rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  height: 110px;
 }
 
 .profile__card__text {
@@ -4373,8 +4379,10 @@ button#submit-button:hover {
 }
 
 .profile__card__img {
-  height: 50%;
   width: 50%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
 }
 
 .feed__card__post {
@@ -4383,15 +4391,143 @@ button#submit-button:hover {
   align-items: center;
   cursor: pointer;
   width: 100%;
-  padding: 1rem;
-  border-radius: 1rem;
+  padding: 0 1rem 1rem 1rem;
+  border-radius: 0.3rem;
   gap: 0.2rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  height: 60vh;
 }
-.feed__card__post .__text {
+.feed__card__post .text {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.feed__card__post .header__img {
+  border-radius: 50%;
+  height: 65%;
+  width: 30%;
+}
+.feed__card__post .header__text h4, .feed__card__post .header__text .h4 {
+  margin-bottom: 0;
+}
+.feed__card__post .body {
+  height: 75%;
+  overflow: hidden;
+}
+.feed__card__post .body .body__text {
+  font-size: 12px;
+  text-align: justify;
+  font-weight: 450;
+  margin-top: 10px;
+}
+.feed__card__post .body__img {
+  height: 65%;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  border-radius: 0.3rem;
+}
+.feed__card__post .footer {
+  justify-content: start;
+  align-items: center;
+  width: 100%;
+}
+
+.routes {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  width: 100%;
+  border-radius: 0.3rem;
+  gap: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  margin-top: 35px;
+}
+.routes .active {
+  background-color: #EDF2F7;
+  border-radius: 0.3rem 0.3rem 0 0;
+}
+.routes .children__routes {
+  width: 100%;
+  height: 40px;
+}
+.routes .children__routes div {
+  margin-left: 12px;
+  height: 100%;
+}
+.routes .children__routes div a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.latest__photos__container {
+  padding: 1rem;
+  gap: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.latest__photos__container .header {
+  height: 15%;
+}
+.latest__photos__container .photos__grid .col-4 {
+  padding: 2px;
+}
+.latest__photos__container .photos__grid .col-4 img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+.latest__photos__container .photos__grid .col-4 img:hover {
+  width: 120%;
+  height: 120%;
+}
+.latest__photos__container .photos__grid {
+  height: 85%;
+}
+
+.friend__suggestion__container {
+  margin-top: 25px;
+  padding: 1rem;
+  gap: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  min-height: 150px;
+  max-height: 300px;
+}
+.friend__suggestion__container .add {
+  color: #f9ab30;
+  font-size: 24px;
+  cursor: pointer;
+}
+.friend__suggestion__container .add:hover {
+  border-color: #f9ab30;
+  color: #f9ab30;
+  font-size: 30px;
+  transition: 0.5s;
+}
+.friend__suggestion__container div {
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.friend__suggestion__container div img {
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+}
+.friend__suggestion__container div .add__button__container {
+  justify-content: center;
+}
+.friend__suggestion__container div .username {
+  margin-left: 10px;
+  font-weight: 400;
+}
+
+hr {
+  margin: 0 !important;
 }
 
 /*!

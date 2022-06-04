@@ -46,7 +46,7 @@
 
     .header__img{
         border-radius: 50%;
-        height: 50%;
+        height: 65%;
         width: 30%;
     }
 
@@ -118,14 +118,40 @@
     padding: 1rem;
     gap: 0.2rem;
     box-shadow: rgb(0 0 0 / 20%) 0px 3px 10px;
-    min-height: 150px;
-    max-height: 300px;
+    // min-height: 150px;
+    // max-height: 300px;
+    // height: 350px;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+
+    .header{
+        height: 15%;
+    }
 
     .photos__grid .col-4{
-        height: 60px;
-        background-size: cover;
-        background-position: center;
+        // height: 45%;
+        // height: 65px;
+        // background-size: cover;
+        // background-position: center;
+        padding: 2px;
+
+        img{
+            width: 100%;
+            height:auto;
+            cursor:pointer;
+        }
+
+        img:hover{
+            width: 120%;
+            height: 120%;
+        }
     }
+
+    .photos__grid{
+        // height: 400px;
+        height: 85%
+    } 
 }
 
 .friend__suggestion__container{
@@ -139,6 +165,55 @@
         // display: flex;
         // flex-direction: column;
     }
+    
+    .add{
+        // background-color: $main-color;
+        // text-decoration: none;
+        // color: white;
+        // border: 1px solid $main-color;
+        // padding-top: 0.4rem;
+        // padding-bottom: 0.4rem;
+        // padding-left: 17px;
+        // padding-right: 17px;
+        // background: $main-color;
+        // -webkit-border-radius: 5px;
+        // -moz-border-radius: 5px;
+        // -ms-border-radius: 5px;
+        // border-radius: 5px;
+        color: $main-color;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .add:hover{
+        border-color: $main-color;
+        color: $main-color;
+        font-size: 30px;
+        transition: 0.5s;
+    }
+
+    div{
+        height: 60px;
+        display: flex;
+        align-items: center;
+
+        img{
+            border-radius: 50%;
+            height: 40px;
+            width: 40px;
+        }
+        .add__button__container{
+            justify-content: center;
+        }
+
+        .username{
+            margin-left: 10px;
+            font-weight: 400;
+        }
+    }
 }
 
 
+hr{
+    margin: 0 !important;
+}

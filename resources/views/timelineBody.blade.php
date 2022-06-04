@@ -95,24 +95,50 @@
         <!-- Right Side -->
         <div class="col-3">
             <div class="latest__photos__container">
-                <h3>Latest Photos</h3>
-                <hr/>
+                <div class="header">
+                    <h3>Latest Photos</h3>
+                    <hr/>
+                </div>
+                
                 <div class="photos__grid row">
-                    <div class="col-4" style="background-image: url('img/destination-4.jpg')"></div>
-                    <div class="col-4" style="background-image: url('img/destination-5.jpg')"></div>
-                    <div class="col-4" style="background-image: url('img/destination-6.jpg')"></div>
+                    <div class="col-4">
+                        <img src="img/destination-1.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img src="img/destination-2.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img src="img/destination-3.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img src="img/destination-4.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img src="img/destination-5.jpg" class="img-fluid" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img src="img/destination-6.jpg" class="img-fluid" alt="">
+                    </div>
                 </div>
             </div>
 
             <div class="friend__suggestion__container">
                 <h3>Add Friends!</h3>
                 <hr/>
-                <div class="row">
-                    <div class="col-6">
-                        <img src="img/destination-4.jpg" alt="" width="20px" height="20px">
-                        <span>hola</span>
+                <div class="row d-flex align-items-center">
+                    <div class="col-6 user__info">
+                        <img src="img/destination-4.jpg" alt=""  height="100%">
+                        <span class="username">hola</span>
                     </div>
-                    <div class="col-6"><button class="btn btn-primary"><a href="">Add</a></button></div>
+                    <div class="col-6 add__button__container"><i class="bi bi-person-plus-fill add"></i></div>
+                </div>
+
+                <div class="row d-flex align-items-center">
+                    <div class="col-6 user__info">
+                        <img src="img/destination-6.jpg" alt=""  height="100%">
+                        <span class="username">Julia</span>
+                    </div>
+                    <div class="col-6 add__button__container"><i class="bi bi-person-plus-fill add"></i></div>
                 </div>
             </div>
         </div>
