@@ -14138,6 +14138,8 @@ __webpack_require__(/*! ./components/Example */ "./resources/js/components/Examp
 
 __webpack_require__(/*! ./components/GetFriends */ "./resources/js/components/GetFriends.js");
 
+__webpack_require__(/*! ./components/SearchUser */ "./resources/js/components/SearchUser.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -14336,7 +14338,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _parts_FriendCard_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/FriendCard.js */ "./resources/js/components/parts/FriendCard.js");
+/* harmony import */ var _parts_FriendCard_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/FriendCard.jsx */ "./resources/js/components/parts/FriendCard.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -14362,20 +14364,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function GetFriends() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the data..."),
       _useState2 = _slicedToArray(_useState, 2),
-      counter = _useState2[0],
-      setCounter = _useState2[1];
+      apiResponse = _useState2[0],
+      setApiResponse = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the data..."),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
       _useState4 = _slicedToArray(_useState3, 2),
-      apiResponse = _useState4[0],
-      setApiResponse = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
-      _useState6 = _slicedToArray(_useState5, 2),
-      friends = _useState6[0],
-      setFriends = _useState6[1];
+      friends = _useState4[0],
+      setFriends = _useState4[1];
 
   var getFriends = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -14390,14 +14387,17 @@ function GetFriends() {
               }).then(function (data) {
                 return data.json();
               }).then(function (data) {
-                console.log(data[0].username);
+                console.log(data);
                 setFriends(data.map(function (friendData) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_FriendCard_js__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_parts_FriendCard_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
                     username: friendData.username,
                     name: friendData.name,
                     email: friendData.email,
-                    avatar: friendData.avatar
-                  });
+                    avatar: friendData.avatar,
+                    friendId: friendData.id,
+                    currentUserId: currentUser,
+                    getFriends: getFriends
+                  }, friendData.id);
                 }));
               });
 
@@ -14434,10 +14434,136 @@ if (document.getElementById('reactGetFriends')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/parts/FriendCard.js":
-/*!*****************************************************!*\
-  !*** ./resources/js/components/parts/FriendCard.js ***!
-  \*****************************************************/
+/***/ "./resources/js/components/SearchUser.js":
+/*!***********************************************!*\
+  !*** ./resources/js/components/SearchUser.js ***!
+  \***********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+function SearchUser() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
+      _useState2 = _slicedToArray(_useState, 2),
+      resultUser = _useState2[0],
+      setResultUser = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
+      _useState4 = _slicedToArray(_useState3, 2),
+      userInput = _useState4[0],
+      setUserInput = _useState4[1];
+
+  console.log("hola");
+
+  var searchUser = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              axios__WEBPACK_IMPORTED_MODULE_3___default().get("api/user/by_username/".concat(userInput)).then(function (response) {
+                console.log(response);
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function searchUser() {
+      return _ref.apply(this, arguments);
+    };
+  }(); // useEffect(()=>{
+  //     getFriends();
+  // },[])
+
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    "class": "row",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      "class": "col col-xl-4 col-md-6",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        "class": "card",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          "class": "card-body",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            "class": "addFriend",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+              "for": "friendToAdd",
+              children: "Add friend"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+              "class": "form-control",
+              type: "text",
+              id: "friendToAdd",
+              name: "friendToAdd",
+              placeholder: "Enter the username to add a friend!",
+              value: userInput,
+              onChange: function onChange(e) {
+                return setUserInput(e.target.value);
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
+              "class": "btn btn-success mt-2",
+              onClick: searchUser,
+              children: "Add"
+            })]
+          })
+        })
+      })
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SearchUser);
+
+if (document.getElementById('reactSearchUser')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(SearchUser, {}), document.getElementById('reactSearchUser'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/FriendCard.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/components/parts/FriendCard.jsx ***!
+  \******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14447,7 +14573,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -14457,21 +14586,36 @@ function FriendCard(_ref) {
   var username = _ref.username,
       name = _ref.name,
       email = _ref.email,
-      avatar = _ref.avatar;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      avatar = _ref.avatar,
+      friendId = _ref.friendId,
+      currentUserId = _ref.currentUserId,
+      getFriends = _ref.getFriends;
+
+  var deleteFriend = function deleteFriend() {
+    axios__WEBPACK_IMPORTED_MODULE_2___default().post('api/user/remove_friend', {
+      userAcceptRequestId: currentUserId,
+      originalRequestSender: friendId
+    }).then(function (response) {
+      console.log(response);
+    })["catch"](function (error) {
+      console.log(error);
+    }); //Update the friend list
+
+    getFriends();
+  };
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     "class": "col-md-6 col-xl-4 mt-4",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       "class": "card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
-        href: "#",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("i", {
-          "class": "fas fa-times deleteIcon"
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+        "class": "fas fa-times deleteIcon",
+        onClick: deleteFriend
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         "class": "card-body",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           "class": "media align-items-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
             style: {
               backgroundImage: "url(" + avatar + ")",
               backgroundPosition: "center",
@@ -14480,20 +14624,20 @@ function FriendCard(_ref) {
               height: "100px"
             },
             "class": "avatar avatar-xl mr-3"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             "class": "media-body overflow-hidden",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
               "class": "card-text mb-0",
               children: username
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               "class": "card-text  text-muted",
               children: name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
               "class": "card-text",
               children: email
             })]
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("a", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
           href: "#",
           "class": "tile-link"
         })]

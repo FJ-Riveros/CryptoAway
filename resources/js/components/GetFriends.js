@@ -1,9 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import FriendCard from './parts/FriendCard.js';
+import FriendCard from './parts/FriendCard.jsx';
 function GetFriends() {
-    const [counter, setCounter] = useState(0);
-
     const [apiResponse, setApiResponse] = useState("Loading the data...");
     const [friends, setFriends] = useState("Loading the friends...");
 
@@ -14,10 +12,10 @@ function GetFriends() {
         .then(data => data.json())
 
         .then(data => {
-            console.log(data[0].username)
+            console.log(data)
             setFriends(
                 data.map((friendData)=> {
-                    return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} />
+                    return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentUserId={currentUser} getFriends={getFriends}/>
                 })
             )
         })

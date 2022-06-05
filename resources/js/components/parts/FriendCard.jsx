@@ -1,12 +1,29 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 
-function FriendCard({username, name, email, avatar}) {
 
+function FriendCard({username, name, email, avatar, friendId, currentUserId, getFriends}) {
+
+    const deleteFriend = ()=>{
+        axios.post('api/user/remove_friend', {
+            userAcceptRequestId: currentUserId,
+            originalRequestSender: friendId,
+          })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+
+          //Update the friend list
+          getFriends();
+    }
     return (
         <div class="col-md-6 col-xl-4 mt-4">
             <div class="card">
-                <a href="#"><i class="fas fa-times deleteIcon"></i></a>
+                <i class="fas fa-times deleteIcon" onClick={deleteFriend}></i>
                 <div class="card-body">
                     <div class="media align-items-center">
                         <span style={{  

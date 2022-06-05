@@ -16,3 +16,6 @@ require('./components/Example');
 
 require('./components/GetFriends');
 
+require('./components/SearchUser');
+
+

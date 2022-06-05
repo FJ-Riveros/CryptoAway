@@ -152,7 +152,9 @@ class UserController extends Controller
         $username = $request->username;
         try
         {
-            return User::where('username', $username)->firstOrFail(); 
+            $data = User::where('username', $username)->get();
+            if(count($data) > 0 ) return $data;
+            return "User not found.";
         }
         // catch(Exception $e) catch any exception
         catch(ModelNotFoundException $e)
@@ -410,11 +412,15 @@ class UserController extends Controller
         $userAcceptRequestId = User::find($request->userAcceptRequestId);
 
         //Only the user can decline is own request, not other users
-        if( Auth::id() != $userAcceptRequestId->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
+        if( Auth::id() != $userAcceptRequestId->id && Auth::id() != $originalRequestSender->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
 
         $friend_relation = Friends::where([
             'id_friend'   => $userAcceptRequestId->id,
             'id_user'   => $originalRequestSender->id,
+        ])
+        ->orWhere([
+            'id_friend'   => $originalRequestSender->id,
+            'id_user'   => $userAcceptRequestId->id,
         ]);
 
         $updateResponse = $friend_relation->delete(); 
