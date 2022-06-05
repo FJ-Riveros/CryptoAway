@@ -1,6 +1,5 @@
 import { data } from 'autoprefixer';
 import React, {useState, useEffect} from 'react';
-import ReactDOM from 'react-dom';
 // const Web3 = require("web3");
 // import Web3 from 'web3';
 

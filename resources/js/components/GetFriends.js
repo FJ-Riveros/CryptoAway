@@ -1,7 +1,6 @@
-import { data } from 'autoprefixer';
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-
+import FriendCard from './parts/FriendCard.js';
 function GetFriends() {
     const [counter, setCounter] = useState(0);
 
@@ -14,7 +13,14 @@ function GetFriends() {
         })
         .then(data => data.json())
 
-        .then(data => console.log(data))
+        .then(data => {
+            console.log(data[0].username)
+            setFriends(
+                data.map((friendData)=> {
+                    return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} />
+                })
+            )
+        })
     }
 
     useEffect(()=>{
@@ -22,19 +28,10 @@ function GetFriends() {
     },[])
 
     return (
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-md-8">
-                    <div className="card">
-                        <div className="card-header">Example Component</div>
+    <div class="row">
+        {friends}
+    </div>
 
-                        <div className="card-body">
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
     );
 }
 
