@@ -20,8 +20,6 @@
         var currentUser = @php echo Auth::id(); @endphp; 
     </script>
     <div class="container">
-        <div id="reactSearchUser"></div>
-
         <div id="reactGetFriends"></div>
     </div>
 

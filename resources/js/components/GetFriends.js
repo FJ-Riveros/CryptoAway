@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import FriendCard from './parts/FriendCard.jsx';
+import SearchUser from './SearchUser';
+import {getFriends} from './parts/APICalls'
 function GetFriends() {
     const [apiResponse, setApiResponse] = useState("Loading the data...");
     const [friends, setFriends] = useState("Loading the friends...");
@@ -26,9 +28,14 @@ function GetFriends() {
     },[])
 
     return (
-    <div class="row">
-        {friends}
-    </div>
+        <>
+            <div class="row">
+                <SearchUser getFriends={getFriends}/>
+            </div>
+            <div class="row">
+                {friends}
+            </div>
+        </>
 
     );
 }

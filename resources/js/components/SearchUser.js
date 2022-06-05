@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import FriendCard from './parts/FriendCard';
 
-function SearchUser() {
+function SearchUser({getFriends}) {
 
     const [resultUser, setResultUser] = useState("");
     const [userInput, setUserInput] = useState("");
@@ -34,6 +35,8 @@ function SearchUser() {
               setResultUser(
                 message
               )
+
+              getFriends();
             })
             .catch(function (error) {
               console.log(error);

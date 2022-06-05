@@ -16,6 +16,6 @@ require('./components/Example');
 
 require('./components/GetFriends');
 
-require('./components/SearchUser');
+// require('./components/SearchUser');
 
 
