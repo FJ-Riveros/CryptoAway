@@ -14,20 +14,29 @@ export const deleteFriend = async ( currentUserId, friendId)=>{
       });
 }
 
-// export const getFriends = async () =>{
-//         let prueba;
-//         const data = await fetch(`http://localhost:8000/api/user/get_friends/${currentUser}`, { 
-//             method: 'get', 
-//         })
-//         .then(data => data.json())
 
-//         .then(data => {
-//                 prueba = data.map((friendData)=> {
-//                     return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentUserId={currentUser} getFriends={getFriends}/>
-//                 })
-//         })
-//         return prueba;
-// }
+export const getFriendRequests = async ( currentUserId )=>{
+    axios.get(`api/user/get_friend_requests/${currentUserId}`)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
+
+export const acceptFriendRequest = async ( currentUserId, friendId)=>{
+    axios.post('api/user/accept_friend_request', {
+        userAcceptRequestId: currentUserId,
+        originalRequestSender: friendId,
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+}
 
 
 

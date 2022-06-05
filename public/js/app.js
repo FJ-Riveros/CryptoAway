@@ -14136,7 +14136,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ./components/Example */ "./resources/js/components/Example.js");
 
-__webpack_require__(/*! ./components/GetFriends */ "./resources/js/components/GetFriends.js"); // require('./components/SearchUser');
+__webpack_require__(/*! ./components/Friends */ "./resources/js/components/Friends.js"); // require('./components/SearchUser');
 
 /***/ }),
 
@@ -14321,10 +14321,10 @@ if (document.getElementById('example')) {
 
 /***/ }),
 
-/***/ "./resources/js/components/GetFriends.js":
-/*!***********************************************!*\
-  !*** ./resources/js/components/GetFriends.js ***!
-  \***********************************************/
+/***/ "./resources/js/components/Friends.js":
+/*!********************************************!*\
+  !*** ./resources/js/components/Friends.js ***!
+  \********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -14339,7 +14339,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parts_FriendCard_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/FriendCard.jsx */ "./resources/js/components/parts/FriendCard.jsx");
 /* harmony import */ var _SearchUser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./SearchUser */ "./resources/js/components/SearchUser.js");
 /* harmony import */ var _parts_APICalls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/APICalls */ "./resources/js/components/parts/APICalls.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_FriendRequestCard_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/FriendRequestCard.jsx */ "./resources/js/components/parts/FriendRequestCard.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -14367,7 +14368,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function GetFriends() {
+
+function Friends() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the data..."),
       _useState2 = _slicedToArray(_useState, 2),
       apiResponse = _useState2[0],
@@ -14377,6 +14379,11 @@ function GetFriends() {
       _useState4 = _slicedToArray(_useState3, 2),
       friends = _useState4[0],
       setFriends = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friend requests..."),
+      _useState6 = _slicedToArray(_useState5, 2),
+      friendRequests = _useState6[0],
+      setFriendRequests = _useState6[1];
 
   var getFriends = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -14393,7 +14400,7 @@ function GetFriends() {
               }).then(function (data) {
                 console.log(data);
                 setFriends(data.map(function (friendData) {
-                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_parts_FriendCard_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_FriendCard_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
                     username: friendData.username,
                     name: friendData.name,
                     email: friendData.email,
@@ -14421,26 +14428,55 @@ function GetFriends() {
     };
   }();
 
+  var mountFriendRequests = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              setFriendRequests((0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendRequests)(currentUser).map(function (friendRequestsData) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_FriendRequestCard_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                  currentUserId: currentUser,
+                  userData: friendRequestData
+                });
+              }));
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function mountFriendRequests() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getFriends();
+    mountFriendRequests();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       "class": "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_SearchUser__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SearchUser__WEBPACK_IMPORTED_MODULE_4__["default"], {
         getFriends: getFriends
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       "class": "row",
       children: friends
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      "class": "row"
     })]
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (GetFriends);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Friends);
 
 if (document.getElementById('reactGetFriends')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(GetFriends, {}), document.getElementById('reactGetFriends'));
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Friends, {}), document.getElementById('reactGetFriends'));
 }
 
 /***/ }),
@@ -14613,7 +14649,9 @@ if (document.getElementById('reactSearchUser')) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "deleteFriend": () => (/* binding */ deleteFriend)
+/* harmony export */   "acceptFriendRequest": () => (/* binding */ acceptFriendRequest),
+/* harmony export */   "deleteFriend": () => (/* binding */ deleteFriend),
+/* harmony export */   "getFriendRequests": () => (/* binding */ getFriendRequests)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -14654,19 +14692,58 @@ var deleteFriend = /*#__PURE__*/function () {
   return function deleteFriend(_x, _x2) {
     return _ref.apply(this, arguments);
   };
-}(); // export const getFriends = async () =>{
-//         let prueba;
-//         const data = await fetch(`http://localhost:8000/api/user/get_friends/${currentUser}`, { 
-//             method: 'get', 
-//         })
-//         .then(data => data.json())
-//         .then(data => {
-//                 prueba = data.map((friendData)=> {
-//                     return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentUserId={currentUser} getFriends={getFriends}/>
-//                 })
-//         })
-//         return prueba;
-// }
+}();
+var getFriendRequests = /*#__PURE__*/function () {
+  var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(currentUserId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/get_friend_requests/".concat(currentUserId)).then(function (response) {
+              console.log(response);
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 1:
+          case "end":
+            return _context2.stop();
+        }
+      }
+    }, _callee2);
+  }));
+
+  return function getFriendRequests(_x3) {
+    return _ref2.apply(this, arguments);
+  };
+}();
+var acceptFriendRequest = /*#__PURE__*/function () {
+  var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(currentUserId, friendId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+      while (1) {
+        switch (_context3.prev = _context3.next) {
+          case 0:
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/accept_friend_request', {
+              userAcceptRequestId: currentUserId,
+              originalRequestSender: friendId
+            }).then(function (response) {
+              console.log(response);
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 1:
+          case "end":
+            return _context3.stop();
+        }
+      }
+    }, _callee3);
+  }));
+
+  return function acceptFriendRequest(_x4, _x5) {
+    return _ref3.apply(this, arguments);
+  };
+}();
 
 /***/ }),
 
@@ -14745,6 +14822,79 @@ function FriendCard(_ref) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FriendCard);
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/FriendRequestCard.jsx":
+/*!*************************************************************!*\
+  !*** ./resources/js/components/parts/FriendRequestCard.jsx ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _APICalls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./APICalls */ "./resources/js/components/parts/APICalls.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function FriendRequestCard(_ref) {
+  var userData = _ref.userData,
+      currentUser = _ref.currentUser;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    "class": "row",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      "class": "col-md-8",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        "class": "people-nearby",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+          "class": "nearby-user",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            "class": "row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              "class": "col-md-2 col-sm-2",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                alt: "user",
+                "class": "profile-photo-lg",
+                style: {
+                  src: userData.avatar
+                }
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              "class": "col-md-5 col-sm-5",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+                children: userData.username
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                children: userData.description
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              "class": "col-md-5 col-sm-5 d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                onClick: (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.acceptFriendRequest)(currentUser, userData.id),
+                "class": "btn btn-success pull-right align-middle",
+                children: "Add Friend"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+                onClick: (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUser, userData.id),
+                "class": "btn btn-secondary pull-right align-middle ml-1",
+                children: "Decline"
+              })]
+            })]
+          })
+        })
+      })
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FriendRequestCard);
 
 /***/ }),
 

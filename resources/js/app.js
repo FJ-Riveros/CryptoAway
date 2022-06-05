@@ -14,7 +14,7 @@ require('./bootstrap');
 
 require('./components/Example');
 
-require('./components/GetFriends');
+require('./components/Friends');
 
 // require('./components/SearchUser');
 

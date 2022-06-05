@@ -2,10 +2,13 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import FriendCard from './parts/FriendCard.jsx';
 import SearchUser from './SearchUser';
-import {getFriends} from './parts/APICalls'
-function GetFriends() {
+import {getFriendRequests} from './parts/APICalls'
+import FriendRequestCard from './parts/FriendRequestCard.jsx';
+function Friends() {
     const [apiResponse, setApiResponse] = useState("Loading the data...");
     const [friends, setFriends] = useState("Loading the friends...");
+    const [friendRequests, setFriendRequests] = useState("Loading the friend requests...");
+
 
     const getFriends = async () =>{
         const data = await fetch(`http://localhost:8000/api/user/get_friends/${currentUser}`, { 
@@ -23,8 +26,16 @@ function GetFriends() {
         })
     }
 
+    const mountFriendRequests = async () =>{
+        setFriendRequests(getFriendRequests(currentUser).map((friendRequestsData)=>{
+            return <FriendRequestCard currentUserId={currentUser} userData={friendRequestData} />
+        }));
+
+    }
+
     useEffect(()=>{
         getFriends();
+        mountFriendRequests();
     },[])
 
     return (
@@ -35,13 +46,16 @@ function GetFriends() {
             <div class="row">
                 {friends}
             </div>
+            <div class="row">
+                {}
+            </div>
         </>
 
     );
 }
 
-export default GetFriends;
+export default Friends;
 
 if (document.getElementById('reactGetFriends')) {
-    ReactDOM.render(<GetFriends />, document.getElementById('reactGetFriends'));
+    ReactDOM.render(<Friends />, document.getElementById('reactGetFriends'));
 }
