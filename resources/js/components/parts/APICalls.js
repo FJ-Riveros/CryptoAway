@@ -16,13 +16,17 @@ export const deleteFriend = async ( currentUserId, friendId)=>{
 
 
 export const getFriendRequests = async ( currentUserId )=>{
+    const info = await 
     axios.get(`api/user/get_friend_requests/${currentUserId}`)
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+     .then(function (response) {
+           console.log(response.data);
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+     return info;
 }
 
 export const acceptFriendRequest = async ( currentUserId, friendId)=>{

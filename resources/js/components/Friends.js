@@ -5,7 +5,7 @@ import SearchUser from './SearchUser';
 import {getFriendRequests} from './parts/APICalls'
 import FriendRequestCard from './parts/FriendRequestCard.jsx';
 function Friends() {
-    const [apiResponse, setApiResponse] = useState("Loading the data...");
+    // const [apiResponse, setApiResponse] = useState("Loading the data...");
     const [friends, setFriends] = useState("Loading the friends...");
     const [friendRequests, setFriendRequests] = useState("Loading the friend requests...");
 
@@ -17,7 +17,7 @@ function Friends() {
         .then(data => data.json())
 
         .then(data => {
-            console.log(data)
+            // console.log(data)
             setFriends(
                 data.map((friendData)=> {
                     return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentUserId={currentUser} getFriends={getFriends}/>
@@ -27,9 +27,13 @@ function Friends() {
     }
 
     const mountFriendRequests = async () =>{
-        setFriendRequests(getFriendRequests(currentUser).map((friendRequestsData)=>{
-            return <FriendRequestCard currentUserId={currentUser} userData={friendRequestData} />
-        }));
+
+        let response = await getFriendRequests(currentUser);
+        setFriendRequests(
+            response.map((friendRequestsData)=> {
+                return <FriendRequestCard currentUserId={currentUser} userData={friendRequestsData} getFriends={getFriends}/>
+            })
+        )
 
     }
 
@@ -47,7 +51,7 @@ function Friends() {
                 {friends}
             </div>
             <div class="row">
-                {}
+                {friendRequests}
             </div>
         </>
 

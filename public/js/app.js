@@ -14370,20 +14370,16 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Friends() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the data..."),
+  // const [apiResponse, setApiResponse] = useState("Loading the data...");
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
       _useState2 = _slicedToArray(_useState, 2),
-      apiResponse = _useState2[0],
-      setApiResponse = _useState2[1];
+      friends = _useState2[0],
+      setFriends = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friend requests..."),
       _useState4 = _slicedToArray(_useState3, 2),
-      friends = _useState4[0],
-      setFriends = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friend requests..."),
-      _useState6 = _slicedToArray(_useState5, 2),
-      friendRequests = _useState6[0],
-      setFriendRequests = _useState6[1];
+      friendRequests = _useState4[0],
+      setFriendRequests = _useState4[1];
 
   var getFriends = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -14398,7 +14394,7 @@ function Friends() {
               }).then(function (data) {
                 return data.json();
               }).then(function (data) {
-                console.log(data);
+                // console.log(data)
                 setFriends(data.map(function (friendData) {
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_FriendCard_jsx__WEBPACK_IMPORTED_MODULE_3__["default"], {
                     username: friendData.username,
@@ -14430,18 +14426,25 @@ function Friends() {
 
   var mountFriendRequests = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              setFriendRequests((0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendRequests)(currentUser).map(function (friendRequestsData) {
+              _context2.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendRequests)(currentUser);
+
+            case 2:
+              response = _context2.sent;
+              setFriendRequests(response.map(function (friendRequestsData) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_FriendRequestCard_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   currentUserId: currentUser,
-                  userData: friendRequestData
+                  userData: friendRequestsData,
+                  getFriends: getFriends
                 });
               }));
 
-            case 1:
+            case 4:
             case "end":
               return _context2.stop();
           }
@@ -14468,7 +14471,8 @@ function Friends() {
       "class": "row",
       children: friends
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      "class": "row"
+      "class": "row",
+      children: friendRequests
     })]
   });
 }
@@ -14695,17 +14699,24 @@ var deleteFriend = /*#__PURE__*/function () {
 }();
 var getFriendRequests = /*#__PURE__*/function () {
   var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(currentUserId) {
+    var info;
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
       while (1) {
         switch (_context2.prev = _context2.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/get_friend_requests/".concat(currentUserId)).then(function (response) {
-              console.log(response);
+            _context2.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/get_friend_requests/".concat(currentUserId)).then(function (response) {
+              console.log(response.data);
+              return response.data;
             })["catch"](function (error) {
               console.log(error);
             });
 
-          case 1:
+          case 2:
+            info = _context2.sent;
+            return _context2.abrupt("return", info);
+
+          case 4:
           case "end":
             return _context2.stop();
         }
@@ -14848,7 +14859,8 @@ __webpack_require__.r(__webpack_exports__);
 
 function FriendRequestCard(_ref) {
   var userData = _ref.userData,
-      currentUser = _ref.currentUser;
+      currentUserId = _ref.currentUserId,
+      getFriends = _ref.getFriends;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
     "class": "row",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -14862,11 +14874,9 @@ function FriendRequestCard(_ref) {
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
               "class": "col-md-2 col-sm-2",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                src: userData.avatar,
                 alt: "user",
-                "class": "profile-photo-lg",
-                style: {
-                  src: userData.avatar
-                }
+                "class": "profile-photo-lg"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               "class": "col-md-5 col-sm-5",
@@ -14878,11 +14888,17 @@ function FriendRequestCard(_ref) {
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
               "class": "col-md-5 col-sm-5 d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                onClick: (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.acceptFriendRequest)(currentUser, userData.id),
+                onClick: function onClick() {
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.acceptFriendRequest)(currentUserId, userData.id);
+                  getFriends();
+                },
                 "class": "btn btn-success pull-right align-middle",
                 children: "Add Friend"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-                onClick: (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUser, userData.id),
+                onClick: function onClick() {
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUserId, userData.id);
+                  getFriends();
+                },
                 "class": "btn btn-secondary pull-right align-middle ml-1",
                 children: "Decline"
               })]
