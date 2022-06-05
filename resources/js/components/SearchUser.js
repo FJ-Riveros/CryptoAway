@@ -4,36 +4,56 @@ import axios from 'axios';
 
 function SearchUser() {
 
-    const [resultUser, setResultUser] = useState("Loading the friends...");
+    const [resultUser, setResultUser] = useState("");
     const [userInput, setUserInput] = useState("");
 
-    console.log("hola");
     const searchUser = async () =>{
-        axios.get(`api/user/by_username/${userInput}`)
-          .then(function (response) {
-            console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-          });
-    }
+        if(userInput != ""){
+            axios.get(`api/user/by_username/${userInput}`)
+            .then(response => {
+              let message = typeof response.data === 'string' ? 
+              <div class="alert alert-danger mt-2">The user was not found!</div> :
+              <div class="alert alert-success mt-2">A friend request has been sent to the user!</div> 
 
-    // useEffect(()=>{
-    //     getFriends();
-    // },[])
+              if(typeof response.data === 'string'){
+                message = <div class="alert alert-danger mt-2">The user was not found!</div>
+              }else{
+                axios.post('api/user/send_friend_request', {
+                    userToAdd: response.data[0].id,
+                    actualUser: currentUser,
+                  })
+                  .then(function (response) {
+                    console.log(response);
+                    message = <div class="alert alert-success mt-2">A friend request has been sent to the user!</div> 
+                  })
+                  .catch(function (error) {
+                    message = <div class="alert alert-danger mt-2">There was an error.</div> 
+                  });
+              }
+
+              setResultUser(
+                message
+              )
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        }
+
+
+    }
 
     return (
     <div class="row">
         <div class="col col-xl-4 col-md-6">
             <div class="card">
                 <div class="card-body">
-                    {/* <form action="Friends.php" method="post"> */}
-                        <div class="addFriend">
-                            <label for="friendToAdd">Add friend</label>
-                            <input class="form-control" type="text" id="friendToAdd" name="friendToAdd" placeholder="Enter the username to add a friend!" value={userInput} onChange={(e)=> setUserInput(e.target.value)}></input>
-                            <button class="btn btn-success mt-2" onClick={searchUser}>Add</button>
-                        </div>
-                    {/* </form> */}
+                    <div class="addFriend">
+                        <label for="friendToAdd">Add friend</label>
+                        <input class="form-control" type="text" id="friendToAdd" name="friendToAdd" placeholder="Enter the username to add a friend!" value={userInput} onChange={(e)=> setUserInput(e.target.value)}></input>
+                        <button class="btn btn-success mt-2" onClick={searchUser}>Add</button>
+                        {resultUser}
+                    </div>
                 </div>
             </div>
         </div>

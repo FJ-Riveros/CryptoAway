@@ -16,7 +16,7 @@ function FriendCard({username, name, email, avatar, friendId, currentUserId, get
           .catch(function (error) {
             console.log(error);
           });
-
+        
           //Update the friend list
           getFriends();
     }

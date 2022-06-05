@@ -14477,7 +14477,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function SearchUser() {
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       resultUser = _useState2[0],
       setResultUser = _useState2[1];
@@ -14487,19 +14487,50 @@ function SearchUser() {
       userInput = _useState4[0],
       setUserInput = _useState4[1];
 
-  console.log("hola");
-
   var searchUser = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              axios__WEBPACK_IMPORTED_MODULE_3___default().get("api/user/by_username/".concat(userInput)).then(function (response) {
-                console.log(response);
-              })["catch"](function (error) {
-                console.log(error);
-              });
+              if (userInput != "") {
+                axios__WEBPACK_IMPORTED_MODULE_3___default().get("api/user/by_username/".concat(userInput)).then(function (response) {
+                  var message = typeof response.data === 'string' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    "class": "alert alert-danger mt-2",
+                    children: "The user was not found!"
+                  }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    "class": "alert alert-success mt-2",
+                    children: "A friend request has been sent to the user!"
+                  });
+
+                  if (typeof response.data === 'string') {
+                    message = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                      "class": "alert alert-danger mt-2",
+                      children: "The user was not found!"
+                    });
+                  } else {
+                    axios__WEBPACK_IMPORTED_MODULE_3___default().post('api/user/send_friend_request', {
+                      userToAdd: response.data[0].id,
+                      actualUser: currentUser
+                    }).then(function (response) {
+                      console.log(response);
+                      message = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        "class": "alert alert-success mt-2",
+                        children: "A friend request has been sent to the user!"
+                      });
+                    })["catch"](function (error) {
+                      message = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                        "class": "alert alert-danger mt-2",
+                        children: "There was an error."
+                      });
+                    });
+                  }
+
+                  setResultUser(message);
+                })["catch"](function (error) {
+                  console.log(error);
+                });
+              }
 
             case 1:
             case "end":
@@ -14512,10 +14543,7 @@ function SearchUser() {
     return function searchUser() {
       return _ref.apply(this, arguments);
     };
-  }(); // useEffect(()=>{
-  //     getFriends();
-  // },[])
-
+  }();
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
     "class": "row",
@@ -14544,7 +14572,7 @@ function SearchUser() {
               "class": "btn btn-success mt-2",
               onClick: searchUser,
               children: "Add"
-            })]
+            }), resultUser]
           })
         })
       })
