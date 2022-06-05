@@ -31,7 +31,7 @@ function Friends() {
         let response = await getFriendRequests(currentUser);
         setFriendRequests(
             response.map((friendRequestsData)=> {
-                return <FriendRequestCard currentUserId={currentUser} userData={friendRequestsData} getFriends={getFriends}/>
+                return <FriendRequestCard currentUserId={currentUser} userData={friendRequestsData} getFriends={getFriends} getFriendRequests={mountFriendRequests}/>
             })
         )
 

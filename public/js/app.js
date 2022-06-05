@@ -14440,7 +14440,8 @@ function Friends() {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_FriendRequestCard_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   currentUserId: currentUser,
                   userData: friendRequestsData,
-                  getFriends: getFriends
+                  getFriends: getFriends,
+                  getFriendRequests: mountFriendRequests
                 });
               }));
 
@@ -14848,10 +14849,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var _APICalls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./APICalls */ "./resources/js/components/parts/APICalls.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _APICalls__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./APICalls */ "./resources/js/components/parts/APICalls.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -14860,44 +14859,47 @@ __webpack_require__.r(__webpack_exports__);
 function FriendRequestCard(_ref) {
   var userData = _ref.userData,
       currentUserId = _ref.currentUserId,
-      getFriends = _ref.getFriends;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      getFriends = _ref.getFriends,
+      getFriendRequests = _ref.getFriendRequests;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     "class": "row",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       "class": "col-md-8",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
         "class": "people-nearby",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           "class": "nearby-user",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
             "class": "row",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
               "class": "col-md-2 col-sm-2",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
                 src: userData.avatar,
                 alt: "user",
                 "class": "profile-photo-lg"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               "class": "col-md-5 col-sm-5",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h5", {
                 children: userData.username
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
                 children: userData.description
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
               "class": "col-md-5 col-sm-5 d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 onClick: function onClick() {
-                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.acceptFriendRequest)(currentUserId, userData.id);
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.acceptFriendRequest)(currentUserId, userData.id);
                   getFriends();
+                  getFriendRequests();
                 },
                 "class": "btn btn-success pull-right align-middle",
                 children: "Add Friend"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 onClick: function onClick() {
-                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUserId, userData.id);
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.deleteFriend)(currentUserId, userData.id);
                   getFriends();
+                  getFriendRequests();
                 },
                 "class": "btn btn-secondary pull-right align-middle ml-1",
                 children: "Decline"
