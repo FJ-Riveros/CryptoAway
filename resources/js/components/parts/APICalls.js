@@ -70,5 +70,34 @@ export const getLastPost = async ( userId ) =>{
     return info;
 }
 
+export const getPosts = async ( userId ) =>{
+  const info = await 
+    axios.get(`api/user/${userId}/posts`)
+     .then(function (response) {
+          //  console.log(response.data);
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
+}
+
+export const getFriendSuggestions = async ( ) =>{
+  const info = await 
+    axios.get(`api/user/friends/suggest_friends`)
+     .then(function (response) {
+          //  console.log(response.data);
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
+}
+
+
 
 

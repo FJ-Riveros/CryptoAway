@@ -438,7 +438,7 @@ class UserController extends Controller
     {
         $actualUser = Auth::id();
 
-        //Prepare the interal request to retrieve the user friends
+        //Prepare the internal request to retrieve the user friends
         $friendsIds = [];
         //The actual user can't be a suggestion
         $friendsIds[] = $actualUser;
@@ -457,7 +457,7 @@ class UserController extends Controller
         $suggested_friends = User::whereNotIn('id', $friendsIds)->get();
 
         return [
-            "msg"       => "Friend request or friend deleted.",
+            // "msg"       => "Friend request or friend deleted.",
             "data"      => $suggested_friends,
             "success"  => true,
         ];

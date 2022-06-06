@@ -4413,6 +4413,7 @@ button#submit-button:hover {
 .feed__card__post .body {
   height: 75%;
   overflow: hidden;
+  width: 100%;
 }
 .feed__card__post .body .body__text {
   font-size: 12px;

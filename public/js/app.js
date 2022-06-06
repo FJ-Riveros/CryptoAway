@@ -14667,7 +14667,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/timeline/ProfileName */ "./resources/js/components/parts/timeline/ProfileName.jsx");
 /* harmony import */ var _parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parts/timeline/PostsTimeline */ "./resources/js/components/parts/timeline/PostsTimeline.jsx");
 /* harmony import */ var _parts_APICalls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/APICalls */ "./resources/js/components/parts/APICalls.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/timeline/LastPhotos */ "./resources/js/components/parts/timeline/LastPhotos.jsx");
+/* harmony import */ var _parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parts/timeline/FriendSuggestions */ "./resources/js/components/parts/timeline/FriendSuggestions.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -14695,6 +14697,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 function Timeline() {
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
       _useState2 = _slicedToArray(_useState, 2),
@@ -14704,7 +14708,17 @@ function Timeline() {
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends posts..."),
       _useState4 = _slicedToArray(_useState3, 2),
       friendsPosts = _useState4[0],
-      setFriendsPosts = _useState4[1]; //Displays the friends from the current user
+      setFriendsPosts = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the last photos..."),
+      _useState6 = _slicedToArray(_useState5, 2),
+      lastPhotos = _useState6[0],
+      setLastPhotos = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the last user suggestions..."),
+      _useState8 = _slicedToArray(_useState7, 2),
+      userSuggestions = _useState8[0],
+      setUserSuggestions = _useState8[1]; //Displays the friends from the current user
 
 
   var getFriends = /*#__PURE__*/function () {
@@ -14726,6 +14740,8 @@ function Timeline() {
                     while (1) {
                       switch (_context3.prev = _context3.next) {
                         case 0:
+                          setFriends(data); //Get the last post from the friends
+
                           //Get the last post from the friends
                           friendsPostsInfo = data.map( /*#__PURE__*/function () {
                             var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(friendData) {
@@ -14752,10 +14768,10 @@ function Timeline() {
                             };
                           }()); //Resolves the promises generated in the loop
 
-                          _context3.next = 3;
+                          _context3.next = 4;
                           return Promise.all(friendsPostsInfo);
 
-                        case 3:
+                        case 4:
                           lastPost = _context3.sent;
                           //Filters the posts from the users that had no post 
                           cleanPosts = lastPost.filter(function (post) {
@@ -14770,7 +14786,7 @@ function Timeline() {
                                   switch (_context2.prev = _context2.next) {
                                     case 0:
                                       _context2.next = 2;
-                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
                                         post: post
                                       });
 
@@ -14790,14 +14806,14 @@ function Timeline() {
                             };
                           }());
                           _context3.t0 = setFriendsPosts;
-                          _context3.next = 9;
+                          _context3.next = 10;
                           return Promise.all(postComponents);
 
-                        case 9:
+                        case 10:
                           _context3.t1 = _context3.sent;
                           (0, _context3.t0)(_context3.t1);
 
-                        case 11:
+                        case 12:
                         case "end":
                           return _context3.stop();
                       }
@@ -14826,20 +14842,107 @@ function Timeline() {
     };
   }();
 
+  var getPhotos = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+      var post;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getPosts)(currentDataUser.id);
+
+            case 2:
+              post = _context5.sent;
+              console.log(post);
+              setLastPhotos(post.map(function (post) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                  post: post
+                });
+              }));
+
+            case 5:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+
+    return function getPhotos() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var getUserSuggestions = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+      var suggestions, mountedSuggestions;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendSuggestions)();
+
+            case 2:
+              suggestions = _context6.sent;
+              mountedSuggestions = suggestions.data.map(function (user) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                  user: user,
+                  currentUser: currentDataUser,
+                  getUserSuggestions: getUserSuggestions
+                });
+              });
+              setUserSuggestions(mountedSuggestions);
+
+            case 5:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
+    }));
+
+    return function getUserSuggestions() {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getFriends();
+    getPhotos();
+    getUserSuggestions();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "col-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
           currentUserData: currentDataUser
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         className: "col-6",
         children: friendsPosts
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        className: "col-3",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          "class": "latest__photos__container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            "class": "header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+              children: "Latest Photos"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            "class": "photos__grid row",
+            children: lastPhotos
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          "class": "friend__suggestion__container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+            children: "Add Friends!"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {}), userSuggestions]
+        })]
       })]
     })
   });
@@ -14848,7 +14951,7 @@ function Timeline() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timeline);
 
 if (document.getElementById('reactGetTimeline')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
 }
 
 /***/ }),
@@ -14865,7 +14968,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "acceptFriendRequest": () => (/* binding */ acceptFriendRequest),
 /* harmony export */   "deleteFriend": () => (/* binding */ deleteFriend),
 /* harmony export */   "getFriendRequests": () => (/* binding */ getFriendRequests),
+/* harmony export */   "getFriendSuggestions": () => (/* binding */ getFriendSuggestions),
 /* harmony export */   "getLastPost": () => (/* binding */ getLastPost),
+/* harmony export */   "getPosts": () => (/* binding */ getPosts),
 /* harmony export */   "getUserById": () => (/* binding */ getUserById)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
@@ -15025,6 +15130,68 @@ var getLastPost = /*#__PURE__*/function () {
 
   return function getLastPost(_x7) {
     return _ref5.apply(this, arguments);
+  };
+}();
+var getPosts = /*#__PURE__*/function () {
+  var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6(userId) {
+    var info;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+      while (1) {
+        switch (_context6.prev = _context6.next) {
+          case 0:
+            _context6.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/".concat(userId, "/posts")).then(function (response) {
+              //  console.log(response.data);
+              return response.data;
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 2:
+            info = _context6.sent;
+            return _context6.abrupt("return", info);
+
+          case 4:
+          case "end":
+            return _context6.stop();
+        }
+      }
+    }, _callee6);
+  }));
+
+  return function getPosts(_x8) {
+    return _ref6.apply(this, arguments);
+  };
+}();
+var getFriendSuggestions = /*#__PURE__*/function () {
+  var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+    var info;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+      while (1) {
+        switch (_context7.prev = _context7.next) {
+          case 0:
+            _context7.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/friends/suggest_friends").then(function (response) {
+              //  console.log(response.data);
+              return response.data;
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 2:
+            info = _context7.sent;
+            return _context7.abrupt("return", info);
+
+          case 4:
+          case "end":
+            return _context7.stop();
+        }
+      }
+    }, _callee7);
+  }));
+
+  return function getFriendSuggestions() {
+    return _ref7.apply(this, arguments);
   };
 }();
 
@@ -15187,6 +15354,127 @@ function FriendRequestCard(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/parts/timeline/FriendSuggestions.jsx":
+/*!**********************************************************************!*\
+  !*** ./resources/js/components/parts/timeline/FriendSuggestions.jsx ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+
+
+
+function FriendSuggestions(_ref) {
+  var user = _ref.user,
+      currentUser = _ref.currentUser,
+      getUserSuggestions = _ref.getUserSuggestions;
+
+  var addUser = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              axios.post('api/user/send_friend_request', {
+                userToAdd: user.id,
+                actualUser: currentUser.id
+              }).then(function (response) {
+                console.log(response);
+                getUserSuggestions();
+              })["catch"](function (error) {});
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function addUser() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "row d-flex align-items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "col-6 user__info",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+        src: user.avatar,
+        alt: "",
+        height: "100%"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: "username",
+        children: user.username
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "col-6 add__button__container",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+        className: "bi bi-person-plus-fill add",
+        onClick: addUser
+      })
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FriendSuggestions);
+
+/***/ }),
+
+/***/ "./resources/js/components/parts/timeline/LastPhotos.jsx":
+/*!***************************************************************!*\
+  !*** ./resources/js/components/parts/timeline/LastPhotos.jsx ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _APICalls__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../APICalls */ "./resources/js/components/parts/APICalls.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function LastPhotos(_ref) {
+  var post = _ref.post;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    "class": "col-4",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+      src: post.imgPost,
+      "class": "img-fluid",
+      alt: ""
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LastPhotos);
+
+/***/ }),
+
 /***/ "./resources/js/components/parts/timeline/PostsTimeline.jsx":
 /*!******************************************************************!*\
   !*** ./resources/js/components/parts/timeline/PostsTimeline.jsx ***!
@@ -15270,52 +15558,49 @@ function PostsTimeline(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostOwner();
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-    "class": "col-6",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      "class": "feed__card__post",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        "class": "feed__card__post__header",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          "class": "row",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            "class": "col-6 d-flex justify-content-start align-items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              src: userInfo.avatar,
-              alt: "",
-              "class": "header__img"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              "class": "header__text ml-2",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                children: userInfo.username
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                children: "3 hours ago"
-              })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    className: "feed__card__post",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "feed__card__post__header",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "row",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "col-6 d-flex justify-content-start align-items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+            src: userInfo.avatar,
+            alt: "",
+            className: "header__img"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "header__text ml-2",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
+              children: userInfo.username
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+              children: "3 hours ago"
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            "class": "col-6"
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        "class": "body",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          "class": "body__img",
-          style: {
-            backgroundImage: "url(" + post.imgPost + ")"
-          }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-          "class": "body__text",
-          children: post.textPost
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: "col-6"
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-        "class": "footer",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-          "class": "bi bi-suit-heart"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-          "class": "bi bi-chat-left-text ml-4"
-        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "body",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        className: "body__img",
+        style: {
+          backgroundImage: "url(" + post.imgPost + ")"
+        }
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        "class": "body__text",
+        children: post.textPost
       })]
-    })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      "class": "footer",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        "class": "bi bi-suit-heart"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        "class": "bi bi-chat-left-text ml-4"
+      })]
+    })]
   });
 }
 

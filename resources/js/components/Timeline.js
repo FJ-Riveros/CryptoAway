@@ -2,11 +2,16 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import ProfileName from './parts/timeline/ProfileName';
 import PostsTimeline from './parts/timeline/PostsTimeline';
-import { getLastPost } from './parts/APICalls';
+import { getLastPost, getPosts, getFriendSuggestions} from './parts/APICalls';
+import LastPhotos from './parts/timeline/LastPhotos';
+import FriendSuggestions from './parts/timeline/FriendSuggestions';
+
 
 function Timeline() {
     const [friends, setFriends] = useState("Loading the friends...");
     const [friendsPosts, setFriendsPosts] = useState("Loading the friends posts...");
+    const [lastPhotos, setLastPhotos] = useState("Loading the last photos...");
+    const [userSuggestions, setUserSuggestions] = useState("Loading the last user suggestions...");
 
     //Displays the friends from the current user
     const getFriends = async () =>{
@@ -16,6 +21,7 @@ function Timeline() {
         .then(data => data.json())
 
         .then(async data => {
+            setFriends(data);
             //Get the last post from the friends
             const friendsPostsInfo = data.map(async (friendData)=> {
                 return await getLastPost(friendData.id);
@@ -39,8 +45,32 @@ function Timeline() {
         })
     }
 
+    const getPhotos = async () =>{
+        const post = await getPosts(currentDataUser.id);
+        console.log(post);
+
+        setLastPhotos(
+            post.map((post)=>{
+                return <LastPhotos post={post} />
+            })
+        )
+    }
+
+    const getUserSuggestions = async () =>{
+        
+        const suggestions = await getFriendSuggestions();
+
+        const mountedSuggestions = suggestions.data.map((user)=>{
+                return <FriendSuggestions user={user} currentUser={currentDataUser} getUserSuggestions={getUserSuggestions} />
+        })
+        setUserSuggestions(mountedSuggestions);
+    }
+
+
     useEffect(()=>{
         getFriends();
+        getPhotos();
+        getUserSuggestions();
     },[])
 
     return (
@@ -54,6 +84,24 @@ function Timeline() {
                     {friendsPosts}
                 </div>
                 
+                <div className="col-3">
+                    <div class="latest__photos__container">
+                        <div class="header">
+                            <h3>Latest Photos</h3>
+                            <hr/>
+                        </div>
+                        <div class="photos__grid row">
+                            {lastPhotos}
+                        </div>
+                    </div>
+
+                    <div class="friend__suggestion__container">
+                        <h3>Add Friends!</h3>
+                        <hr/>
+                        {userSuggestions}
+                    </div>
+                </div>
+
             </div>
         </>
 

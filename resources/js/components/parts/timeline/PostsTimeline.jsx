@@ -19,25 +19,25 @@ function PostsTimeline({post}) {
         getPostOwner();
     },[])
     return (
-        <div class="col-6">
-            <div class="feed__card__post">
-                <div class="feed__card__post__header">
-                    <div class="row">
-                        <div class="col-6 d-flex justify-content-start align-items-center">
-                            <img src={userInfo.avatar} alt="" class="header__img" />
-                            <div class="header__text ml-2">
+        
+            <div className="feed__card__post">
+                <div className="feed__card__post__header">
+                    <div className="row">
+                        <div className="col-6 d-flex justify-content-start align-items-center">
+                            <img src={userInfo.avatar} alt="" className="header__img" />
+                            <div className="header__text ml-2">
                                 <h4>{userInfo.username}</h4>
                                 <p>3 hours ago</p>
                             </div>
                         </div>
 
-                        <div class="col-6">
+                        <div className="col-6">
                             
                         </div>
                     </div>
                 </div>
-                <div class="body">
-                    <div class="body__img" style={{backgroundImage: "url(" + post.imgPost + ")"}}>
+                <div className="body">
+                    <div className="body__img" style={{backgroundImage: "url(" + post.imgPost + ")"}}>
 
                     </div>
                     <p class="body__text">{post.textPost}</p>
@@ -49,7 +49,7 @@ function PostsTimeline({post}) {
                     <i class="bi bi-chat-left-text ml-4"></i>
                 </div>
             </div>
-        </div>        
+        
     );
 }
 
