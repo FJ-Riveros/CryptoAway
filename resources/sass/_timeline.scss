@@ -218,3 +218,23 @@
 hr{
     margin: 0 !important;
 }
+
+.textarea__container {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.3rem;
+    gap: 0.2rem;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+    height: 150px;
+    button{
+        background-color: $main-color;
+        border-color: $main-color;
+        
+
+        
+    }
+}
+
+textarea{
+    resize: none !important;
+}

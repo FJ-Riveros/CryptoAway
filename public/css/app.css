@@ -4531,6 +4531,23 @@ hr {
   margin: 0 !important;
 }
 
+.textarea__container {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.3rem;
+  gap: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+  height: 150px;
+}
+.textarea__container button {
+  background-color: #f9ab30;
+  border-color: #f9ab30;
+}
+
+textarea {
+  resize: none !important;
+}
+
 /*!
  * Bootstrap v5.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2021 The Bootstrap Authors

@@ -53,6 +53,7 @@ function Friends() {
             <div class="row">
                 {friendRequests}
             </div>
+
         </>
 
     );

@@ -5,13 +5,17 @@ import PostsTimeline from './parts/timeline/PostsTimeline';
 import { getLastPost, getPosts, getFriendSuggestions} from './parts/APICalls';
 import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
-
+import CreatePost from './parts/timeline/CreatePost';
 
 function Timeline() {
     const [friends, setFriends] = useState("Loading the friends...");
     const [friendsPosts, setFriendsPosts] = useState("Loading the friends posts...");
     const [lastPhotos, setLastPhotos] = useState("Loading the last photos...");
     const [userSuggestions, setUserSuggestions] = useState("Loading the last user suggestions...");
+    const [commentInput, setCommentInput] = useState("Write Something!");
+    const [createPostText, setCreatePostText] = useState("Write Something Cool!");
+    const [createPostImage, setCreatePostImage] = useState("Insert a URL!");
+
 
     //Displays the friends from the current user
     const getFriends = async () =>{
@@ -68,10 +72,14 @@ function Timeline() {
 
 
     useEffect(()=>{
-        getFriends();
+        // getFriends();
         getPhotos();
         getUserSuggestions();
     },[])
+
+    useEffect(()=>{
+        getFriends();
+    },[createPostText])
 
     return (
         <>
@@ -81,6 +89,8 @@ function Timeline() {
                 </div>
 
                 <div className="col-6">
+                    <CreatePost createPostText={createPostText} setCreatePostText={setCreatePostText} createPostImage={createPostImage} setCreatePostImage={setCreatePostImage} />
+                    
                     {friendsPosts}
                 </div>
                 
@@ -101,7 +111,6 @@ function Timeline() {
                         {userSuggestions}
                     </div>
                 </div>
-
             </div>
         </>
 

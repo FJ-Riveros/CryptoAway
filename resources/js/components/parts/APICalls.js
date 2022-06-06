@@ -98,6 +98,17 @@ export const getFriendSuggestions = async ( ) =>{
     return info;
 }
 
-
+export const createPost = async ( textPost, imgPost)=>{
+      axios.post('api/posts/create_post', {
+          imgPost: imgPost,
+          textPost: textPost,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }
 
 
