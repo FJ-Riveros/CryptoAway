@@ -109,6 +109,45 @@ export const createPost = async ( textPost, imgPost)=>{
         .catch(function (error) {
           console.log(error);
         });
-  }
+}
 
+export const giveLike = async ( userId, postId)=>{
+      axios.post('api/user/like_post', {
+          userId: userId,
+          postId: postId,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+}
+
+
+export const userLikedPostCheck = async ( userId, postId) =>{
+      const info = await 
+        axios.get(`api/user/already_liked_post/${userId}/${postId}`)
+         .then(function (response) {
+               return response.data 
+         })
+         .catch(function (error) {
+               console.log(error);
+         });
+    
+        return info;
+}
+
+export const removeLike = async ( userId, postId)=>{
+      axios.post('api/user/remove_like', {
+          userId: userId,
+          postId: postId,
+        })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+}
 

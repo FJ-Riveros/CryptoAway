@@ -14804,7 +14804,9 @@ function Timeline() {
                                     case 0:
                                       _context2.next = 2;
                                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                                        post: post
+                                        post: post,
+                                        currentUser: currentDataUser,
+                                        resetPosts: getFriends
                                       });
 
                                     case 2:
@@ -14997,7 +14999,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getFriendSuggestions": () => (/* binding */ getFriendSuggestions),
 /* harmony export */   "getLastPost": () => (/* binding */ getLastPost),
 /* harmony export */   "getPosts": () => (/* binding */ getPosts),
-/* harmony export */   "getUserById": () => (/* binding */ getUserById)
+/* harmony export */   "getUserById": () => (/* binding */ getUserById),
+/* harmony export */   "giveLike": () => (/* binding */ giveLike),
+/* harmony export */   "removeLike": () => (/* binding */ removeLike),
+/* harmony export */   "userLikedPostCheck": () => (/* binding */ userLikedPostCheck)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
@@ -15245,6 +15250,90 @@ var createPost = /*#__PURE__*/function () {
 
   return function createPost(_x9, _x10) {
     return _ref8.apply(this, arguments);
+  };
+}();
+var giveLike = /*#__PURE__*/function () {
+  var _ref9 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee9(userId, postId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee9$(_context9) {
+      while (1) {
+        switch (_context9.prev = _context9.next) {
+          case 0:
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/like_post', {
+              userId: userId,
+              postId: postId
+            }).then(function (response) {
+              console.log(response);
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 1:
+          case "end":
+            return _context9.stop();
+        }
+      }
+    }, _callee9);
+  }));
+
+  return function giveLike(_x11, _x12) {
+    return _ref9.apply(this, arguments);
+  };
+}();
+var userLikedPostCheck = /*#__PURE__*/function () {
+  var _ref10 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee10(userId, postId) {
+    var info;
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee10$(_context10) {
+      while (1) {
+        switch (_context10.prev = _context10.next) {
+          case 0:
+            _context10.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/already_liked_post/".concat(userId, "/").concat(postId)).then(function (response) {
+              return response.data;
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 2:
+            info = _context10.sent;
+            return _context10.abrupt("return", info);
+
+          case 4:
+          case "end":
+            return _context10.stop();
+        }
+      }
+    }, _callee10);
+  }));
+
+  return function userLikedPostCheck(_x13, _x14) {
+    return _ref10.apply(this, arguments);
+  };
+}();
+var removeLike = /*#__PURE__*/function () {
+  var _ref11 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee11(userId, postId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee11$(_context11) {
+      while (1) {
+        switch (_context11.prev = _context11.next) {
+          case 0:
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/remove_like', {
+              userId: userId,
+              postId: postId
+            }).then(function (response) {
+              console.log(response);
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 1:
+          case "end":
+            return _context11.stop();
+        }
+      }
+    }, _callee11);
+  }));
+
+  return function removeLike(_x15, _x16) {
+    return _ref11.apply(this, arguments);
   };
 }();
 
@@ -15728,12 +15817,19 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function PostsTimeline(_ref) {
-  var post = _ref.post;
+  var post = _ref.post,
+      currentUser = _ref.currentUser,
+      resetPosts = _ref.resetPosts;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       userInfo = _useState2[0],
-      setUserInfo = _useState2[1]; //Get the user that corresponds with the actual post to get the info.
+      setUserInfo = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      userLikedPost = _useState4[0],
+      setUserLikedPost = _useState4[1]; //Get the user that corresponds with the actual post to get the info.
 
 
   var getPostOwner = /*#__PURE__*/function () {
@@ -15761,13 +15857,87 @@ function PostsTimeline(_ref) {
     return function getPostOwner() {
       return _ref2.apply(this, arguments);
     };
-  }(); //Get the post info
-  //Get the like/dislike
-  //Comments
+  }();
+
+  var checkIfUserLikedPost = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.userLikedPostCheck)(currentUser.id, post.id);
+
+            case 2:
+              response = _context2.sent;
+              setUserLikedPost(response == "" ? false : true);
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function checkIfUserLikedPost() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  var likePost = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              response = (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(currentUser.id, post.id);
+              resetPosts();
+              console.log(response);
+
+            case 3:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function likePost() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  var dislikePost = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              response = (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(currentUser.id, post.id);
+              resetPosts();
+              console.log(response);
+
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function dislikePost() {
+      return _ref5.apply(this, arguments);
+    };
+  }(); //Comments
 
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostOwner();
+    checkIfUserLikedPost();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "feed__card__post",
@@ -15806,8 +15976,12 @@ function PostsTimeline(_ref) {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       "class": "footer",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-        "class": "bi bi-suit-heart"
+      children: [userLikedPost ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        "class": "bi bi-heart-fill red",
+        onClick: dislikePost
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+        "class": "bi bi-suit-heart",
+        onClick: likePost
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
         "class": "bi bi-chat-left-text ml-4"
       })]
