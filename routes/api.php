@@ -100,9 +100,12 @@ Route::middleware('auth:sanctum')->group( function () {
     //User liked post?
     Route::get('user/already_liked_post/{userId}/{postId}', [UserController::class, 'check_if_user_liked_post']);
     
-    //User liked post?
+    //Remove like
     Route::post('user/remove_like', [UserController::class, 'remove_like']);
-    
+
+    //Retrieves the posts from the timeline
+    // Route::post('user/get_timeline_posts', [UserController::class, 'get_timeline_posts']);
+
     //Accept friend request
     Route::post('user/accept_friend_request', [UserController::class, 'accept_friend_request']);
     

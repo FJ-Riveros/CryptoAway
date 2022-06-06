@@ -1,5 +1,5 @@
 import axios from 'axios';
-import FriendCard from './FriendCard';
+// import FriendCard from './FriendCard';
 
 export const deleteFriend = async ( currentUserId, friendId)=>{
     axios.post('api/user/remove_friend', {
@@ -40,6 +40,34 @@ export const acceptFriendRequest = async ( currentUserId, friendId)=>{
       .catch(function (error) {
         console.log(error);
       });
+}
+
+export const getUserById = async ( userId ) =>{
+  const info = await 
+    axios.get(`api/user/${userId}`)
+     .then(function (response) {
+           console.log(response.data);
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
+}
+
+export const getLastPost = async ( userId ) =>{
+  const info = await 
+    axios.get(`api/user/${userId}/last_post`)
+     .then(function (response) {
+          //  console.log(response.data);
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
 }
 
 

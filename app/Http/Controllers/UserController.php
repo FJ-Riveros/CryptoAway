@@ -138,6 +138,8 @@ class UserController extends Controller
         $user = User::find($request->idUser);
         
         $post = $user->user_posts_relation->last();
+        if($post == "") $post = [];
+        
         return $post;
     }
 
@@ -461,4 +463,25 @@ class UserController extends Controller
         ];
     }
 
+
+    
+    // public function get_timeline_posts(Request $request){
+    //     $user = User::find($request->userId);
+
+    //     $friend_relation = Friends::where([
+    //         'id_friend'   => $userAcceptRequestId->id,
+    //         'id_user'   => $originalRequestSender->id,
+    //     ])
+    //     ->orWhere([
+    //         'id_friend'   => $originalRequestSender->id,
+    //         'id_user'   => $userAcceptRequestId->id,
+    //     ]);
+
+    //     $updateResponse = $friend_relation->delete(); 
+
+    //     return [
+    //         "msg"       => "Friend request or friend deleted.",
+    //         "response"  => $updateResponse,
+    //     ];
+    // }
 }

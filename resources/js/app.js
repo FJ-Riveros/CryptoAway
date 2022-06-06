@@ -16,6 +16,6 @@ require('./components/Example');
 
 require('./components/Friends');
 
-// require('./components/SearchUser');
+require('./components/Timeline');
 
 
