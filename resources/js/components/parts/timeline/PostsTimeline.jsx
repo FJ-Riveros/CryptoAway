@@ -2,12 +2,11 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {getUserById, userLikedPostCheck, giveLike, removeLike } from '../APICalls';
 
-function PostsTimeline({post, currentUser, resetPosts}) {
+function PostsTimeline({ post, currentUser }) {
 
     const [userInfo, setUserInfo] = useState("");
     const [userLikedPost, setUserLikedPost] = useState(false);
     
-
     //Get the user that corresponds with the actual post to get the info.
     const getPostOwner = async () => {
         setUserInfo(await getUserById(post.user_idUser));
@@ -19,15 +18,16 @@ function PostsTimeline({post, currentUser, resetPosts}) {
     }
 
     const likePost = async () => {
-        const response = giveLike(currentUser.id, post.id);
-        resetPosts();
+        const response = await giveLike(currentUser.id, post.id);
+        //Checks if the user liked the actual post, updating the heart icon
+        checkIfUserLikedPost();
         console.log(response);
-
     }
 
     const dislikePost = async () => {
-        const response = removeLike(currentUser.id, post.id);
-        resetPosts();
+        const response = await removeLike(currentUser.id, post.id);
+        //Checks if the user liked the actual post, updating the heart icon
+        checkIfUserLikedPost();
         console.log(response);
     }
 

@@ -14735,7 +14735,12 @@ function Timeline() {
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Insert a URL!"),
       _useState14 = _slicedToArray(_useState13, 2),
       createPostImage = _useState14[0],
-      setCreatePostImage = _useState14[1]; //Displays the friends from the current user
+      setCreatePostImage = _useState14[1];
+
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState16 = _slicedToArray(_useState15, 2),
+      refreshFriendsPosts = _useState16[0],
+      setRefreshFriendsPosts = _useState16[1]; //Displays the friends from the current user
 
 
   var getFriends = /*#__PURE__*/function () {
@@ -14805,8 +14810,7 @@ function Timeline() {
                                       _context2.next = 2;
                                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
                                         post: post,
-                                        currentUser: currentDataUser,
-                                        resetPosts: getFriends
+                                        currentUser: currentDataUser
                                       });
 
                                     case 2:
@@ -14934,7 +14938,7 @@ function Timeline() {
   }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getFriends();
-  }, [createPostText]);
+  }, [createPostText, refreshFriendsPosts]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "row",
@@ -15818,8 +15822,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function PostsTimeline(_ref) {
   var post = _ref.post,
-      currentUser = _ref.currentUser,
-      resetPosts = _ref.resetPosts;
+      currentUser = _ref.currentUser;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -15893,11 +15896,16 @@ function PostsTimeline(_ref) {
         while (1) {
           switch (_context3.prev = _context3.next) {
             case 0:
-              response = (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(currentUser.id, post.id);
-              resetPosts();
+              _context3.next = 2;
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(currentUser.id, post.id);
+
+            case 2:
+              response = _context3.sent;
+              //Checks if the user liked the actual post, updating the heart icon
+              checkIfUserLikedPost();
               console.log(response);
 
-            case 3:
+            case 5:
             case "end":
               return _context3.stop();
           }
@@ -15917,11 +15925,16 @@ function PostsTimeline(_ref) {
         while (1) {
           switch (_context4.prev = _context4.next) {
             case 0:
-              response = (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(currentUser.id, post.id);
-              resetPosts();
+              _context4.next = 2;
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(currentUser.id, post.id);
+
+            case 2:
+              response = _context4.sent;
+              //Checks if the user liked the actual post, updating the heart icon
+              checkIfUserLikedPost();
               console.log(response);
 
-            case 3:
+            case 5:
             case "end":
               return _context4.stop();
           }

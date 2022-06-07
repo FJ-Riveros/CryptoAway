@@ -15,6 +15,7 @@ function Timeline() {
     const [commentInput, setCommentInput] = useState("Write Something!");
     const [createPostText, setCreatePostText] = useState("Write Something Cool!");
     const [createPostImage, setCreatePostImage] = useState("Insert a URL!");
+    const [refreshFriendsPosts, setRefreshFriendsPosts] = useState(false);
 
 
     //Displays the friends from the current user
@@ -39,7 +40,7 @@ function Timeline() {
             
             //Loops through the posts again to mount the info into the component
             let postComponents =  cleanPosts.map(async (post)=> {
-                return await <PostsTimeline post={post} currentUser={currentDataUser} resetPosts={getFriends} />
+                return await <PostsTimeline post={post} currentUser={currentDataUser}/>
             })
 
             setFriendsPosts(
@@ -79,7 +80,7 @@ function Timeline() {
 
     useEffect(()=>{
         getFriends();
-    },[createPostText])
+    },[createPostText, refreshFriendsPosts])
 
     return (
         <>
