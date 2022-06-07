@@ -121,8 +121,13 @@ Route::middleware('auth:sanctum')->group( function () {
     //Create a comment
     Route::post('user/post/create_comment', [CommentsController::class, 'create']);
 
+    //Delete a comment
+    Route::post('user/post/delete_comment', [CommentsController::class, 'destroy']);
+
     //Get the comments from a post
     Route::get('user/post/{idPost}/comments', [CommentsController::class, 'get_comments']);
+
+
 
     //Get Post likes
     Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);

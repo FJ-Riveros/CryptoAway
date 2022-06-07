@@ -100,9 +100,25 @@ class CommentsController extends Controller
      * @param  \App\Models\comments  $comments
      * @return \Illuminate\Http\Response
      */
-    public function destroy(comments $comments)
+    public function destroy(Request $request)
     {
-        //
+        try
+        {
+            //Change if the user can comment multiple times on the same post
+            $actualUser = User::find($request->userId);
+            
+            if(is_null($actualUser)) return "Non existent User";
+            
+            return  Comments::where([
+                'user_idUser' => $actualUser->id,
+                'Post_idPost' => $request->idPost,
+            ])->delete();
+        }
+        // catch(Exception $e) catch any exception
+        catch(Exception $e)
+        {
+            return "There was an error";
+        }
     }
 
     public function get_comments(Request $request)

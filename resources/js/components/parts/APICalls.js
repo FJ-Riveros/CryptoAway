@@ -176,4 +176,15 @@ export const getComments = async ( postId ) =>{
 
 }
 
-
+export const deleteComment = async ( userId, postId ) =>{
+  axios.post('api/user/post/delete_comment', {
+      userId: userId,
+      idPost: postId,
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}

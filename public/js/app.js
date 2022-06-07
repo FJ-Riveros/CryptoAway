@@ -15038,6 +15038,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "acceptFriendRequest": () => (/* binding */ acceptFriendRequest),
 /* harmony export */   "createComment": () => (/* binding */ createComment),
 /* harmony export */   "createPost": () => (/* binding */ createPost),
+/* harmony export */   "deleteComment": () => (/* binding */ deleteComment),
 /* harmony export */   "deleteFriend": () => (/* binding */ deleteFriend),
 /* harmony export */   "getComments": () => (/* binding */ getComments),
 /* harmony export */   "getFriendRequests": () => (/* binding */ getFriendRequests),
@@ -15436,6 +15437,33 @@ var getComments = /*#__PURE__*/function () {
     return _ref13.apply(this, arguments);
   };
 }();
+var deleteComment = /*#__PURE__*/function () {
+  var _ref14 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee14(userId, postId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee14$(_context14) {
+      while (1) {
+        switch (_context14.prev = _context14.next) {
+          case 0:
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/post/delete_comment', {
+              userId: userId,
+              idPost: postId
+            }).then(function (response) {
+              console.log(response);
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 1:
+          case "end":
+            return _context14.stop();
+        }
+      }
+    }, _callee14);
+  }));
+
+  return function deleteComment(_x21, _x22) {
+    return _ref14.apply(this, arguments);
+  };
+}();
 
 /***/ }),
 
@@ -15639,7 +15667,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Comments(_ref) {
-  var commentData = _ref.commentData;
+  var commentData = _ref.commentData,
+      currentUser = _ref.currentUser;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -15659,9 +15688,8 @@ function Comments(_ref) {
             case 2:
               response = _context.sent;
               setUserData(response);
-              console.log(commentData.Text.split("T")[0]);
 
-            case 5:
+            case 4:
             case "end":
               return _context.stop();
           }
@@ -15671,6 +15699,33 @@ function Comments(_ref) {
 
     return function getCommentUser() {
       return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var deleteComment = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      var response;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.next = 2;
+              return deleteComment(currentUser.id, commentData.Post_idPost);
+
+            case 2:
+              response = _context2.sent;
+              console.log(response);
+
+            case 4:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function deleteComment() {
+      return _ref3.apply(this, arguments);
     };
   }();
 
@@ -15692,35 +15747,36 @@ function Comments(_ref) {
                 className: "comment-widgets m-b-20",
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                   className: "d-flex flex-row comment-row",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "p-2",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    children: [commentData.user_idUser == currentUser.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                      className: "action__delete",
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                        href: "#",
+                        "data-abc": "true",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                          className: "fa fa-pencil",
+                          onClick: deleteComment
+                        })
+                      })
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         className: "round",
                         src: "https://i.imgur.com/uIgDDDd.jpg",
                         alt: "user",
                         width: "50"
                       })
-                    })
+                    })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "comment-text w-100",
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
                       children: userData.name
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                       className: "comment-footer",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                         className: "date",
                         children: commentData.created_at.split("T")[0]
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                        className: "action-icons",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                          href: "#",
-                          "data-abc": "true",
-                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                            className: "fa fa-pencil"
-                          })
-                        })
-                      })]
+                      })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                       className: "m-b-5 m-t-10",
                       children: commentData.Text
@@ -16243,7 +16299,8 @@ function PostsTimeline(_ref) {
               _context6.next = 5;
               return response.map(function (comment) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                  commentData: comment
+                  commentData: comment,
+                  currentUser: currentUser
                 });
               });
 

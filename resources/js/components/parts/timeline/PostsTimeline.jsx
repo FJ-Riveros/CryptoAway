@@ -46,7 +46,7 @@ function PostsTimeline({ post, currentUser }) {
     const trycomments = async () => {
         let response = await getComments(post.id);
         const comments = await response.map((comment) => {
-            return <Comments commentData={comment}/>
+            return <Comments commentData={comment} currentUser={currentUser}/>
         })
         console.log(comments);
         setMountedComponents(comments);
