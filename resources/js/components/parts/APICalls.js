@@ -46,7 +46,6 @@ export const getUserById = async ( userId ) =>{
   const info = await 
     axios.get(`api/user/${userId}`)
      .then(function (response) {
-           console.log(response.data);
            return response.data 
      })
      .catch(function (error) {
@@ -164,4 +163,17 @@ export const createComment = async ( userId, postId, text)=>{
       console.log(error);
     });
 }
+
+
+export const getComments = async ( postId ) =>{
+  return await axios.get(`api/user/post/${postId}/comments`)
+     .then(function (response) {
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+}
+
 

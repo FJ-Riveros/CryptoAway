@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import {getUserById, userLikedPostCheck, giveLike, removeLike, createComment, getComments } from '../APICalls';
+import {getUserById, userLikedPostCheck, giveLike, removeLike, createComment,
+     getComments } from '../APICalls';
 import Comments from './Comments';
 
 function PostsTimeline({ post, currentUser }) {
@@ -42,21 +43,21 @@ function PostsTimeline({ post, currentUser }) {
         console.log(response);
     }
 
-    const getComments = async () => {
-        const response = await getComments(post.id);
-
-        const comments = response.map((comment) => {
-            <Comments commentData={comment}/>
+    const trycomments = async () => {
+        let response = await getComments(post.id);
+        const comments = await response.map((comment) => {
+            return <Comments commentData={comment}/>
         })
-
+        console.log(comments);
         setMountedComponents(comments);
     }   
 
+    // trycomments();
 
     useEffect(()=>{
         getPostOwner();
         checkIfUserLikedPost();
-        getComments();
+        trycomments();
     },[])
 
     

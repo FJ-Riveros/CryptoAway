@@ -15039,6 +15039,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "createComment": () => (/* binding */ createComment),
 /* harmony export */   "createPost": () => (/* binding */ createPost),
 /* harmony export */   "deleteFriend": () => (/* binding */ deleteFriend),
+/* harmony export */   "getComments": () => (/* binding */ getComments),
 /* harmony export */   "getFriendRequests": () => (/* binding */ getFriendRequests),
 /* harmony export */   "getFriendSuggestions": () => (/* binding */ getFriendSuggestions),
 /* harmony export */   "getLastPost": () => (/* binding */ getLastPost),
@@ -15154,7 +15155,6 @@ var getUserById = /*#__PURE__*/function () {
           case 0:
             _context4.next = 2;
             return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/".concat(userId)).then(function (response) {
-              console.log(response.data);
               return response.data;
             })["catch"](function (error) {
               console.log(error);
@@ -15408,6 +15408,34 @@ var createComment = /*#__PURE__*/function () {
     return _ref12.apply(this, arguments);
   };
 }();
+var getComments = /*#__PURE__*/function () {
+  var _ref13 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee13(postId) {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee13$(_context13) {
+      while (1) {
+        switch (_context13.prev = _context13.next) {
+          case 0:
+            _context13.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/post/".concat(postId, "/comments")).then(function (response) {
+              return response.data;
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 2:
+            return _context13.abrupt("return", _context13.sent);
+
+          case 3:
+          case "end":
+            return _context13.stop();
+        }
+      }
+    }, _callee13);
+  }));
+
+  return function getComments(_x20) {
+    return _ref13.apply(this, arguments);
+  };
+}();
 
 /***/ }),
 
@@ -15631,8 +15659,9 @@ function Comments(_ref) {
             case 2:
               response = _context.sent;
               setUserData(response);
+              console.log(commentData.Text.split("T")[0]);
 
-            case 4:
+            case 5:
             case "end":
               return _context.stop();
           }
@@ -15650,77 +15679,56 @@ function Comments(_ref) {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-      "class": "container d-flex justify-content-center mt-100 mb-100",
+      className: "mt-25",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        "class": "row",
+        className: "row",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-          "class": "col-md-12",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-            "class": "card",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              "class": "card-body",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h4", {
-                "class": "card-title",
-                children: "Recent Comments"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h6", {
-                "class": "card-subtitle",
-                children: "Latest Comments section by users"
-              }), " "]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              "class": "comment-widgets m-b-20",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                "class": "d-flex flex-row comment-row",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                  "class": "p-2",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                    "class": "round",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-                      src: "https://i.imgur.com/uIgDDDd.jpg",
-                      alt: "user",
-                      width: "50"
+          className: "col-md-12",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "card",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "card-body",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: "comment-widgets m-b-20",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                  className: "d-flex flex-row comment-row",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                    className: "p-2",
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                        className: "round",
+                        src: "https://i.imgur.com/uIgDDDd.jpg",
+                        alt: "user",
+                        width: "50"
+                      })
                     })
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                  "class": "comment-text w-100",
-                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
-                    children: "Samso Nagaro"
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-                    "class": "comment-footer",
-                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                      "class": "date",
-                      children: "April 14, 2019"
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
-                      "class": "label label-info",
-                      children: "Pending"
-                    }), " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("span", {
-                      "class": "action-icons",
-                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                        href: "#",
-                        "data-abc": "true",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                          "class": "fa fa-pencil"
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                        href: "#",
-                        "data-abc": "true",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                          "class": "fa fa-rotate-right"
-                        })
-                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-                        href: "#",
-                        "data-abc": "true",
-                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                          "class": "fa fa-heart"
+                    className: "comment-text w-100",
+                    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h5", {
+                      children: userData.name
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                      className: "comment-footer",
+                      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "date",
+                        children: commentData.created_at.split("T")[0]
+                      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                        className: "action-icons",
+                        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                          href: "#",
+                          "data-abc": "true",
+                          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                            className: "fa fa-pencil"
+                          })
                         })
                       })]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                      className: "m-b-5 m-t-10",
+                      children: commentData.Text
                     })]
-                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
-                    "class": "m-b-5 m-t-10",
-                    children: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it"
                   })]
-                })]
+                })
               })
-            })]
+            })
           })
         })
       })
@@ -16220,7 +16228,7 @@ function PostsTimeline(_ref) {
     };
   }();
 
-  var getComments = /*#__PURE__*/function () {
+  var trycomments = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
       var response, comments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
@@ -16228,19 +16236,23 @@ function PostsTimeline(_ref) {
           switch (_context6.prev = _context6.next) {
             case 0:
               _context6.next = 2;
-              return getComments(post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.getComments)(post.id);
 
             case 2:
               response = _context6.sent;
-              comments = response.map(function (comment) {
-                /*#__PURE__*/
-                (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
+              _context6.next = 5;
+              return response.map(function (comment) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   commentData: comment
                 });
               });
-              setMountedComponents(comments);
 
             case 5:
+              comments = _context6.sent;
+              console.log(comments);
+              setMountedComponents(comments);
+
+            case 8:
             case "end":
               return _context6.stop();
           }
@@ -16248,15 +16260,16 @@ function PostsTimeline(_ref) {
       }, _callee6);
     }));
 
-    return function getComments() {
+    return function trycomments() {
       return _ref7.apply(this, arguments);
     };
-  }();
+  }(); // trycomments();
+
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostOwner();
     checkIfUserLikedPost();
-    getComments();
+    trycomments();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "feed__card__post",
