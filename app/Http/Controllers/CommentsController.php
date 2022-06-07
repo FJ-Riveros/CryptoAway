@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\comments;
+use App\Models\Comments;
+use App\Models\Post;
+use App\Models\User;
 use Illuminate\Http\Request;
+
 
 class CommentsController extends Controller
 {
@@ -22,9 +25,28 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        try
+        {
+            $actualUser = User::find($request->userId);
+
+            $postToComment = Post::find($request->postId);
+            
+            if(is_null($actualUser)) return "Non existent User";
+            
+            if(is_null($postToComment)) return "Non existent Post";
+            
+            $actualUser->createComment($postToComment, $request->text);
+
+            return $actualUser->user_comment_relation;
+
+        }
+        // catch(Exception $e) catch any exception
+        catch(Exception $e)
+        {
+            return "There was an error";
+        }
     }
 
     /**

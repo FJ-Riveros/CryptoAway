@@ -8,6 +8,8 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BlogController;
+use App\Http\Controllers\CommentsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +33,6 @@ Route::get('posts', [PostController::class, 'index'])
 ->name('allPosts');
 
 
-//Get Post likes
-Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);
 
 //Get the number of comments from a Post
 Route::get('posts/{idPost}/number_comments_post', [PostController::class, 'number_comments_post']);
@@ -117,6 +117,13 @@ Route::middleware('auth:sanctum')->group( function () {
     
     //Delete an user
     Route::post('user/actions/deleteUser', [UserController::class, 'destroy']);
+
+    //Create a post
+    Route::post('user/post/create_comment', [CommentsController::class, 'create']);
+
+    //Get Post likes
+    Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);
+
 
 });
 

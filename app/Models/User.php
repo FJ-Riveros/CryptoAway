@@ -12,6 +12,8 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Post;
 use App\Models\Likes;
+use App\Models\Comments;
+
 
 
 class User extends Model implements AuthenticatableContract
@@ -81,6 +83,20 @@ class User extends Model implements AuthenticatableContract
 
     public function user_posts_relation(){
         return $this->hasMany(Post::class, 'user_idUser');
+    }
+
+
+    public function user_comment_relation(){
+        return $this->belongsToMany(Post::class, 'comments', 'user_idUser', 'Post_idPost')->withTimestamps();
+    }
+
+    public function createComment(Post $post, string $text){
+        $this->user_comment_relation()->attach($post->id, ['Text' => $text]);        
+    }
+
+    //Remove the like from a post
+    public function removeComment(Post $post){
+        $this->user_comment_relation()->detach($post->id);        
     }
 
     public function user_likes_relation(){

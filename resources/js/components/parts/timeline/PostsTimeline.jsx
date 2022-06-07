@@ -6,6 +6,7 @@ function PostsTimeline({ post, currentUser }) {
 
     const [userInfo, setUserInfo] = useState("");
     const [userLikedPost, setUserLikedPost] = useState(false);
+    const [createCommentInput, setCreateCommentInput] = useState("Comment Something!");
     
     //Get the user that corresponds with the actual post to get the info.
     const getPostOwner = async () => {
@@ -32,6 +33,10 @@ function PostsTimeline({ post, currentUser }) {
     }
 
     //Comments
+    const sendComment = async () => {
+        
+    }
+
 
     useEffect(()=>{
         getPostOwner();
@@ -65,9 +70,17 @@ function PostsTimeline({ post, currentUser }) {
 
                 </div>
 
-                <div class="footer">
+                <div className="footer">
                     {userLikedPost ? <i class="bi bi-heart-fill red" onClick={dislikePost}></i> : <i class="bi bi-suit-heart" onClick={likePost}></i>}
-                    <i class="bi bi-chat-left-text ml-4"></i>
+                    <i class="bi bi-chat-left-text ml-4" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
+                </div>
+                <div className="comments">
+                    <div class="collapse" id="collapseExample">
+                        <textarea class="form-control" id="message-text" value={createCommentInput} onChange={ (e) => setCreateCommentInput(e.target.value) }></textarea>
+                        <div class="d-flex justify-content-end">
+                            <button class="comment" onClick={sendComment}>Comment</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         

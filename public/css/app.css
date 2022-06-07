@@ -4395,7 +4395,6 @@ button#submit-button:hover {
   border-radius: 0.3rem;
   gap: 0.2rem;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
-  height: 60vh;
 }
 .feed__card__post .text {
   display: flex;
@@ -4422,7 +4421,7 @@ button#submit-button:hover {
   margin-top: 10px;
 }
 .feed__card__post .body__img {
-  height: 65%;
+  min-height: 30vh;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -4546,10 +4545,31 @@ hr {
 
 textarea {
   resize: none !important;
+  width: 100%;
 }
 
 .red {
   color: red;
+}
+
+.comments {
+  width: 100%;
+}
+.comments .comment {
+  background-color: #f9ab30;
+  padding: 10px;
+  font-weight: 400;
+  border: 1px solid #f9ab30;
+  border-radius: 5px;
+}
+.comments .comment:hover {
+  color: #f9ab30;
+  border: 1px solid #f9ab30;
+  background-color: white;
+}
+
+.dropwdown-item {
+  padding: 0 !important;
 }
 
 /*!

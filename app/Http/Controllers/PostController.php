@@ -122,19 +122,5 @@ class PostController extends Controller
         return false;
     }
 
-    // public function create_like_post(Request $request){
-
-    //     //Retrieve the currently authenticated user...
-    //     $user = User::find($request->idUser);
-
-    //     $postId = Post::find($request->idPost);
-
-    //     //Create the new Like
-    //     $newLike = new Likes();
-
-    //     //Save the new Post
-    //     $insert =  $user->user_posts_relation()->save($newPost);
-    //     return $insert->first() ? true : false;
-    // }
 
 }

@@ -87,6 +87,29 @@ function Timeline() {
             <div className="row">
                 <div className="col-3">
                     <ProfileName currentUserData={currentDataUser}/>
+
+                    <div className="routes">
+                        <div class="children__routes dropdown-item">
+                            <div class="home d-flex align-items-center">
+                                <i class="bi bi-house-fill"></i>
+                                <a href="" class="ml-2">Home</a>
+                            </div>
+                        </div>
+
+                        <div class="children__routes dropdown-item">
+                            <div class="friends d-flex align-items-center ">
+                                <i class="bi bi-people-fill"></i>
+                                <a href="friends" class="ml-2">Friends</a>
+                            </div>
+                        </div>
+
+                        <div class="children__routes dropdown-item dropdown-item">
+                            <div class="posts d-flex align-items-center">
+                                <i class="bi bi-collection-fill"></i>
+                                <a href="" class="ml-2">Your Posts</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="col-6">
