@@ -104,4 +104,17 @@ class CommentsController extends Controller
     {
         //
     }
+
+    public function get_comments(Request $request)
+    {
+
+        try{
+            return Comments::where('Post_idPost', $request->idPost)->get();
+        }
+        // catch(Exception $e) catch any exception
+        catch(Exception $e)
+        {
+            return "There was an error";
+        }
+    }
 }

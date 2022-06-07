@@ -1,12 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
-import {getUserById, userLikedPostCheck, giveLike, removeLike } from '../APICalls';
+import {getUserById, userLikedPostCheck, giveLike, removeLike, createComment, getComments } from '../APICalls';
+import Comments from './Comments';
 
 function PostsTimeline({ post, currentUser }) {
 
     const [userInfo, setUserInfo] = useState("");
     const [userLikedPost, setUserLikedPost] = useState(false);
     const [createCommentInput, setCreateCommentInput] = useState("Comment Something!");
+    const [mountedComponents, setMountedComponents] = useState("");
+
     
     //Get the user that corresponds with the actual post to get the info.
     const getPostOwner = async () => {
@@ -34,13 +37,26 @@ function PostsTimeline({ post, currentUser }) {
 
     //Comments
     const sendComment = async () => {
-        
+        const response = await createComment(currentUser.id, post.id, createCommentInput);
+        setCreateCommentInput("Comment Something!");
+        console.log(response);
     }
+
+    const getComments = async () => {
+        const response = await getComments(post.id);
+
+        const comments = response.map((comment) => {
+            <Comments commentData={comment}/>
+        })
+
+        setMountedComponents(comments);
+    }   
 
 
     useEffect(()=>{
         getPostOwner();
         checkIfUserLikedPost();
+        getComments();
     },[])
 
     
@@ -80,6 +96,8 @@ function PostsTimeline({ post, currentUser }) {
                         <div class="d-flex justify-content-end">
                             <button class="comment" onClick={sendComment}>Comment</button>
                         </div>
+
+                        {mountedComponents}
                     </div>
                 </div>
             </div>

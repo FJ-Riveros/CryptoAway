@@ -151,3 +151,17 @@ export const removeLike = async ( userId, postId)=>{
         });
 }
 
+export const createComment = async ( userId, postId, text)=>{
+  axios.post('api/user/post/create_comment', {
+      userId: userId,
+      postId: postId,
+      text: text
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
