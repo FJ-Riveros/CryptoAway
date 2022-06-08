@@ -63,7 +63,7 @@ function PostsTimeline({ post, currentUser }) {
     return (
         
             <div className="feed__card__post">
-                <div className="feed__card__post__header">
+                <div className="post__header">
                     <div className="row">
                         <div className="col-6 d-flex justify-content-start align-items-center">
                             <img src={userInfo.avatar} alt="" className="header__img" />

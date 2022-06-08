@@ -4405,6 +4405,12 @@ button#submit-button:hover {
   height: 65%;
   width: 30%;
 }
+.feed__card__post .post__header {
+  height: 80px;
+}
+.feed__card__post .post__header .row {
+  height: 100%;
+}
 .feed__card__post .header__text h4, .feed__card__post .header__text .h4 {
   margin-bottom: 0;
 }
@@ -4586,10 +4592,6 @@ textarea {
 
 .main__color {
   color: #f9ab30;
-}
-
-.comments__bg__color {
-  background-color: #fbfbfb;
 }
 
 .hover__cursor {
