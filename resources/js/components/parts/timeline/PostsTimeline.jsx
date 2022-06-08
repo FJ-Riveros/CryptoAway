@@ -62,7 +62,7 @@ function PostsTimeline({ post, currentUser }) {
     
     return (
         
-            <div className="feed__card__post">
+            <div className="feed__card__post mt-3">
                 <div className="post__header">
                     <div className="row">
                         <div className="col-6 d-flex justify-content-start align-items-center">
@@ -86,12 +86,12 @@ function PostsTimeline({ post, currentUser }) {
 
                 </div>
 
-                <div className="footer">
+                <div className="footer mt-2">
                     {userLikedPost ? <i class="bi bi-heart-fill red hover__cursor" onClick={dislikePost}></i> : <i class="bi bi-suit-heart hover__cursor" onClick={likePost}></i>}
-                    <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
+                    <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target={`#collapse${post.id}`} aria-expanded="false" aria-controls={`collapse${post.id}`}></i>
                 </div>
                 <div className="comments">
-                    <div class="collapse" id="collapseExample">
+                    <div class="collapse" id={`collapse${post.id}`}>
                         <textarea class="form-control" id="message-text" value={createCommentInput} onChange={ (e) => setCreateCommentInput(e.target.value) }></textarea>
                         <div class="d-flex justify-content-end">
                             <button class="comment" onClick={sendComment}>Comment</button>

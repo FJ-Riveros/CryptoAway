@@ -16336,7 +16336,7 @@ function PostsTimeline(_ref) {
     retrieveComments();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    className: "feed__card__post",
+    className: "feed__card__post mt-3",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "post__header",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -16371,7 +16371,7 @@ function PostsTimeline(_ref) {
         children: post.textPost
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "footer",
+      className: "footer mt-2",
       children: [userLikedPost ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
         "class": "bi bi-heart-fill red hover__cursor",
         onClick: dislikePost
@@ -16381,15 +16381,15 @@ function PostsTimeline(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
         "class": "bi bi-chat-left-text ml-4 hover__cursor",
         "data-toggle": "collapse",
-        "data-target": "#collapseExample",
+        "data-target": "#collapse".concat(post.id),
         "aria-expanded": "false",
-        "aria-controls": "collapseExample"
+        "aria-controls": "collapse".concat(post.id)
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "comments",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         "class": "collapse",
-        id: "collapseExample",
+        id: "collapse".concat(post.id),
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("textarea", {
           "class": "form-control",
           id: "message-text",
