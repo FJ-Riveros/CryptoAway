@@ -37,7 +37,7 @@ Route::get('/posts', [App\Http\Controllers\PostController::class, 'index']);
 //     return view('header');
 // });
 
-Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index']);
+Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index'])->name('timeline');;
 
 Route::get('/friends', [App\Http\Controllers\FriendsController::class, 'index']);
 

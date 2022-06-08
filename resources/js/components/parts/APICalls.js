@@ -201,4 +201,25 @@ export const getUsers = async (  ) =>{
 
 }
 
+export const updateProfile = async ( idUser, username, surname, name, email, description, avatar ) =>{
+  await axios.post('api/user/update', {
+    userId: idUser,
+    username: username,
+    surname: surname,
+    name: name,
+    email: email,
+    description: description,
+    avatar: avatar
+    
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
+
+
+
 

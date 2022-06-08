@@ -81,19 +81,18 @@ class UserController extends Controller
 
         $input = $request->all();
         $updateUser->username = $input['username'];
-        $updateUser->name = $input['name'];
+        $updateUser->name = $input['newName'];
         $updateUser->email = $input['email'];
         $updateUser->avatar = $input['avatar'];
+        $updateUser->surname = $input['surname'];
         $updateUser->description = $input['description'];
 
         $updateUser->save();
 
         $updateUser = User::find($request->idUser);
+    
+        return redirect()->route('timeline');
         
-        return [
-            "msg"  => "Post updated.",
-            "post" => $updateUser
-        ];
     }
 
     /**
