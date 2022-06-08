@@ -24,6 +24,9 @@ require('./components/Header');
 
 require('./components/UpdateProfile');
 
+require('./components/Admin');
+
+
 
 
 
