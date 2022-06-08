@@ -18,4 +18,13 @@ require('./components/Friends');
 
 require('./components/Timeline');
 
+require('./components/AutoComplete');
+
+require('./components/Header');
+
+require('./components/UpdateProfile');
+
+
+
+
 

@@ -188,3 +188,17 @@ export const deleteComment = async ( userId, postId ) =>{
       console.log(error);
     });
 }
+
+
+export const getUsers = async (  ) =>{
+  return await axios.get(`api/user/get_users/all`)
+     .then(function (response) {
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+}
+
+

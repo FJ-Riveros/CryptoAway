@@ -463,25 +463,9 @@ class UserController extends Controller
         ];
     }
 
+    public function get_users(Request $request)
+    {
+        return User::all();
+    }
 
-    
-    // public function get_timeline_posts(Request $request){
-    //     $user = User::find($request->userId);
-
-    //     $friend_relation = Friends::where([
-    //         'id_friend'   => $userAcceptRequestId->id,
-    //         'id_user'   => $originalRequestSender->id,
-    //     ])
-    //     ->orWhere([
-    //         'id_friend'   => $originalRequestSender->id,
-    //         'id_user'   => $userAcceptRequestId->id,
-    //     ]);
-
-    //     $updateResponse = $friend_relation->delete(); 
-
-    //     return [
-    //         "msg"       => "Friend request or friend deleted.",
-    //         "response"  => $updateResponse,
-    //     ];
-    // }
 }

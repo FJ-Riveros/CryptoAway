@@ -18,6 +18,7 @@
         var currentDataUser = @php echo Auth::user(); @endphp; 
     </script>
 <div class="container">
+    <div id="reactHeader"></div>
     <div id="reactGetTimeline"></div>
 </div>
 <div class="container mt-4">

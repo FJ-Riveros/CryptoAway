@@ -5,7 +5,7 @@ import PostsTimeline from './parts/timeline/PostsTimeline';
 import { getLastPost, getPosts, getFriendSuggestions} from './parts/APICalls';
 import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
-import CreatePost from './parts/timeline/CreatePost';
+
 
 function Timeline() {
     const [friends, setFriends] = useState("Loading the friends...");
@@ -13,8 +13,6 @@ function Timeline() {
     const [lastPhotos, setLastPhotos] = useState("Loading the last photos...");
     const [userSuggestions, setUserSuggestions] = useState("Loading the last user suggestions...");
     const [commentInput, setCommentInput] = useState("Write Something!");
-    const [createPostText, setCreatePostText] = useState("Write Something Cool!");
-    const [createPostImage, setCreatePostImage] = useState("Insert a URL!");
     const [refreshFriendsPosts, setRefreshFriendsPosts] = useState(false);
 
 
@@ -73,19 +71,23 @@ function Timeline() {
 
 
     useEffect(()=>{
-        // getFriends();
         getPhotos();
         getUserSuggestions();
     },[])
 
+    // useEffect(()=>{
+    //     getFriends();
+    // },[createPostText, refreshFriendsPosts])
+
+    
     useEffect(()=>{
         getFriends();
-    },[createPostText, refreshFriendsPosts])
+    },[refreshFriendsPosts])
 
     return (
         <>
             <div className="row">
-                <div className="col-3">
+                <div className="col-3 mt-3">
                     <ProfileName currentUserData={currentDataUser}/>
 
                     <div className="routes">
@@ -109,16 +111,22 @@ function Timeline() {
                                 <a href="" class="ml-2">Your Posts</a>
                             </div>
                         </div>
+
+                        <div class="children__routes dropdown-item dropdown-item">
+                            <div class="logout d-flex align-items-center">
+                                <i class="bi bi-door-open-fill"></i>
+                                <a href="" class="ml-2">Logout</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div className="col-6">
-                    <CreatePost createPostText={createPostText} setCreatePostText={setCreatePostText} createPostImage={createPostImage} setCreatePostImage={setCreatePostImage} />
                     
                     {friendsPosts}
                 </div>
                 
-                <div className="col-3">
+                <div className="col-3 mt-3">
                     <div class="latest__photos__container">
                         <div class="header">
                             <h3>Latest Photos</h3>

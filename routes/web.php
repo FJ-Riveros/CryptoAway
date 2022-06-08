@@ -41,6 +41,9 @@ Route::get('/timeline', [App\Http\Controllers\TimelineController::class, 'index'
 
 Route::get('/friends', [App\Http\Controllers\FriendsController::class, 'index']);
 
+Route::get('/edit_profile', [App\Http\Controllers\EditProfileController::class, 'index']);
+
+
 
 
 

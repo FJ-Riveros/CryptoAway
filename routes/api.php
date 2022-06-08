@@ -73,6 +73,9 @@ Route::middleware('auth:sanctum')->group( function () {
     //User Endpoints
     Route::get('user/{idUser}', [UserController::class, 'get_user_by_id']);
 
+    //Get all users
+    Route::get('user/get_users/all', [UserController::class, 'get_users']);
+
     //Update User
     Route::put('user/update', [UserController::class, 'update']);
 
