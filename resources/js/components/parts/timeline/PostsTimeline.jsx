@@ -39,25 +39,24 @@ function PostsTimeline({ post, currentUser }) {
     //Comments
     const sendComment = async () => {
         const response = await createComment(currentUser.id, post.id, createCommentInput);
+        await retrieveComments();
         setCreateCommentInput("Comment Something!");
         console.log(response);
     }
 
-    const trycomments = async () => {
+    const retrieveComments = async () => {
         let response = await getComments(post.id);
         const comments = await response.map((comment) => {
-            return <Comments commentData={comment} currentUser={currentUser}/>
+            return <Comments commentData={comment} currentUser={currentUser} retrieveComments={retrieveComments}/>
         })
         console.log(comments);
         setMountedComponents(comments);
     }   
 
-    // trycomments();
-
     useEffect(()=>{
         getPostOwner();
         checkIfUserLikedPost();
-        trycomments();
+        retrieveComments();
     },[])
 
     
@@ -88,8 +87,8 @@ function PostsTimeline({ post, currentUser }) {
                 </div>
 
                 <div className="footer">
-                    {userLikedPost ? <i class="bi bi-heart-fill red" onClick={dislikePost}></i> : <i class="bi bi-suit-heart" onClick={likePost}></i>}
-                    <i class="bi bi-chat-left-text ml-4" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
+                    {userLikedPost ? <i class="bi bi-heart-fill red hover__cursor" onClick={dislikePost}></i> : <i class="bi bi-suit-heart hover__cursor" onClick={likePost}></i>}
+                    <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"></i>
                 </div>
                 <div className="comments">
                     <div class="collapse" id="collapseExample">

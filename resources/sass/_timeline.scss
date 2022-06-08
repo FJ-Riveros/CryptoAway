@@ -30,7 +30,7 @@
     flex-direction: column;
     -webkit-box-align: center;
     align-items: center;
-    cursor: pointer;
+    // cursor: pointer;
     width: 100%;
     padding: 0 1rem 1rem 1rem;
     border-radius: 0.3rem;
@@ -249,6 +249,10 @@ textarea{
         border: 1px solid $main-color;
         background-color: white;
     }
+
+    .card-body{
+        background-color: #fbfbfb;
+    }
 }
 
 .dropwdown-item{
@@ -263,4 +267,16 @@ textarea{
     position:absolute;
     top: 10px;
     right: 10px;
+}
+
+.main__color{
+    color: $main-color;
+}
+
+.comments__bg__color{
+    background-color: #fbfbfb;
+}
+
+.hover__cursor{
+    cursor: pointer;
 }

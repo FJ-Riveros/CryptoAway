@@ -15443,7 +15443,8 @@ var deleteComment = /*#__PURE__*/function () {
       while (1) {
         switch (_context14.prev = _context14.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/post/delete_comment', {
+            _context14.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/post/delete_comment', {
               userId: userId,
               idPost: postId
             }).then(function (response) {
@@ -15452,7 +15453,7 @@ var deleteComment = /*#__PURE__*/function () {
               console.log(error);
             });
 
-          case 1:
+          case 2:
           case "end":
             return _context14.stop();
         }
@@ -15668,7 +15669,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Comments(_ref) {
   var commentData = _ref.commentData,
-      currentUser = _ref.currentUser;
+      currentUser = _ref.currentUser,
+      retrieveComments = _ref.retrieveComments;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -15702,21 +15704,19 @@ function Comments(_ref) {
     };
   }();
 
-  var deleteComment = /*#__PURE__*/function () {
+  var actionDeleteComment = /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-      var response;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return deleteComment(currentUser.id, commentData.Post_idPost);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(currentUser.id, commentData.Post_idPost);
 
             case 2:
-              response = _context2.sent;
-              console.log(response);
+              retrieveComments();
 
-            case 4:
+            case 3:
             case "end":
               return _context2.stop();
           }
@@ -15724,7 +15724,7 @@ function Comments(_ref) {
       }, _callee2);
     }));
 
-    return function deleteComment() {
+    return function actionDeleteComment() {
       return _ref3.apply(this, arguments);
     };
   }();
@@ -15755,16 +15755,19 @@ function Comments(_ref) {
                         href: "#",
                         "data-abc": "true",
                         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                          className: "fa fa-pencil",
-                          onClick: deleteComment
+                          className: "bi bi-trash-fill main__color hover__cursor",
+                          onClick: function onClick() {
+                            return actionDeleteComment();
+                          }
                         })
                       })
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         className: "round",
-                        src: "https://i.imgur.com/uIgDDDd.jpg",
+                        src: currentUser.avatar,
                         alt: "user",
-                        width: "50"
+                        width: "50",
+                        height: "auto"
                       })
                     })]
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -16268,10 +16271,14 @@ function PostsTimeline(_ref) {
 
             case 2:
               response = _context5.sent;
+              _context5.next = 5;
+              return retrieveComments();
+
+            case 5:
               setCreateCommentInput("Comment Something!");
               console.log(response);
 
-            case 5:
+            case 7:
             case "end":
               return _context5.stop();
           }
@@ -16284,7 +16291,7 @@ function PostsTimeline(_ref) {
     };
   }();
 
-  var trycomments = /*#__PURE__*/function () {
+  var retrieveComments = /*#__PURE__*/function () {
     var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
       var response, comments;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
@@ -16300,7 +16307,8 @@ function PostsTimeline(_ref) {
               return response.map(function (comment) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   commentData: comment,
-                  currentUser: currentUser
+                  currentUser: currentUser,
+                  retrieveComments: retrieveComments
                 });
               });
 
@@ -16317,16 +16325,15 @@ function PostsTimeline(_ref) {
       }, _callee6);
     }));
 
-    return function trycomments() {
+    return function retrieveComments() {
       return _ref7.apply(this, arguments);
     };
-  }(); // trycomments();
-
+  }();
 
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPostOwner();
     checkIfUserLikedPost();
-    trycomments();
+    retrieveComments();
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
     className: "feed__card__post",
@@ -16366,13 +16373,13 @@ function PostsTimeline(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: "footer",
       children: [userLikedPost ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-        "class": "bi bi-heart-fill red",
+        "class": "bi bi-heart-fill red hover__cursor",
         onClick: dislikePost
       }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-        "class": "bi bi-suit-heart",
+        "class": "bi bi-suit-heart hover__cursor",
         onClick: likePost
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
-        "class": "bi bi-chat-left-text ml-4",
+        "class": "bi bi-chat-left-text ml-4 hover__cursor",
         "data-toggle": "collapse",
         "data-target": "#collapseExample",
         "aria-expanded": "false",

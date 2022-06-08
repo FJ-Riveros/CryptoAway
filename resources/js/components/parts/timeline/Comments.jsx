@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import { getUserById, deleteComment } from '../APICalls';
 
-function Comments({ commentData, currentUser }) {
+function Comments({ commentData, currentUser, retrieveComments }) {
 
     const[userData, setUserData] = useState("");
     const getCommentUser = async () =>{
@@ -10,9 +10,9 @@ function Comments({ commentData, currentUser }) {
         setUserData(response);
     }
 
-    const deleteComment = async () =>{
-        const response = await deleteComment(currentUser.id, commentData.Post_idPost);
-        console.log(response);
+    const actionDeleteComment = async () =>{
+        await deleteComment(currentUser.id, commentData.Post_idPost);
+        retrieveComments();
     }
 
     useEffect(() => {
@@ -31,11 +31,11 @@ function Comments({ commentData, currentUser }) {
                                             <div className="p-2">
                                                 { commentData.user_idUser == currentUser.id &&
                                                     <span className="action__delete">
-                                                        <a href="#" data-abc="true"><i className="fa fa-pencil" onClick={deleteComment}></i></a>
+                                                        <a href="#" data-abc="true"><i className="bi bi-trash-fill main__color hover__cursor" onClick={() =>  actionDeleteComment() }></i></a>
                                                     </span>
                                                 }
                                                 <span>
-                                                    <img className="round" src="https://i.imgur.com/uIgDDDd.jpg" alt="user" width="50" />
+                                                    <img className="round" src={currentUser.avatar} alt="user" width="50" height="auto"/>
                                                 </span>
                                                 </div>
                                                 <div className="comment-text w-100">
