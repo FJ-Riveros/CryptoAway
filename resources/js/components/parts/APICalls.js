@@ -220,6 +220,17 @@ export const updateProfile = async ( idUser, username, surname, name, email, des
   });
 }
 
+export const deleteUser = async ( idUser ) =>{
+  await axios.post('api/user/actions/deleteUser', {
+    userId: idUser,
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}
 
 
 

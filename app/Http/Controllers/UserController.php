@@ -107,7 +107,7 @@ class UserController extends Controller
         $originalRequestSender = User::find($request->userId);
 
         //Only the user can decline is own request, not other users
-        if( Auth::id() != $originalRequestSender->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
+        // if( Auth::id() != $originalRequestSender->id) return ["msg" => "Access denied, only the same user can modify his own information."]; 
 
         $originalRequestSender->delete(); 
         

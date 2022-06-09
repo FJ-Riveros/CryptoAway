@@ -43,7 +43,7 @@ Route::get('/friends', [App\Http\Controllers\FriendsController::class, 'index'])
 
 Route::get('/edit_profile', [App\Http\Controllers\EditProfileController::class, 'index']);
 
-Route::get('/admin_dashborad', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
+Route::get('/admin_dashboard', [App\Http\Controllers\AdminController::class, 'index'])->name('admin');
 
 
 

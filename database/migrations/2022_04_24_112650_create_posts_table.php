@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('textPost', 200);
             $table->timestamps();
             $table->unsignedBigInteger("user_idUser");
-            $table->foreign("user_idUser")->references("id")->on("users");
+            $table->foreign("user_idUser")->references("id")->on("users")->onDelete('cascade');
         });
     }
 
