@@ -283,3 +283,19 @@ textarea{
 .hover__cursor{
     cursor: pointer;
 }
+
+.admin__link{
+    background-color: $main-color;
+    padding: 10px;
+    font-weight: 400;
+    border: 1px solid $main-color;
+    border-radius: 5px;
+    color: black;
+}
+
+.admin__link:hover{
+    color: $main-color;
+    border: 1px solid $main-color;
+    background-color: white;
+    text-decoration: none;
+}

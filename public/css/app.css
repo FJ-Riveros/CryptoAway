@@ -4598,6 +4598,22 @@ textarea {
   cursor: pointer;
 }
 
+.admin__link {
+  background-color: #f9ab30;
+  padding: 10px;
+  font-weight: 400;
+  border: 1px solid #f9ab30;
+  border-radius: 5px;
+  color: black;
+}
+
+.admin__link:hover {
+  color: #f9ab30;
+  border: 1px solid #f9ab30;
+  background-color: white;
+  text-decoration: none;
+}
+
 .table-wrapper {
   margin: 30px auto;
   background: #fff;

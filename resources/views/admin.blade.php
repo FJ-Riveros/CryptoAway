@@ -20,6 +20,12 @@
     
         <div id="reactAdmin"></div>
 
+        <div class="row">
+            <div class="col-12 text-center">
+                <a class="admin__link" href="{{ route('timeline') }}">Back to the App</a>
+            </div>
+        </div>
+
 
     
     <script src="{{ asset('js/app.js') }}" defer></script>

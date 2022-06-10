@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'metamaskAddress' => 'juan',
             'avatar'          => 'none',
             'description'     => 'juan',
-        ])->assignRole('Admin');
+        ])->assignRole('admin');
 
         \App\Models\User::create([
             'username'        => 'prueba2',
