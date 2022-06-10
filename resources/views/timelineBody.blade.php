@@ -34,7 +34,7 @@
 
 @if(Auth::user()->hasRole('admin')) <h2>holita</h2> @endif
 <div class="container">
-    <div id="reactHeader"></div>
+    <!-- <div id="reactHeader"></div> -->
     <div id="reactGetTimeline"></div>
 </div>
 <div class="container mt-4">

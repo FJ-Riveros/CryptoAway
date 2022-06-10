@@ -5,6 +5,7 @@ import PostsTimeline from './parts/timeline/PostsTimeline';
 import { getLastPost, getPosts, getFriendSuggestions} from './parts/APICalls';
 import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
+import Header from './Header';
 
 
 function Timeline() {
@@ -25,10 +26,16 @@ function Timeline() {
 
         .then(async data => {
             setFriends(data);
+            console.log("friends");
+            console.log(data);
+            let friendsPostsInfo =  [];
             //Get the last post from the friends
-            const friendsPostsInfo = data.map(async (friendData)=> {
+            friendsPostsInfo = data.map(async (friendData)=> {
                 return await getLastPost(friendData.id);
             })
+
+            console.log(friendsPostsInfo)
+            friendsPostsInfo.unshift(await getLastPost(currentDataUser.id));
 
             //Resolves the promises generated in the loop
             let lastPost = await Promise.all(friendsPostsInfo);
@@ -86,6 +93,7 @@ function Timeline() {
 
     return (
         <>
+            <Header setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts} />
             <div className="row">
                 <div className="col-3 mt-3">
                     <ProfileName currentUserData={currentDataUser}/>

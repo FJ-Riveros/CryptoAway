@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import { createPost } from '../APICalls';
 
-function CreatePost({ createPostText, setCreatePostText, createPostImage, setCreatePostImage }) {
+function CreatePost({ createPostText, setCreatePostText, createPostImage, setCreatePostImage, setRefreshFriendsPosts, refreshFriendsPosts }) {
 
 
     const createPostProcess = async () =>{
@@ -11,6 +11,7 @@ function CreatePost({ createPostText, setCreatePostText, createPostImage, setCre
             setCreatePostImage("Insert a URL!");
             setCreatePostText("Write Something Cool!")
             document.querySelector(".closeModal").click();
+            setRefreshFriendsPosts(!refreshFriendsPosts);
         }
     }
 

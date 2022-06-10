@@ -14871,13 +14871,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
- // import { getFriends } from './Timeline';
 
 
 
 
 
-function Header() {
+function Header(_ref) {
+  var setRefreshFriendsPosts = _ref.setRefreshFriendsPosts,
+      refreshFriendsPosts = _ref.refreshFriendsPosts;
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("Write Something Cool!"),
       _useState2 = _slicedToArray(_useState, 2),
       createPostText = _useState2[0],
@@ -14888,8 +14890,7 @@ function Header() {
       createPostImage = _useState4[0],
       setCreatePostImage = _useState4[1];
 
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {// getFriends();
-  }, []);
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       "class": "row",
@@ -14907,18 +14908,18 @@ function Header() {
           createPostText: createPostText,
           setCreatePostText: setCreatePostText,
           createPostImage: createPostImage,
-          setCreatePostImage: setCreatePostImage
+          setCreatePostImage: setCreatePostImage,
+          setRefreshFriendsPosts: setRefreshFriendsPosts,
+          refreshFriendsPosts: refreshFriendsPosts
         })
       })]
     })
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header);
-
-if (document.getElementById('reactHeader')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Header, {}), document.getElementById('reactHeader'));
-}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Header); // if (document.getElementById('reactHeader')) {
+//     ReactDOM.render(<Header />, document.getElementById('reactHeader'));
+// }
 
 /***/ }),
 
@@ -15101,7 +15102,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parts_APICalls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/APICalls */ "./resources/js/components/parts/APICalls.js");
 /* harmony import */ var _parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/timeline/LastPhotos */ "./resources/js/components/parts/timeline/LastPhotos.jsx");
 /* harmony import */ var _parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parts/timeline/FriendSuggestions */ "./resources/js/components/parts/timeline/FriendSuggestions.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -15119,6 +15121,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -15182,7 +15185,10 @@ function Timeline() {
                     while (1) {
                       switch (_context3.prev = _context3.next) {
                         case 0:
-                          setFriends(data); //Get the last post from the friends
+                          setFriends(data);
+                          console.log("friends");
+                          console.log(data);
+                          friendsPostsInfo = []; //Get the last post from the friends
 
                           //Get the last post from the friends
                           friendsPostsInfo = data.map( /*#__PURE__*/function () {
@@ -15208,12 +15214,21 @@ function Timeline() {
                             return function (_x2) {
                               return _ref3.apply(this, arguments);
                             };
-                          }()); //Resolves the promises generated in the loop
+                          }());
+                          console.log(friendsPostsInfo);
+                          _context3.t0 = friendsPostsInfo;
+                          _context3.next = 9;
+                          return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getLastPost)(currentDataUser.id);
 
-                          _context3.next = 4;
+                        case 9:
+                          _context3.t1 = _context3.sent;
+
+                          _context3.t0.unshift.call(_context3.t0, _context3.t1);
+
+                          _context3.next = 13;
                           return Promise.all(friendsPostsInfo);
 
-                        case 4:
+                        case 13:
                           lastPost = _context3.sent;
                           //Filters the posts from the users that had no post 
                           cleanPosts = lastPost.filter(function (post) {
@@ -15228,7 +15243,7 @@ function Timeline() {
                                   switch (_context2.prev = _context2.next) {
                                     case 0:
                                       _context2.next = 2;
-                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
                                         post: post,
                                         currentUser: currentDataUser
                                       });
@@ -15248,15 +15263,15 @@ function Timeline() {
                               return _ref4.apply(this, arguments);
                             };
                           }());
-                          _context3.t0 = setFriendsPosts;
-                          _context3.next = 10;
+                          _context3.t2 = setFriendsPosts;
+                          _context3.next = 19;
                           return Promise.all(postComponents);
 
-                        case 10:
-                          _context3.t1 = _context3.sent;
-                          (0, _context3.t0)(_context3.t1);
+                        case 19:
+                          _context3.t3 = _context3.sent;
+                          (0, _context3.t2)(_context3.t3);
 
-                        case 12:
+                        case 21:
                         case "end":
                           return _context3.stop();
                       }
@@ -15299,7 +15314,7 @@ function Timeline() {
               post = _context5.sent;
               console.log(post);
               setLastPhotos(post.map(function (post) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   post: post
                 });
               }));
@@ -15330,7 +15345,7 @@ function Timeline() {
             case 2:
               suggestions = _context6.sent;
               mountedSuggestions = suggestions.data.map(function (user) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   user: user,
                   currentUser: currentDataUser,
                   getUserSuggestions: getUserSuggestions
@@ -15361,58 +15376,61 @@ function Timeline() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getFriends();
   }, [refreshFriendsPosts]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      setRefreshFriendsPosts: setRefreshFriendsPosts,
+      refreshFriendsPosts: refreshFriendsPosts
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "col-3 mt-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
           currentUserData: currentDataUser
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "routes",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             "class": "children__routes dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               "class": "home d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
                 "class": "bi bi-house-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
                 href: "",
                 "class": "ml-2",
                 children: "Home"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             "class": "children__routes dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               "class": "friends d-flex align-items-center ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
                 "class": "bi bi-people-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
                 href: "friends",
                 "class": "ml-2",
                 children: "Friends"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             "class": "children__routes dropdown-item dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               "class": "posts d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
                 "class": "bi bi-collection-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
                 href: "",
                 "class": "ml-2",
                 children: "Your Posts"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             "class": "children__routes dropdown-item dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               "class": "logout d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
                 "class": "bi bi-door-open-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("a", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
                 href: "",
                 "class": "ml-2",
                 children: "Logout"
@@ -15420,37 +15438,37 @@ function Timeline() {
             })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "col-6",
         children: friendsPosts
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: "col-3 mt-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           "class": "latest__photos__container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
             "class": "header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
               children: "Latest Photos"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {})]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("hr", {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             "class": "photos__grid row",
             children: lastPhotos
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           "class": "friend__suggestion__container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
             children: "Add Friends!"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("hr", {}), userSuggestions]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("hr", {}), userSuggestions]
         })]
       })]
-    })
+    })]
   });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timeline);
 
 if (document.getElementById('reactGetTimeline')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
 }
 
 /***/ }),
@@ -16830,7 +16848,9 @@ function CreatePost(_ref) {
   var createPostText = _ref.createPostText,
       setCreatePostText = _ref.setCreatePostText,
       createPostImage = _ref.createPostImage,
-      setCreatePostImage = _ref.setCreatePostImage;
+      setCreatePostImage = _ref.setCreatePostImage,
+      setRefreshFriendsPosts = _ref.setRefreshFriendsPosts,
+      refreshFriendsPosts = _ref.refreshFriendsPosts;
 
   var createPostProcess = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
@@ -16844,6 +16864,7 @@ function CreatePost(_ref) {
                 setCreatePostImage("Insert a URL!");
                 setCreatePostText("Write Something Cool!");
                 document.querySelector(".closeModal").click();
+                setRefreshFriendsPosts(!refreshFriendsPosts);
               }
 
             case 1:
