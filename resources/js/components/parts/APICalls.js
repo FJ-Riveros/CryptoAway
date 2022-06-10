@@ -201,8 +201,8 @@ export const getUsers = async (  ) =>{
 
 }
 
-export const updateProfile = async ( idUser, username, surname, name, email, description, avatar ) =>{
-  await axios.post('api/user/update', {
+export const updateProfileAdmin = async ( idUser, username, surname, name, email, description, avatar ) =>{
+  await axios.post('api/user/update/admin', {
     userId: idUser,
     username: username,
     surname: surname,

@@ -95,6 +95,28 @@ class UserController extends Controller
         
     }
 
+    public function updateUser_Admin(Request $request)
+    {
+        $updateUser = User::find($request->userId);
+
+        $input = $request->all();
+        $updateUser->username = $input['username'];
+        $updateUser->name = $input['name'];
+        $updateUser->email = $input['email'];
+        $updateUser->avatar = $input['avatar'];
+        $updateUser->surname = $input['surname'];
+        $updateUser->description = $input['description'];
+
+        $updateUser->save();
+
+        $updateUser = User::find($request->idUser);
+    
+        return "The user was succesfully updated";
+        
+    }
+
+    
+
     /**
      * Remove the specified resource from storage.
      *

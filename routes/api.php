@@ -130,15 +130,16 @@ Route::middleware('auth:sanctum')->group( function () {
     //Get the comments from a post
     Route::get('user/post/{idPost}/comments', [CommentsController::class, 'get_comments']);
 
-
-
     //Get Post likes
     Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);
 
 
 });
 
-
+//Only available to the admin role
+Route::group(['middleware' => ['role:admin']], function () {
+    Route::post('user/update/admin', [UserController::class, 'updateUser_Admin']);
+});
 
 
 
