@@ -4710,7 +4710,7 @@ table.table td .add {
 }
 
 td {
-  overflow: scroll;
+  overflow: auto;
 }
 
 /*!
