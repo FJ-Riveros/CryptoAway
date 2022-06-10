@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
             'metamaskAddress' => 'juan',
             'avatar'          => 'none',
             'description'     => 'juan',
-        ]);
+        ])->assignRole('Admin');
 
         \App\Models\User::create([
             'username'        => 'prueba2',
@@ -63,11 +63,5 @@ class UserSeeder extends Seeder
             'avatar'          => 'none',
             'description'     => 'cait',
         ]);
-
-        // User-DB::table('users')->insert([
-        //     'name' => Str::random(10),
-        //     'email' => Str::random(10).'@gmail.com',
-        //     'password' => Hash::make('password')
-        // )];
     }
 }

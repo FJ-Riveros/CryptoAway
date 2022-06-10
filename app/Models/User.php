@@ -13,12 +13,13 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Post;
 use App\Models\Likes;
 use App\Models\Comments;
+use Spatie\Permission\Traits\HasRoles;
 
 
 
 class User extends Model implements AuthenticatableContract
 {
-    use HasApiTokens, HasFactory, Notifiable, Authenticatable;
+    use HasApiTokens, HasFactory, Notifiable, Authenticatable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
