@@ -4614,6 +4614,16 @@ textarea {
   text-decoration: none;
 }
 
+.search__bar {
+  width: 100%;
+}
+
+.suggestions {
+  border: 1px solid lightgray;
+  position: absolute;
+  width: 90%;
+}
+
 .table-wrapper {
   margin: 30px auto;
   background: #fff;

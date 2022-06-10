@@ -299,3 +299,13 @@ textarea{
     background-color: white;
     text-decoration: none;
 }
+
+.search__bar{
+    width: 100%;   
+}
+
+.suggestions{
+    border: 1px solid lightgray;
+    position: absolute;
+    width: 90%;
+}

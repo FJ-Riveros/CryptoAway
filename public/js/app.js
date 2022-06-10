@@ -14417,13 +14417,18 @@ var AutoComplete = function AutoComplete() {
       data = _useState10[0],
       setData = _useState10[1];
 
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState12 = _slicedToArray(_useState11, 2),
+      usersId = _useState12[0],
+      setUsersId = _useState12[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getData();
   }, []);
 
   var getData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response, usernames;
+      var response, usernames, usersIds;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -14436,10 +14441,14 @@ var AutoComplete = function AutoComplete() {
               usernames = response.map(function (user) {
                 return user.surname + " " + user.name;
               });
+              usersIds = response.map(function (user) {
+                return user.id;
+              });
               setData(usernames);
+              setUsersId(usersIds);
               console.log(usernames);
 
-            case 6:
+            case 8:
             case "end":
               return _context.stop();
           }
@@ -14503,7 +14512,11 @@ var AutoComplete = function AutoComplete() {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
           className: index === suggestionIndex ? "active" : "",
           onClick: handleClick,
-          children: suggestion
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+            href: "",
+            className: usersId[index],
+            children: suggestion
+          })
         }, index);
       })
     });
@@ -14512,10 +14525,12 @@ var AutoComplete = function AutoComplete() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "autocomplete",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+      className: "search__bar",
       type: "text",
       value: value,
       onChange: handleChange,
-      onKeyDown: handleKeyDown
+      onKeyDown: handleKeyDown,
+      placeholder: "Search someone!"
     }), suggestionsActive && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Suggestions, {})]
   });
 };
@@ -14893,7 +14908,7 @@ function Header(_ref) {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {}, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      "class": "row",
+      "class": "row d-flex align-items-center",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "col-3",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {

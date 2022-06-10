@@ -25,4 +25,17 @@ class TimelineController extends Controller
     {
         return view('timelineBody');
     }
+
+    /**
+     * Show the timeline from the selected user.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function observeTimeline()
+    {
+        
+        return view('observeTimeline');
+    }
+
+
 }

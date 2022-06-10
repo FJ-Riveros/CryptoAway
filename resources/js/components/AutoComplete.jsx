@@ -9,6 +9,7 @@ const AutoComplete = () => {
   const [suggestionsActive, setSuggestionsActive] = useState(false);
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
+  const [usersId, setUsersId] = useState([]);
 
 
   useEffect(() => {
@@ -18,7 +19,9 @@ const AutoComplete = () => {
   const getData = async () => {
     const response = await getUsers();
     const usernames = response.map(( user )=> user.surname + " " + user.name );
+    const usersIds = response.map(( user )=> user.id );
     setData(usernames);
+    setUsersId(usersIds);
     console.log(usernames);
   }
 
@@ -77,8 +80,12 @@ const AutoComplete = () => {
               key={index}
               onClick={handleClick}
             >
-              {suggestion}
+              {/* How to get the id from every username */}
+              <a href="" className={usersId[index]}>
+                {suggestion}
+              </a>
             </li>
+            
           );
         })}
       </ul>
@@ -88,10 +95,12 @@ const AutoComplete = () => {
   return (
     <div className="autocomplete">
       <input
+        className="search__bar"
         type="text"
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
+        placeholder="Search someone!"
       />
       {suggestionsActive && <Suggestions />}
     </div>

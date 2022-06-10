@@ -13,7 +13,7 @@ function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
 
     return (
         <>
-            <div class="row">
+            <div class="row d-flex align-items-center">
                 <div className="col-3">
                     <h2>CryptoAway</h2>
                 </div>
