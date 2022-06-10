@@ -34,10 +34,13 @@
                 @yield('forgotpassword')
             @endif
                 @php echo Route::current()->getName() @endphp -->
-                @yield('login')
+                <!-- @yield('login') -->
 
                 <!-- @yield('forgotpassword') -->
 
+        <div class="container">
+            @yield('content')
+        </div>
 
     </div>
 </body>
