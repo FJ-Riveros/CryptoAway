@@ -15102,7 +15102,7 @@ function ObserverTimeline() {
                                       _context2.next = 2;
                                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
                                         post: post,
-                                        dataUser: userObserved
+                                        currentUser: currentDataUser
                                       });
 
                                     case 2:
@@ -17091,7 +17091,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Comments(_ref) {
   var commentData = _ref.commentData,
-      dataUser = _ref.dataUser,
+      currentUser = _ref.currentUser,
       retrieveComments = _ref.retrieveComments;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
@@ -17133,7 +17133,7 @@ function Comments(_ref) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(dataUser.id, commentData.Post_idPost);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(currentUser.id, commentData.Post_idPost);
 
             case 2:
               retrieveComments();
@@ -17171,7 +17171,7 @@ function Comments(_ref) {
                   className: "d-flex flex-row comment-row",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "p-2",
-                    children: [commentData.user_idUser == dataUser.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    children: [commentData.user_idUser == currentUser.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       className: "action__delete",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                         href: "#",
@@ -17186,7 +17186,7 @@ function Comments(_ref) {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         className: "round",
-                        src: dataUser.avatar,
+                        src: commentData.avatar,
                         alt: "user",
                         width: "50",
                         height: "auto"
@@ -17548,7 +17548,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function PostsTimeline(_ref) {
   var post = _ref.post,
-      dataUser = _ref.dataUser;
+      currentUser = _ref.currentUser;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -17606,7 +17606,7 @@ function PostsTimeline(_ref) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.userLikedPostCheck)(dataUser.id, post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.userLikedPostCheck)(currentUser.id, post.id);
 
             case 2:
               response = _context2.sent;
@@ -17633,7 +17633,7 @@ function PostsTimeline(_ref) {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(dataUser.id, post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(currentUser.id, post.id);
 
             case 2:
               response = _context3.sent;
@@ -17662,7 +17662,7 @@ function PostsTimeline(_ref) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(dataUser.id, post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(currentUser.id, post.id);
 
             case 2:
               response = _context4.sent;
@@ -17692,7 +17692,7 @@ function PostsTimeline(_ref) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.createComment)(dataUser.id, post.id, createCommentInput);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.createComment)(currentUser.id, post.id, createCommentInput);
 
             case 2:
               response = _context5.sent;
@@ -17732,7 +17732,7 @@ function PostsTimeline(_ref) {
               return response.map(function (comment) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   commentData: comment,
-                  dataUser: dataUser,
+                  currentUser: currentUser,
                   retrieveComments: retrieveComments
                 });
               });

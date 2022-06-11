@@ -46,7 +46,7 @@ function ObserverTimeline() {
             
             //Loops through the posts again to mount the info into the component
             let postComponents =  cleanPosts.map(async (post)=> {
-                return await <PostsTimeline post={post} dataUser={userObserved}/>
+                return await <PostsTimeline post={post} currentUser={currentDataUser}/>
             })
 
             setFriendsPosts(
