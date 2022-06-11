@@ -84,6 +84,8 @@ const AutoComplete = () => {
   };
 
   const addUser = async ( userToAddId )=> {
+    console.log("click");
+
     axios.post(`${window.location.origin}/api/user/send_friend_request`, {
         userToAdd: userToAddId,
         actualUser: currentDataUser.id,
@@ -98,8 +100,6 @@ const AutoComplete = () => {
 
 
   const Suggestions = () => {
-    
-
     return (
       <ul className="suggestions">
         {suggestions.map((suggestion, index) => {
@@ -116,8 +116,8 @@ const AutoComplete = () => {
                     {suggestion.userSearchName}
                   </a>
               </div>
-              <div className="col-3 d-flex justify-content-end">
-                { idUserSuggestions.includes(suggestion.userId) &&  <i className="bi bi-person-plus-fill add" onClick={()=> addUser( suggestion.userId )} ></i> } 
+              <div className="col-3 d-flex justify-content-end align-items-center add__button__container">
+                { idUserSuggestions.includes(suggestion.userId) &&  <i className="bi bi-person-plus-fill search__add" onClick={()=> addUser( suggestion.userId )} ></i> } 
               </div>
               </div>
             </li>

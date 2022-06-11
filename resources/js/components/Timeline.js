@@ -103,7 +103,9 @@ function Timeline() {
                             <div class="home d-flex align-items-center">
                                 <i class="bi bi-house-fill"></i>
                                 {/* <a href="" class="ml-2">Home</a> */}
-                                <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Posts")} class="ml-2">Home</a>
+                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Posts")} class="ml-2">Home</a> */}
+                                <span  onClick={() => setViewPosts("Posts")} class="ml-2">Home</span>
+
 
                             </div>
                         </div>
@@ -112,7 +114,9 @@ function Timeline() {
                             <div class="friends d-flex align-items-center ">
                                 <i class="bi bi-people-fill"></i>
                                 {/* <a href="friends" class="ml-2">Friends</a> */}
-                                <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Friends")} class="ml-2">Friends</a>
+                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Friends")} class="ml-2">Friends</a> */}
+                                <span   onClick={() => setViewPosts("Friends")} class="ml-2">Friends</span>
+
                             </div>
                         </div>
 

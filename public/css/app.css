@@ -4626,6 +4626,7 @@ ul {
   border: 1px solid lightgray;
   position: absolute;
   width: 90%;
+  z-index: 10;
 }
 .suggestions li {
   padding: 0.5rem;
@@ -4635,6 +4636,17 @@ ul {
   height: 45px;
   width: 45px;
   border-radius: 50%;
+}
+
+.search__add {
+  color: #f9ab30;
+  font-size: 24px;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.search__add:hover {
+  font-size: 34px;
 }
 
 .table-wrapper {

@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {deleteFriend, acceptFriendRequest} from './APICalls';
 
 
-function FriendRequestCard({userData, currentUser, getFriends, getFriendRequests}) {
+function FriendRequestCard({userData, currentDataUserId, getFriends, getFriendRequests}) {
     return (
         <div class="row">
             <div class="col-md-8">
@@ -19,13 +19,13 @@ function FriendRequestCard({userData, currentUser, getFriends, getFriendRequests
                             </div>
                             <div class="col-md-5 col-sm-5 d-flex align-items-center">
                                 <button onClick={()=>{
-                                    acceptFriendRequest(currentUser, userData.id)
+                                    acceptFriendRequest(currentDataUserId, userData.id)
                                     getFriends();
                                     getFriendRequests();
                                     }} 
                                     class="btn btn-success pull-right align-middle">Add Friend</button>
                                 <button onClick={()=>{
-                                    deleteFriend(currentUser, userData.id);
+                                    deleteFriend(currentDataUserId, userData.id);
                                     getFriends();
                                     getFriendRequests();
                                     }}

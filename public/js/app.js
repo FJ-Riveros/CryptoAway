@@ -14527,6 +14527,7 @@ var AutoComplete = function AutoComplete() {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
+              console.log("click");
               axios.post("".concat(window.location.origin, "/api/user/send_friend_request"), {
                 userToAdd: userToAddId,
                 actualUser: currentDataUser.id
@@ -14535,7 +14536,7 @@ var AutoComplete = function AutoComplete() {
                 getUserSuggestions();
               })["catch"](function (error) {});
 
-            case 1:
+            case 2:
             case "end":
               return _context2.stop();
           }
@@ -14571,9 +14572,9 @@ var AutoComplete = function AutoComplete() {
                 children: suggestion.userSearchName
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "col-3 d-flex justify-content-end",
+              className: "col-3 d-flex justify-content-end align-items-center add__button__container",
               children: idUserSuggestions.includes(suggestion.userId) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
-                className: "bi bi-person-plus-fill add",
+                className: "bi bi-person-plus-fill search__add",
                 onClick: function onClick() {
                   return addUser(suggestion.userId);
                 }
@@ -15866,8 +15867,7 @@ function Timeline() {
               "class": "home d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-house-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
-                href: "".concat(location.origin, "/timeline"),
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 onClick: function onClick() {
                   return setViewPosts("Posts");
                 },
@@ -15881,8 +15881,7 @@ function Timeline() {
               "class": "friends d-flex align-items-center ",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-people-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
-                href: "".concat(location.origin, "/timeline"),
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
                 onClick: function onClick() {
                   return setViewPosts("Friends");
                 },
@@ -16823,7 +16822,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function FriendRequestCard(_ref) {
   var userData = _ref.userData,
-      currentUser = _ref.currentUser,
+      currentDataUserId = _ref.currentDataUserId,
       getFriends = _ref.getFriends,
       getFriendRequests = _ref.getFriendRequests;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -16854,7 +16853,7 @@ function FriendRequestCard(_ref) {
               "class": "col-md-5 col-sm-5 d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 onClick: function onClick() {
-                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.acceptFriendRequest)(currentUser, userData.id);
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.acceptFriendRequest)(currentDataUserId, userData.id);
                   getFriends();
                   getFriendRequests();
                 },
@@ -16862,7 +16861,7 @@ function FriendRequestCard(_ref) {
                 children: "Add Friend"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 onClick: function onClick() {
-                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.deleteFriend)(currentUser, userData.id);
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.deleteFriend)(currentDataUserId, userData.id);
                   getFriends();
                   getFriendRequests();
                 },

@@ -29,7 +29,7 @@ export const getFriendRequests = async ( currentUserId )=>{
      return info;
 }
 
-export const acceptFriendRequest = async ( currentUserId, friendId)=>{
+export const acceptFriendRequest = async ( currentUserId, friendId) =>{
     axios.post(`${window.location.origin}/api/user/accept_friend_request`, {
         userAcceptRequestId: currentUserId,
         originalRequestSender: friendId,
