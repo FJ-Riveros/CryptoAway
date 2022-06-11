@@ -14454,7 +14454,7 @@ var AutoComplete = function AutoComplete() {
               });
               setData(usernames);
               _context.next = 7;
-              return getFriendSuggestions();
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_2__.getFriendSuggestions)(currentDataUser.id);
 
             case 7:
               suggestions = _context.sent;

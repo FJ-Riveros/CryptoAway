@@ -1,5 +1,5 @@
 import { useState, useEffect} from "react";
-import { getUsers } from './parts/APICalls';
+import { getUsers, getFriendSuggestions } from './parts/APICalls';
 import ReactDOM from 'react-dom';
 
 const AutoComplete = () => {
@@ -29,8 +29,7 @@ const AutoComplete = () => {
     } );
     setData(usernames);
 
-    const suggestions = await getFriendSuggestions();
-
+    const suggestions = await getFriendSuggestions(currentDataUser.id);
     const userSuggestions = suggestions.data.map((user)=>{
       return user.id;
     })
@@ -118,7 +117,6 @@ const AutoComplete = () => {
                   </a>
               </div>
               <div className="col-3 d-flex justify-content-end">
-                {/* The user id is not correctly filtered in the array */}
                 { idUserSuggestions.includes(suggestion.userId) &&  <i className="bi bi-person-plus-fill add" onClick={()=> addUser( suggestion.userId )} ></i> } 
               </div>
               </div>
