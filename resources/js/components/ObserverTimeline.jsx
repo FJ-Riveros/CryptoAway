@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import ProfileName from './parts/timeline/ProfileName';
 import PostsTimeline from './parts/timeline/PostsTimeline';
-import { getLastPost, getPosts, getFriendSuggestions} from './parts/APICalls';
+import { getLastPost, getPosts, getFriendSuggestions, logout} from './parts/APICalls';
 import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
 import Header from './Header';
@@ -77,6 +77,9 @@ function ObserverTimeline() {
         setUserSuggestions(mountedSuggestions);
     }
 
+    const closeSession = async () =>{
+        await logout();
+    }
 
     useEffect(()=>{
         getPhotos();
@@ -122,10 +125,20 @@ function ObserverTimeline() {
                             </div>
                         </div>
 
+                        {
+                            isAdmin &&
+                                <div class="children__routes dropdown-item dropdown-item">
+                                    <div class="posts d-flex align-items-center">
+                                        <i class="bi bi-collection-fill"></i>
+                                        <a href={`${location.origin}/admin_dashboard`} class="ml-2">Admin Dashboard</a>
+                                    </div>
+                                </div>
+                        }
+
                         <div class="children__routes dropdown-item dropdown-item">
                             <div class="logout d-flex align-items-center">
                                 <i class="bi bi-door-open-fill"></i>
-                                <a href="" class="ml-2">Logout</a>
+                                <span onClick={() => closeSession()} class="ml-2">Logout</span>
                             </div>
                         </div>
                     </div>

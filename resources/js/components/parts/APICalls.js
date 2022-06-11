@@ -232,4 +232,13 @@ export const deleteUser = async ( idUser ) =>{
 }
 
 
-
+export const logout = async (  ) =>{
+  await axios.post(`${window.location.origin}/logout`)
+  .then(function (response) {
+    console.log(response);
+    window.location.href = location.origin;
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}

@@ -14897,11 +14897,6 @@ function Friends() {
   }, []);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      "class": "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SearchUser__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        getFriends: getFriends
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       "class": "row row d-flex justify-content-center",
       children: friends
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
@@ -15284,6 +15279,28 @@ function ObserverTimeline() {
     };
   }();
 
+  var closeSession = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.logout)();
+
+            case 2:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }));
+
+    return function closeSession() {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPhotos();
     getUserSuggestions();
@@ -15342,14 +15359,28 @@ function ObserverTimeline() {
                 children: "Your Posts"
               })]
             })
+          }), isAdmin && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            "class": "children__routes dropdown-item dropdown-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              "class": "posts d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                "class": "bi bi-collection-fill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                href: "".concat(location.origin, "/admin_dashboard"),
+                "class": "ml-2",
+                children: "Admin Dashboard"
+              })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             "class": "children__routes dropdown-item dropdown-item",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
               "class": "logout d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
                 "class": "bi bi-door-open-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-                href: "",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("span", {
+                onClick: function onClick() {
+                  return closeSession();
+                },
                 "class": "ml-2",
                 children: "Logout"
               })]
@@ -15842,6 +15873,28 @@ function Timeline() {
     };
   }();
 
+  var closeSession = /*#__PURE__*/function () {
+    var _ref7 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee7() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee7$(_context7) {
+        while (1) {
+          switch (_context7.prev = _context7.next) {
+            case 0:
+              _context7.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.logout)();
+
+            case 2:
+            case "end":
+              return _context7.stop();
+          }
+        }
+      }, _callee7);
+    }));
+
+    return function closeSession() {
+      return _ref7.apply(this, arguments);
+    };
+  }();
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPhotos();
     getUserSuggestions();
@@ -15901,14 +15954,28 @@ function Timeline() {
                 children: "Your Posts"
               })]
             })
+          }), isAdmin && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            "class": "children__routes dropdown-item dropdown-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+              "class": "posts d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
+                "class": "bi bi-collection-fill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
+                href: "".concat(location.origin, "/admin_dashboard"),
+                "class": "ml-2",
+                children: "Admin Dashboard"
+              })]
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             "class": "children__routes dropdown-item dropdown-item",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               "class": "logout d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-door-open-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
-                href: "",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                onClick: function onClick() {
+                  return closeSession();
+                },
                 "class": "ml-2",
                 children: "Logout"
               })]
@@ -16209,6 +16276,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "getUserById": () => (/* binding */ getUserById),
 /* harmony export */   "getUsers": () => (/* binding */ getUsers),
 /* harmony export */   "giveLike": () => (/* binding */ giveLike),
+/* harmony export */   "logout": () => (/* binding */ logout),
 /* harmony export */   "removeLike": () => (/* binding */ removeLike),
 /* harmony export */   "updateProfileAdmin": () => (/* binding */ updateProfileAdmin),
 /* harmony export */   "userLikedPostCheck": () => (/* binding */ userLikedPostCheck)
@@ -16713,6 +16781,32 @@ var deleteUser = /*#__PURE__*/function () {
 
   return function deleteUser(_x29) {
     return _ref17.apply(this, arguments);
+  };
+}();
+var logout = /*#__PURE__*/function () {
+  var _ref18 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee18() {
+    return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee18$(_context18) {
+      while (1) {
+        switch (_context18.prev = _context18.next) {
+          case 0:
+            _context18.next = 2;
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/logout")).then(function (response) {
+              console.log(response);
+              window.location.href = location.origin;
+            })["catch"](function (error) {
+              console.log(error);
+            });
+
+          case 2:
+          case "end":
+            return _context18.stop();
+        }
+      }
+    }, _callee18);
+  }));
+
+  return function logout() {
+    return _ref18.apply(this, arguments);
   };
 }();
 

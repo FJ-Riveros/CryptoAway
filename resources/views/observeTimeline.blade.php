@@ -17,6 +17,7 @@
     <script>
         var currentDataUser = @php echo Auth::user(); @endphp;
         var userObserved = @php echo $userObserved; @endphp;
+        var isAdmin = @php echo Auth::user()->hasRole('admin') ? true : "false"; @endphp;
     </script>
 
 

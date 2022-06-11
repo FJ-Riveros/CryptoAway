@@ -16,10 +16,11 @@
 <body>
     <script>
         var currentDataUser = @php echo Auth::user(); @endphp;
+        var isAdmin = @php echo Auth::user()->hasRole('admin') ? true : "false"; @endphp;
     </script>
 
 
-<!-- @if(Auth::user()->hasRole('admin')) <h2>holita</h2> @endif -->
+<!-- @if(Auth::user()->hasRole('admin')) <h2>hi</h2> @endif -->
 <div class="container">
     <!-- <div id="reactHeader"></div> -->
     <div id="reactGetTimeline"></div>
