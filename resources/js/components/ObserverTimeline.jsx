@@ -111,7 +111,7 @@ function ObserverTimeline() {
                         <div class="children__routes dropdown-item">
                             <div class="friends d-flex align-items-center ">
                                 <i class="bi bi-people-fill"></i>
-                                <a href="friends" class="ml-2">Friends</a>
+                                <a href={`${window.location.origin}/friends`} class="ml-2">Friends</a>
                             </div>
                         </div>
 

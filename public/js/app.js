@@ -15264,7 +15264,7 @@ function ObserverTimeline() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
                 "class": "bi bi-people-fill"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-                href: "friends",
+                href: "".concat(window.location.origin, "/friends"),
                 "class": "ml-2",
                 children: "Friends"
               })]
