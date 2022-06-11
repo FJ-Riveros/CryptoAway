@@ -18,10 +18,13 @@ const AutoComplete = () => {
 
   const getData = async () => {
     const response = await getUsers();
-    const usernames = response.map(( user )=> user.surname + " " + user.name );
-    const usersIds = response.map(( user )=> user.id );
+    const usernames = response.map(( user )=> {
+      return {
+        userSearchName: user.surname + " " + user.name,
+        userId: user.id
+      }
+    } );
     setData(usernames);
-    setUsersId(usersIds);
     console.log(usernames);
   }
 
@@ -32,7 +35,7 @@ const AutoComplete = () => {
     if (query.length > 1) {
       const filterSuggestions = data.filter(
         (suggestion) =>
-          suggestion.toLowerCase().indexOf(query) > -1
+          suggestion.userSearchName.toLowerCase().indexOf(query) > -1
       );
       setSuggestions(filterSuggestions);
       setSuggestionsActive(true);
@@ -80,9 +83,8 @@ const AutoComplete = () => {
               key={index}
               onClick={handleClick}
             >
-              {/* How to get the id from every username */}
-              <a href="" className={usersId[index]}>
-                {suggestion}
+              <a href={`timeline/${suggestion.userId}`} className={suggestion.userId}>
+                {suggestion.userSearchName}
               </a>
             </li>
             

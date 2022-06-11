@@ -8,7 +8,7 @@ import FriendSuggestions from './parts/timeline/FriendSuggestions';
 import Header from './Header';
 
 
-function Timeline() {
+function ObserverTimeline() {
     const [friends, setFriends] = useState("Loading the friends...");
     const [friendsPosts, setFriendsPosts] = useState("Loading the friends posts...");
     const [lastPhotos, setLastPhotos] = useState("Loading the last photos...");
@@ -19,7 +19,7 @@ function Timeline() {
 
     //Displays the friends from the current user
     const getFriends = async () =>{
-        const data = await fetch(`${window.location.origin}/api/user/get_friends/${currentDataUser.id}`, { 
+        const data = await fetch(`${window.location.origin}/api/user/get_friends/${userObserved.id}`, { 
             method: 'get', 
         })
         .then(data => data.json())
@@ -35,7 +35,8 @@ function Timeline() {
             })
 
             console.log(friendsPostsInfo)
-            friendsPostsInfo.unshift(await getLastPost(currentDataUser.id));
+            
+            friendsPostsInfo.unshift(await getLastPost(userObserved.id));
 
             //Resolves the promises generated in the loop
             let lastPost = await Promise.all(friendsPostsInfo);
@@ -45,7 +46,7 @@ function Timeline() {
             
             //Loops through the posts again to mount the info into the component
             let postComponents =  cleanPosts.map(async (post)=> {
-                return await <PostsTimeline post={post} currentUser={currentDataUser}/>
+                return await <PostsTimeline post={post} dataUser={userObserved}/>
             })
 
             setFriendsPosts(
@@ -56,7 +57,7 @@ function Timeline() {
     }
 
     const getPhotos = async () =>{
-        const post = await getPosts(currentDataUser.id);
+        const post = await getPosts(userObserved.id);
         console.log(post);
 
         setLastPhotos(
@@ -80,6 +81,7 @@ function Timeline() {
     useEffect(()=>{
         getPhotos();
         getUserSuggestions();
+
     },[])
 
     // useEffect(()=>{
@@ -96,13 +98,13 @@ function Timeline() {
             <Header setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts} />
             <div className="row">
                 <div className="col-3 mt-3">
-                    <ProfileName currentUserData={currentDataUser}/>
+                    <ProfileName currentUserData={userObserved}/>
 
                     <div className="routes">
                         <div class="children__routes dropdown-item">
                             <div class="home d-flex align-items-center">
                                 <i class="bi bi-house-fill"></i>
-                                <a href="" class="ml-2">Home</a>
+                                <a href="../timeline" class="ml-2">Home</a>
                             </div>
                         </div>
 
@@ -157,8 +159,8 @@ function Timeline() {
     );
 }
 
-export default Timeline;
+export default ObserverTimeline;
 
-if (document.getElementById('reactGetTimeline')) {
-    ReactDOM.render(<Timeline />, document.getElementById('reactGetTimeline'));
+if (document.getElementById('reactGetObserverTimeline')) {
+    ReactDOM.render(<ObserverTimeline />, document.getElementById('reactGetObserverTimeline'));
 }

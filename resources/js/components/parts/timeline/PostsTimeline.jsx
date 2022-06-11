@@ -4,7 +4,7 @@ import {getUserById, userLikedPostCheck, giveLike, removeLike, createComment,
      getComments } from '../APICalls';
 import Comments from './Comments';
 
-function PostsTimeline({ post, currentUser }) {
+function PostsTimeline({ post, dataUser }) {
 
     const [userInfo, setUserInfo] = useState("");
     const [userLikedPost, setUserLikedPost] = useState(false);
@@ -18,19 +18,19 @@ function PostsTimeline({ post, currentUser }) {
     }
 
     const checkIfUserLikedPost = async () => {
-        const response = await userLikedPostCheck(currentUser.id, post.id);
+        const response = await userLikedPostCheck(dataUser.id, post.id);
         setUserLikedPost(response == "" ? false : true);
     }
 
     const likePost = async () => {
-        const response = await giveLike(currentUser.id, post.id);
+        const response = await giveLike(dataUser.id, post.id);
         //Checks if the user liked the actual post, updating the heart icon
         checkIfUserLikedPost();
         console.log(response);
     }
 
     const dislikePost = async () => {
-        const response = await removeLike(currentUser.id, post.id);
+        const response = await removeLike(dataUser.id, post.id);
         //Checks if the user liked the actual post, updating the heart icon
         checkIfUserLikedPost();
         console.log(response);
@@ -38,7 +38,7 @@ function PostsTimeline({ post, currentUser }) {
 
     //Comments
     const sendComment = async () => {
-        const response = await createComment(currentUser.id, post.id, createCommentInput);
+        const response = await createComment(dataUser.id, post.id, createCommentInput);
         await retrieveComments();
         setCreateCommentInput("Comment Something!");
         console.log(response);
@@ -47,7 +47,7 @@ function PostsTimeline({ post, currentUser }) {
     const retrieveComments = async () => {
         let response = await getComments(post.id);
         const comments = await response.map((comment) => {
-            return <Comments commentData={comment} currentUser={currentUser} retrieveComments={retrieveComments}/>
+            return <Comments commentData={comment} dataUser={dataUser} retrieveComments={retrieveComments}/>
         })
         console.log(comments);
         setMountedComponents(comments);

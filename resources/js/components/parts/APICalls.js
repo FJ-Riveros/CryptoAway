@@ -2,7 +2,7 @@ import axios from 'axios';
 // import FriendCard from './FriendCard';
 
 export const deleteFriend = async ( currentUserId, friendId)=>{
-    axios.post('api/user/remove_friend', {
+    axios.post(`${window.location.origin}/api/user/remove_friend`, {
         userAcceptRequestId: currentUserId,
         originalRequestSender: friendId,
       })
@@ -17,7 +17,7 @@ export const deleteFriend = async ( currentUserId, friendId)=>{
 
 export const getFriendRequests = async ( currentUserId )=>{
     const info = await 
-    axios.get(`api/user/get_friend_requests/${currentUserId}`)
+    axios.get(`${window.location.origin}/api/user/get_friend_requests/${currentUserId}`)
      .then(function (response) {
            console.log(response.data);
            return response.data 
@@ -30,7 +30,7 @@ export const getFriendRequests = async ( currentUserId )=>{
 }
 
 export const acceptFriendRequest = async ( currentUserId, friendId)=>{
-    axios.post('api/user/accept_friend_request', {
+    axios.post(`${window.location.origin}/api/user/accept_friend_request`, {
         userAcceptRequestId: currentUserId,
         originalRequestSender: friendId,
       })
@@ -44,7 +44,7 @@ export const acceptFriendRequest = async ( currentUserId, friendId)=>{
 
 export const getUserById = async ( userId ) =>{
   const info = await 
-    axios.get(`api/user/${userId}`)
+    axios.get(`${window.location.origin}/api/user/${userId}`)
      .then(function (response) {
            return response.data 
      })
@@ -57,7 +57,7 @@ export const getUserById = async ( userId ) =>{
 
 export const getLastPost = async ( userId ) =>{
   const info = await 
-    axios.get(`api/user/${userId}/last_post`)
+    axios.get(`${window.location.origin}/api/user/${userId}/last_post`)
      .then(function (response) {
           //  console.log(response.data);
            return response.data 
@@ -71,7 +71,7 @@ export const getLastPost = async ( userId ) =>{
 
 export const getPosts = async ( userId ) =>{
   const info = await 
-    axios.get(`api/user/${userId}/posts`)
+    axios.get(`${window.location.origin}/api/user/${userId}/posts`)
      .then(function (response) {
           //  console.log(response.data);
            return response.data 
@@ -85,7 +85,7 @@ export const getPosts = async ( userId ) =>{
 
 export const getFriendSuggestions = async ( ) =>{
   const info = await 
-    axios.get(`api/user/friends/suggest_friends`)
+    axios.get(`${window.location.origin}/api/user/friends/suggest_friends`)
      .then(function (response) {
           //  console.log(response.data);
            return response.data 
@@ -98,7 +98,7 @@ export const getFriendSuggestions = async ( ) =>{
 }
 
 export const createPost = async ( textPost, imgPost)=>{
-      axios.post('api/posts/create_post', {
+      axios.post(`${window.location.origin}/api/posts/create_post`, {
           imgPost: imgPost,
           textPost: textPost,
         })
@@ -111,7 +111,7 @@ export const createPost = async ( textPost, imgPost)=>{
 }
 
 export const giveLike = async ( userId, postId)=>{
-      axios.post('api/user/like_post', {
+      axios.post(`${window.location.origin}/api/user/like_post`, {
           userId: userId,
           postId: postId,
         })
@@ -126,7 +126,7 @@ export const giveLike = async ( userId, postId)=>{
 
 export const userLikedPostCheck = async ( userId, postId) =>{
       const info = await 
-        axios.get(`api/user/already_liked_post/${userId}/${postId}`)
+        axios.get(`${window.location.origin}/api/user/already_liked_post/${userId}/${postId}`)
          .then(function (response) {
                return response.data 
          })
@@ -138,7 +138,7 @@ export const userLikedPostCheck = async ( userId, postId) =>{
 }
 
 export const removeLike = async ( userId, postId)=>{
-      axios.post('api/user/remove_like', {
+      axios.post(`${window.location.origin}/api/user/remove_like`, {
           userId: userId,
           postId: postId,
         })
@@ -151,7 +151,7 @@ export const removeLike = async ( userId, postId)=>{
 }
 
 export const createComment = async ( userId, postId, text)=>{
-  axios.post('api/user/post/create_comment', {
+  axios.post(`${window.location.origin}/api/user/post/create_comment`, {
       userId: userId,
       postId: postId,
       text: text
@@ -166,7 +166,7 @@ export const createComment = async ( userId, postId, text)=>{
 
 
 export const getComments = async ( postId ) =>{
-  return await axios.get(`api/user/post/${postId}/comments`)
+  return await axios.get(`${window.location.origin}/api/user/post/${postId}/comments`)
      .then(function (response) {
            return response.data 
      })
@@ -177,7 +177,7 @@ export const getComments = async ( postId ) =>{
 }
 
 export const deleteComment = async ( userId, postId ) =>{
-    await axios.post('api/user/post/delete_comment', {
+    await axios.post(`${window.location.origin}/api/user/post/delete_comment`, {
       userId: userId,
       idPost: postId,
     })
@@ -191,7 +191,7 @@ export const deleteComment = async ( userId, postId ) =>{
 
 
 export const getUsers = async (  ) =>{
-  return await axios.get(`api/user/get_users/all`)
+  return await axios.get(`${window.location.origin}/api/user/get_users/all`)
      .then(function (response) {
            return response.data 
      })
@@ -202,7 +202,7 @@ export const getUsers = async (  ) =>{
 }
 
 export const updateProfileAdmin = async ( idUser, username, surname, name, email, description, avatar ) =>{
-  await axios.post('api/user/update/admin', {
+  await axios.post(`${window.location.origin}/api/user/update/admin`, {
     userId: idUser,
     username: username,
     surname: surname,
@@ -221,7 +221,7 @@ export const updateProfileAdmin = async ( idUser, username, surname, name, email
 }
 
 export const deleteUser = async ( idUser ) =>{
-  await axios.post('api/user/actions/deleteUser', {
+  await axios.post(`${window.location.origin}/api/user/actions/deleteUser`, {
     userId: idUser,
   })
   .then(function (response) {

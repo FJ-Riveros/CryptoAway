@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\User;
+
 
 class TimelineController extends Controller
 {
@@ -31,11 +34,9 @@ class TimelineController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function observeTimeline()
+    public function observeTimeline(Request $request)
     {
         
-        return view('observeTimeline');
+        return view('observeTimeline', ["userObserved" => User::find($request->userId)]);
     }
-
-
 }

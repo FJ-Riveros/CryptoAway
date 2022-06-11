@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 function FriendSuggestions({ user, currentUser, getUserSuggestions }) {
 
     const addUser = async ()=> {
-        axios.post('api/user/send_friend_request', {
+        axios.post(`${window.location.origin}/api/user/send_friend_request`, {
             userToAdd: user.id,
             actualUser: currentUser.id,
         })

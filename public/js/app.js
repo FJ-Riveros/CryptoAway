@@ -14148,6 +14148,8 @@ __webpack_require__(/*! ./components/UpdateProfile */ "./resources/js/components
 
 __webpack_require__(/*! ./components/Admin */ "./resources/js/components/Admin.jsx");
 
+__webpack_require__(/*! ./components/ObserverTimeline */ "./resources/js/components/ObserverTimeline.jsx");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -14428,7 +14430,7 @@ var AutoComplete = function AutoComplete() {
 
   var getData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response, usernames, usersIds;
+      var response, usernames;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -14439,16 +14441,15 @@ var AutoComplete = function AutoComplete() {
             case 2:
               response = _context.sent;
               usernames = response.map(function (user) {
-                return user.surname + " " + user.name;
-              });
-              usersIds = response.map(function (user) {
-                return user.id;
+                return {
+                  userSearchName: user.surname + " " + user.name,
+                  userId: user.id
+                };
               });
               setData(usernames);
-              setUsersId(usersIds);
               console.log(usernames);
 
-            case 8:
+            case 6:
             case "end":
               return _context.stop();
           }
@@ -14467,7 +14468,7 @@ var AutoComplete = function AutoComplete() {
 
     if (query.length > 1) {
       var filterSuggestions = data.filter(function (suggestion) {
-        return suggestion.toLowerCase().indexOf(query) > -1;
+        return suggestion.userSearchName.toLowerCase().indexOf(query) > -1;
       });
       setSuggestions(filterSuggestions);
       setSuggestionsActive(true);
@@ -14513,9 +14514,9 @@ var AutoComplete = function AutoComplete() {
           className: index === suggestionIndex ? "active" : "",
           onClick: handleClick,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-            href: "",
-            className: usersId[index],
-            children: suggestion
+            href: "timeline/".concat(suggestion.userId),
+            className: suggestion.userId,
+            children: suggestion.userSearchName
           })
         }, index);
       })
@@ -14938,6 +14939,397 @@ function Header(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/components/ObserverTimeline.jsx":
+/*!******************************************************!*\
+  !*** ./resources/js/components/ObserverTimeline.jsx ***!
+  \******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/timeline/ProfileName */ "./resources/js/components/parts/timeline/ProfileName.jsx");
+/* harmony import */ var _parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parts/timeline/PostsTimeline */ "./resources/js/components/parts/timeline/PostsTimeline.jsx");
+/* harmony import */ var _parts_APICalls__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/APICalls */ "./resources/js/components/parts/APICalls.js");
+/* harmony import */ var _parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/timeline/LastPhotos */ "./resources/js/components/parts/timeline/LastPhotos.jsx");
+/* harmony import */ var _parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parts/timeline/FriendSuggestions */ "./resources/js/components/parts/timeline/FriendSuggestions.jsx");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+
+
+
+
+
+
+function ObserverTimeline() {
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends..."),
+      _useState2 = _slicedToArray(_useState, 2),
+      friends = _useState2[0],
+      setFriends = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the friends posts..."),
+      _useState4 = _slicedToArray(_useState3, 2),
+      friendsPosts = _useState4[0],
+      setFriendsPosts = _useState4[1];
+
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the last photos..."),
+      _useState6 = _slicedToArray(_useState5, 2),
+      lastPhotos = _useState6[0],
+      setLastPhotos = _useState6[1];
+
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Loading the last user suggestions..."),
+      _useState8 = _slicedToArray(_useState7, 2),
+      userSuggestions = _useState8[0],
+      setUserSuggestions = _useState8[1];
+
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Write Something!"),
+      _useState10 = _slicedToArray(_useState9, 2),
+      commentInput = _useState10[0],
+      setCommentInput = _useState10[1];
+
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
+      _useState12 = _slicedToArray(_useState11, 2),
+      refreshFriendsPosts = _useState12[0],
+      setRefreshFriendsPosts = _useState12[1]; //Displays the friends from the current user
+
+
+  var getFriends = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      var data;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return fetch("".concat(window.location.origin, "/api/user/get_friends/").concat(userObserved.id), {
+                method: 'get'
+              }).then(function (data) {
+                return data.json();
+              }).then( /*#__PURE__*/function () {
+                var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(data) {
+                  var friendsPostsInfo, lastPost, cleanPosts, postComponents;
+                  return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+                    while (1) {
+                      switch (_context3.prev = _context3.next) {
+                        case 0:
+                          setFriends(data);
+                          console.log("friends");
+                          console.log(data);
+                          friendsPostsInfo = []; //Get the last post from the friends
+
+                          //Get the last post from the friends
+                          friendsPostsInfo = data.map( /*#__PURE__*/function () {
+                            var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(friendData) {
+                              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+                                while (1) {
+                                  switch (_context.prev = _context.next) {
+                                    case 0:
+                                      _context.next = 2;
+                                      return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getLastPost)(friendData.id);
+
+                                    case 2:
+                                      return _context.abrupt("return", _context.sent);
+
+                                    case 3:
+                                    case "end":
+                                      return _context.stop();
+                                  }
+                                }
+                              }, _callee);
+                            }));
+
+                            return function (_x2) {
+                              return _ref3.apply(this, arguments);
+                            };
+                          }());
+                          console.log(friendsPostsInfo);
+                          _context3.t0 = friendsPostsInfo;
+                          _context3.next = 9;
+                          return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getLastPost)(userObserved.id);
+
+                        case 9:
+                          _context3.t1 = _context3.sent;
+
+                          _context3.t0.unshift.call(_context3.t0, _context3.t1);
+
+                          _context3.next = 13;
+                          return Promise.all(friendsPostsInfo);
+
+                        case 13:
+                          lastPost = _context3.sent;
+                          //Filters the posts from the users that had no post 
+                          cleanPosts = lastPost.filter(function (post) {
+                            return post.length != 0;
+                          }); //Loops through the posts again to mount the info into the component
+
+                          //Loops through the posts again to mount the info into the component
+                          postComponents = cleanPosts.map( /*#__PURE__*/function () {
+                            var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(post) {
+                              return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+                                while (1) {
+                                  switch (_context2.prev = _context2.next) {
+                                    case 0:
+                                      _context2.next = 2;
+                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                                        post: post,
+                                        dataUser: userObserved
+                                      });
+
+                                    case 2:
+                                      return _context2.abrupt("return", _context2.sent);
+
+                                    case 3:
+                                    case "end":
+                                      return _context2.stop();
+                                  }
+                                }
+                              }, _callee2);
+                            }));
+
+                            return function (_x3) {
+                              return _ref4.apply(this, arguments);
+                            };
+                          }());
+                          _context3.t2 = setFriendsPosts;
+                          _context3.next = 19;
+                          return Promise.all(postComponents);
+
+                        case 19:
+                          _context3.t3 = _context3.sent;
+                          (0, _context3.t2)(_context3.t3);
+
+                        case 21:
+                        case "end":
+                          return _context3.stop();
+                      }
+                    }
+                  }, _callee3);
+                }));
+
+                return function (_x) {
+                  return _ref2.apply(this, arguments);
+                };
+              }());
+
+            case 2:
+              data = _context4.sent;
+
+            case 3:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function getFriends() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var getPhotos = /*#__PURE__*/function () {
+    var _ref5 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee5() {
+      var post;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee5$(_context5) {
+        while (1) {
+          switch (_context5.prev = _context5.next) {
+            case 0:
+              _context5.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getPosts)(userObserved.id);
+
+            case 2:
+              post = _context5.sent;
+              console.log(post);
+              setLastPhotos(post.map(function (post) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                  post: post
+                });
+              }));
+
+            case 5:
+            case "end":
+              return _context5.stop();
+          }
+        }
+      }, _callee5);
+    }));
+
+    return function getPhotos() {
+      return _ref5.apply(this, arguments);
+    };
+  }();
+
+  var getUserSuggestions = /*#__PURE__*/function () {
+    var _ref6 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee6() {
+      var suggestions, mountedSuggestions;
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee6$(_context6) {
+        while (1) {
+          switch (_context6.prev = _context6.next) {
+            case 0:
+              _context6.next = 2;
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendSuggestions)();
+
+            case 2:
+              suggestions = _context6.sent;
+              mountedSuggestions = suggestions.data.map(function (user) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                  user: user,
+                  currentUser: currentDataUser,
+                  getUserSuggestions: getUserSuggestions
+                });
+              });
+              setUserSuggestions(mountedSuggestions);
+
+            case 5:
+            case "end":
+              return _context6.stop();
+          }
+        }
+      }, _callee6);
+    }));
+
+    return function getUserSuggestions() {
+      return _ref6.apply(this, arguments);
+    };
+  }();
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getPhotos();
+    getUserSuggestions();
+  }, []); // useEffect(()=>{
+  //     getFriends();
+  // },[createPostText, refreshFriendsPosts])
+
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getFriends();
+  }, [refreshFriendsPosts]);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
+      setRefreshFriendsPosts: setRefreshFriendsPosts,
+      refreshFriendsPosts: refreshFriendsPosts
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      className: "row",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        className: "col-3 mt-3",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
+          currentUserData: userObserved
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          className: "routes",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            "class": "children__routes dropdown-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              "class": "home d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                "class": "bi bi-house-fill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                href: "../timeline",
+                "class": "ml-2",
+                children: "Home"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            "class": "children__routes dropdown-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              "class": "friends d-flex align-items-center ",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                "class": "bi bi-people-fill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                href: "friends",
+                "class": "ml-2",
+                children: "Friends"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            "class": "children__routes dropdown-item dropdown-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              "class": "posts d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                "class": "bi bi-collection-fill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                href: "",
+                "class": "ml-2",
+                children: "Your Posts"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            "class": "children__routes dropdown-item dropdown-item",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+              "class": "logout d-flex align-items-center",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+                "class": "bi bi-door-open-fill"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+                href: "",
+                "class": "ml-2",
+                children: "Logout"
+              })]
+            })
+          })]
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "col-6",
+        children: friendsPosts
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        className: "col-3 mt-3",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          "class": "latest__photos__container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            "class": "header",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+              children: "Latest Photos"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("hr", {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            "class": "photos__grid row",
+            children: lastPhotos
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          "class": "friend__suggestion__container",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+            children: "Add Friends!"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("hr", {}), userSuggestions]
+        })]
+      })]
+    })]
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ObserverTimeline);
+
+if (document.getElementById('reactGetObserverTimeline')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(ObserverTimeline, {}), document.getElementById('reactGetObserverTimeline'));
+}
+
+/***/ }),
+
 /***/ "./resources/js/components/SearchUser.js":
 /*!***********************************************!*\
   !*** ./resources/js/components/SearchUser.js ***!
@@ -15189,7 +15581,7 @@ function Timeline() {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return fetch("http://localhost:8000/api/user/get_friends/".concat(currentDataUser.id), {
+              return fetch("".concat(window.location.origin, "/api/user/get_friends/").concat(currentDataUser.id), {
                 method: 'get'
               }).then(function (data) {
                 return data.json();
@@ -15769,7 +16161,7 @@ var deleteFriend = /*#__PURE__*/function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/remove_friend', {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/remove_friend"), {
               userAcceptRequestId: currentUserId,
               originalRequestSender: friendId
             }).then(function (response) {
@@ -15798,7 +16190,7 @@ var getFriendRequests = /*#__PURE__*/function () {
         switch (_context2.prev = _context2.next) {
           case 0:
             _context2.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/get_friend_requests/".concat(currentUserId)).then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/get_friend_requests/").concat(currentUserId)).then(function (response) {
               console.log(response.data);
               return response.data;
             })["catch"](function (error) {
@@ -15827,7 +16219,7 @@ var acceptFriendRequest = /*#__PURE__*/function () {
       while (1) {
         switch (_context3.prev = _context3.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/accept_friend_request', {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/accept_friend_request"), {
               userAcceptRequestId: currentUserId,
               originalRequestSender: friendId
             }).then(function (response) {
@@ -15856,7 +16248,7 @@ var getUserById = /*#__PURE__*/function () {
         switch (_context4.prev = _context4.next) {
           case 0:
             _context4.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/".concat(userId)).then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/").concat(userId)).then(function (response) {
               return response.data;
             })["catch"](function (error) {
               console.log(error);
@@ -15886,7 +16278,7 @@ var getLastPost = /*#__PURE__*/function () {
         switch (_context5.prev = _context5.next) {
           case 0:
             _context5.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/".concat(userId, "/last_post")).then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/").concat(userId, "/last_post")).then(function (response) {
               //  console.log(response.data);
               return response.data;
             })["catch"](function (error) {
@@ -15917,7 +16309,7 @@ var getPosts = /*#__PURE__*/function () {
         switch (_context6.prev = _context6.next) {
           case 0:
             _context6.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/".concat(userId, "/posts")).then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/").concat(userId, "/posts")).then(function (response) {
               //  console.log(response.data);
               return response.data;
             })["catch"](function (error) {
@@ -15948,7 +16340,7 @@ var getFriendSuggestions = /*#__PURE__*/function () {
         switch (_context7.prev = _context7.next) {
           case 0:
             _context7.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/friends/suggest_friends").then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/friends/suggest_friends")).then(function (response) {
               //  console.log(response.data);
               return response.data;
             })["catch"](function (error) {
@@ -15977,7 +16369,7 @@ var createPost = /*#__PURE__*/function () {
       while (1) {
         switch (_context8.prev = _context8.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/posts/create_post', {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/posts/create_post"), {
               imgPost: imgPost,
               textPost: textPost
             }).then(function (response) {
@@ -16004,7 +16396,7 @@ var giveLike = /*#__PURE__*/function () {
       while (1) {
         switch (_context9.prev = _context9.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/like_post', {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/like_post"), {
               userId: userId,
               postId: postId
             }).then(function (response) {
@@ -16033,7 +16425,7 @@ var userLikedPostCheck = /*#__PURE__*/function () {
         switch (_context10.prev = _context10.next) {
           case 0:
             _context10.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/already_liked_post/".concat(userId, "/").concat(postId)).then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/already_liked_post/").concat(userId, "/").concat(postId)).then(function (response) {
               return response.data;
             })["catch"](function (error) {
               console.log(error);
@@ -16061,7 +16453,7 @@ var removeLike = /*#__PURE__*/function () {
       while (1) {
         switch (_context11.prev = _context11.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/remove_like', {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/remove_like"), {
               userId: userId,
               postId: postId
             }).then(function (response) {
@@ -16088,7 +16480,7 @@ var createComment = /*#__PURE__*/function () {
       while (1) {
         switch (_context12.prev = _context12.next) {
           case 0:
-            axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/post/create_comment', {
+            axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/post/create_comment"), {
               userId: userId,
               postId: postId,
               text: text
@@ -16117,7 +16509,7 @@ var getComments = /*#__PURE__*/function () {
         switch (_context13.prev = _context13.next) {
           case 0:
             _context13.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/post/".concat(postId, "/comments")).then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/post/").concat(postId, "/comments")).then(function (response) {
               return response.data;
             })["catch"](function (error) {
               console.log(error);
@@ -16145,7 +16537,7 @@ var deleteComment = /*#__PURE__*/function () {
         switch (_context14.prev = _context14.next) {
           case 0:
             _context14.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/post/delete_comment', {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/post/delete_comment"), {
               userId: userId,
               idPost: postId
             }).then(function (response) {
@@ -16173,7 +16565,7 @@ var getUsers = /*#__PURE__*/function () {
         switch (_context15.prev = _context15.next) {
           case 0:
             _context15.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("api/user/get_users/all").then(function (response) {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().get("".concat(window.location.origin, "/api/user/get_users/all")).then(function (response) {
               return response.data;
             })["catch"](function (error) {
               console.log(error);
@@ -16201,7 +16593,7 @@ var updateProfileAdmin = /*#__PURE__*/function () {
         switch (_context16.prev = _context16.next) {
           case 0:
             _context16.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/update/admin', {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/update/admin"), {
               userId: idUser,
               username: username,
               surname: surname,
@@ -16234,7 +16626,7 @@ var deleteUser = /*#__PURE__*/function () {
         switch (_context17.prev = _context17.next) {
           case 0:
             _context17.next = 2;
-            return axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/user/actions/deleteUser', {
+            return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/actions/deleteUser"), {
               userId: idUser
             }).then(function (response) {
               console.log(response);
@@ -16699,7 +17091,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function Comments(_ref) {
   var commentData = _ref.commentData,
-      currentUser = _ref.currentUser,
+      dataUser = _ref.dataUser,
       retrieveComments = _ref.retrieveComments;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
@@ -16741,7 +17133,7 @@ function Comments(_ref) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(currentUser.id, commentData.Post_idPost);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(dataUser.id, commentData.Post_idPost);
 
             case 2:
               retrieveComments();
@@ -16779,7 +17171,7 @@ function Comments(_ref) {
                   className: "d-flex flex-row comment-row",
                   children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
                     className: "p-2",
-                    children: [commentData.user_idUser == currentUser.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+                    children: [commentData.user_idUser == dataUser.id && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       className: "action__delete",
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
                         href: "#",
@@ -16794,7 +17186,7 @@ function Comments(_ref) {
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
                       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
                         className: "round",
-                        src: currentUser.avatar,
+                        src: dataUser.avatar,
                         alt: "user",
                         width: "50",
                         height: "auto"
@@ -17028,7 +17420,7 @@ function FriendSuggestions(_ref) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              axios.post('api/user/send_friend_request', {
+              axios.post("".concat(window.location.origin, "/api/user/send_friend_request"), {
                 userToAdd: user.id,
                 actualUser: currentUser.id
               }).then(function (response) {
@@ -17156,7 +17548,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 function PostsTimeline(_ref) {
   var post = _ref.post,
-      currentUser = _ref.currentUser;
+      dataUser = _ref.dataUser;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
@@ -17214,7 +17606,7 @@ function PostsTimeline(_ref) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.userLikedPostCheck)(currentUser.id, post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.userLikedPostCheck)(dataUser.id, post.id);
 
             case 2:
               response = _context2.sent;
@@ -17241,7 +17633,7 @@ function PostsTimeline(_ref) {
           switch (_context3.prev = _context3.next) {
             case 0:
               _context3.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(currentUser.id, post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.giveLike)(dataUser.id, post.id);
 
             case 2:
               response = _context3.sent;
@@ -17270,7 +17662,7 @@ function PostsTimeline(_ref) {
           switch (_context4.prev = _context4.next) {
             case 0:
               _context4.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(currentUser.id, post.id);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.removeLike)(dataUser.id, post.id);
 
             case 2:
               response = _context4.sent;
@@ -17300,7 +17692,7 @@ function PostsTimeline(_ref) {
           switch (_context5.prev = _context5.next) {
             case 0:
               _context5.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.createComment)(currentUser.id, post.id, createCommentInput);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.createComment)(dataUser.id, post.id, createCommentInput);
 
             case 2:
               response = _context5.sent;
@@ -17340,7 +17732,7 @@ function PostsTimeline(_ref) {
               return response.map(function (comment) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Comments__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   commentData: comment,
-                  currentUser: currentUser,
+                  dataUser: dataUser,
                   retrieveComments: retrieveComments
                 });
               });

@@ -16,13 +16,12 @@
 <body>
     <script>
         var currentDataUser = @php echo Auth::user(); @endphp;
+        var userObserved = @php echo $userObserved; @endphp;
     </script>
 
 
-<!-- @if(Auth::user()->hasRole('admin')) <h2>holita</h2> @endif -->
 <div class="container">
-    <!-- <div id="reactHeader"></div> -->
-    <div id="reactGetTimeline"></div>
+    <div id="reactGetObserverTimeline"></div>
 </div>
  
     <script src="{{ asset('js/app.js') }}" defer></script>

@@ -26,6 +26,9 @@ require('./components/UpdateProfile');
 
 require('./components/Admin');
 
+require('./components/ObserverTimeline');
+
+
 
 
 
