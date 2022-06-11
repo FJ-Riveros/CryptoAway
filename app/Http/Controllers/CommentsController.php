@@ -6,6 +6,8 @@ use App\Models\Comments;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 
 
 class CommentsController extends Controller
@@ -105,14 +107,25 @@ class CommentsController extends Controller
         try
         {
             //Change if the user can comment multiple times on the same post
-            $actualUser = User::find($request->userId);
+            // $actualUser = User::find($request->userId);
             
+            $actualUser = Auth::id();
             if(is_null($actualUser)) return "Non existent User";
             
-            return  Comments::where([
-                'user_idUser' => $actualUser->id,
-                'Post_idPost' => $request->idPost,
-            ])->delete();
+            // return  Comments::where([
+            //     'user_idUser' => $actualUser->id,
+            //     'Post_idPost' => $request->idPost,
+            // ])->delete();
+
+            $comment = Comments::find($request->commentId);
+
+            if($comment->user_idUser == $actualUser ){
+               return $comment->delete();
+            }else{
+                return "The user doesn't own the Comment to delete";
+            }
+
+            
         }
         // catch(Exception $e) catch any exception
         catch(Exception $e)

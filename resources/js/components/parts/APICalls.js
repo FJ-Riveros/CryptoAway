@@ -176,10 +176,9 @@ export const getComments = async ( postId ) =>{
 
 }
 
-export const deleteComment = async ( userId, postId ) =>{
+export const deleteComment = async ( commentId ) =>{
     await axios.post(`${window.location.origin}/api/user/post/delete_comment`, {
-      userId: userId,
-      idPost: postId,
+      commentId: commentId
     })
     .then(function (response) {
       console.log(response);

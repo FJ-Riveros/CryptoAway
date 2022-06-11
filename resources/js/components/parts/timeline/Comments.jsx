@@ -11,7 +11,7 @@ function Comments({ commentData, currentUser, retrieveComments }) {
     }
 
     const actionDeleteComment = async () =>{
-        await deleteComment(currentUser.id, commentData.Post_idPost);
+        await deleteComment( commentData.id);
         retrieveComments();
     }
 

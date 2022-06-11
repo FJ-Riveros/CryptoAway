@@ -16531,15 +16531,14 @@ var getComments = /*#__PURE__*/function () {
   };
 }();
 var deleteComment = /*#__PURE__*/function () {
-  var _ref14 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee14(userId, postId) {
+  var _ref14 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee14(commentId) {
     return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee14$(_context14) {
       while (1) {
         switch (_context14.prev = _context14.next) {
           case 0:
             _context14.next = 2;
             return axios__WEBPACK_IMPORTED_MODULE_1___default().post("".concat(window.location.origin, "/api/user/post/delete_comment"), {
-              userId: userId,
-              idPost: postId
+              commentId: commentId
             }).then(function (response) {
               console.log(response);
             })["catch"](function (error) {
@@ -16554,7 +16553,7 @@ var deleteComment = /*#__PURE__*/function () {
     }, _callee14);
   }));
 
-  return function deleteComment(_x21, _x22) {
+  return function deleteComment(_x21) {
     return _ref14.apply(this, arguments);
   };
 }();
@@ -16615,7 +16614,7 @@ var updateProfileAdmin = /*#__PURE__*/function () {
     }, _callee16);
   }));
 
-  return function updateProfileAdmin(_x23, _x24, _x25, _x26, _x27, _x28, _x29) {
+  return function updateProfileAdmin(_x22, _x23, _x24, _x25, _x26, _x27, _x28) {
     return _ref16.apply(this, arguments);
   };
 }();
@@ -16642,7 +16641,7 @@ var deleteUser = /*#__PURE__*/function () {
     }, _callee17);
   }));
 
-  return function deleteUser(_x30) {
+  return function deleteUser(_x29) {
     return _ref17.apply(this, arguments);
   };
 }();
@@ -17133,7 +17132,7 @@ function Comments(_ref) {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(currentUser.id, commentData.Post_idPost);
+              return (0,_APICalls__WEBPACK_IMPORTED_MODULE_3__.deleteComment)(commentData.id);
 
             case 2:
               retrieveComments();
