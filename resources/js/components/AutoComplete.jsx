@@ -10,6 +10,8 @@ const AutoComplete = () => {
   const [value, setValue] = useState("");
   const [data, setData] = useState([]);
   const [usersId, setUsersId] = useState([]);
+  const [idUserSuggestions, setIdUserSuggestions] = useState([]);
+
 
 
   useEffect(() => {
@@ -21,11 +23,20 @@ const AutoComplete = () => {
     const usernames = response.map(( user )=> {
       return {
         userSearchName: user.surname + " " + user.name,
-        userId: user.id
+        userId: user.id,
+        avatar: user.avatar
       }
     } );
     setData(usernames);
-    console.log(usernames);
+
+    const suggestions = await getFriendSuggestions();
+
+    const userSuggestions = suggestions.data.map((user)=>{
+      return user.id;
+    })
+
+    //Used to check if the user can add another user
+    setIdUserSuggestions(userSuggestions)
   }
 
 
@@ -73,7 +84,23 @@ const AutoComplete = () => {
     }
   };
 
+  const addUser = async ( userToAddId )=> {
+    axios.post(`${window.location.origin}/api/user/send_friend_request`, {
+        userToAdd: userToAddId,
+        actualUser: currentDataUser.id,
+    })
+      .then(function (response) {
+        console.log(response);
+        getUserSuggestions();
+      })
+      .catch(function (error) {
+      });
+}
+
+
   const Suggestions = () => {
+    
+
     return (
       <ul className="suggestions">
         {suggestions.map((suggestion, index) => {
@@ -83,11 +110,19 @@ const AutoComplete = () => {
               key={index}
               onClick={handleClick}
             >
-              <a href={`timeline/${suggestion.userId}`} className={suggestion.userId}>
-                {suggestion.userSearchName}
-              </a>
+              <div className="row">
+                <div className="col-9">
+                  <img src={suggestion.avatar} className="search__user__img" alt="" width="30" height="30"/>
+                  <a href={`timeline/${suggestion.userId}`} className="ml-4">
+                    {suggestion.userSearchName}
+                  </a>
+              </div>
+              <div className="col-3 d-flex justify-content-end">
+                {/* The user id is not correctly filtered in the array */}
+                { idUserSuggestions.includes(suggestion.userId) &&  <i className="bi bi-person-plus-fill add" onClick={()=> addUser( suggestion.userId )} ></i> } 
+              </div>
+              </div>
             </li>
-            
           );
         })}
       </ul>

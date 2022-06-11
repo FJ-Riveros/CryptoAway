@@ -4618,10 +4618,23 @@ textarea {
   width: 100%;
 }
 
+ul {
+  padding-left: 0 !important;
+}
+
 .suggestions {
   border: 1px solid lightgray;
   position: absolute;
   width: 90%;
+}
+.suggestions li {
+  padding: 0.5rem;
+}
+
+.search__user__img {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
 }
 
 .table-wrapper {

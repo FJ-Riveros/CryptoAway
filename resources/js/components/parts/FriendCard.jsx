@@ -2,14 +2,14 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {deleteFriend} from './APICalls';
 
-function FriendCard({username, name, email, avatar, friendId, currentUserId, getFriends}) {
-    console.log(username);
+function FriendCard({username, name, email, avatar, friendId, currentDataUserId, getFriends}) {
+    console.log(currentDataUserId);
     return (
         // <div class="col-md-6 col-xl-4 mt-4">
-        <div class="col-12 mt-4">
+        <div class="col-11 mt-4 feed__card__post">
             <div class="card">
                 <i class="fas fa-times deleteIcon" onClick={()=>{
-                    deleteFriend(currentUserId, friendId);
+                    deleteFriend(currentDataUserId, friendId);
                     getFriends();
                 }}></i>
                 <div class="card-body">

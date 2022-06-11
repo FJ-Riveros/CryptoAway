@@ -47,7 +47,7 @@ function Friends() {
             <div class="row">
                 <SearchUser getFriends={getFriends}/>
             </div>
-            <div class="row">
+            <div class="row row d-flex justify-content-center">
                 {friends}
             </div>
             <div class="row">

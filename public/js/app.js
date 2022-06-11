@@ -14424,13 +14424,18 @@ var AutoComplete = function AutoComplete() {
       usersId = _useState12[0],
       setUsersId = _useState12[1];
 
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+      _useState14 = _slicedToArray(_useState13, 2),
+      idUserSuggestions = _useState14[0],
+      setIdUserSuggestions = _useState14[1];
+
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getData();
   }, []);
 
   var getData = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      var response, usernames;
+      var response, usernames, suggestions, userSuggestions;
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
@@ -14443,13 +14448,23 @@ var AutoComplete = function AutoComplete() {
               usernames = response.map(function (user) {
                 return {
                   userSearchName: user.surname + " " + user.name,
-                  userId: user.id
+                  userId: user.id,
+                  avatar: user.avatar
                 };
               });
               setData(usernames);
-              console.log(usernames);
+              _context.next = 7;
+              return getFriendSuggestions();
 
-            case 6:
+            case 7:
+              suggestions = _context.sent;
+              userSuggestions = suggestions.data.map(function (user) {
+                return user.id;
+              }); //Used to check if the user can add another user
+
+              setIdUserSuggestions(userSuggestions);
+
+            case 10:
             case "end":
               return _context.stop();
           }
@@ -14506,6 +14521,33 @@ var AutoComplete = function AutoComplete() {
     }
   };
 
+  var addUser = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(userToAddId) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              axios.post("".concat(window.location.origin, "/api/user/send_friend_request"), {
+                userToAdd: userToAddId,
+                actualUser: currentDataUser.id
+              }).then(function (response) {
+                console.log(response);
+                getUserSuggestions();
+              })["catch"](function (error) {});
+
+            case 1:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function addUser(_x) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
   var Suggestions = function Suggestions() {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("ul", {
       className: "suggestions",
@@ -14513,10 +14555,30 @@ var AutoComplete = function AutoComplete() {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("li", {
           className: index === suggestionIndex ? "active" : "",
           onClick: handleClick,
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
-            href: "timeline/".concat(suggestion.userId),
-            className: suggestion.userId,
-            children: suggestion.userSearchName
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "row",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "col-9",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                src: suggestion.avatar,
+                className: "search__user__img",
+                alt: "",
+                width: "30",
+                height: "30"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("a", {
+                href: "timeline/".concat(suggestion.userId),
+                className: "ml-4",
+                children: suggestion.userSearchName
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "col-3 d-flex justify-content-end",
+              children: idUserSuggestions.includes(suggestion.userId) && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
+                className: "bi bi-person-plus-fill add",
+                onClick: function onClick() {
+                  return addUser(suggestion.userId);
+                }
+              })
+            })]
           })
         }, index);
       })
@@ -14839,7 +14901,7 @@ function Friends() {
         getFriends: getFriends
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      "class": "row",
+      "class": "row row d-flex justify-content-center",
       children: friends
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       "class": "row",
@@ -15573,7 +15635,7 @@ function Timeline() {
       setRefreshFriendsPosts = _useState12[1]; //Switches between the friends and the posts
 
 
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("Posts"),
       _useState14 = _slicedToArray(_useState13, 2),
       viewPosts = _useState14[0],
       setViewPosts = _useState14[1]; //Displays the friends from the current user
@@ -15804,9 +15866,10 @@ function Timeline() {
               "class": "home d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-house-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
+                href: "".concat(location.origin, "/timeline"),
                 onClick: function onClick() {
-                  return setViewPosts(true);
+                  return setViewPosts("Posts");
                 },
                 "class": "ml-2",
                 children: "Home"
@@ -15818,9 +15881,10 @@ function Timeline() {
               "class": "friends d-flex align-items-center ",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-people-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
+                href: "".concat(location.origin, "/timeline"),
                 onClick: function onClick() {
-                  return setViewPosts(false);
+                  return setViewPosts("Friends");
                 },
                 "class": "ml-2",
                 children: "Friends"
@@ -15854,7 +15918,7 @@ function Timeline() {
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-6",
-        children: viewPosts ? friendsPosts : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Friends__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+        children: viewPosts === "Posts" ? friendsPosts : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Friends__WEBPACK_IMPORTED_MODULE_9__["default"], {})
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "col-3 mt-3",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
@@ -16682,20 +16746,20 @@ function FriendCard(_ref) {
       email = _ref.email,
       avatar = _ref.avatar,
       friendId = _ref.friendId,
-      currentUserId = _ref.currentUserId,
+      currentDataUserId = _ref.currentDataUserId,
       getFriends = _ref.getFriends;
-  console.log(username);
+  console.log(currentDataUserId);
   return (
     /*#__PURE__*/
     // <div class="col-md-6 col-xl-4 mt-4">
     (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-      "class": "col-12 mt-4",
+      "class": "col-11 mt-4 feed__card__post",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         "class": "card",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
           "class": "fas fa-times deleteIcon",
           onClick: function onClick() {
-            (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUserId, friendId);
+            (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentDataUserId, friendId);
             getFriends();
           }
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
