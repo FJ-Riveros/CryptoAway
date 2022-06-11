@@ -14759,7 +14759,7 @@ function Friends() {
           switch (_context.prev = _context.next) {
             case 0:
               _context.next = 2;
-              return fetch("http://localhost:8000/api/user/get_friends/".concat(currentUser), {
+              return fetch("http://localhost:8000/api/user/get_friends/".concat(currentDataUser.id), {
                 method: 'get'
               }).then(function (data) {
                 return data.json();
@@ -14772,7 +14772,7 @@ function Friends() {
                     email: friendData.email,
                     avatar: friendData.avatar,
                     friendId: friendData.id,
-                    currentUserId: currentUser,
+                    currentDataUserId: currentDataUser.id,
                     getFriends: getFriends
                   }, friendData.id);
                 }));
@@ -14802,13 +14802,13 @@ function Friends() {
           switch (_context2.prev = _context2.next) {
             case 0:
               _context2.next = 2;
-              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendRequests)(currentUser);
+              return (0,_parts_APICalls__WEBPACK_IMPORTED_MODULE_5__.getFriendRequests)(currentDataUser.id);
 
             case 2:
               response = _context2.sent;
               setFriendRequests(response.map(function (friendRequestsData) {
                 return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_parts_FriendRequestCard_jsx__WEBPACK_IMPORTED_MODULE_6__["default"], {
-                  currentUserId: currentUser,
+                  currentDataUserId: currentDataUser.id,
                   userData: friendRequestsData,
                   getFriends: getFriends,
                   getFriendRequests: mountFriendRequests
@@ -14848,11 +14848,9 @@ function Friends() {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Friends);
-
-if (document.getElementById('reactGetFriends')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(Friends, {}), document.getElementById('reactGetFriends'));
-}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Friends); // if (document.getElementById('reactGetFriends')) {
+//     ReactDOM.render(<Friends />, document.getElementById('reactGetFriends'));
+// }
 
 /***/ }),
 
@@ -15510,7 +15508,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/timeline/LastPhotos */ "./resources/js/components/parts/timeline/LastPhotos.jsx");
 /* harmony import */ var _parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./parts/timeline/FriendSuggestions */ "./resources/js/components/parts/timeline/FriendSuggestions.jsx");
 /* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Friends__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./Friends */ "./resources/js/components/Friends.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -15528,6 +15527,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -15570,7 +15570,13 @@ function Timeline() {
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
       _useState12 = _slicedToArray(_useState11, 2),
       refreshFriendsPosts = _useState12[0],
-      setRefreshFriendsPosts = _useState12[1]; //Displays the friends from the current user
+      setRefreshFriendsPosts = _useState12[1]; //Switches between the friends and the posts
+
+
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(true),
+      _useState14 = _slicedToArray(_useState13, 2),
+      viewPosts = _useState14[0],
+      setViewPosts = _useState14[1]; //Displays the friends from the current user
 
 
   var getFriends = /*#__PURE__*/function () {
@@ -15650,7 +15656,7 @@ function Timeline() {
                                   switch (_context2.prev = _context2.next) {
                                     case 0:
                                       _context2.next = 2;
-                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                                      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_4__["default"], {
                                         post: post,
                                         currentUser: currentDataUser
                                       });
@@ -15721,7 +15727,7 @@ function Timeline() {
               post = _context5.sent;
               console.log(post);
               setLastPhotos(post.map(function (post) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_6__["default"], {
                   post: post
                 });
               }));
@@ -15752,7 +15758,7 @@ function Timeline() {
             case 2:
               suggestions = _context6.sent;
               mountedSuggestions = suggestions.data.map(function (user) {
-                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_7__["default"], {
                   user: user,
                   currentUser: currentDataUser,
                   getUserSuggestions: getUserSuggestions
@@ -15776,68 +15782,69 @@ function Timeline() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getPhotos();
     getUserSuggestions();
-  }, []); // useEffect(()=>{
-  //     getFriends();
-  // },[createPostText, refreshFriendsPosts])
-
+  }, []);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     getFriends();
   }, [refreshFriendsPosts]);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Header__WEBPACK_IMPORTED_MODULE_8__["default"], {
       setRefreshFriendsPosts: setRefreshFriendsPosts,
       refreshFriendsPosts: refreshFriendsPosts
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "col-3 mt-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_3__["default"], {
           currentUserData: currentDataUser
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "routes",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             "class": "children__routes dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               "class": "home d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-house-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-                href: "",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                onClick: function onClick() {
+                  return setViewPosts(true);
+                },
                 "class": "ml-2",
                 children: "Home"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             "class": "children__routes dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               "class": "friends d-flex align-items-center ",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-people-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
-                href: "friends",
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("span", {
+                onClick: function onClick() {
+                  return setViewPosts(false);
+                },
                 "class": "ml-2",
                 children: "Friends"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             "class": "children__routes dropdown-item dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               "class": "posts d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-collection-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
                 href: "",
                 "class": "ml-2",
                 children: "Your Posts"
               })]
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             "class": "children__routes dropdown-item dropdown-item",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
               "class": "logout d-flex align-items-center",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("i", {
                 "class": "bi bi-door-open-fill"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("a", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("a", {
                 href: "",
                 "class": "ml-2",
                 children: "Logout"
@@ -15845,27 +15852,27 @@ function Timeline() {
             })
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-6",
-        children: friendsPosts
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: viewPosts ? friendsPosts : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_Friends__WEBPACK_IMPORTED_MODULE_9__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
         className: "col-3 mt-3",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           "class": "latest__photos__container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
             "class": "header",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
               children: "Latest Photos"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("hr", {})]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("hr", {})]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
             "class": "photos__grid row",
             children: lastPhotos
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           "class": "friend__suggestion__container",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h3", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("h3", {
             children: "Add Friends!"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("hr", {}), userSuggestions]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("hr", {}), userSuggestions]
         })]
       })]
     })]
@@ -15875,7 +15882,7 @@ function Timeline() {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Timeline);
 
 if (document.getElementById('reactGetTimeline')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
+  react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
 }
 
 /***/ }),
@@ -16677,49 +16684,54 @@ function FriendCard(_ref) {
       friendId = _ref.friendId,
       currentUserId = _ref.currentUserId,
       getFriends = _ref.getFriends;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    "class": "col-md-6 col-xl-4 mt-4",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      "class": "card",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
-        "class": "fas fa-times deleteIcon",
-        onClick: function onClick() {
-          (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUserId, friendId);
-          getFriends();
-        }
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-        "class": "card-body",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          "class": "media align-items-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-            style: {
-              backgroundImage: "url(" + avatar + ")",
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              width: "100px",
-              height: "100px"
-            },
-            "class": "avatar avatar-xl mr-3"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            "class": "media-body overflow-hidden",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
-              "class": "card-text mb-0",
-              children: username
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-              "class": "card-text  text-muted",
-              children: name
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-              "class": "card-text",
-              children: email
+  console.log(username);
+  return (
+    /*#__PURE__*/
+    // <div class="col-md-6 col-xl-4 mt-4">
+    (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      "class": "col-12 mt-4",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        "class": "card",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+          "class": "fas fa-times deleteIcon",
+          onClick: function onClick() {
+            (0,_APICalls__WEBPACK_IMPORTED_MODULE_2__.deleteFriend)(currentUserId, friendId);
+            getFriends();
+          }
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          "class": "card-body",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            "class": "media align-items-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              style: {
+                backgroundImage: "url(" + avatar + ")",
+                backgroundPosition: "center",
+                backgroundSize: "cover",
+                width: "100px",
+                height: "100px"
+              },
+              "class": "avatar avatar-xl mr-3"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              "class": "media-body overflow-hidden",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h5", {
+                "class": "card-text mb-0",
+                children: username
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                "class": "card-text  text-muted",
+                children: name
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+                "class": "card-text",
+                children: email
+              })]
             })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
+            href: "#",
+            "class": "tile-link"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("a", {
-          href: "#",
-          "class": "tile-link"
         })]
-      })]
+      })
     })
-  });
+  );
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (FriendCard);
@@ -16747,7 +16759,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function FriendRequestCard(_ref) {
   var userData = _ref.userData,
-      currentUserId = _ref.currentUserId,
+      currentUser = _ref.currentUser,
       getFriends = _ref.getFriends,
       getFriendRequests = _ref.getFriendRequests;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -16778,7 +16790,7 @@ function FriendRequestCard(_ref) {
               "class": "col-md-5 col-sm-5 d-flex align-items-center",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 onClick: function onClick() {
-                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.acceptFriendRequest)(currentUserId, userData.id);
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.acceptFriendRequest)(currentUser, userData.id);
                   getFriends();
                   getFriendRequests();
                 },
@@ -16786,7 +16798,7 @@ function FriendRequestCard(_ref) {
                 children: "Add Friend"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
                 onClick: function onClick() {
-                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.deleteFriend)(currentUserId, userData.id);
+                  (0,_APICalls__WEBPACK_IMPORTED_MODULE_1__.deleteFriend)(currentUser, userData.id);
                   getFriends();
                   getFriendRequests();
                 },

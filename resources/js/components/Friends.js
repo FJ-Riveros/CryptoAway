@@ -11,7 +11,7 @@ function Friends() {
 
 
     const getFriends = async () =>{
-        const data = await fetch(`http://localhost:8000/api/user/get_friends/${currentUser}`, { 
+        const data = await fetch(`http://localhost:8000/api/user/get_friends/${currentDataUser.id}`, { 
             method: 'get', 
         })
         .then(data => data.json())
@@ -20,7 +20,7 @@ function Friends() {
             // console.log(data)
             setFriends(
                 data.map((friendData)=> {
-                    return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentUserId={currentUser} getFriends={getFriends}/>
+                    return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentDataUserId={currentDataUser.id} getFriends={getFriends}/>
                 })
             )
         })
@@ -28,10 +28,10 @@ function Friends() {
 
     const mountFriendRequests = async () =>{
 
-        let response = await getFriendRequests(currentUser);
+        let response = await getFriendRequests(currentDataUser.id);
         setFriendRequests(
             response.map((friendRequestsData)=> {
-                return <FriendRequestCard currentUserId={currentUser} userData={friendRequestsData} getFriends={getFriends} getFriendRequests={mountFriendRequests}/>
+                return <FriendRequestCard currentDataUserId={currentDataUser.id} userData={friendRequestsData} getFriends={getFriends} getFriendRequests={mountFriendRequests}/>
             })
         )
 
@@ -61,6 +61,6 @@ function Friends() {
 
 export default Friends;
 
-if (document.getElementById('reactGetFriends')) {
-    ReactDOM.render(<Friends />, document.getElementById('reactGetFriends'));
-}
+// if (document.getElementById('reactGetFriends')) {
+//     ReactDOM.render(<Friends />, document.getElementById('reactGetFriends'));
+// }

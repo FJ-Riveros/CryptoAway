@@ -6,6 +6,7 @@ import { getLastPost, getPosts, getFriendSuggestions} from './parts/APICalls';
 import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
 import Header from './Header';
+import Friends from './Friends';
 
 
 function Timeline() {
@@ -15,6 +16,9 @@ function Timeline() {
     const [userSuggestions, setUserSuggestions] = useState("Loading the last user suggestions...");
     const [commentInput, setCommentInput] = useState("Write Something!");
     const [refreshFriendsPosts, setRefreshFriendsPosts] = useState(false);
+    //Switches between the friends and the posts
+    const [viewPosts, setViewPosts] = useState(true);
+
 
 
     //Displays the friends from the current user
@@ -82,10 +86,6 @@ function Timeline() {
         getUserSuggestions();
     },[])
 
-    // useEffect(()=>{
-    //     getFriends();
-    // },[createPostText, refreshFriendsPosts])
-
     
     useEffect(()=>{
         getFriends();
@@ -102,14 +102,17 @@ function Timeline() {
                         <div class="children__routes dropdown-item">
                             <div class="home d-flex align-items-center">
                                 <i class="bi bi-house-fill"></i>
-                                <a href="" class="ml-2">Home</a>
+                                {/* <a href="" class="ml-2">Home</a> */}
+                                <span  onClick={() => setViewPosts(true)} class="ml-2">Home</span>
+
                             </div>
                         </div>
 
                         <div class="children__routes dropdown-item">
                             <div class="friends d-flex align-items-center ">
                                 <i class="bi bi-people-fill"></i>
-                                <a href="friends" class="ml-2">Friends</a>
+                                {/* <a href="friends" class="ml-2">Friends</a> */}
+                                <span  onClick={() => setViewPosts(false)} class="ml-2">Friends</span>
                             </div>
                         </div>
 
@@ -130,8 +133,8 @@ function Timeline() {
                 </div>
 
                 <div className="col-6">
-                    
-                    {friendsPosts}
+                            
+                    {viewPosts ? friendsPosts : <Friends/>}
                 </div>
                 
                 <div className="col-3 mt-3">

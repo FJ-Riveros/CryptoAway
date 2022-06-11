@@ -2,11 +2,11 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {deleteFriend} from './APICalls';
 
-
-
 function FriendCard({username, name, email, avatar, friendId, currentUserId, getFriends}) {
+    console.log(username);
     return (
-        <div class="col-md-6 col-xl-4 mt-4">
+        // <div class="col-md-6 col-xl-4 mt-4">
+        <div class="col-12 mt-4">
             <div class="card">
                 <i class="fas fa-times deleteIcon" onClick={()=>{
                     deleteFriend(currentUserId, friendId);
