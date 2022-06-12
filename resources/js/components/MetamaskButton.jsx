@@ -1,14 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import Web3 from 'web3/dist/web3.min.js'
-import ProfileName from './parts/timeline/ProfileName';
-import PostsTimeline from './parts/timeline/PostsTimeline';
-import { getLastPost, getPosts, getFriendSuggestions, logout} from './parts/APICalls';
-import LastPhotos from './parts/timeline/LastPhotos';
-import FriendSuggestions from './parts/timeline/FriendSuggestions';
-import Header from './Header';
-import Friends from './Friends';
-import contractABI from "../../../smart-contracts/ABI";
+import {contractABI, address} from "../../../smart-contracts/ABI";
 
 function MetamaskButton() {
     const [ accountConnected, setAccountConnected ] = useState(false);
@@ -20,8 +13,6 @@ function MetamaskButton() {
     // let accounts;
     let contractInstance;
     const loadWeb3 = async () =>{
-
-        let address = "0xA0528CC28B2370A3F7B5d589fc7d2741d20e4730";
         
         if (window.ethereum) {
             try {

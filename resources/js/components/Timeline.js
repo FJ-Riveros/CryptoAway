@@ -7,6 +7,7 @@ import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
 import Header from './Header';
 import Friends from './Friends';
+import Trips from './Trips';
 
 
 function Timeline() {
@@ -124,6 +125,15 @@ function Timeline() {
                             </div>
                         </div>
 
+                        <div class="children__routes dropdown-item">
+                            <div class="friends d-flex align-items-center ">
+                                {/* <i class="bi bi-compass-fill"></i> */}
+                                <i class="bi bi-map-fill"></i>
+                                <span   onClick={() => setCurrentView("Trips")} class="ml-2">Trips</span>
+
+                            </div>
+                        </div>
+
                         <div class="children__routes dropdown-item dropdown-item">
                             <div class="posts d-flex align-items-center">
                                 <i class="bi bi-collection-fill"></i>
@@ -134,7 +144,8 @@ function Timeline() {
                             isAdmin &&
                                 <div class="children__routes dropdown-item dropdown-item">
                                     <div class="posts d-flex align-items-center">
-                                        <i class="bi bi-collection-fill"></i>
+                                        <i class="bi bi-clipboard-data-fill"></i>
+                                        <i class="bi bi-hammer"></i>
                                         <a href={`${location.origin}/admin_dashboard`} class="ml-2">Admin Dashboard</a>
                                     </div>
                                 </div>
@@ -152,7 +163,10 @@ function Timeline() {
 
                 <div className="col-6">
                             
-                    {currentView === "Posts" ? friendsPosts : <Friends/>}
+                    {currentView === "Posts" && friendsPosts }
+                    {currentView === "Friends" && <Friends/>}
+                    {currentView === "Trips" && <Trips/>}
+
                 </div>
                 
                 <div className="col-3 mt-3">
