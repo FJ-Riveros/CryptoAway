@@ -45,6 +45,8 @@ Route::get('/edit_profile', [App\Http\Controllers\EditProfileController::class, 
 
 Route::get('/timeline/{userId}', [App\Http\Controllers\TimelineController::class, 'observeTimeline']);
 
+Route::get('/trips', [App\Http\Controllers\TripsController::class, 'index']);
+
 
 //Only available to the admin role
 Route::group(['middleware' => ['role:admin']], function () {

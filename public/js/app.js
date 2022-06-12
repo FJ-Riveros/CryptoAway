@@ -14150,6 +14150,8 @@ __webpack_require__(/*! ./components/Admin */ "./resources/js/components/Admin.j
 
 __webpack_require__(/*! ./components/ObserverTimeline */ "./resources/js/components/ObserverTimeline.jsx");
 
+__webpack_require__(/*! ./components/Trips */ "./resources/js/components/Trips.jsx");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -16013,6 +16015,55 @@ function Timeline() {
 
 if (document.getElementById('reactGetTimeline')) {
   react_dom__WEBPACK_IMPORTED_MODULE_2__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(Timeline, {}), document.getElementById('reactGetTimeline'));
+}
+
+/***/ }),
+
+/***/ "./resources/js/components/Trips.jsx":
+/*!*******************************************!*\
+  !*** ./resources/js/components/Trips.jsx ***!
+  \*******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
+/* harmony import */ var _parts_timeline_ProfileName__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./parts/timeline/ProfileName */ "./resources/js/components/parts/timeline/ProfileName.jsx");
+/* harmony import */ var _parts_timeline_PostsTimeline__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./parts/timeline/PostsTimeline */ "./resources/js/components/parts/timeline/PostsTimeline.jsx");
+/* harmony import */ var _parts_APICalls__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./parts/APICalls */ "./resources/js/components/parts/APICalls.js");
+/* harmony import */ var _parts_timeline_LastPhotos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./parts/timeline/LastPhotos */ "./resources/js/components/parts/timeline/LastPhotos.jsx");
+/* harmony import */ var _parts_timeline_FriendSuggestions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./parts/timeline/FriendSuggestions */ "./resources/js/components/parts/timeline/FriendSuggestions.jsx");
+/* harmony import */ var _Header__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./Header */ "./resources/js/components/Header.jsx");
+/* harmony import */ var _Friends__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Friends */ "./resources/js/components/Friends.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+
+
+
+function Trips() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("h2", {
+      children: "Trips"
+    })
+  });
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Trips);
+
+if (document.getElementById('reactGetTrips')) {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(Trips, {}), document.getElementById('reactGetTrips'));
 }
 
 /***/ }),

@@ -10,7 +10,9 @@ contract TravelBooking {
     event TripAvailable(
         uint256 indexed tripId,
         string indexed location,
-        uint256 price
+        uint256 price,
+        uint8   groupSize,
+        uint8   actualSize
     );
     event TripBooked(
         uint256 indexed invoiceId,
@@ -24,8 +26,10 @@ contract TravelBooking {
     }
 
     struct Trip {
-        string location;
+        string  location;
         uint256 price;
+        uint8   groupSize;
+        uint8   actualSize;
     }
 
     IERC20 immutable TOKEN;
@@ -43,7 +47,7 @@ contract TravelBooking {
      */
     constructor(address owner, address token) {
         // Sets the owner of the contract
-        owner = _owner;
+        _owner = owner;
 
         // Initialize the ERC20 standard contract at token address
         TOKEN = IERC20(token);
@@ -71,21 +75,26 @@ contract TravelBooking {
     function getTrip(uint256 tripId)
         external
         view
-        returns (string memory location, uint256 price)
+        returns (string memory location, uint256 price, uint8 groupSize, uint8 actualSize)
     {
         Trip memory trip = _trips[tripId];
 
-        return (trip.location, trip.price);
+        return (trip.location, trip.price, trip.groupSize, trip.actualSize);
     }
+
 
     function payTrip(uint256 tripId) external returns (uint256 invoiceId) {
         Trip memory selectedTrip = _trips[tripId];
 
         require(bytes(selectedTrip.location).length > 0, "TRIP_NOT_FOUND");
 
+        require( selectedTrip.groupSize > selectedTrip.actualSize, "ALLOCATION_COMPLETE");
+
         // Pull ERC20 tokens that the msg.sender allowed before calling this function
         // msg.sender is the user or contract address that calls to the smart contract
         TOKEN.safeTransferFrom(msg.sender, address(this), selectedTrip.price);
+
+        selectedTrip.actualSize++;
 
         invoiceId = _invoiceCounter;
 
@@ -98,17 +107,19 @@ contract TravelBooking {
         return invoiceId;
     }
 
-    function setTrips(string[] memory locations, uint256[] memory prices)
+    function setTrips(string[] memory locations, uint256[] memory prices, uint8[] memory groupSize)
         external
         onlyOwner
     {
         require(locations.length > 0, "ARRAY_IS_EMPTY");
         require(locations.length == prices.length, "ARRAY_LENGTH_MISSMATCH");
+        require(locations.length == groupSize.length, "ARRAY_LENGTH_MISSMATCH");
+
 
         for (uint256 x = 0; x < locations.length; x++) {
-            _trips[_tripCounter] = Trip(locations[x], prices[x]);
+            _trips[_tripCounter] = Trip(locations[x], prices[x], groupSize[x], 0);
 
-            emit TripAvailable(_tripCounter, locations[x], prices[x]);
+            emit TripAvailable(_tripCounter, locations[x], prices[x], groupSize[x], 0);
 
             _tripCounter++;
         }
@@ -126,4 +137,9 @@ contract TravelBooking {
         // Them transfer all the balance to the owner address
         TOKEN.safeTransfer(_owner, contractBalance);
     }
+
+    function getContractBalance() public view onlyOwner returns(uint256) {
+        return TOKEN.balanceOf(address(this));
+    }
+
 }
