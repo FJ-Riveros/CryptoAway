@@ -142,4 +142,8 @@ contract TravelBooking {
         return TOKEN.balanceOf(address(this));
     }
 
+    function getTripsNumber() public view returns(uint256) {
+        return _tripCounter;
+    }
+
 }

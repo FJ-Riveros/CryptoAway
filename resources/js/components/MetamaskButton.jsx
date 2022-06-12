@@ -22,12 +22,6 @@ function MetamaskButton() {
                     contractABI, 
                     address
                 )
-                console.log(contractInstance);
-                const owner = await contractInstance.methods.getOwner().call();
-                console.log(owner);
-                const tripInfo = await contractInstance.methods.getTrip(0).call();
-                console.log(tripInfo);
-                console.log(accounts);
                 setIsMetamaskConnected(true);
 
             } catch (err) {
@@ -65,7 +59,3 @@ function MetamaskButton() {
 }
 
 export default MetamaskButton;
-
-// if (document.getElementById('reactGetTrips')) {
-//     ReactDOM.render(<Trips />, document.getElementById('reactGetTrips'));
-// }

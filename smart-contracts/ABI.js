@@ -169,6 +169,19 @@ export const contractABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "getTripsNumber",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -225,7 +238,7 @@ export const contractABI = [
 	}
 ]
 
-export const address = "0xA0528CC28B2370A3F7B5d589fc7d2741d20e4730";
+export const address = "0x462B12B3d7c31AE46Fe9Fe046cfdF34E65747646";
 
 // export contractABI, address;
 
