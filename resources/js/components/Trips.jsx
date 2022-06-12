@@ -11,7 +11,6 @@ function Trips() {
 
 
     let web3;
-    // let accounts;
     let contractInstance;
     const loadWeb3 = async () =>{
 
@@ -40,7 +39,8 @@ function Trips() {
     }
     
     window.ethereum.on('accountsChanged', async () => {
-        setIsMetamaskConnected(false);
+        // setIsMetamaskConnected(false);
+        checkIfMetamaskConnected();
     });
 
     const checkIfMetamaskConnected = async () =>{   
@@ -52,14 +52,18 @@ function Trips() {
 
     useEffect(()=>{
         checkIfMetamaskConnected();
-    },[]);
+    },[isMetamaskConnected]);
 
     return (
         <>
-            {!isMetamaskConnected ?
+            {/* {!isMetamaskConnected ?
                 <button onClick={()=> loadWeb3() }>Connect Metamask</button>
                 : 
                 <button>{accounts[0]}</button>
+            } */}
+            {!isMetamaskConnected ?
+                <h2>Please, connect Metamask in order to see the available Trips</h2>
+                 : <h2>Connected</h2>
             }
         </>
     );

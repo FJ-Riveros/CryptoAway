@@ -38,7 +38,8 @@ function MetamaskButton() {
     }
     
     window.ethereum.on('accountsChanged', async () => {
-        setIsMetamaskConnected(false);
+        // setIsMetamaskConnected(false);
+        checkIfMetamaskConnected();
     });
 
     const checkIfMetamaskConnected = async () =>{   
