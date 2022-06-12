@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import AutoComplete from './AutoComplete';
 import CreatePost from './parts/timeline/CreatePost';
+import MetamaskButton from './MetamaskButton';
 function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
     
     const [createPostText, setCreatePostText] = useState("Write Something Cool!");
@@ -31,6 +32,7 @@ function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
                     setRefreshFriendsPosts={setRefreshFriendsPosts}
                     refreshFriendsPosts={refreshFriendsPosts} />
 
+                    < MetamaskButton />
                 </div>
 
             </div>

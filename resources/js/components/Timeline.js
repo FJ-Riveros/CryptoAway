@@ -17,7 +17,7 @@ function Timeline() {
     const [commentInput, setCommentInput] = useState("Write Something!");
     const [refreshFriendsPosts, setRefreshFriendsPosts] = useState(false);
     //Switches between the friends and the posts
-    const [viewPosts, setViewPosts] = useState("Posts");
+    const [currentView, setCurrentView] = useState("Posts");
 
 
 
@@ -108,7 +108,7 @@ function Timeline() {
                                 <i class="bi bi-house-fill"></i>
                                 {/* <a href="" class="ml-2">Home</a> */}
                                 {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Posts")} class="ml-2">Home</a> */}
-                                <span  onClick={() => setViewPosts("Posts")} class="ml-2">Home</span>
+                                <span  onClick={() => setCurrentView("Posts")} class="ml-2">Home</span>
 
 
                             </div>
@@ -119,7 +119,7 @@ function Timeline() {
                                 <i class="bi bi-people-fill"></i>
                                 {/* <a href="friends" class="ml-2">Friends</a> */}
                                 {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Friends")} class="ml-2">Friends</a> */}
-                                <span   onClick={() => setViewPosts("Friends")} class="ml-2">Friends</span>
+                                <span   onClick={() => setCurrentView("Friends")} class="ml-2">Friends</span>
 
                             </div>
                         </div>
@@ -152,7 +152,7 @@ function Timeline() {
 
                 <div className="col-6">
                             
-                    {viewPosts === "Posts" ? friendsPosts : <Friends/>}
+                    {currentView === "Posts" ? friendsPosts : <Friends/>}
                 </div>
                 
                 <div className="col-3 mt-3">

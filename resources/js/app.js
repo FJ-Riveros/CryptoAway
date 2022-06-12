@@ -28,7 +28,7 @@ require('./components/Admin');
 
 require('./components/ObserverTimeline');
 
-require('./components/Trips');
+// require('./components/Trips');
 
 
 
