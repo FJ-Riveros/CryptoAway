@@ -1,7 +1,7 @@
 
-export const tripsAddress = "0xc0B1E6cE1Cdd6D39bD5F43c55405CB7C30B45104";
+export const tripsAddress = "0x5b62a45F5981aa63B0590332B4DdC7cBCc2ba4ef";
 
-export const tokenAddress = "0xf3c7cBCE2AE1a8bEc212424B32b959D3B86c2CA6";
+export const tokenAddress = "0x8f9C037A9e17866FA5c04949cCd49BB4B5c99123";
 
 
 export const tripsABI = [
@@ -104,30 +104,6 @@ export const tripsABI = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "ticketId",
-				"type": "uint256"
-			}
-		],
-		"name": "getInvoice",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "buyer",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "tripId",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "getOwner",
 		"outputs": [
@@ -175,6 +151,40 @@ export const tripsABI = [
 		"type": "function"
 	},
 	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tripId",
+				"type": "uint256"
+			}
+		],
+		"name": "getTripFinalPrice",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "location",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint8",
+				"name": "groupSize",
+				"type": "uint8"
+			},
+			{
+				"internalType": "uint8",
+				"name": "actualSize",
+				"type": "uint8"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [],
 		"name": "getTripsNumber",
 		"outputs": [
@@ -182,6 +192,25 @@ export const tripsABI = [
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "user",
+				"type": "address"
+			}
+		],
+		"name": "getUserTripsIds",
+		"outputs": [
+			{
+				"internalType": "uint256[]",
+				"name": "trips",
+				"type": "uint256[]"
 			}
 		],
 		"stateMutability": "view",
@@ -243,7 +272,6 @@ export const tripsABI = [
 		"type": "function"
 	}
 ]
-
 export const tokenABI = [
 	{
 		"inputs": [
@@ -334,12 +362,12 @@ export const tokenABI = [
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "delegate",
+				"name": "spender",
 				"type": "address"
 			},
 			{
 				"internalType": "uint256",
-				"name": "numTokens",
+				"name": "amount",
 				"type": "uint256"
 			}
 		],

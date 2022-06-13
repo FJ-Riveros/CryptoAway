@@ -41,6 +41,7 @@
         "web3": "^1.7.3"
     },
     "dependencies": {
+        "bn.js": "^5.2.1",
         "crypto": "^1.0.1",
         "react-scripts": "4.0.3"
     }

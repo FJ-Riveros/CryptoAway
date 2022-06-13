@@ -5,12 +5,15 @@ import {tripsABI, tripsAddress, tokenABI, tokenAddress} from '../../../smart-con
 import TripCards from './parts/trips/TripCards';
 import { getAllTrips } from './parts/APICalls';
 
+const BN = require('bn.js');
 
 function Trips() {
     const [ accountConnected, setAccountConnected ] = useState(false);
     // const [ accounts, setAccounts ] = useState("");
     const [ isMetamaskConnected, setIsMetamaskConnected ] = useState(false);
     const [ allTrips, setAllTrips ] = useState("Loading Trips...");
+    const [ loadSpinner, setLoadSpinner ] = useState(false);
+
 
 
 
@@ -51,6 +54,7 @@ function Trips() {
     
     window.ethereum.on('accountsChanged', async () => {
         checkIfMetamaskConnected();
+        setLoadSpinner(false);
     });
 
     const checkIfMetamaskConnected = async () =>{   
@@ -86,46 +90,40 @@ function Trips() {
 
         })
 
-        console.log(mountedTrips)
+        //Listen actively waiting for a trip to be bought
+        let eventBuyTrip = tripsContractInstance.events.TripBooked(async function(error, result) {
+            if (!error){
+                console.log("Exito!");
+                console.log(result);
+                await getTripsInfo();
+                setLoadSpinner(false);
+            }
+         });
+        
         setAllTrips(mountedTrips);
     }
 
+    
+
     const buyTrip = async (idTrip, priceTrip) =>{   
         console.log("comprar : " + idTrip);
-        // const response = await tokenContractInstance.methods.name().call();
-        // console.log(response);
-
-        // var event = tokenContractInstance.Approval(function(error, response) {
-        //     if (!error) {
-        //         // TargetAddress = response.args.addr;
-        //         console.log(response);
-        //     }else{
-        //         console.log(error);
-        //     }
-        // });
-
         const allowance = await tokenContractInstance.methods.allowance(accounts[0], tripsAddress).call();
-        if( allowance < priceTrip){
-            // const approve = await tokenContractInstance.methods.allowance(accounts[0], tripsAddress).call();
-            await tokenContractInstance.methods.approve(tripsAddress, 100000).send({ from: accounts[0] });
+        const decimals = await tokenContractInstance.methods.decimals().call();
+        console.log(allowance);
+
+        if(allowance == 0 || allowance < web3.utils.toBN( priceTrip * (10 ** (decimals)))){
+            //Allow the maximum supply 
+            // await tokenContractInstance.methods.approve(tripsAddress, web3.utils.toBN((10 ** (decimals)))).send({ from: accounts[0] });
+            await tokenContractInstance.methods.approve(tripsAddress, "100000000000000000000000").send({ from: accounts[0] });
         }
         
-
-
-    //    instructorEvent.watch(function(error, result){
-    //         if (!error)
-    //             {
-    //                 
-    //             } else {
-    //
-    //             }
-    //     });
-
-        const afterAllowance = await tokenContractInstance.methods.allowance(accounts[0], tripsAddress).call();
-
-        console.log(afterAllowance == false ? "falso" : "verdadero");
-
-        // const approve = await tripsContractInstance.methods.getTrip(0).call();
+        setLoadSpinner(true);
+        try{
+            const buyTrip = await tripsContractInstance.methods.payTrip(idTrip).send({from: accounts[0]});
+        }catch(e){
+            setLoadSpinner(false);
+        }
+ 
 
     }
 
@@ -133,19 +131,30 @@ function Trips() {
         return await getAllTrips();
     }
 
-    // useEffect(()=>{
-    //     checkIfMetamaskConnected();
-    // },[isMetamaskConnected]);
-
     useEffect(()=>{
         checkIfMetamaskConnected();
     },[]);
 
     return (
         <>
-            {!isMetamaskConnected ?
+            {loadSpinner &&
+            <div className="row justify-content-center mt-3">
+                <div class="spinner-border text-warning text-center" role="status">
+                </div>
+                <span class="w-100 text-center">Waiting for the transaction to complete...</span>
+            </div>
+            }
+            {/* {!isMetamaskConnected ?
                 <h2>Please, connect Metamask in order to see the available Trips</h2>
                  : allTrips
+            } */}
+
+            {isMetamaskConnected && !loadSpinner &&
+                allTrips
+            }
+
+            {!isMetamaskConnected &&
+                <h2>Please, connect Metamask in order to see the available Trips</h2>
             }
 
         </>
