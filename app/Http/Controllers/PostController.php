@@ -105,7 +105,7 @@ class PostController extends Controller
         //
     }
 
-    //Create a new Post from the current user
+    //Delete a Post
     public function delete_post(Request $request){
 
         //Get the post

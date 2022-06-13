@@ -38,7 +38,8 @@ contract TravelBooking {
     uint256 internal _invoiceCounter;
     uint256 internal _tripCounter;
 
-    mapping(uint256 => Invoice) internal _invoices;
+    // mapping(uint256 => Invoice) internal _invoices;
+    mapping(address => uint256[]) internal _userHasTrip;
     mapping(uint256 => Trip) internal _trips;
 
     /**
@@ -62,15 +63,15 @@ contract TravelBooking {
         return _owner;
     }
 
-    function getInvoice(uint256 ticketId)
-        external
-        view
-        returns (address buyer, uint256 tripId)
-    {
-        Invoice memory invoice = _invoices[ticketId];
+    // function getInvoice(uint256 ticketId)
+    //     external
+    //     view
+    //     returns (address buyer, uint256 tripId)
+    // {
+    //     Invoice memory invoice = _invoices[ticketId];
 
-        return (invoice.buyer, invoice.tripId);
-    }
+    //     return (invoice.buyer, invoice.tripId);
+    // }
 
     function getTrip(uint256 tripId)
         external
@@ -92,13 +93,11 @@ contract TravelBooking {
 
         // Pull ERC20 tokens that the msg.sender allowed before calling this function
         // msg.sender is the user or contract address that calls to the smart contract
-        TOKEN.safeTransferFrom(msg.sender, address(this), selectedTrip.price);
+        TOKEN.safeTransferFrom(msg.sender, address(this), selectedTrip.price * (10 ** 18));
 
         selectedTrip.actualSize++;
 
-        invoiceId = _invoiceCounter;
-
-        _invoices[invoiceId] = Invoice(msg.sender, tripId);
+        _userHasTrip[msg.sender].push(tripId);
 
         _invoiceCounter++;
 
@@ -144,6 +143,24 @@ contract TravelBooking {
 
     function getTripsNumber() public view returns(uint256) {
         return _tripCounter;
+    }
+
+    function getTripFinalPrice(uint256 tripId)
+        external
+        view
+        returns (string memory location, uint256 price, uint8 groupSize, uint8 actualSize)
+    {
+        Trip memory trip = _trips[tripId];
+
+        return (trip.location, trip.price * (10 **18), trip.groupSize, trip.actualSize);
+    }
+
+    function getUserTripsIds(address user)
+        external
+        view
+        returns (uint256[] memory trips)
+    {
+        return _userHasTrip[user];
     }
 
 }

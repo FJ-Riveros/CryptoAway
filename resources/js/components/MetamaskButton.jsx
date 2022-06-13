@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import Web3 from 'web3/dist/web3.min.js'
-import {contractABI, address} from "../../../smart-contracts/ABI";
+import {tripsABI, tripsAddress} from '../../../smart-contracts/ABI';
+
 
 function MetamaskButton() {
     const [ accountConnected, setAccountConnected ] = useState(false);
@@ -19,8 +20,8 @@ function MetamaskButton() {
                 web3 = new Web3(Web3.givenProvider);
                 setAccounts(await web3.eth.requestAccounts())
                 contractInstance = await new web3.eth.Contract(
-                    contractABI, 
-                    address
+                    tripsABI, 
+                    tripsAddress
                 )
                 setIsMetamaskConnected(true);
 

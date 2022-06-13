@@ -242,3 +242,16 @@ export const logout = async (  ) =>{
     console.log(error);
   });
 }
+
+export const getAllTrips = async () =>{
+  const info = await 
+    axios.get(`${window.location.origin}/api/trips/all`)
+     .then(function (response) {
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
+}

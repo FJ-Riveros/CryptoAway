@@ -57,7 +57,7 @@ class TripsController extends Controller
      */
     public function show(trips $trips)
     {
-        //
+        return Trips::all();
     }
 
     /**

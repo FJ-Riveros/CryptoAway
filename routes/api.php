@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\BlogController;
 use App\Http\Controllers\CommentsController;
+use App\Http\Controllers\TripsController;
+
 
 
 /*
@@ -105,6 +107,10 @@ Route::middleware('auth:sanctum')->group( function () {
     
     //Remove like
     Route::post('user/remove_like', [UserController::class, 'remove_like']);
+
+    //Get all the Trips
+    Route::get('trips/all', [TripsController::class, 'show']);
+
 
     //Retrieves the posts from the timeline
     // Route::post('user/get_timeline_posts', [UserController::class, 'get_timeline_posts']);
