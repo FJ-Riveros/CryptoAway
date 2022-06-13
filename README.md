@@ -82,21 +82,21 @@
     - [x] ~~**Trip section**~~
     - [x] ~~**Register**~~
     - [x] ~~**Landing**~~
-    - [ ] **Admin**
+    - [x] **Admin**
     - [ ] **Specific for each trip**
    
   - [ ] **User actions**
     - [x] ~~**Give like to a post**~~
     - [x] ~~**Create a post**~~
     - [x] ~~**Modify user profile**~~
-    - [ ] **Create a comment**
+    - [x] **Create a comment**
     - [ ] **Create a trip suggestion**
     
-  - [ ] **Blockchain**
-    - [ ] **Smart Contracts**
-    - [ ] **$Away token**
-    - [ ] **Give rewards**
-    - [ ] **Pay the trip with cryptocurrencies**
+  - [x] **Blockchain**
+    - [x] **Smart Contracts**
+    - [x] **$Away token**
+    - [x] **Give rewards**
+    - [x] **Pay the trip with cryptocurrencies**
     - [ ] **Weekly raffle**
     - [ ] **Implement the discount on any trip**
   
@@ -111,7 +111,7 @@
     - [x] ~~**Responsive**~~
     - [x] ~~**Implement React Components**~~
     - [x] ~~**Protect endpoints**~~
-    - [ ] **Async calls**
+    - [x] **Async calls**
     - [x] ~~**MVC**~~
     - [x] ~~**TDD (Test Driven Development)**~~
     - [x] ~~**Testing the API endpoints with UNIT**~~
