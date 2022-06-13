@@ -11,8 +11,10 @@ function Trips() {
     const [ accountConnected, setAccountConnected ] = useState(false);
     // const [ accounts, setAccounts ] = useState("");
     const [ isMetamaskConnected, setIsMetamaskConnected ] = useState(false);
-    const [ allTrips, setAllTrips ] = useState("Loading Trips...");
+    const [ allTrips, setAllTrips ] = useState("Loading All Trips...");
     const [ loadSpinner, setLoadSpinner ] = useState(false);
+    const [ tripsOwned, setTripsOwned ] = useState("Loading My Trips...");
+    
 
 
 
@@ -83,12 +85,22 @@ function Trips() {
         //Get the Trips info from the DB
         const tripsDB = await getAllTripsDB();
 
+        //Get the Trips that this user owns
+        const tripsOwnedIds = await tripsContractInstance.methods.getUserTripsIds(accounts[0]).call();
+        console.log("Trips owned")
+        console.log(tripsOwnedIds);
+        const tripsOwnedTemp = [];
         //Mount the Trips into the cards
         const mountedTrips = allTrips.map(( trip, index)=>{
             console.log(tripsDB[index]);
-            return < TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip}/>
-
+            if(tripsOwnedIds.includes(index.toString())){
+                tripsOwnedTemp.push(< TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={true}/>)
+            }else{
+                return < TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={false}/>
+            }
         })
+
+        setTripsOwned(tripsOwnedTemp);
 
         //Listen actively waiting for a trip to be bought
         let eventBuyTrip = tripsContractInstance.events.TripBooked(async function(error, result) {
@@ -148,10 +160,29 @@ function Trips() {
                 <h2>Please, connect Metamask in order to see the available Trips</h2>
                  : allTrips
             } */}
-
             {isMetamaskConnected && !loadSpinner &&
-                allTrips
+                <div>
+                    {tripsOwned != "Loading My Trips..." &&
+                        <div>
+                            <h3>My Trips</h3>
+                            <hr/>
+                        </div>
+                    }
+                    {tripsOwned}
+                    
+                    {allTrips != "Loading All Trips..." &&
+                        <div>
+                            <h3>Available Trips</h3>
+                            <hr/>
+                        </div>
+                    }
+                    {allTrips}
+                </div>
             }
+
+            {/* {isMetamaskConnected && !loadSpinner &&
+                allTrips
+            } */}
 
             {!isMetamaskConnected &&
                 <h2>Please, connect Metamask in order to see the available Trips</h2>
