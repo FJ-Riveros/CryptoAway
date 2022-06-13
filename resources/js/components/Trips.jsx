@@ -11,13 +11,10 @@ function Trips() {
     const [ accountConnected, setAccountConnected ] = useState(false);
     // const [ accounts, setAccounts ] = useState("");
     const [ isMetamaskConnected, setIsMetamaskConnected ] = useState(false);
-    const [ allTrips, setAllTrips ] = useState("Loading All Trips...");
+    const [ allTrips, setAllTrips ] = useState([]);
     const [ loadSpinner, setLoadSpinner ] = useState(false);
-    const [ tripsOwned, setTripsOwned ] = useState("Loading My Trips...");
+    const [ tripsOwned, setTripsOwned ] = useState([]);
     
-
-
-
 
     let web3;
     let tripsContractInstance;
@@ -40,10 +37,8 @@ function Trips() {
                     tokenAddress
                 )
 
-
                 console.log(tripsContractInstance);
                 console.log(tokenContractInstance);
-
                 
                 setIsMetamaskConnected(true);
 
@@ -91,14 +86,26 @@ function Trips() {
         console.log(tripsOwnedIds);
         const tripsOwnedTemp = [];
         //Mount the Trips into the cards
-        const mountedTrips = allTrips.map(( trip, index)=>{
-            console.log(tripsDB[index]);
+        // const mountedTrips = allTrips.map(( trip, index)=>{
+        //     console.log(tripsDB[index]);
+        //     if(tripsOwnedIds.includes(index.toString())){
+        //         tripsOwnedTemp.push(< TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={true}/>)
+        //     }else{
+        //         return < TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={false}/>
+        //     }
+        // })
+        const mountedTrips = [];
+
+        allTrips.forEach((trip, index)=>{
             if(tripsOwnedIds.includes(index.toString())){
                 tripsOwnedTemp.push(< TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={true}/>)
             }else{
-                return < TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={false}/>
+                mountedTrips.push(< TripCards TripBlockchainInfo={trip} TripDBInfo={index <= tripsDB.length ? tripsDB[index] : []} buyTrip={buyTrip} ownTrip={false}/>)
             }
-        })
+        });
+
+        console.log("MOunted")
+        console.log(mountedTrips)
 
         setTripsOwned(tripsOwnedTemp);
 
@@ -116,7 +123,6 @@ function Trips() {
     }
 
     
-
     const buyTrip = async (idTrip, priceTrip) =>{   
         console.log("comprar : " + idTrip);
         const allowance = await tokenContractInstance.methods.allowance(accounts[0], tripsAddress).call();
@@ -156,13 +162,9 @@ function Trips() {
                 <span class="w-100 text-center">Waiting for the transaction to complete...</span>
             </div>
             }
-            {/* {!isMetamaskConnected ?
-                <h2>Please, connect Metamask in order to see the available Trips</h2>
-                 : allTrips
-            } */}
             {isMetamaskConnected && !loadSpinner &&
                 <div>
-                    {tripsOwned != "Loading My Trips..." &&
+                    {tripsOwned.length != 0 &&
                         <div>
                             <h3>My Trips</h3>
                             <hr/>
@@ -170,7 +172,7 @@ function Trips() {
                     }
                     {tripsOwned}
                     
-                    {allTrips != "Loading All Trips..." &&
+                    {allTrips.length != 0 &&
                         <div>
                             <h3>Available Trips</h3>
                             <hr/>
@@ -179,10 +181,6 @@ function Trips() {
                     {allTrips}
                 </div>
             }
-
-            {/* {isMetamaskConnected && !loadSpinner &&
-                allTrips
-            } */}
 
             {!isMetamaskConnected &&
                 <h2>Please, connect Metamask in order to see the available Trips</h2>

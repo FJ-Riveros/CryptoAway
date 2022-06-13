@@ -27,16 +27,18 @@ function TripCards({TripBlockchainInfo, TripDBInfo, buyTrip, ownTrip}) {
                         </div>
                     </div>
                     <div className="footer mt-2">
-                        {/* <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target={`#collapse${TripDBInfo.idTrip}`} aria-expanded="false" aria-controls={`collapse${TripDBInfo.idTrip}`}></i> */}
                     </div>
                     <div className="comments">
                         <div class="collapse" id={`collapse${TripDBInfo.idTrip}`}>
                             <p>{TripDBInfo.itinerary}</p>
                         </div>
-                        {TripBlockchainInfo.actualSize < TripBlockchainInfo.groupSize && !ownTrip ?
-                            <button onClick={()=> buyTrip(TripDBInfo.idTrip - 1, TripBlockchainInfo.price)}>Buy</button>
-                            :
-                            <span>Sold Out</span>        
+                        
+                        {ownTrip ?
+                            <span>Bought</span>
+                            :   TripBlockchainInfo.actualSize < TripBlockchainInfo.groupSize ?
+                                    <button onClick={()=> buyTrip(TripDBInfo.idTrip - 1, TripBlockchainInfo.price)}>Buy</button>
+                                :
+                                <span>Sold Out</span>
                         }
                     </div>
                 </div>
