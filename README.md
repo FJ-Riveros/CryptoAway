@@ -76,14 +76,14 @@
   <div id="roadmap" align="left">
     <h2 align="center">:calendar:Roadmap</h2>
   
-  - [ ] **Pages**
+  - [x] ~~**Pages**~~
     - [x] ~~**Registered User**~~
     - [x] ~~**Profile**~~
     - [x] ~~**Trip section**~~
     - [x] ~~**Register**~~
     - [x] ~~**Landing**~~
-    - [x] **Admin**
-    - [ ] **Specific for each trip**
+    - [x] ~~**Admin**~~
+    - [x] ~~**Specific for each trip**~~
    
   - [ ] **User actions**
     - [x] ~~**Give like to a post**~~
@@ -92,11 +92,11 @@
     - [x] **Create a comment**
     - [ ] **Create a trip suggestion**
     
-  - [x] **Blockchain**
-    - [x] **Smart Contracts**
-    - [x] **$Away token**
-    - [x] **Give rewards**
-    - [x] **Pay the trip with cryptocurrencies**
+  - [x] ~~**Blockchain**~~
+    - [x] ~~**Smart Contracts**~~
+    - [x] ~~**$Away token**~~
+    - [x] ~~**Give rewards**~~
+    - [x] ~~**Pay the trip with cryptocurrencies**~~
     - [ ] **Weekly raffle**
     - [ ] **Implement the discount on any trip**
   
@@ -111,7 +111,7 @@
     - [x] ~~**Responsive**~~
     - [x] ~~**Implement React Components**~~
     - [x] ~~**Protect endpoints**~~
-    - [x] **Async calls**
+    - [x] ~~**Async calls**~~
     - [x] ~~**MVC**~~
     - [x] ~~**TDD (Test Driven Development)**~~
     - [x] ~~**Testing the API endpoints with UNIT**~~
