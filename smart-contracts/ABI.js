@@ -1,26 +1,10 @@
 
-export const tripsAddress = "0x5b62a45F5981aa63B0590332B4DdC7cBCc2ba4ef";
+export const tripsAddress = "0x12C93eb6ce7169698476675D5DB9c7DAe19Cb202";
 
 export const tokenAddress = "0x8f9C037A9e17866FA5c04949cCd49BB4B5c99123";
 
 
 export const tripsABI = [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "owner",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "token",
-				"type": "address"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
 	{
 		"anonymous": false,
 		"inputs": [
@@ -89,6 +73,77 @@ export const tripsABI = [
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "tripId",
+				"type": "uint256"
+			}
+		],
+		"name": "payTrip",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "invoiceId",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string[]",
+				"name": "locations",
+				"type": "string[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "prices",
+				"type": "uint256[]"
+			},
+			{
+				"internalType": "uint8[]",
+				"name": "groupSize",
+				"type": "uint8[]"
+			}
+		],
+		"name": "setTrips",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "newOwner",
+				"type": "address"
+			}
+		],
+		"name": "transferOwnership",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "owner",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "token",
+				"type": "address"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	},
 	{
 		"inputs": [],
@@ -214,61 +269,6 @@ export const tripsABI = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "tripId",
-				"type": "uint256"
-			}
-		],
-		"name": "payTrip",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "invoiceId",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "string[]",
-				"name": "locations",
-				"type": "string[]"
-			},
-			{
-				"internalType": "uint256[]",
-				"name": "prices",
-				"type": "uint256[]"
-			},
-			{
-				"internalType": "uint8[]",
-				"name": "groupSize",
-				"type": "uint8[]"
-			}
-		],
-		"name": "setTrips",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "newOwner",
-				"type": "address"
-			}
-		],
-		"name": "transferOwnership",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ]
