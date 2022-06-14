@@ -159,6 +159,12 @@
     flex-direction: column; 
     align-items: center;
 
+    .lastPhoto__img{
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        width: 100%;
+    }
     .header{
         height: 15%;
     }
@@ -359,3 +365,21 @@ textarea{
     width: 50%;
 }
 
+.latest__photos__container .photos__grid {
+    width: 100%;
+}
+
+.latest__photos__container .photos__grid .col-4 {
+    height: 100px;
+}
+
+.deletePost{
+    cursor:pointer;
+    color: $main-color;
+    font-size: 17px;
+    transition: 0.3s;
+}
+
+.deletePost:hover{
+    font-size: 23px;
+}

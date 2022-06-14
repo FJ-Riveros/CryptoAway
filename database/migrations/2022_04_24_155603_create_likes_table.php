@@ -17,7 +17,7 @@ return new class extends Migration
             $table->unsignedBigInteger("Post_idPost");
             $table->unsignedBigInteger("user_idUser");
             $table->timestamps();
-            $table->foreign("Post_idPost")->references("id")->on("posts");
+            $table->foreign("Post_idPost")->references("id")->on("posts")->onDelete('cascade');
             $table->foreign("user_idUser")->references("id")->on("users")->onDelete('cascade');
             $table->primary(array("Post_idPost", "user_idUser"));
         });

@@ -4488,6 +4488,12 @@ button#submit-button:hover {
   flex-direction: column;
   align-items: center;
 }
+.latest__photos__container .lastPhoto__img {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
 .latest__photos__container .header {
   height: 15%;
 }
@@ -4664,6 +4670,25 @@ textarea {
 
 .profile__name {
   width: 50%;
+}
+
+.latest__photos__container .photos__grid {
+  width: 100%;
+}
+
+.latest__photos__container .photos__grid .col-4 {
+  height: 100px;
+}
+
+.deletePost {
+  cursor: pointer;
+  color: #f9ab30;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.deletePost:hover {
+  font-size: 23px;
 }
 
 .table-wrapper {

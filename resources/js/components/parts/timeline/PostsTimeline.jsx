@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {getUserById, userLikedPostCheck, giveLike, removeLike, createComment,
-     getComments } from '../APICalls';
+     getComments, deletePost } from '../APICalls';
 import Comments from './Comments';
 
-function PostsTimeline({ post, currentUser }) {
+function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFriendsPosts }) {
 
     const [userInfo, setUserInfo] = useState("");
     const [userLikedPost, setUserLikedPost] = useState(false);
@@ -53,6 +53,12 @@ function PostsTimeline({ post, currentUser }) {
         setMountedComponents(comments);
     }   
 
+
+    const removePost = async (postId) => {
+        let response = await deletePost(postId);
+        setRefreshFriendsPosts(!refreshFriendsPosts);
+    }   
+
     useEffect(()=>{
         getPostOwner();
         checkIfUserLikedPost();
@@ -65,13 +71,20 @@ function PostsTimeline({ post, currentUser }) {
             <div className="feed__card__post mt-3">
                 <div className="post__header">
                     <div className="row">
-                        <div className="col-12 d-flex justify-content-start align-items-center">
+                        <div className="col-10 d-flex justify-content-start align-items-center">
                             <img src={userInfo.avatar} alt="" className="header__img" />
                             <div className="header__text ml-2">
                                 <h4>{userInfo.username}</h4>
                                 <p>3 hours ago</p>
                             </div>
                         </div>
+
+                        <div className="col-2 d-flex justify-content-end align-items-center">
+                            {post.user_idUser == currentUser.id && 
+                            <i class="bi bi-trash-fill deletePost" onClick={()=> removePost(post.id)}></i>
+                            }
+                        </div>
+
                     </div>
                 </div>
                 <div className="body">

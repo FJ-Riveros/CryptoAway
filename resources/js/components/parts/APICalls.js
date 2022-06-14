@@ -268,3 +268,15 @@ export const getUserPosts = async (idUser) =>{
 
     return info;
 }
+
+export const deletePost = async ( idPostDelete ) =>{
+  await axios.post(`${window.location.origin}/api/posts/delete_post/`, {
+    idPostDelete: idPostDelete,
+  })
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
+}

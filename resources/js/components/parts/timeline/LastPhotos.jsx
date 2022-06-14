@@ -5,7 +5,8 @@ import {getUserById} from '../APICalls';
 function LastPhotos({post}) {
     return (
         <div class="col-4">
-            <img src={post.imgPost} class="img-fluid" alt="" />
+            {/* <img src={post.imgPost} class="img-fluid" alt="" /> */}
+            <div className="lastPhoto__img" style={{backgroundImage: `url(${post.imgPost})`}}></div>
         </div>
     );
 }

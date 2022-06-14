@@ -23,8 +23,6 @@ function Timeline() {
     //Switches between the friends and the posts
     const [currentView, setCurrentView] = useState("Posts");
 
-
-
     //Displays the friends from the current user
     const getFriends = async () =>{
         const data = await fetch(`${window.location.origin}/api/user/get_friends/${currentDataUser.id}`, { 
@@ -53,7 +51,7 @@ function Timeline() {
             
             //Loops through the posts again to mount the info into the component
             let postComponents =  cleanPosts.map(async (post)=> {
-                return await <PostsTimeline post={post} currentUser={currentDataUser}/>
+                return await <PostsTimeline post={post} currentUser={currentDataUser} setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts}/>
             })
 
             setFriendsPosts(
@@ -68,7 +66,7 @@ function Timeline() {
         const userPosts = await getUserPosts(currentDataUser.id);
         console.log(userPosts);
         let postComponents =  userPosts.map(async (post)=> {
-            return await <PostsTimeline post={post} currentUser={currentDataUser}/>
+            return await <PostsTimeline post={post} currentUser={currentDataUser} setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts}/>
         })
         //Resolves the component promises
         setCurrentUserPosts(await Promise.all(postComponents));
@@ -108,13 +106,14 @@ function Timeline() {
 
     
     useEffect(()=>{
-        getPhotos();
         getUserSuggestions();
     },[])
 
     
     useEffect(()=>{
+        getPhotos();
         getFriends();
+        queryUserPosts();
     },[refreshFriendsPosts])
 
     return (
