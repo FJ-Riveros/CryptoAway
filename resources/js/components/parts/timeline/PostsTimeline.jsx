@@ -87,7 +87,7 @@ function PostsTimeline({ post, currentUser }) {
                 </div>
 
                 <div className="footer mt-2">
-                    {userLikedPost ? <i class="bi bi-heart-fill red hover__cursor" onClick={dislikePost}></i> : <i class="bi bi-suit-heart hover__cursor" onClick={likePost}></i>}
+                    {userLikedPost ? <i class="bi bi-heart-fill orange hover__cursor" onClick={dislikePost}></i> : <i class="bi bi-suit-heart hover__cursor" onClick={likePost}></i>}
                     <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target={`#collapse${post.id}`} aria-expanded="false" aria-controls={`collapse${post.id}`}></i>
                 </div>
                 <div className="comments">

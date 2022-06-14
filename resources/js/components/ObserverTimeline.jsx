@@ -107,38 +107,72 @@ function ObserverTimeline() {
                         <div class="children__routes dropdown-item">
                             <div class="home d-flex align-items-center">
                                 <i class="bi bi-house-fill"></i>
-                                <a href="../timeline" class="ml-2">Home</a>
+                                {/* <a href="" class="ml-2">Home</a> */}
+                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Posts")} class="ml-2">Home</a> */}
+                                <span  onClick={() => {
+                                    redirection();
+                                    setCurrentView("Posts")}}
+                                 class="ml-2">Home</span>
+
+
                             </div>
                         </div>
 
                         <div class="children__routes dropdown-item">
                             <div class="friends d-flex align-items-center ">
                                 <i class="bi bi-people-fill"></i>
-                                <a href={`${window.location.origin}/friends`} class="ml-2">Friends</a>
+                                {/* <a href="friends" class="ml-2">Friends</a> */}
+                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Friends")} class="ml-2">Friends</a> */}
+                                <span   onClick={() => {
+                                    redirection();
+                                    setCurrentView("Friends")}}
+                                class="ml-2">Friends</span>
+
+                            </div>
+                        </div>
+
+                        <div class="children__routes dropdown-item">
+                            <div class="friends d-flex align-items-center ">
+                                {/* <i class="bi bi-compass-fill"></i> */}
+                                <i class="bi bi-map-fill"></i>
+                                <span   onClick={() =>{
+                                    redirection();    
+                                    setCurrentView("Trips")}}
+                                class="ml-2">Trips</span>
+                                    
+
                             </div>
                         </div>
 
                         <div class="children__routes dropdown-item dropdown-item">
                             <div class="posts d-flex align-items-center">
                                 <i class="bi bi-collection-fill"></i>
-                                <a href="" class="ml-2">Your Posts</a>
+                                <span onClick={async () => {
+                                    redirection();
+                                    await queryUserPosts();
+                                    setCurrentView("UserPosts")   
+                                }}class="ml-2">Your Posts</span>
                             </div>
                         </div>
-
                         {
                             isAdmin &&
                                 <div class="children__routes dropdown-item dropdown-item">
                                     <div class="posts d-flex align-items-center">
-                                        <i class="bi bi-collection-fill"></i>
-                                        <a href={`${location.origin}/admin_dashboard`} class="ml-2">Admin Dashboard</a>
+                                        <a href={`${location.origin}/admin_dashboard`} >
+                                            <i class="bi bi-hammer" ></i>
+                                            <span class="ml-2">Admin Dashboard</span>
+                                        </a>
                                     </div>
                                 </div>
                         }
+                        
 
                         <div class="children__routes dropdown-item dropdown-item">
-                            <div class="logout d-flex align-items-center">
+                            <div class=" d-flex align-items-center">
+                                <span onClick={() => closeSession()} className="logout">
                                 <i class="bi bi-door-open-fill"></i>
-                                <span onClick={() => closeSession()} class="ml-2">Logout</span>
+                                <span class="ml-2">Logout</span>
+                                </span>
                             </div>
                         </div>
                     </div>
