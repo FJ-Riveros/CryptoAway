@@ -1305,12 +1305,12 @@ img.mfp-img {
   z-index: -1;
 }
 .btn:hover {
-  color: #ffffff;
-  border: 1px solid #1d2736;
+  // color: #ffffff;
+  // border: 1px solid #1d2736;
 }
 .btn:hover::before {
-  height: 400%;
-  opacity: 1;
+  // height: 400%;
+  // opacity: 1;
 }
 .btn.hover-theme::before {
   background-color: #efc934;

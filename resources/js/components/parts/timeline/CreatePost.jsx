@@ -17,7 +17,7 @@ function CreatePost({ createPostText, setCreatePostText, createPostImage, setCre
 
     return (
             <>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-brush-fill"></i></button>
+            <span class="createPost" data-toggle="modal" data-target="#exampleModal"><i class="bi bi-pencil-fill"></i></span>
             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">

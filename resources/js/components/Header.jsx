@@ -24,15 +24,23 @@ function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
                 </div>
 
                 <div className="col-3">
-                    <CreatePost 
-                    createPostText={createPostText} 
-                    setCreatePostText={setCreatePostText} 
-                    createPostImage={createPostImage} 
-                    setCreatePostImage={setCreatePostImage}
-                    setRefreshFriendsPosts={setRefreshFriendsPosts}
-                    refreshFriendsPosts={refreshFriendsPosts} />
 
-                    < MetamaskButton />
+                    <div className="row d-flex align-items-center">
+
+                        <div className="col-3">
+                            <CreatePost 
+                            createPostText={createPostText} 
+                            setCreatePostText={setCreatePostText} 
+                            createPostImage={createPostImage} 
+                            setCreatePostImage={setCreatePostImage}
+                            setRefreshFriendsPosts={setRefreshFriendsPosts}
+                            refreshFriendsPosts={refreshFriendsPosts} />
+                        </div>
+
+                        <div className="col-9">
+                            < MetamaskButton />
+                        </div>
+                    </div>
                 </div>
 
             </div>

@@ -51,9 +51,9 @@ function MetamaskButton() {
     return (
         <>
             {!isMetamaskConnected ?
-                <button onClick={()=> loadWeb3() }>Connect Metamask</button>
+                <button className="metamaskButton" onClick={()=> loadWeb3() }>Connect Metamask</button>
                 : 
-                <button>{accounts[0]}</button>
+                <button className="metamaskAddress">{accounts[0]}</button>
             }
         </>
     );

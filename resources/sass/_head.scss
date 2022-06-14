@@ -44,3 +44,63 @@ ul{
 
 
 }
+
+// .metamaskButton{
+//     width: 75%;
+//     overflow: hidden;
+//     display: inline-block;
+//     text-overflow: ellipsis;
+//     border: 1px solid $main-color;
+//     background-color: white;
+//     border-radius: 0.3rem;
+//     padding: 0.3rem;
+// }
+
+
+
+.metamaskAddress{
+    width: 100%;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    border: 1px solid $main-color;
+    background-color: white;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+}
+
+.metamaskButton
+{
+  width: 100%;
+  background: rgb(241, 148, 42);
+  background: linear-gradient(90deg, rgb(255, 159, 69) 35%, rgb(255, 0, 212) 100%);
+  background-size: 200% 200%;
+  border:none;
+  border-radius: 0.5rem;
+  color:#fff;
+  font-size:14px;
+  padding: 0.3rem;
+  font-weight: 500;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+
+.createPost{
+    // background-color: $main-color;
+    border: 1px solid $main-color;
+    padding: 0.3rem 0.5rem;
+    border-radius: 0.3rem;
+    cursor:pointer;
+    color: $main-color;
+}
+
+.createPost:hover{
+    background-color: $main-color;
+    color: white;
+}
+
