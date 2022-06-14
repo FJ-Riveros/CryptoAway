@@ -14,12 +14,14 @@ use App\Models\Post;
 use App\Models\Likes;
 use App\Models\Comments;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword as
+               CanResetPasswordContract;
 
 
-
-class User extends Model implements AuthenticatableContract
+class User extends Model implements AuthenticatableContract, CanResetPasswordContract
 {
-    use HasApiTokens, HasFactory, Notifiable, Authenticatable, HasRoles;
+    use HasApiTokens, HasFactory, Notifiable, Authenticatable, HasRoles, CanResetPassword;
 
     /**
      * The attributes that are mass assignable.
