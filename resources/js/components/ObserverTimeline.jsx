@@ -91,6 +91,11 @@ function ObserverTimeline() {
     //     getFriends();
     // },[createPostText, refreshFriendsPosts])
 
+    const redirection = () =>{
+        if( window.location != `${location.origin}/timeline`){
+            window.location = `${location.origin}/timeline`;
+        } 
+    } 
     
     useEffect(()=>{
         getFriends();

@@ -127,8 +127,6 @@ function Timeline() {
                     <div className="routes">
                         <div class={`children__routes first ${currentView === "Posts" && "activeTop"}`}>
                             <div class="home d-flex align-items-center">
-                                {/* <a href="" class="ml-2">Home</a> */}
-                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Posts")} class="ml-2">Home</a> */}
                                 <span  onClick={() => {
                                     redirection();
                                     setCurrentView("Posts")}}
@@ -141,9 +139,6 @@ function Timeline() {
 
                         <div class={`children__routes ${currentView === "Friends" && "active"}`}>
                             <div class="friends d-flex align-items-center ">
-                                
-                                {/* <a href="friends" class="ml-2">Friends</a> */}
-                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Friends")} class="ml-2">Friends</a> */}
                                 <span   onClick={() => {
                                     redirection();
                                     setCurrentView("Friends")}}
@@ -217,7 +212,7 @@ function Timeline() {
                 
                 <div className="col-3 mt-3">
                     <div class="latest__photos__container">
-                        <div class="header">
+                        <div class="header w-100">
                             <h3>Latest Photos</h3>
                             <hr/>
                         </div>

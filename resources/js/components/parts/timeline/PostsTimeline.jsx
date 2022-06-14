@@ -65,16 +65,12 @@ function PostsTimeline({ post, currentUser }) {
             <div className="feed__card__post mt-3">
                 <div className="post__header">
                     <div className="row">
-                        <div className="col-6 d-flex justify-content-start align-items-center">
+                        <div className="col-12 d-flex justify-content-start align-items-center">
                             <img src={userInfo.avatar} alt="" className="header__img" />
                             <div className="header__text ml-2">
                                 <h4>{userInfo.username}</h4>
                                 <p>3 hours ago</p>
                             </div>
-                        </div>
-
-                        <div className="col-6">
-                            
                         </div>
                     </div>
                 </div>
