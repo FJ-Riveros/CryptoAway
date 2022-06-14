@@ -5,7 +5,7 @@ import {deleteFriend} from './APICalls';
 function FriendCard({username, name, email, avatar, friendId, currentDataUserId, getFriends, description}) {
     console.log(currentDataUserId);
     return (
-        <div class="col-11 mt-4 ">
+        <div class="col-11 mt-3 d-flex justify-content-center">
             <div className="row friend__card__container">
                 <div className="col-4 w-100 h-100 friend__img">    
                     <div style={{  
@@ -16,6 +16,11 @@ function FriendCard({username, name, email, avatar, friendId, currentDataUserId,
                             height: "150px",
                             borderRadius: "0.3rem"
                           }} 
+                            onClick={
+                            ()=>{
+                              console.log("hola")
+                              window.location = `${location.origin}/timeline/${friendId}`
+                            }}
                         class="avatar avatar-xl mr-3"></div>
                 </div>
 

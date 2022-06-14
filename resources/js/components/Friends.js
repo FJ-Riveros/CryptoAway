@@ -6,8 +6,8 @@ import {getFriendRequests} from './parts/APICalls'
 import FriendRequestCard from './parts/FriendRequestCard.jsx';
 function Friends() {
     // const [apiResponse, setApiResponse] = useState("Loading the data...");
-    const [friends, setFriends] = useState("Loading the friends...");
-    const [friendRequests, setFriendRequests] = useState("Loading the friend requests...");
+    const [friends, setFriends] = useState([]);
+    const [friendRequests, setFriendRequests] = useState([]);
 
 
     const getFriends = async () =>{
@@ -47,20 +47,27 @@ function Friends() {
 
     return (
         <>
-            <div class="row row d-flex justify-content-center">
+            <div class="row d-flex justify-content-center">
+                {friends.length != 0 &&
+                    <>
+                        <h3>Friends</h3>
+                        <hr/>
+                    </>
+                    }
                 {friends}
             </div>
-            <div class="row">
+            <div class="row d-flex justify-content-center">
+                {friendRequests.length != 0 &&
+                    <>
+                        <h3>Friend Requests</h3>
+                        <hr/>
+                    </>
+                    }
                 {friendRequests}
             </div>
-
         </>
-
     );
 }
 
 export default Friends;
 
-// if (document.getElementById('reactGetFriends')) {
-//     ReactDOM.render(<Friends />, document.getElementById('reactGetFriends'));
-// }

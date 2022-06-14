@@ -19,7 +19,10 @@ function FriendSuggestions({ user, currentUser, getUserSuggestions }) {
     return (
         <div className="row d-flex align-items-center">
             <div className="col-6 user__info">
-                <img src={user.avatar} alt=""  height="100%" />
+                <img src={user.avatar} alt=""  height="100%" onClick={
+                  ()=>{
+                    window.location = `${location.origin}/timeline/${user.userId}`
+                  }} />
                 <span className="username">{user.username}</span>
             </div>
             <div className="col-6 add__button__container"><i className="bi bi-person-plus-fill add" onClick={addUser} ></i></div>

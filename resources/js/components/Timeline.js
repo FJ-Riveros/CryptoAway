@@ -221,7 +221,7 @@ function Timeline() {
                     </div>
 
                     <div class="friend__suggestion__container">
-                        <h3>Add Friends!</h3>
+                        <h3>Add Friends</h3>
                         <hr/>
                         {userSuggestions}
                     </div>
