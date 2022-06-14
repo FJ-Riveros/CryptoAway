@@ -20,7 +20,10 @@ function Friends() {
             // console.log(data)
             setFriends(
                 data.map((friendData)=> {
-                    return <FriendCard username={friendData.username} name={friendData.name} email={friendData.email} avatar={friendData.avatar} key={friendData.id} friendId={friendData.id} currentDataUserId={currentDataUser.id} getFriends={getFriends}/>
+                    return <FriendCard username={friendData.username} name={friendData.name}
+                     email={friendData.email} avatar={friendData.avatar} key={friendData.id} 
+                     description={friendData.description} friendId={friendData.id} 
+                     currentDataUserId={currentDataUser.id} getFriends={getFriends}/>
                 })
             )
         })

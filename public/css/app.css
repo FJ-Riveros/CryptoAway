@@ -4376,6 +4376,15 @@ button#submit-button:hover {
   border-radius: 0.3rem;
 }
 
+.friend__card__container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-radius: 0.3rem;
+  gap: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 10px;
+}
+
 .feed__card__post {
   display: flex;
   flex-direction: column;
@@ -4419,7 +4428,7 @@ button#submit-button:hover {
   margin-top: 10px;
 }
 .feed__card__post .body__img {
-  min-height: 30vh;
+  min-height: 40vh;
   background-size: cover;
   background-position: center;
   width: 100%;
@@ -4689,6 +4698,25 @@ textarea {
 
 .deletePost:hover {
   font-size: 23px;
+}
+
+.friend__img {
+  padding-left: 0 !important;
+}
+
+.friend__text {
+  height: 150px;
+}
+.friend__text .deleteIcon {
+  position: absolute;
+  top: 5px;
+  right: 0px;
+  transition: 0.3s;
+  color: #f9ab30;
+  cursor: pointer;
+}
+.friend__text .deleteIcon:hover {
+  font-size: 20px;
 }
 
 .table-wrapper {
