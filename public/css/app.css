@@ -4719,6 +4719,39 @@ textarea {
   font-size: 20px;
 }
 
+.customButton {
+  padding: 0.3rem;
+  color: white;
+  width: 45% !important;
+  cursor: pointer;
+  border-radius: 0.3rem;
+  border: 1px solid;
+}
+
+.addFriend {
+  background-color: #f9ab30;
+}
+
+.addFriend:hover {
+  background-color: white;
+  color: #f9ab30;
+  border-color: #f9ab30;
+}
+
+.declineFriend {
+  background-color: #EDF2F7;
+  border-color: #EDF2F7;
+}
+
+.declineFriend:hover {
+  background-color: #aaaaaa;
+  border-color: #aaaaaa;
+}
+
+.friendRequestText {
+  min-height: 100px;
+}
+
 .table-wrapper {
   margin: 30px auto;
   background: #fff;

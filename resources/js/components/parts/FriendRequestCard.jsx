@@ -51,7 +51,7 @@ function FriendRequestCard({userData, currentDataUserId, getFriends, getFriendRe
                 </div>
 
                 <div className="col-7 friend__text">
-                    <div class=" overflow-hidden">
+                    <div class=" overflow-hidden friendRequestText">
                         <h5 class="card-text mb-0">{userData.username}</h5>
                         <p class="card-text">
                             {userData.description}
@@ -59,19 +59,19 @@ function FriendRequestCard({userData, currentDataUserId, getFriends, getFriendRe
                     </div>
 
                     <div className="row d-flex justify-content-around">
-                    <button onClick={()=>{
+                    <span onClick={()=>{
                         acceptFriendRequest(currentDataUserId, userData.id)
                         getFriends();
                         getFriendRequests();
                         }} 
-                        class="btn btn-success pull-right align-middle">Add Friend</button>
-                    <button onClick={()=>{
+                        className="customButton addFriend text-center">Add Friend</span>
+                    <span onClick={()=>{
                         deleteFriend(currentDataUserId, userData.id);
                         getFriends();
                         getFriendRequests();
                         }}
-                        class="btn btn-secondary pull-right align-middle ml-1">Decline</button>
-                    </div>
+                        className="customButton declineFriend text-center">Decline</span>
+                    </div> 
                 </div>
             </div>
         </div>

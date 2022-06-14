@@ -415,3 +415,37 @@ textarea{
         
     }
 }
+
+
+.customButton{
+    padding: 0.3rem;
+    color: white;
+    width: 45% !important;
+    cursor: pointer;
+    border-radius: 0.3rem;
+    border: 1px solid;
+} 
+
+.addFriend{
+    background-color: $main-color;
+}
+
+.addFriend:hover{
+    background-color: white;
+    color: $main-color;
+    border-color:$main-color;
+}
+
+.declineFriend{
+    background-color: #EDF2F7;
+    border-color: #EDF2F7;
+}
+
+.declineFriend:hover{
+    background-color: #aaaaaa;
+    border-color: #aaaaaa;
+}
+
+.friendRequestText{
+    min-height: 100px;
+}
