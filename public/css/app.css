@@ -4824,25 +4824,6 @@ ul {
   padding: 0.3rem;
 }
 
-.metamaskButton {
-  width: 100%;
-  background: rgb(241, 148, 42);
-  background: linear-gradient(90deg, rgb(255, 159, 69) 35%, rgb(255, 0, 212) 100%);
-  background-size: 200% 200%;
-  border: none;
-  border-radius: 0.5rem;
-  color: #fff;
-  font-size: 14px;
-  padding: 0.3rem;
-  font-weight: 500;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  padding-bottom: 0.625rem;
-  padding-top: 0.625rem;
-  padding-left: 1.25rem;
-  padding-right: 1.25rem;
-}
-
 .createPost {
   border: 1px solid #f9ab30;
   padding: 0.3rem 0.5rem;
@@ -4854,6 +4835,59 @@ ul {
 .createPost:hover {
   background-color: #f9ab30;
   color: white;
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255/var(--tw-text-opacity));
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.py-2\.5 {
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+}
+
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.to-orange-400 {
+  --tw-gradient-to: #ff8a4c;
+}
+
+.from-pink-500 {
+  --tw-gradient-from: #e74694;
+  --tw-gradient-stops: var(--tw-gradient-from),var(--tw-gradient-to,rgba(231,70,148,0));
+}
+
+.bg-gradient-to-br {
+  background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.mr-2 {
+  margin-right: 0.5rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
 }
 
 /*!
