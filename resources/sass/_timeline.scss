@@ -112,7 +112,7 @@
             margin-left: 12px;
             height: 100%;
 
-            a{
+            a, span{
                 text-decoration: none;
                 color: black;
                 font-weight: bold;
@@ -338,4 +338,8 @@ ul{
 
 .search__add:hover{
     font-size: 34px;
+}
+
+.logout{
+    cursor: pointer;
 }

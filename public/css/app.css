@@ -4466,7 +4466,7 @@ button#submit-button:hover {
   margin-left: 12px;
   height: 100%;
 }
-.routes .children__routes div a {
+.routes .children__routes div a, .routes .children__routes div span {
   text-decoration: none;
   color: black;
   font-weight: bold;
@@ -4652,6 +4652,10 @@ ul {
 
 .search__add:hover {
   font-size: 34px;
+}
+
+.logout {
+  cursor: pointer;
 }
 
 .table-wrapper {

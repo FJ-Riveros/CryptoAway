@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import ProfileName from './parts/timeline/ProfileName';
 import PostsTimeline from './parts/timeline/PostsTimeline';
-import { getLastPost, getPosts, getFriendSuggestions, logout} from './parts/APICalls';
+import { getLastPost, getPosts, getFriendSuggestions, logout, getUserPosts} from './parts/APICalls';
 import LastPhotos from './parts/timeline/LastPhotos';
 import FriendSuggestions from './parts/timeline/FriendSuggestions';
 import Header from './Header';
@@ -17,6 +17,9 @@ function Timeline() {
     const [userSuggestions, setUserSuggestions] = useState("Loading the last user suggestions...");
     const [commentInput, setCommentInput] = useState("Write Something!");
     const [refreshFriendsPosts, setRefreshFriendsPosts] = useState(false);
+    //Get the posts from the current user
+    const [currentUserPosts, setCurrentUserPosts] = useState([]);
+
     //Switches between the friends and the posts
     const [currentView, setCurrentView] = useState("Posts");
 
@@ -60,6 +63,18 @@ function Timeline() {
         })
     }
 
+
+    const queryUserPosts = async ()=>{
+        const userPosts = await getUserPosts(currentDataUser.id);
+        console.log(userPosts);
+        let postComponents =  userPosts.map(async (post)=> {
+            return await <PostsTimeline post={post} currentUser={currentDataUser}/>
+        })
+        //Resolves the component promises
+        setCurrentUserPosts(await Promise.all(postComponents));
+    }
+
+    
     const getPhotos = async () =>{
         const post = await getPosts(currentDataUser.id);
         console.log(post);
@@ -137,25 +152,31 @@ function Timeline() {
                         <div class="children__routes dropdown-item dropdown-item">
                             <div class="posts d-flex align-items-center">
                                 <i class="bi bi-collection-fill"></i>
-                                <a href="" class="ml-2">Your Posts</a>
+                                <span onClick={async () => {
+                                    await queryUserPosts();
+                                    setCurrentView("UserPosts")   
+                                }}class="ml-2">Your Posts</span>
                             </div>
                         </div>
                         {
                             isAdmin &&
                                 <div class="children__routes dropdown-item dropdown-item">
                                     <div class="posts d-flex align-items-center">
-                                        <i class="bi bi-clipboard-data-fill"></i>
-                                        <i class="bi bi-hammer"></i>
-                                        <a href={`${location.origin}/admin_dashboard`} class="ml-2">Admin Dashboard</a>
+                                        <a href={`${location.origin}/admin_dashboard`} >
+                                            <i class="bi bi-hammer" ></i>
+                                            <span class="ml-2">Admin Dashboard</span>
+                                        </a>
                                     </div>
                                 </div>
                         }
                         
 
                         <div class="children__routes dropdown-item dropdown-item">
-                            <div class="logout d-flex align-items-center">
+                            <div class=" d-flex align-items-center">
+                                <span onClick={() => closeSession()} className="logout">
                                 <i class="bi bi-door-open-fill"></i>
-                                <span onClick={() => closeSession()} class="ml-2">Logout</span>
+                                <span class="ml-2">Logout</span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -166,6 +187,8 @@ function Timeline() {
                     {currentView === "Posts" && friendsPosts }
                     {currentView === "Friends" && <Friends/>}
                     {currentView === "Trips" && <Trips/>}
+                    {currentView === "UserPosts" && currentUserPosts}
+
 
                 </div>
                 

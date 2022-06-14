@@ -255,3 +255,16 @@ export const getAllTrips = async () =>{
 
     return info;
 }
+
+export const getUserPosts = async (idUser) =>{
+  const info = await 
+    axios.get(`${window.location.origin}/api/user/${idUser}/posts`)
+     .then(function (response) {
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
+}
