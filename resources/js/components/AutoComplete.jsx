@@ -105,19 +105,28 @@ const AutoComplete = () => {
         {suggestions.map((suggestion, index) => {
           return (
             <li
-              className={index === suggestionIndex ? "active" : ""}
+              // className={index === suggestionIndex ? "activeSearch" : ""}
+              className="searchField"
               key={index}
               onClick={handleClick}
             >
               <div className="row">
-                <div className="col-9">
+                <div className="col-9 " onClick={
+                  ()=>{
+                    window.location = `${location.origin}/timeline/${suggestion.userId}`
+                  }
+                }>
                   <img src={suggestion.avatar} className="search__user__img" alt="" width="30" height="30"/>
-                  <a href={`timeline/${suggestion.userId}`} className="ml-4">
+                  {/* <a href={`timeline/${suggestion.userId}`} className="ml-4">
                     {suggestion.userSearchName}
-                  </a>
+                  </a> */}
+                  <span className="ml-4">{suggestion.userSearchName}</span>
               </div>
               <div className="col-3 d-flex justify-content-end align-items-center add__button__container">
-                { idUserSuggestions.includes(suggestion.userId) &&  <i className="bi bi-person-plus-fill search__add" onClick={()=> addUser( suggestion.userId )} ></i> } 
+                { idUserSuggestions.includes(suggestion.userId) &&  <i className="bi bi-person-plus-fill search__add" onClick={async ()=> {
+                  await addUser( suggestion.userId );
+                  window.location.href = window.location.href;
+                }} ></i> } 
               </div>
               </div>
             </li>
@@ -135,7 +144,7 @@ const AutoComplete = () => {
         value={value}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
-        placeholder="Search someone!"
+        placeholder="Search Someone!"
       />
       {suggestionsActive && <Suggestions />}
     </div>

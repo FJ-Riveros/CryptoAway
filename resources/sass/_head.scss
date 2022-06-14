@@ -1,0 +1,20 @@
+.search__bar{
+    // border-color: $container-light;
+    background-color: #EDF2F6;
+    border-radius: 0.3rem;
+    // border: 1px solid $container-light;
+    border: 1px solid #EDF2F6;
+    height: 40px;
+    
+}
+
+.activeSearch{
+
+}
+
+
+.searchField:hover{
+    background-color: $container-light;
+    cursor:pointer;
+}
+
