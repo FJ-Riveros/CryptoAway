@@ -5,9 +5,12 @@
     // border: 1px solid $container-light;
     border: 1px solid #EDF2F6;
     height: 40px;
-    
+    padding-left: 15px;
 }
 
+.autocomplete{
+    position:relative;
+}
 .activeSearch{
 
 }
@@ -18,3 +21,26 @@
     cursor:pointer;
 }
 
+.search__bar{
+    width: 100%;   
+}
+
+ul{
+    padding-left: 0 !important;
+}
+
+.suggestions{
+    border: 1px solid lightgray;
+    position: absolute;
+    width: 100%;
+    z-index: 10;
+    // background-color: $container-light;
+    background-color: white;
+    border-radius: 0.3rem;
+
+    li{
+        padding: 0.5rem;
+    }
+
+
+}
