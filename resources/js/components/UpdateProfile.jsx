@@ -87,11 +87,13 @@ function UpdateProfile() {
                         </div>
                       </div>
                       <div className="row">
-                        <div className="col-3">
+                        <div className="col-4  d-flex justify-content-center">
                           <button class="updateButton">Update</button>
                         </div>
-                        <div className="col-3">
-                          <button class="cancelButton">Cancel</button>
+                        <div className="col-4  d-flex justify-content-center">
+                          <button class="cancelButton" onClick={()=>{
+                            window.location.href = `${location.origin}/timeline`;
+                          }}>Cancel</button>
                         </div> 
                       </div>
                     </form>

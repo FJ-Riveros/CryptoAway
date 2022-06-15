@@ -87,6 +87,7 @@ ul{
   padding-top: 0.625rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+
 }
 
 .updateButton{
@@ -105,6 +106,17 @@ ul{
     padding-top: 0.625rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+    border: 1px solid $main-color;
+}
+
+.updateButton:hover{
+    background-color: white;
+    color: $main-color;
+}
+
+.cancelButton:hover{
+    background-color: white;
+    color: $main-color;
 }
 
 
@@ -124,6 +136,7 @@ ul{
     padding-top: 0.625rem;
     padding-left: 1.25rem;
     padding-right: 1.25rem;
+    border: 1px solid gray; 
 }
 
 

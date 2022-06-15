@@ -5021,6 +5021,17 @@ ul {
   padding-top: 0.625rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+  border: 1px solid #f9ab30;
+}
+
+.updateButton:hover {
+  background-color: white;
+  color: #f9ab30;
+}
+
+.cancelButton:hover {
+  background-color: white;
+  color: #f9ab30;
 }
 
 .cancelButton {
@@ -5039,6 +5050,7 @@ ul {
   padding-top: 0.625rem;
   padding-left: 1.25rem;
   padding-right: 1.25rem;
+  border: 1px solid gray;
 }
 
 .createPost {

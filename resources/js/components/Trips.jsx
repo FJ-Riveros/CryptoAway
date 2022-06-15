@@ -173,7 +173,7 @@ function Trips() {
                     {tripsOwned}
                     
                     {allTrips.length != 0 &&
-                        <div>
+                        <div className="mt-3">
                             <h3>Available Trips</h3>
                             <hr/>
                         </div>

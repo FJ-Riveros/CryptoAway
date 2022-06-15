@@ -218,7 +218,6 @@ function Timeline() {
                     {currentView === "Trips" && <Trips/>}
                     {currentView === "UserPosts" && currentUserPosts}
 
-
                 </div>
                 
                 <div className="col-3 mt-3">
