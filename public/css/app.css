@@ -4865,11 +4865,47 @@ td {
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  border-radius: 0.3rem;
 }
 .tripCard .trip__image {
   min-height: 150px;
   background-position: center;
   background-size: cover;
+  height: 105%;
+  border-radius: 0.3rem;
+  cursor: pointer;
+}
+
+.comments div {
+  padding: 0.8rem;
+}
+
+.boughtTrip {
+  border: 1px solid #f9ab30;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.3rem;
+  color: #f9ab30;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.buyTrip {
+  border: 1px solid #f9ab30;
+  padding: 0.3rem 0.5rem;
+  background-color: #f9ab30;
+  border-radius: 0.3rem;
+  color: white;
+  position: absolute;
+  top: 5px;
+  cursor: pointer;
+  right: 5px;
+}
+
+.buyTrip:hover {
+  background-color: white;
+  color: #f9ab30;
 }
 
 .search__bar {
