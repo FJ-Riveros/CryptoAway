@@ -13,7 +13,7 @@ function FriendCard({username, name, email, avatar, friendId, currentDataUserId,
                             backgroundPosition: "center",
                             backgroundSize: "cover",
                             width: "100%",
-                            height: "150px",
+                            height: "175px",
                             borderRadius: "0.3rem"
                           }} 
                             onClick={
@@ -24,7 +24,7 @@ function FriendCard({username, name, email, avatar, friendId, currentDataUserId,
                         class="avatar avatar-xl mr-3"></div>
                 </div>
 
-                <div className="col-7 friend__text">
+                <div className="col-7 friend__text" style={{height: "175px", padding: "0.1rem 0"}}>
                     <i class="fas fa-times deleteIcon" onClick={()=>{
                         deleteFriend(currentDataUserId, friendId);
                         getFriends();
@@ -36,9 +36,9 @@ function FriendCard({username, name, email, avatar, friendId, currentDataUserId,
                         <p class="card-text">
                             {email}
                         </p>
-                        <p class="card-text">
+                        <span  style={{overflow: "hidden",display: "inline-block",textOverflow: "ellipsis", height: "50px"}}>
                             {description}
-                        </p>
+                        </span>
                     </div>
                 </div>
             </div>

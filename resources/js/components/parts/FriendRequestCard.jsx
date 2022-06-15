@@ -15,15 +15,20 @@ function FriendRequestCard({userData, currentDataUserId, getFriends, getFriendRe
                             height: "150px",
                             borderRadius: "0.3rem"
                           }} 
-                        class="avatar avatar-xl mr-3"></div>
+                        class="avatar avatar-xl mr-3"
+                        onClick={
+                            ()=>{
+                              window.location = `${location.origin}/timeline/${userData.id}`
+                            }}></div>
                 </div>
 
                 <div className="col-7 friend__text">
                     <div class=" overflow-hidden friendRequestText">
                         <h5 class="card-text mb-0">{userData.username}</h5>
-                        <p class="card-text">
+                        
+                        <span  style={{overflow: "hidden",display: "inline-block",textOverflow: "ellipsis", height: "70px"}}>
                             {userData.description}
-                        </p>
+                        </span>
                     </div>
 
                     <div className="row d-flex justify-content-around">

@@ -14,10 +14,10 @@ class CommentsSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Comments::create([
-            'Post_idPost'     => '1',
-            'Text'            => 'This is a random comment',
-            'user_idUser'     => '1',
-        ]);
+    //     \App\Models\Comments::create([
+    //         'Post_idPost'     => '1',
+    //         'Text'            => 'This is a random comment',
+    //         'user_idUser'     => '1',
+    //     ]);
     }
 }

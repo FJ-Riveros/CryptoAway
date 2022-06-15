@@ -15,8 +15,7 @@ class TripsSeeder extends Seeder
     public function run()
     {
         \App\Models\Trips::create([
-            'itinerary'        => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis et maiores modi reiciendis, libero quaerat magni eos porro pariatur placeat eligendi hic. Asperiores quae debitis fugiat, aliquid optio mollitia sunt?
-            Fugiat labore quidem molestiae eum placeat nulla expedita earum aut iusto repudiandae, error dolor, modi quaerat natus soluta quod deserunt vitae fugit tempora ea consectetur. Temporibus cum voluptate veritatis nobis?',
+            'itinerary'        => 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis et maiores modi reiciendis, libero quaerat magni eos porro pariatur placeat eligendi hic. Asperiores quae debitis fugiat, aliquid optio mollitia sunt? ',
             'price'           => 80,
             'maxGroup'        => '8',
             'startDate'       => '2022/08/13', 
@@ -26,8 +25,7 @@ class TripsSeeder extends Seeder
         ]);
 
         \App\Models\Trips::create([
-            'itinerary'        => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, reprehenderit architecto incidunt eius nihil hic! Laborum doloribus ratione quaerat nemo sed doloremque nulla eligendi molestiae quibusdam quia. Necessitatibus, voluptatum commodi.
-            Eos incidunt et amet reprehenderit dolor, hic magnam, repellat ab assumenda eveniet explicabo commodi odit quibusdam deleniti provident modi cum dolorum quidem, voluptate voluptatem est temporibus. Tenetur eaque quae error!',
+            'itinerary'        => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, reprehenderit architecto incidunt eius nihil hic! Laborum doloribus ratione quaerat nemo sed doloremque nulla eligendi molestiae quibusdam quia. Necessitatibus, voluptatum commodi.',
             'price'           => '120',
             'maxGroup'        => '12',
             'startDate'       => '2022/09/10', 
@@ -37,8 +35,7 @@ class TripsSeeder extends Seeder
         ]);
 
         \App\Models\Trips::create([
-            'itinerary'        => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores veritatis vitae aut id dolorem, quidem cumque ut mollitia aliquam odit illum porro unde voluptatem cum! Accusamus architecto repellat ullam alias?
-            Enim unde officia perspiciatis ea, qui tenetur soluta veniam repudiandae excepturi eius voluptas eveniet, laboriosam pariatur natus aut quod! Aut accusantium consequatur et unde quod aliquid doloremque dolor iusto nemo?',
+            'itinerary'        => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores veritatis vitae aut id dolorem, quidem cumque ut mollitia aliquam odit illum porro unde voluptatem cum! Accusamus architecto repellat ullam alias?Enim unde officia perspiciatis',
             'price'           => '100',
             'maxGroup'        => '6',
             'startDate'       => '2022/08/5', 
@@ -48,8 +45,7 @@ class TripsSeeder extends Seeder
         ]);
 
         \App\Models\Trips::create([
-            'itinerary'        => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores veritatis vitae aut id dolorem, quidem cumque ut mollitia aliquam odit illum porro unde voluptatem cum! Accusamus architecto repellat ullam alias?
-            Enim unde officia perspiciatis ea, qui tenetur soluta veniam repudiandae excepturi eius voluptas eveniet, laboriosam pariatur natus aut quod! Aut accusantium consequatur et unde quod aliquid doloremque dolor iusto nemo?',
+            'itinerary'        => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores veritatis vitae aut id dolorem, quidem cumque ut mollitia aliquam odit illum porro unde voluptatem cum! Accusamus architecto repellat ullam alias? ',
             'price'           => '100',
             'maxGroup'        => '18',
             'startDate'       => '2022/10/1', 

@@ -4752,6 +4752,10 @@ textarea {
   min-height: 100px;
 }
 
+.avatar {
+  cursor: pointer;
+}
+
 .table-wrapper {
   margin: 30px auto;
   background: #fff;

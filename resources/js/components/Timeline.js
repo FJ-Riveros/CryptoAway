@@ -13,8 +13,8 @@ import Trips from './Trips';
 function Timeline() {
     const [friends, setFriends] = useState("Loading the friends...");
     const [friendsPosts, setFriendsPosts] = useState("Loading the friends posts...");
-    const [lastPhotos, setLastPhotos] = useState("Loading the last photos...");
-    const [userSuggestions, setUserSuggestions] = useState("Loading the last user suggestions...");
+    const [lastPhotos, setLastPhotos] = useState([]);
+    const [userSuggestions, setUserSuggestions] = useState([]);
     const [commentInput, setCommentInput] = useState("Write Something!");
     const [refreshFriendsPosts, setRefreshFriendsPosts] = useState(false);
     //Get the posts from the current user
@@ -210,21 +210,29 @@ function Timeline() {
                 </div>
                 
                 <div className="col-3 mt-3">
-                    <div class="latest__photos__container">
+                    {lastPhotos.length != 0 && 
+                        <div class="latest__photos__container">
                         <div class="header w-100">
                             <h3>Latest Photos</h3>
                             <hr/>
                         </div>
                         <div class="photos__grid row">
                             {lastPhotos}
+                            {console.log(lastPhotos)}
                         </div>
-                    </div>
-
-                    <div class="friend__suggestion__container">
-                        <h3>Add Friends</h3>
-                        <hr/>
-                        {userSuggestions}
-                    </div>
+                    </div>    
+                    }
+                    
+                    {userSuggestions.length != 0 && 
+                    <>
+                        <div class="friend__suggestion__container">
+                            <h3>Add Friends</h3>
+                            <hr/>
+                            {userSuggestions}
+                        </div>
+                    </>
+                    }
+                    
                 </div>
             </div>
         </>
