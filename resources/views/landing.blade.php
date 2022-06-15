@@ -29,28 +29,6 @@
         <!-- Styles -->
     </head>
     <body class="antialiased">
-        <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Dashboard</a>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-
-                            <button type="submit" class="underline text-sm text-gray-600 hover:text-gray-900">
-                                {{ __('Log Out') }}
-                            </button>
-                        </form>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-        </div> -->
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	        <div class="container">
 	          <a class="navbar-brand" href="index.html">CryptoAway<span>Travel with Crypto!</span></a>
@@ -59,10 +37,10 @@
 	          </button>
 	          <div class="collapse navbar-collapse" id="ftco-nav">
 	            <ul class="navbar-nav ml-auto">
-	              <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+	              <li class="nav-item active"><a href="#main_section" class="nav-link">Home</a></li>
 	              <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
-	              <li class="nav-item"><a href="destination.html" class="nav-link">Destination</a></li>
-	              <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+	              <li class="nav-item"><a href="#destination" class="nav-link">Destination</a></li>
+	              <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
                   @auth
                         <li class="nav-item cta">
                             <form method="POST" action="{{ route('logout') }} " class="nav-link">
@@ -79,7 +57,7 @@
         	            <li class="nav-item cta"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
+                            <li class="nav-item"><a href="{{ route('register') }}" class=" nav-link">Register</a></li>
                         @endif
                     @endauth
 	              <!-- <li class="nav-item cta"><a href="{{ route('login') }}" class="nav-link">Login</a></li> -->
@@ -91,12 +69,12 @@
 
         <div class="hero-wrap js-fullheight" style="background-image: url('../img/maldives.jpg');" data-stellar-background-ratio="0.5">
           <div class="overlay"></div>
-          <div class="container">
+          <div id="main_section" class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
               <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                 <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
-                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make Your Amazing Trip With Us</h1>
-                <button class="btn btn-primary"><a class="text-white" href="Modules/Login.php">Get started!</a></button>
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make your amazin trip with us</h1>
+                <a class="lading__button" href="login">Get started!</a>
               </div>
             </div>
           </div>
@@ -144,7 +122,7 @@
 	    	          </div>
 	    			  <div class="col-md-12 heading-section ftco-animate text-center">
               			<h2 class="mb-4 text-center">It's time to start your adventure</h2>
-              		  	<p class="text-center" ><a href="#" class="btn btn-primary py-3 px-4">Search Destination</a></p>
+              		  	<p class="text-center" ><a href="login" class="lading__button">Search Destination</a></p>
               		  </div>
               	</div>
               </div>
@@ -199,7 +177,7 @@
             </div>
         	</div>
         </section>
-	    	<section class="ftco-section">
+	    	<section id="destination" class="ftco-section">
         	<div class="container">
         		<div class="row justify-content-center pb-4">
               <div class="col-md-12 heading-section text-center ftco-animate">
@@ -261,52 +239,52 @@
                       <div class="text">
                         <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                         <div class="d-flex align-items-center">
+                        	<div class="user-img" style="background-image: url(https://cdn.pixabay.com/photo/2018/04/27/08/55/water-3354062__340.jpg)"></div>
+                        	<div class="pl-3">
+	    	                    <p class="name">Mark Stevens</p>
+	    	                    <span class="position">Traveler</span>
+	    	                  </div>
+	                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="testimony-wrap py-4">
+                      <div class="text">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <div class="d-flex align-items-center">
+                        	<div class="user-img" style="background-image: url(https://cdn.pixabay.com/photo/2017/08/06/12/06/people-2591874__340.jpg)"></div>
+                        	<div class="pl-3">
+	    	                    <p class="name">Anna Blair</p>
+	    	                    <span class="position">Accountant</span>
+	    	                  </div>
+	                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="testimony-wrap py-4">
+                      <div class="text">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <div class="d-flex align-items-center">
+                        	<div class="user-img" style="background-image: url(https://cdn.pixabay.com/photo/2016/11/19/15/49/woman-1839998__340.jpg); background-position: left"></div>
+                        	<div class="pl-3">
+	    	                    <p class="name">Carla Sins</p>
+	    	                    <span class="position">Photographer</span>
+	    	                  </div>
+	                      </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="testimony-wrap py-4">
+                      <div class="text">
+                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                        <div class="d-flex align-items-center">
                         	<div class="user-img" style="background-image: url(img/person_1.jpg)"></div>
                         	<div class="pl-3">
-	    	                    <p class="name">Roger Scott</p>
-	    	                    <span class="position">Marketing Manager</span>
-	    	                  </div>
-	                      </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="testimony-wrap py-4">
-                      <div class="text">
-                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <div class="d-flex align-items-center">
-                        	<div class="user-img" style="background-image: url(img/person_2.jpg)"></div>
-                        	<div class="pl-3">
-	    	                    <p class="name">Roger Scott</p>
-	    	                    <span class="position">Marketing Manager</span>
-	    	                  </div>
-	                      </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="testimony-wrap py-4">
-                      <div class="text">
-                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <div class="d-flex align-items-center">
-                        	<div class="user-img" style="background-image: url(img/person_3.jpg)"></div>
-                        	<div class="pl-3">
-	    	                    <p class="name">Roger Scott</p>
-	    	                    <span class="position">Marketing Manager</span>
-	    	                  </div>
-	                      </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item">
-                    <div class="testimony-wrap py-4">
-                      <div class="text">
-                        <p class="mb-4">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <div class="d-flex align-items-center">
-                        	<div class="user-img" style="background-image: url(img/person_1.jpg)"></div>
-                        	<div class="pl-3">
-	    	                    <p class="name">Roger Scott</p>
-	    	                    <span class="position">Marketing Manager</span>
+	    	                    <p class="name">Bryan Wrynn</p>
+	    	                    <span class="position">Firefighter</span>
 	    	                  </div>
 	                      </div>
                       </div>
@@ -331,7 +309,7 @@
             </div>
           </div>
         </section>
-        <footer class="bg-bottom bg-white">
+        <footer id="contact" class="bg-bottom bg-white">
             <div class="container">
 	    		<div class="row mt-4">
 	    			<div class="ml-auto col-lg-5 col-md-6 col-12">

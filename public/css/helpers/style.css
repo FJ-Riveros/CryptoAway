@@ -8071,7 +8071,7 @@ h1, h2, h3, h4, h5,
       font-weight: 400;
       opacity: 1 !important; }
       .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover, .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:focus {
-        color: #000000; }
+        color:#f9ab30; }
       @media (max-width: 991.98px) {
         .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
           padding-left: 0;
@@ -8120,7 +8120,7 @@ h1, h2, h3, h4, h5,
         display: inline-block;
         color: #fff; }
       .ftco-navbar-light .navbar-nav > .nav-item.cta > a:hover {
-        background: #f9ab30;
+        background: white;
         border: 1px solid #f9ab30; }
     .ftco-navbar-light .navbar-nav > .nav-item.cta.cta-colored a {
       border: 1px solid #ff5959;

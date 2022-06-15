@@ -4337,6 +4337,31 @@ button#submit-button:hover {
   margin-bottom: 5px;
 }
 
+[class^=flaticon-]::before {
+  font-size: 60px !important;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+.lading__button {
+  color: white;
+  font-size: 15px;
+  background-color: #f9ab30;
+  padding: 10px;
+  font-weight: 400;
+  border: 1px solid #f9ab30;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.lading__button:hover {
+  background-color: white;
+  color: #f9ab30;
+  border-color: #f9ab30;
+}
+
 .contact-info {
   border-top: 1px solid rgb(239, 235, 235);
   padding-top: 20px;
@@ -4364,7 +4389,7 @@ button#submit-button:hover {
 
 .profile__card__text {
   display: flex;
-  flex-direction: column;
+  flex-direction: Fumn;
   align-items: center;
 }
 
@@ -4594,6 +4619,7 @@ textarea {
   font-weight: 400;
   border: 1px solid #f9ab30;
   border-radius: 5px;
+  color: white;
 }
 .comments .comment:hover {
   color: #f9ab30;
@@ -4960,6 +4986,42 @@ ul {
   width: 100%;
   background: rgb(241, 148, 42);
   background: linear-gradient(90deg, rgb(255, 159, 69) 35%, rgb(255, 0, 212) 100%);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 14px;
+  padding: 0.3rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.updateButton {
+  width: 50%;
+  background: rgb(241, 148, 42);
+  background-size: 200% 200%;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 14px;
+  padding: 0.3rem;
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  padding-bottom: 0.625rem;
+  padding-top: 0.625rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.cancelButton {
+  width: 50%;
+  background: gray;
   background-size: 200% 200%;
   border: none;
   border-radius: 0.5rem;

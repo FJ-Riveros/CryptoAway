@@ -89,6 +89,43 @@ ul{
   padding-right: 1.25rem;
 }
 
+.updateButton{
+    width: 50%;
+    background: rgb(241, 148, 42);
+    background-size: 200% 200%;
+    border:none;
+    border-radius: 0.5rem;
+    color:#fff;
+    font-size:14px;
+    padding: 0.3rem;
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
+
+.cancelButton{
+    width: 50%;
+    background: gray;
+    background-size: 200% 200%;
+    border:none;
+    border-radius: 0.5rem;
+    color:#fff;
+    font-size:14px;
+    padding: 0.3rem;
+    font-weight: 500;
+    font-size: .875rem;
+    line-height: 1.25rem;
+    padding-bottom: 0.625rem;
+    padding-top: 0.625rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+}
+
 
 .createPost{
     // background-color: $main-color;

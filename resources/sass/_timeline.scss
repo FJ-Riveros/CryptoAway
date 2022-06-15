@@ -14,7 +14,7 @@
 
 .profile__card__text{
     display: flex;
-    flex-direction: column;
+    flex-direction: Fumn;
     align-items: center;
 }
 
@@ -282,6 +282,7 @@ textarea{
         font-weight: 400;
         border: 1px solid $main-color;
         border-radius: 5px;
+        color: white;
     }
 
     .comment:hover{

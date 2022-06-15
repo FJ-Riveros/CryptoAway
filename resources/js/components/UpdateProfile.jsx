@@ -29,7 +29,7 @@ function UpdateProfile() {
     return (
     
             <div class="container bootstrap snippets bootdey mt-4">
-                <h1 class="text-primary">Edit Profile</h1>
+                <h1 class="orange">Edit Profile</h1>
                   <hr />
             	<div class="row">
                   {/* <!-- left column --> */}
@@ -86,7 +86,14 @@ function UpdateProfile() {
                           <input type="text" class="form-control" name="avatar" value={avatar} onChange={(e)=> setAvatar(e.target.value)}/>
                         </div>
                       </div>
-                      <button>Update</button>
+                      <div className="row">
+                        <div className="col-3">
+                          <button class="updateButton">Update</button>
+                        </div>
+                        <div className="col-3">
+                          <button class="cancelButton">Cancel</button>
+                        </div> 
+                      </div>
                     </form>
                     </div>
                   </div>

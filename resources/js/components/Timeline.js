@@ -175,6 +175,18 @@ function Timeline() {
                                 </span>
                             </div>
                         </div>
+
+                        <div className="children__routes">
+                            <div class="posts d-flex align-items-center">
+                                <span onClick={async () => {
+                                    window.location.href = `${location.origin}/edit_profile`;   
+                                }}class="d-flex align-items-center">
+                                    <i class="fa-solid fa-user-pen"></i>
+                                    <span className="ml-2">Edit Profile</span>
+                                </span>
+                            </div>
+                        </div>
+
                         {
                             isAdmin &&
                                 <div class="children__routes">
