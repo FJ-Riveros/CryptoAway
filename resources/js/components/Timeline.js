@@ -211,7 +211,7 @@ function Timeline() {
                     </div>
                 </div>
 
-                <div className="col-6">
+                <div className="col-6 mt-3">
                             
                     {currentView === "Posts" && friendsPosts }
                     {currentView === "Friends" && <Friends/>}

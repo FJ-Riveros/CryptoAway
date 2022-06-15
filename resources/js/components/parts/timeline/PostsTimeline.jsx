@@ -68,7 +68,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
     
     return (
         
-            <div className="feed__card__post mt-3">
+            <div className="feed__card__post">
                 <div className="post__header">
                     <div className="row">
                         <div className="col-10 d-flex justify-content-start align-items-center">
@@ -84,7 +84,6 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
                             <i class="bi bi-trash-fill deletePost" onClick={()=> removePost(post.id)}></i>
                             }
                         </div>
-
                     </div>
                 </div>
                 <div className="body">

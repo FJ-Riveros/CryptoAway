@@ -50,7 +50,7 @@ function Friends() {
             <div class="row d-flex justify-content-center">
                 
                     {friends.length != 0 &&
-                        <div className="col-11 mt-3">
+                        <div className="col-11">
                             <h3>Friends</h3>
                             <hr/>
                         </div>

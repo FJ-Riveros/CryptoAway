@@ -19,9 +19,9 @@ function FriendSuggestions({ user, currentUser, getUserSuggestions }) {
     return (
         <div className="row d-flex align-items-center">
             <div className="col-6 user__info">
-                <img src={user.avatar} alt=""  height="100%" onClick={
+                <img className="user__suggestions__photo" src={user.avatar} alt=""  height="100%" onClick={
                   ()=>{
-                    window.location = `${location.origin}/timeline/${user.userId}`
+                    window.location = `${location.origin}/timeline/${user.id}`
                   }} />
                 <span className="username">{user.username}</span>
             </div>

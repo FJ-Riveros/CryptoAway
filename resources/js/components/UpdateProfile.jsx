@@ -53,37 +53,37 @@ function UpdateProfile() {
                       <div class="form-group">
                         <label class="col-lg-3 control-label">First name:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" name="surname" value={surname} onChange={(e)=> setSurname(e.target.value)} required />
+                          <input class="form-control mt-0" type="text" name="surname" value={surname} onChange={(e)=> setSurname(e.target.value)} required />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Last name:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="text" name="newName" value={name} onChange={(e)=> setName(e.target.value)} required />
+                          <input class="form-control mt-0" type="text" name="newName" value={name} onChange={(e)=> setName(e.target.value)} required />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Username:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" name="username" type="text" value={username} onChange={(e)=> setUsername(e.target.value)} required />
+                          <input class="form-control mt-0" name="username" type="text" value={username} onChange={(e)=> setUsername(e.target.value)} required />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Email:</label>
                         <div class="col-lg-8">
-                          <input class="form-control" type="email" name="email" value={email} onChange={(e)=> setEmail(e.target.value)} required/>
+                          <input class="form-control mt-0" type="email" name="email" value={email} onChange={(e)=> setEmail(e.target.value)} required/>
                         </div>
                       </div>                      
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Description:</label>
                         <div class="col-lg-8">
-                          <textarea class="form-control" type="text" name="description" value={description} onChange={(e)=> setDescription(e.target.value)} required />
+                          <textarea class="form-control mt-0" type="text" name="description" value={description} onChange={(e)=> setDescription(e.target.value)} required />
                         </div>
                       </div>
                       <div class="form-group">
                         <label class="col-lg-3 control-label">Avatar:</label>
                         <div class="col-lg-8">
-                          <input type="text" class="form-control" name="avatar" value={avatar} onChange={(e)=> setAvatar(e.target.value)}/>
+                          <input type="text" class="form-control mt-0" name="avatar" value={avatar} onChange={(e)=> setAvatar(e.target.value)}/>
                         </div>
                       </div>
                       <div className="row">

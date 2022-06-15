@@ -4782,6 +4782,10 @@ textarea {
   cursor: pointer;
 }
 
+.user__suggestions__photo {
+  cursor: pointer;
+}
+
 .table-wrapper {
   margin: 30px auto;
   background: #fff;
