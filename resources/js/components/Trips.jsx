@@ -183,7 +183,12 @@ function Trips() {
             }
 
             {!isMetamaskConnected &&
-                <h2>Please, connect Metamask in order to see the available Trips</h2>
+                <div className="text-center d-flex align-items-center"
+                    style={{
+                        height: "50vh",
+                    }}>
+                    <h3>Please, connect Metamask in order to see the available Trips</h3>
+                </div>
             }
 
         </>
