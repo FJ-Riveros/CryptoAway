@@ -4181,6 +4181,27 @@ a{
 } 
 
 
+.layout{
+  margin-top: 20vh;
+}
 
+.loginButton{
+  background-color: #f9ab30;
+  padding: 7px 20px;
+  font-weight: 400;
+  border: 1px solid #f9ab30;
+  border-radius: 5px;
+  color: white;
+}
+
+.loginButton:hover{
+  background-color: white;
+  border-color: #f9ab30;
+  color: #f9ab30;
+}
+
+.page__title{
+  font-size: 34px;
+}
 /*# sourceMappingURL=style.css.map */
 

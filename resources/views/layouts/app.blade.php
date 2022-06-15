@@ -28,19 +28,27 @@
 
 <body>
     <div id="app">
-        <div class="container">
+        <div class="container mt-3">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <img src="img/logo_recortado.png" width="75px" height="75px" alt="">
+                    
+                </div>
 
-            <!-- @if(Route::current()->getName() == 'password.request ')
-                @yield('forgotpassword')
-            @endif
-                @php echo Route::current()->getName() @endphp -->
-                <!-- @yield('login') -->
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    <span class="page__title">CryptoAway</span>
+                </div>
 
-                <!-- @yield('forgotpassword') -->
-
-        <div class="container">
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center align-items-center">
+                    @yield('content')
+                </div>
+            </div>
+        
+        <!-- <div class="container d-flex align-items-center vh-100">
             @yield('content')
-        </div>
+        </div> -->
 
     </div>
 </body>

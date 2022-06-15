@@ -39,12 +39,10 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <x-button>
+                <x-button class="loginButton">
                     {{ __('Email Password Reset Link') }}
                 </x-button>
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
-<!-- </body>
-</html> -->
