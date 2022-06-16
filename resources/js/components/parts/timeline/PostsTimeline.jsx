@@ -8,11 +8,10 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
 
     const [userInfo, setUserInfo] = useState("");
     const [userLikedPost, setUserLikedPost] = useState(false);
-    const [createCommentInput, setCreateCommentInput] = useState("Comment Something!");
+    const [createCommentInput, setCreateCommentInput] = useState("");
     const [mountedComponents, setMountedComponents] = useState("");
     const [postLikes, setPostLikes] = useState("");
-
-
+    const [numberComments, setNumberComments] = useState("");
     
     //Get the user that corresponds with the actual post to get the info.
     const getPostOwner = async () => {
@@ -45,13 +44,14 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
         const response = await createComment(currentUser.id, post.id, createCommentInput);
         await retrieveComments();
         setCreateCommentInput("Comment Something!");
+        getNumberComments();
         console.log(response);
     }
 
     const retrieveComments = async () => {
         let response = await getComments(post.id);
         const comments = await response.map((comment) => {
-            return <Comments commentData={comment} currentUser={currentUser} retrieveComments={retrieveComments}/>
+            return <Comments commentData={comment} currentUser={currentUser} retrieveComments={retrieveComments} getNumberComments={getNumberComments}/>
         })
         console.log(comments);
         setMountedComponents(comments);
@@ -67,15 +67,19 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
         let response = await getPostLikes(postId);
         setPostLikes(response.length);
     }
-    
 
+    const getNumberComments = async () => {
+        let response = await getComments(post.id);
+        setNumberComments(response.length);
+    }   
+    
     useEffect(()=>{
         getPostOwner();
         checkIfUserLikedPost();
         retrieveComments();
         getLikes(post.id);
+        getNumberComments();
     },[])
-
     
     return (
         
@@ -86,7 +90,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
                             <img src={userInfo.avatar} alt="" className="header__img" style={{cursor: "pointer"}} onClick={() => window.location = `${location.origin}/timeline/${userInfo.id}`} />
                             <div className="header__text ml-2">
                                 <h4>{userInfo.username}</h4>
-                                <p>3 hours ago</p>
+                                <p>{post.created_at.split("T")[0]}</p>
                             </div>
                         </div>
 
@@ -108,11 +112,11 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
                 <div className="footer mt-2">
                     {userLikedPost ? <i class="bi bi-heart-fill orange hover__cursor" onClick={dislikePost}></i> : <i class="bi bi-suit-heart hover__cursor" onClick={likePost}></i>}
                     <span className="ml-2">{postLikes}</span>
-                    <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target={`#collapse${post.id}`} aria-expanded="false" aria-controls={`collapse${post.id}`}></i>
+                    <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target={`#collapse${post.id}`} aria-expanded="false" aria-controls={`collapse${post.id}`}></i><span className="ml-2">{numberComments}</span>
                 </div>
                 <div className="comments">
                     <div class="collapse" id={`collapse${post.id}`}>
-                        <textarea class="form-control" id="message-text" value={createCommentInput} onChange={ (e) => setCreateCommentInput(e.target.value) }></textarea>
+                        <textarea class="form-control" id="message-text" placeholder="Comment Something!" value={createCommentInput} onChange={ (e) => setCreateCommentInput(e.target.value) }></textarea>
                         <div class="d-flex justify-content-end">
                             <button class="comment" onClick={sendComment}>Comment</button>
                         </div>
@@ -121,7 +125,6 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
                     </div>
                 </div>
             </div>
-        
     );
 }
 

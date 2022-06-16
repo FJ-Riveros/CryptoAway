@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import { getUserById, deleteComment } from '../APICalls';
 
-function Comments({ commentData, currentUser, retrieveComments }) {
+function Comments({ commentData, currentUser, retrieveComments, getNumberComments }) {
 
     const[userData, setUserData] = useState("");
     const getCommentUser = async () =>{
@@ -12,13 +12,16 @@ function Comments({ commentData, currentUser, retrieveComments }) {
 
     const actionDeleteComment = async () =>{
         await deleteComment( commentData.id);
+        getNumberComments();
         retrieveComments();
     }
 
     useEffect(() => {
         getCommentUser();
     },[])
+    console.log("avatar");
 
+    console.log(commentData.avatar);
     return (
             <>
                 <div className="mt-25">
@@ -28,23 +31,26 @@ function Comments({ commentData, currentUser, retrieveComments }) {
                                 <div className="card-body">
                                     <div className="comment-widgets m-b-20">
                                         <div className="d-flex flex-row comment-row">
-                                            <div className="p-2">
                                                 { commentData.user_idUser == currentUser.id &&
                                                     <span className="action__delete">
                                                         <a href="#" data-abc="true"><i className="bi bi-trash-fill main__color hover__cursor" onClick={() =>  actionDeleteComment() }></i></a>
                                                     </span>
                                                 }
-                                                <span>
-                                                    <img className="round" src={commentData.avatar} alt="user" width="50" height="auto"/>
-                                                </span>
-                                                </div>
-                                                <div className="comment-text w-100">
-                                                    <h5>{userData.name}</h5>
-                                                    <div className="comment-footer">
-                                                        <span className="date">{commentData.created_at.split("T")[0]}</span>
+
+                                                <div className="col-4 d-flex justify-content-center">
+                                                    <div className="commentImage" style={{backgroundImage: `url(${userData.avatar})`, backgroundSize: "cover", borderRadius: "50%", cursor: "pointer"}}
+                                                     onClick={
+                                                        ()=>{
+                                                          window.location = `${location.origin}/timeline/${commentData.user_idUser}`
+                                                        }}>
                                                     </div>
+                                                </div>
+                                                
+                                                <div className="col-8">
+                                                    <h5>{userData.name}</h5>
+                                                    <span className="date">{commentData.created_at.split("T")[0]}</span>
                                                     <p className="m-b-5 m-t-10">{commentData.Text}</p>
-                                            </div>
+                                                </div>
                                         </div>
                                     </div>
                                 </div>

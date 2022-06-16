@@ -15,6 +15,11 @@
     .pageTitle{
         font-size: 40px;
     }
+
+    .commentImage{
+        width: 70px;
+        height: 68px;
+    }
 }
 
 @media (min-width: 992px) and (max-width: 1200px){
@@ -26,6 +31,11 @@
 
     .pageTitle{
         font-size: 38px;
+    }
+
+    .commentImage{
+        width: 75px;
+        height: 75px;
     }
 
 }
@@ -47,6 +57,11 @@
     .pageTitle{
         font-size: 34px;
     }
+
+    .commentImage{
+        width: 68px;
+        height: 68px;
+    }
 }
 
 @media (min-width:576px) and (max-width: 768px){
@@ -56,6 +71,11 @@
     .feed__card__post .header__img{
         height: 45px;
         width: 45px;
+    }
+
+    .commentImage{
+        width: 68px;
+        height: 68px;
     }
 }
 
@@ -110,6 +130,11 @@
     .feed__card__post .header__img{
         height: 63%;
         width: 15%;
+    }
+
+    .commentImage{
+        width: 73px;
+        height: 71px;
     }
 }
 
