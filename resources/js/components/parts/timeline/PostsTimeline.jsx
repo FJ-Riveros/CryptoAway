@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
 import {getUserById, userLikedPostCheck, giveLike, removeLike, createComment,
-     getComments, deletePost } from '../APICalls';
+     getComments, deletePost, getPostLikes } from '../APICalls';
 import Comments from './Comments';
 
 function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFriendsPosts }) {
@@ -10,6 +10,8 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
     const [userLikedPost, setUserLikedPost] = useState(false);
     const [createCommentInput, setCreateCommentInput] = useState("Comment Something!");
     const [mountedComponents, setMountedComponents] = useState("");
+    const [postLikes, setPostLikes] = useState("");
+
 
     
     //Get the user that corresponds with the actual post to get the info.
@@ -26,6 +28,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
         const response = await giveLike(currentUser.id, post.id);
         //Checks if the user liked the actual post, updating the heart icon
         checkIfUserLikedPost();
+        getLikes(post.id);
         console.log(response);
     }
 
@@ -33,6 +36,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
         const response = await removeLike(currentUser.id, post.id);
         //Checks if the user liked the actual post, updating the heart icon
         checkIfUserLikedPost();
+        getLikes(post.id);
         console.log(response);
     }
 
@@ -59,10 +63,17 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
         setRefreshFriendsPosts(!refreshFriendsPosts);
     }   
 
+    const getLikes = async (postId) => {
+        let response = await getPostLikes(postId);
+        setPostLikes(response.length);
+    }
+    
+
     useEffect(()=>{
         getPostOwner();
         checkIfUserLikedPost();
         retrieveComments();
+        getLikes(post.id);
     },[])
 
     
@@ -96,6 +107,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
 
                 <div className="footer mt-2">
                     {userLikedPost ? <i class="bi bi-heart-fill orange hover__cursor" onClick={dislikePost}></i> : <i class="bi bi-suit-heart hover__cursor" onClick={likePost}></i>}
+                    <span className="ml-2">{postLikes}</span>
                     <i class="bi bi-chat-left-text ml-4 hover__cursor" data-toggle="collapse" data-target={`#collapse${post.id}`} aria-expanded="false" aria-controls={`collapse${post.id}`}></i>
                 </div>
                 <div className="comments">

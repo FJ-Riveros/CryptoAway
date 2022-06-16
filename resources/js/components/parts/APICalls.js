@@ -280,3 +280,20 @@ export const deletePost = async ( idPostDelete ) =>{
     console.log(error);
   });
 }
+
+
+
+export const getPostLikes = async (idPost) =>{
+  const info = await 
+    axios.get(`${window.location.origin}/api/posts/${idPost}/likes_post`)
+     .then(function (response) {
+           return response.data 
+     })
+     .catch(function (error) {
+           console.log(error);
+     });
+
+    return info;
+}
+
+

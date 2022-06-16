@@ -484,7 +484,6 @@ class UserController extends Controller
         $suggested_friends = User::whereNotIn('id', $friendsIds)->get();
 
         return [
-            // "msg"       => "Friend request or friend deleted.",
             "data"      => $suggested_friends,
             "success"  => true,
         ];

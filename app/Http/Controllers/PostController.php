@@ -122,5 +122,15 @@ class PostController extends Controller
         return false;
     }
 
+    //Get the likes from a Post
+    public function likes_post(Request $request){
+
+        //Get the likes
+        $postLikes = Likes::where("Post_idPost", $request->idPost)->get();
+
+        return $postLikes;
+    }
+    
+
 
 }

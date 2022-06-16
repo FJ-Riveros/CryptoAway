@@ -36,9 +36,6 @@ Route::get('posts', [PostController::class, 'index'])
 
 
 
-//Get the number of comments from a Post
-Route::get('posts/{idPost}/number_comments_post', [PostController::class, 'number_comments_post']);
-
 
 
 
@@ -138,7 +135,6 @@ Route::middleware('auth:sanctum')->group( function () {
 
     //Get Post likes
     Route::get('posts/{idPost}/likes_post', [PostController::class, 'likes_post']);
-
 
 });
 
