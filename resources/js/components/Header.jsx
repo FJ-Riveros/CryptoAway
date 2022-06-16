@@ -5,7 +5,7 @@ import CreatePost from './parts/timeline/CreatePost';
 import MetamaskButton from './MetamaskButton';
 function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
     
-    const [createPostText, setCreatePostText] = useState("Write Something Cool!");
+    const [createPostText, setCreatePostText] = useState("");
     const [createPostImage, setCreatePostImage] = useState("Insert a URL!");
 
     useEffect(()=>{

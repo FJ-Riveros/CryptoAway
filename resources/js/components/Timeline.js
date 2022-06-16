@@ -93,7 +93,6 @@ function Timeline() {
     const getUserSuggestions = async () =>{
         
         const suggestions = await getFriendSuggestions();
-
         console.log("suggestions");
         console.log(suggestions);
 
