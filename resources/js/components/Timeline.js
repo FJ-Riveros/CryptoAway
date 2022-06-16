@@ -94,6 +94,9 @@ function Timeline() {
         
         const suggestions = await getFriendSuggestions();
 
+        console.log("suggestions");
+        console.log(suggestions);
+
         const mountedSuggestions = suggestions.data.map((user)=>{
                 return <FriendSuggestions user={user} currentUser={currentDataUser} getUserSuggestions={getUserSuggestions} />
         })

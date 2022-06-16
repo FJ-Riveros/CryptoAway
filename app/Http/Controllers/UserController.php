@@ -470,8 +470,14 @@ class UserController extends Controller
         //Actual friends
         $friends = $this->get_friends($internalRequest);
 
+        $friendRequests = $this->get_friend_requests($internalRequest);
+
         foreach($friends as $friend){
             $friendsIds[] = $friend->id;
+        }
+
+        foreach($friendRequests as $friendRequest){
+            $friendsIds[] = $friendRequest->id;
         }
 
         //Try to get the friend suggestions
