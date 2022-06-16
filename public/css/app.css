@@ -4401,6 +4401,10 @@ a {
 .margin__top__custom {
   margin-top: 20vh;
 }
+
+.ftco-navbar-light {
+  top: 0px !important;
+}
 .profile__card {
   display: flex;
   align-items: center;
@@ -5159,11 +5163,19 @@ ul {
   .feed__card__post .post__header {
     width: 100%;
   }
+
+  .pageTitle {
+    font-size: 40px;
+  }
 }
 @media (min-width: 992px) and (max-width: 1200px) {
   .feed__card__post .header__img {
     height: 55px;
     width: 55px;
+  }
+
+  .pageTitle {
+    font-size: 38px;
   }
 }
 @media (min-width: 768px) and (max-width: 992px) {
@@ -5179,6 +5191,10 @@ ul {
   h3, .h3 {
     font-size: calc(1.2825rem + 0.09vw) !important;
   }
+
+  .pageTitle {
+    font-size: 34px;
+  }
 }
 @media (min-width: 576px) and (max-width: 768px) {
   .container {
@@ -5188,6 +5204,39 @@ ul {
   .feed__card__post .header__img {
     height: 45px;
     width: 45px;
+  }
+}
+@media (max-width: 768px) {
+  .metamaskBar {
+    margin-top: 10px !important;
+  }
+
+  .pageTitle {
+    font-size: 24px;
+  }
+}
+@media (max-width: 576px) {
+  .routes {
+    flex-direction: row;
+    width: 375px;
+  }
+  .routes div div span span, .routes div div a span {
+    display: none;
+  }
+  .routes .pageTitle {
+    font-size: 24px;
+  }
+
+  .pageTitleContainer {
+    text-align: center;
+  }
+
+  .rightSideBar {
+    display: none;
+  }
+
+  .main {
+    margin-bottom: 30px;
   }
 }
 /*!

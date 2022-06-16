@@ -73,7 +73,7 @@
             <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center" data-scrollax-parent="true">
               <div class="col-md-9 text text-center ftco-animate" data-scrollax=" properties: { translateY: '70%' }">
                 <p class="caps" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Travel to the any corner of the world, without going around in circles</p>
-                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make your amazin trip with us</h1>
+                <h1 data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">Make your amazing trip with us</h1>
                 <a class="lading__button" href="login">Get started!</a>
               </div>
             </div>

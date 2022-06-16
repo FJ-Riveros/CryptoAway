@@ -15,19 +15,19 @@ function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
     return (
         <>
             <div class="row d-flex align-items-center mt-3">
-                <div className="col-3">
-                    <h2>CryptoAway</h2>
+                <div className="col-12 col-sm-5 col-md-3 pageTitleContainer">
+                    <h2 className="pageTitle">CryptoAway</h2>
                 </div>
 
-                <div className="col-6">
+                <div className="col-12 col-sm-7 col-md-6">
                     <AutoComplete/>
                 </div>
 
-                <div className="col-3">
+                <div className="col-12 col-md-3">
 
-                    <div className="row d-flex align-items-center">
+                    <div className="row d-flex align-items-center metamaskBar">
 
-                        <div className="col-3">
+                        <div className="col-7 col-md-3">
                             <CreatePost 
                             createPostText={createPostText} 
                             setCreatePostText={setCreatePostText} 
@@ -37,7 +37,7 @@ function Header({setRefreshFriendsPosts, refreshFriendsPosts}) {
                             refreshFriendsPosts={refreshFriendsPosts} />
                         </div>
 
-                        <div className="col-9">
+                        <div className="col-5 col-md-9">
                             < MetamaskButton />
                         </div>
                     </div>

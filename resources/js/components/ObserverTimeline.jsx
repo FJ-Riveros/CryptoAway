@@ -105,58 +105,56 @@ function ObserverTimeline() {
         <>
             <Header setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts} />
             <div className="row">
-                <div className="col-3 mt-3">
+                <div className="col-12 col-sm-4 col-md-3 mt-3">
                     <ProfileName currentUserData={userObserved}/>
 
                     <div className="routes">
                         <div class="children__routes dropdown-item">
                             <div class="home d-flex align-items-center">
-                                <i class="bi bi-house-fill"></i>
-                                {/* <a href="" class="ml-2">Home</a> */}
-                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Posts")} class="ml-2">Home</a> */}
                                 <span  onClick={() => {
                                     redirection();
                                     setCurrentView("Posts")}}
-                                 class="ml-2">Home</span>
-
-
+                                 class="d-flex align-items-center">
+                                    <i class="bi bi-house-fill"></i>
+                                    <span className="ml-2">Home</span>
+                                </span>
                             </div>
                         </div>
 
                         <div class="children__routes dropdown-item">
                             <div class="friends d-flex align-items-center ">
-                                <i class="bi bi-people-fill"></i>
-                                {/* <a href="friends" class="ml-2">Friends</a> */}
-                                {/* <a  href={`${location.origin}/timeline`} onClick={() => setViewPosts("Friends")} class="ml-2">Friends</a> */}
                                 <span   onClick={() => {
                                     redirection();
                                     setCurrentView("Friends")}}
-                                class="ml-2">Friends</span>
-
+                                class="d-flex align-items-center">
+                                    <i class="bi bi-people-fill"></i>
+                                    <span className="ml-2">Friends</span>
+                                </span>
                             </div>
                         </div>
 
                         <div class="children__routes dropdown-item">
                             <div class="friends d-flex align-items-center ">
-                                {/* <i class="bi bi-compass-fill"></i> */}
-                                <i class="bi bi-map-fill"></i>
-                                <span   onClick={() =>{
+                                <span  onClick={() =>{
                                     redirection();    
                                     setCurrentView("Trips")}}
-                                class="ml-2">Trips</span>
-                                    
-
+                                 className="d-flex align-items-center">
+                                    <i class="bi bi-map-fill"></i>                                
+                                    <span className="ml-2">Trips</span>
+                                </span>
                             </div>
                         </div>
 
                         <div class="children__routes dropdown-item dropdown-item">
                             <div class="posts d-flex align-items-center">
-                                <i class="bi bi-collection-fill"></i>
-                                <span onClick={async () => {
+                            <span onClick={async () => {
                                     redirection();
                                     await queryUserPosts();
                                     setCurrentView("UserPosts")   
-                                }}class="ml-2">Your Posts</span>
+                                }}class="d-flex align-items-center">
+                                    <i class="bi bi-collection-fill"></i>
+                                    <span className="ml-2">Your Posts</span>
+                                </span>
                             </div>
                         </div>
                         {
@@ -183,27 +181,35 @@ function ObserverTimeline() {
                     </div>
                 </div>
 
-                <div className="col-6">
+                <div className="col-12 col-sm-8 col-md-6 mt-3">
                     
                     {friendsPosts}
                 </div>
                 
-                <div className="col-3 mt-3">
-                    <div class="latest__photos__container">
-                        <div class="header">
+                <div className="col-4 col-md-3 mt-3 rightSideBar">
+                    {lastPhotos.length != 0 && 
+                        <div class="latest__photos__container">
+                        <div class="header w-100">
                             <h3>Latest Photos</h3>
                             <hr/>
                         </div>
                         <div class="photos__grid row">
                             {lastPhotos}
+                            {console.log(lastPhotos)}
                         </div>
-                    </div>
-
-                    <div class="friend__suggestion__container">
-                        <h3>Add Friends!</h3>
-                        <hr/>
-                        {userSuggestions}
-                    </div>
+                    </div>    
+                    }
+                    
+                    {userSuggestions.length != 0 && 
+                    <>
+                        <div class="friend__suggestion__container">
+                            <h3>Add Friends</h3>
+                            <hr/>
+                            {userSuggestions}
+                        </div>
+                    </>
+                    }
+                    
                 </div>
             </div>
         </>

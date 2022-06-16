@@ -21,7 +21,7 @@
 
 
 <!-- @if(Auth::user()->hasRole('admin')) <h2>hi</h2> @endif -->
-<div class="container">
+<div class="container main">
     <!-- <div id="reactHeader"></div> -->
     <div id="reactGetTimeline"></div>
 </div> 

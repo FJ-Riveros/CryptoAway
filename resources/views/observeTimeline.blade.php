@@ -21,7 +21,7 @@
     </script>
 
 
-<div class="container">
+<div class="container main">
     <div id="reactGetObserverTimeline"></div>
 </div>
  

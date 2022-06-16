@@ -120,7 +120,7 @@ function Timeline() {
         <>
             <Header setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts} />
             <div className="row">
-                <div className="col-3 mt-3">
+                <div className="col-12 col-sm-4 col-md-3 mt-3">
                     <ProfileName currentUserData={currentDataUser}/>
 
                     <div className="routes">
@@ -158,8 +158,6 @@ function Timeline() {
                                     <i class="bi bi-map-fill"></i>                                
                                     <span className="ml-2">Trips</span>
                                 </span>
-                                    
-
                             </div>
                         </div>
 
@@ -211,7 +209,7 @@ function Timeline() {
                     </div>
                 </div>
 
-                <div className="col-6 mt-3">
+                <div className="col-12 col-sm-8 col-md-6 mt-3">
                             
                     {currentView === "Posts" && friendsPosts }
                     {currentView === "Friends" && <Friends/>}
@@ -220,7 +218,7 @@ function Timeline() {
 
                 </div>
                 
-                <div className="col-3 mt-3">
+                <div className="col-4 col-md-3 mt-3 rightSideBar">
                     {lastPhotos.length != 0 && 
                         <div class="latest__photos__container">
                         <div class="header w-100">
