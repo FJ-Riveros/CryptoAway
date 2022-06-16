@@ -31,7 +31,7 @@
     <body class="antialiased">
         <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 	        <div class="container">
-	          <a class="navbar-brand" href="index.html">CryptoAway<span>Travel with Crypto!</span></a>
+	          <a class="navbar-brand" href="index.html">CryptoAway<span>Travel with Crypto!</span> <img src="img/logo_recortado.png" width="60px" height="60px" alt=""></a>
 	          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
 	            <span class="oi oi-menu"></span> Menu
 	          </button>
@@ -84,7 +84,7 @@
             <div class="row d-flex justify-content-center">
               <div class="col-md-8">
               	<div class="row">
-              		<div class="col-md-6 d-flex align-self-stretch ftco-animate text-center">
+              		<div class="col-md-6 d-flex align-self-stretch ftco-animate text-center justify-content-center">
 	    	            <div class="media block-6 services d-block">
 	    	              <div class="icon"><span class="flaticon-paragliding"></span></div>
 	    	              <div class="media-body">
@@ -93,7 +93,7 @@
 	    	              </div>
 	    	            </div>      
 	    	          </div>
-	    	          <div class="col-md-6 d-flex align-self-stretch ftco-animate text-center">
+	    	          <div class="col-md-6 d-flex align-self-stretch ftco-animate text-center justify-content-center">
 	    	            <div class="media block-6 services d-block">
 	    	              <div class="icon"><span class="flaticon-route"></span></div>
 	    	              <div class="media-body">
@@ -102,7 +102,7 @@
 	    	              </div>
 	    	            </div>    
 	    	          </div>
-	    	          <div class="col-md-6 d-flex align-self-stretch ftco-animate text-center">
+	    	          <div class="col-md-6 d-flex align-self-stretch ftco-animate text-center justify-content-center">
 	    	            <div class="media block-6 services d-block">
 	    	              <div class="icon"><span class="flaticon-tour-guide"></span></div>
 	    	              <div class="media-body">
@@ -111,7 +111,7 @@
 	    	              </div>
 	    	            </div>      
 	    	          </div>
-	    	          <div class="col-md-6 d-flex align-self-stretch ftco-animate text-center">
+	    	          <div class="col-md-6 d-flex align-self-stretch ftco-animate text-center justify-content-center">
 	    	            <div class="media block-6 services d-block">
 	    	              <div class="icon"><span class="flaticon-map"></span></div>
 	    	              <div class="media-body">
@@ -120,7 +120,7 @@
 	    	              </div>
 	    	            </div>      
 	    	          </div>
-	    			  <div class="col-md-12 heading-section ftco-animate text-center">
+	    			  <div class="col-md-12 heading-section ftco-animate text-center justify-content-center">
               			<h2 class="mb-4 text-center">It's time to start your adventure</h2>
               		  	<p class="text-center" ><a href="login" class="lading__button">Search Destination</a></p>
               		  </div>
@@ -184,7 +184,7 @@
                 <h2 class="mb-4">Best Destinations!</h2>
               </div>
             </div>
-            <div class="row">
+            <div class="row tripSuggestions">
             	<div class="col-md-3 ftco-animate">
             		<div class="project-destination">
             			<a href="#" class="img" style="background-image: url(img/Vietnam.jpg);">

@@ -67,6 +67,16 @@
     .pageTitle{
         font-size: 24px;
     }   
+
+    .tripSuggestions{
+        flex-direction: column;
+        align-items:center;
+        row-gap: 10px;
+    }
+
+    #section-counter{
+        height: 2200px !important;
+    }
 }
 
 @media (max-width: 576px){
@@ -95,3 +105,6 @@
         margin-bottom: 30px;
     }
 }
+
+
+
