@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\trips;
+use App\Models\Trips;
 use Illuminate\Http\Request;
 
 class TripsController extends Controller

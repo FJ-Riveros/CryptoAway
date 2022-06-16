@@ -28,19 +28,15 @@
 
 <body>
     <div id="app">
-        <div class="container mt-3">
-            <div class="row">
-                <div class="col-12 d-flex justify-content-center align-items-center">
-                    <img src="img/logo_recortado.png" width="75px" height="75px" alt="">
-                    
-                </div>
+        <div class="container align-items-center margin__top__custom">
+            <div class="row justify-content-center">
 
-                <div class="col-12 d-flex justify-content-center align-items-center">
-                    <span class="page__title">CryptoAway</span>
+                <div class="col-8 d-flex justify-content-center align-items-center">
+                    <img src="img/logo_recortado.png" width="60px" height="60px" alt="">
+                    <span class="page__title ml-2">CryptoAway</span>                    
                 </div>
-
             </div>
-            <div class="row">
+            <div class="row mt-2">
                 <div class="col-12 d-flex justify-content-center align-items-center">
                     @yield('content')
                 </div>
