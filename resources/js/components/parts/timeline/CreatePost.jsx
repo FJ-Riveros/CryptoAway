@@ -22,7 +22,7 @@ function CreatePost({ createPostText, setCreatePostText, createPostImage, setCre
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">New Post!</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -39,9 +39,16 @@ function CreatePost({ createPostText, setCreatePostText, createPostImage, setCre
                         </div>
                       </form>
                     </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-primary" onClick={createPostProcess}>Create!</button>
+                    <div class="modal-footer justify-content-start">
+                      <div className="col-6 text-center">
+                        <button type="button" class="updateButton w-50" onClick={createPostProcess}>Create</button>
+                      </div>
+
+                      <div className="col-6 text-center">
+                        <button type="button" class="cancelButton closeModal w-50" data-dismiss="modal">Close</button>
+                      </div>
+
+
                     </div>
                   </div>
                 </div>

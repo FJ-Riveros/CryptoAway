@@ -83,6 +83,8 @@
     .routes{
         flex-direction: row;
         width: 375px;
+        margin-left: auto;
+        margin-right: auto;
 
         div div span span, div div a span{
             display:none;
@@ -103,6 +105,11 @@
 
     .main{
         margin-bottom: 30px;
+    }
+
+    .feed__card__post .header__img{
+        height: 63%;
+        width: 15%;
     }
 }
 

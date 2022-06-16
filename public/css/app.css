@@ -4813,6 +4813,11 @@ textarea {
   cursor: pointer;
 }
 
+.modal-footer {
+  justify-content: start;
+  flex-wrap: nowrap !important;
+}
+
 .user__suggestions__photo {
   cursor: pointer;
 }
@@ -5229,6 +5234,8 @@ ul {
   .routes {
     flex-direction: row;
     width: 375px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .routes div div span span, .routes div div a span {
     display: none;
@@ -5247,6 +5254,11 @@ ul {
 
   .main {
     margin-bottom: 30px;
+  }
+
+  .feed__card__post .header__img {
+    height: 63%;
+    width: 15%;
   }
 }
 /*!

@@ -455,6 +455,11 @@ textarea{
     cursor: pointer;
 }
 
+.modal-footer{
+  justify-content: start;
+  flex-wrap: nowrap !important;
+}
+
 .user__suggestions__photo{
     cursor:pointer;
 }

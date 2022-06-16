@@ -120,7 +120,7 @@ function Timeline() {
         <>
             <Header setRefreshFriendsPosts={setRefreshFriendsPosts} refreshFriendsPosts={refreshFriendsPosts} />
             <div className="row">
-                <div className="col-12 col-sm-4 col-md-3 mt-3">
+                <div className="col-12 col-sm-4 col-md-3 mt-3 ">
                     <ProfileName currentUserData={currentDataUser}/>
 
                     <div className="routes">

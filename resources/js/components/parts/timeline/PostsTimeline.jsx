@@ -72,7 +72,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
                 <div className="post__header">
                     <div className="row">
                         <div className="col-10 d-flex justify-content-start align-items-center">
-                            <img src={userInfo.avatar} alt="" className="header__img" />
+                            <img src={userInfo.avatar} alt="" className="header__img" style={{cursor: "pointer"}} onClick={() => window.location = `${location.origin}/timeline/${userInfo.id}`} />
                             <div className="header__text ml-2">
                                 <h4>{userInfo.username}</h4>
                                 <p>3 hours ago</p>
