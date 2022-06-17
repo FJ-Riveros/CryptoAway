@@ -8,6 +8,8 @@ import FriendSuggestions from './parts/timeline/FriendSuggestions';
 import Header from './Header';
 import Friends from './Friends';
 import Trips from './Trips';
+import axios from 'axios';
+
 
 
 function Timeline() {
@@ -23,20 +25,19 @@ function Timeline() {
     //Switches between the friends and the posts
     const [currentView, setCurrentView] = useState("Posts");
 
+    
     //Displays the friends from the current user
     const getFriends = async () =>{
-        const data = await fetch(`${window.location.origin}/api/user/get_friends/${currentDataUser.id}`, { 
-            method: 'get', 
-        })
-        .then(data => data.json())
+        const data = await axios.get(`${window.location.origin}/api/user/get_friends/${currentDataUser.id}`)
+        // .then(data => data.json())
 
-        .then(async data => {
-            setFriends(data);
+        .then(async response => {
+            setFriends(response.data);
             console.log("friends");
-            console.log(data);
+            // console.log(data);
             let friendsPostsInfo =  [];
-            //Get the last post from the friends
-            friendsPostsInfo = data.map(async (friendData)=> {
+            // Get the last post from the friends
+            friendsPostsInfo = response.data.map(async (friendData)=> {
                 return await getLastPost(friendData.id);
             })
 

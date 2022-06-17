@@ -4,22 +4,21 @@ import FriendCard from './parts/FriendCard.jsx';
 import SearchUser from './SearchUser';
 import {getFriendRequests} from './parts/APICalls'
 import FriendRequestCard from './parts/FriendRequestCard.jsx';
+import axios from 'axios';
 function Friends() {
     // const [apiResponse, setApiResponse] = useState("Loading the data...");
     const [friends, setFriends] = useState([]);
     const [friendRequests, setFriendRequests] = useState([]);
 
-
     const getFriends = async () =>{
-        const data = await fetch(`http://localhost:8000/api/user/get_friends/${currentDataUser.id}`, { 
-            method: 'get', 
-        })
-        .then(data => data.json())
+         
+        const data = await axios.get(`${window.location.origin}/api/user/get_friends/${currentDataUser.id}`)
+        // .then(data => data.json())
 
-        .then(data => {
+        .then(response => {
             // console.log(data)
             setFriends(
-                data.map((friendData)=> {
+                response.data.map((friendData)=> {
                     return <FriendCard username={friendData.username} name={friendData.name}
                      email={friendData.email} avatar={friendData.avatar} key={friendData.id} 
                      description={friendData.description} friendId={friendData.id} 
