@@ -274,9 +274,15 @@ textarea{
     color: $main-color;
 }
 
+
+
 .comments{
     width: 100%;
-
+    
+    .triptextpadding{
+        padding: 0.8rem;
+    }
+    
     .comment{
         background-color: $main-color;
         padding: 10px;

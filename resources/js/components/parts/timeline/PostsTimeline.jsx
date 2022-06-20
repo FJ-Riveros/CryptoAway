@@ -26,16 +26,16 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
     const likePost = async () => {
         const response = await giveLike(currentUser.id, post.id);
         //Checks if the user liked the actual post, updating the heart icon
-        checkIfUserLikedPost();
-        getLikes(post.id);
+        await checkIfUserLikedPost();
+        await getLikes(post.id);
         console.log(response);
     }
 
     const dislikePost = async () => {
         const response = await removeLike(currentUser.id, post.id);
         //Checks if the user liked the actual post, updating the heart icon
-        checkIfUserLikedPost();
-        getLikes(post.id);
+        await checkIfUserLikedPost();
+        await getLikes(post.id);
         console.log(response);
     }
 
@@ -44,7 +44,7 @@ function PostsTimeline({ post, currentUser, setRefreshFriendsPosts, refreshFrien
         const response = await createComment(currentUser.id, post.id, createCommentInput);
         await retrieveComments();
         setCreateCommentInput("Comment Something!");
-        getNumberComments();
+        await getNumberComments();
         console.log(response);
     }
 

@@ -39,7 +39,7 @@ function TripCards({TripBlockchainInfo, TripDBInfo, buyTrip, ownTrip}) {
                     </div>
                     <div className={`comments comment${TripDBInfo.idTrip}`}>
                         <div class="collapse" id={`collapse${TripDBInfo.idTrip}`}>
-                            <p>{TripDBInfo.itinerary}</p>
+                            <p class="triptextpadding">{TripDBInfo.itinerary}</p>
                         </div>
                                                 
                     </div>
