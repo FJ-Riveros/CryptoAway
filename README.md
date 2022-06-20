@@ -66,8 +66,8 @@
   
    <div id="deploy" align="left">
     <h2 align="center"> <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" width="60" height="20"/> Deploy and Hosting</h2>
-   <p>The deployment, hosting and the domain name of the web application will be provided by AWS. 
-     There is going to be a separation between the DBMS and the actual Web Application. The DBMS is allocated in an instance of a <a href="https://aws.amazon.com/es/rds/?did=ft_card&trk=ft_card" target="_blank" rel="noreferrer">RDS</a> server and the actual Web Application is going to be allocated in a different <a href="https://aws.amazon.com/es/ec2/?did=ft_card&trk=ft_card" target="_blank" rel="noreferrer">EC2</a> server where Apache is the web provider.</p> 
+   <p>There is going to be a separation between the DBMS and the actual Web Application. The DB is hosted in an instance of a <a href="https://aws.amazon.com/es/rds/?did=ft_card&trk=ft_card" target="_blank" rel="noreferrer">RDS</a> server, while the domain name and the Web hosting is provided by <a href="https://www.hostinger.com/" target="_blank" rel="noreferrer">Hostinger</a>.</p>
+    <p>The Cloud Storage is provided by Firebase, where the application uploads every image that the user uses in his posts or as a profile picture and saves the reference to these files in the DB.</p>
    </div>
   &nbsp;
   
