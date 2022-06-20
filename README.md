@@ -70,7 +70,7 @@
    an instance of a <a href="https://aws.amazon.com/es/rds/?did=ft_card&trk=ft_card" target="_blank" rel="noreferrer">RDS</a> server, while the domain name and the Web hosting is provided by <a href="https://www.hostinger.com/" target="_blank" rel="noreferrer">
        <img src="https://codetahiche.com/wp-content/uploads/2022/04/Hostinger_Horizontal_Purple.jpg" alt="AWS" width="60" height="20"/></a>.</p>
     <p>The Cloud Storage is provided by <a href="https://www.firebase.com/" target="_blank" rel="noreferrer">
-       <img src="https://damiandeluca.com.ar/wp-content/uploads/2018/03/firebase.png" alt="AWS" width="30" height="30"/></a>, where the application uploads every image that the user uses in his posts or as a profile picture and saves the reference to these files in the DB.</p>
+       <img src="https://damiandeluca.com.ar/wp-content/uploads/2018/03/firebase.png" alt="AWS" width="30" height="30"/></a> where the application uploads every image that the user uses in his posts or as a profile picture and saves the reference to these files in the DB.</p>
    </div>
   &nbsp;
   
