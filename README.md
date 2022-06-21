@@ -43,6 +43,8 @@
     <li><a href="#userInteractions">User Interactions</a></li>
     <li><a href="#checkpoint">Checkpoint</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#liveApp">Live App</a></li>
+    <li><a href="#presentation">Presentation</a></li>
   </ol>
 
  &nbsp;
