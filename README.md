@@ -246,9 +246,9 @@ D --> F{Personal Feed}
   
  <h2 align="center">:walking:Navigation</h2>
   
-<p>We can move around the App through this browser located on the upper area.<p>
+<p>We can move around the App through this box located on the left side.<p>
   
-![image](https://user-images.githubusercontent.com/62405636/145852758-e4a393cf-0539-409c-8567-4cb3bacc218c.png)
+![image](https://github.com/FJ-Riveros/CryptoAway/blob/f5fd84935838d94d8174ac692160c0adfbcec964/public/app%20photos/navigation.PNG)
 
 ### Feed
 ![image](https://user-images.githubusercontent.com/62405636/145855891-9919aa70-b66d-444a-9284-c25d430a608c.png)
@@ -312,6 +312,10 @@ A form is presented to modify the profile.
 <h3 align="left" id="checkpoint">:film_projector: Checkpoint video</h3>
 
 [![Watch the video](https://img.youtube.com/vi/YYZwIGYq6ho/maxresdefault.jpg)](https://youtu.be/YYZwIGYq6ho)
+
+#
+
+<a href="http://end.cryptoaway.space/"><h3 align="left" id="liveApp">:checkered_flag: Live App</h3></a>
 
 #
 
